@@ -10,9 +10,8 @@ import "./styles/styles.scss";
 
 
 const jsx = (
-        <Router />
+         <Router />
 );
-
 
 
 ReactDOM.render(jsx, document.getElementById("app"))
