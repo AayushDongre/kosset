@@ -9,7 +9,7 @@ const LandingPage = () => {
         <div>
             < Hero />
             <ProductBanner1 />
-            <ProductsSection g/>
+            <ProductsSection />
             <ProductBanner2 />
 
         </div>
