@@ -2,27 +2,31 @@ import React from "react";
 
 
 const Nav = () => {
-    return (<nav class="navbar navbar-expand-lg">
-        <a class="navbar-brand" href="#">Kosset</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-item nav-link" href="#">About <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="#">Products</a>
-                <a class="nav-item nav-link" href="#">App</a>
-                <a class="nav-item nav-link" href="#">Buy Now</a>
+
+    return (
+        <div className="container px-xl-1">
+        <nav className="navbar navbar-expand-lg">
+            <a className="navbar-brand" href="#">Kosset</a>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div className="navbar-nav ml-auto">
+                    <a className="nav-item nav-link" href="#">About <span className="sr-only">(current)</span></a>
+                    <a className="nav-item nav-link" href="#">Products</a>
+                    <a className="nav-item nav-link" href="#">App</a>
+                    <a className="nav-item nav-link" href="#">Buy Now</a>
+                </div>
             </div>
-        </div>
-    </nav>)
+        </nav>
+        </div>)
 }
 
 const Hero = () => {
     return (
         <div className="hero">
-        <Nav />
-        <div className="container">
+            <Nav />
+            <div className="container">
                 <p className="heroLeadLine">Kosset is on a simple mission of making every Woman’s Period a Pain-free, Convenient,
                 Seamless and most importantly,
             </p>
