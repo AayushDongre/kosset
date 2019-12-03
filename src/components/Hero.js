@@ -21,8 +21,8 @@ const Nav = () => {
 const Hero = () => {
     return (
         <div className="hero">
-        <Nav />
-        <div className="container">
+            <Nav />
+            <div className="container">
                 <p className="heroLeadLine">Kosset is on a simple mission of making every Woman’s Period a Pain-free, Convenient,
                 Seamless and most importantly,
             </p>

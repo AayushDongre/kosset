@@ -3,7 +3,7 @@ import React from "react";
 
 const ProductBanner2 = () => {
     return (
-        <div className="productBanner row">
+        <div className="productBanner2 row">
             <div className="col-md-6">
             </div>
             <div className="col-md-6">

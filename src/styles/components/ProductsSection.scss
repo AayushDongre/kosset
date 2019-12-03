@@ -5,17 +5,15 @@
     text-align: center;
 }
 .greenCard{
-    background: #C1D0D3;
+    background: $green;
 }
 .pinkCard{
-    background:rgba(250, 210, 211, 0.9);
+    background:$pink;
 }
 .productsSection{
     padding: 50px;
-
 }
 .productsSection .row .col-md-4{
     margin: 0 !important;
     padding: 0 !important;
-
 }
