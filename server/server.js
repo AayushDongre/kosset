@@ -2,9 +2,6 @@ const path = require("path");
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-const expressFileUpload = require("express-fileupload");
-const FirebaseRequests = require("../src/firebase/FirebaseRequests");
-const mailer = require("./mailer")
 var expressStaticGzip = require("./compression");
 
 
@@ -23,7 +20,6 @@ app.use('/static', expressStaticGzip(staticPath, {
     enableBrotli: true
    }));
 
-app.use(expressFileUpload());
    
 app.get("*", (req, res) => {
     res.sendFile(path.join(publicPath, "index.html"))
