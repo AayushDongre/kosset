@@ -4,3 +4,9 @@ $pink:rgba(250, 210, 211, 0.9);
 @import url("https://fonts.googleapis.com/css?family=Advent+Pro|Source+Sans+Pro:200,300,400&display=swap");
 $advent: 'Advent Pro', sans-serif;
 $source: 'Source Sans Pro', sans-serif;
+
+@font-face {
+    font-family: 'av';
+    src: url("/static/font/av.otf") format('opentype');
+}
+

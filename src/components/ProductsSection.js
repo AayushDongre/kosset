@@ -6,7 +6,7 @@ const ProductsSection = () => {
         <div className="productsSection px-xl-5">
             <div className="row">
                 <div className="col-md-4">
-                    <ProductsSectionCard text=""  extraClasses="cardBg1 cardBg"/>
+                    <ProductsSectionCard text="" extraClasses="cardBg1 cardBg" />
                 </div>
                 <div className="col-md-4  static">
                     <ProductsSectionCard text="Premium Soft Cotton Surface" extraClasses="pinkCard" />
@@ -17,7 +17,7 @@ const ProductsSection = () => {
             </div>
             <div className="row">
                 <div className="col-md-4 hover-left">
-                    <ProductsSectionCard  extraClasses="pinkCard"/>
+                    <ProductsSectionCard extraClasses="pinkCard" />
                 </div>
                 <div className="col-md-4">
                     <ProductsSectionCard extraClasses="cardBg2 cardBg" />
@@ -37,10 +37,9 @@ const ProductsSection = () => {
                     <ProductsSectionCard extraClasses="greenCard" />
                 </div>
             </div>
-
             <div className="row">
                 <div className="col-md-4 hover-left">
-                    <ProductsSectionCard extraClasses="greenCard"/>
+                    <ProductsSectionCard extraClasses="greenCard" />
                 </div>
                 <div className="col-md-4">
                     <ProductsSectionCard extraClasses="cardBg4 cardBg" />
@@ -49,7 +48,6 @@ const ProductsSection = () => {
                     <ProductsSectionCard text="Organic SAP sheet (Superabsorbent Polymer" extraClasses="pinkCard" />
                 </div>
             </div>
-
             <div className="row">
                 <div className="col-md-4">
                     <ProductsSectionCard extraClasses="cardBg5 cardBg" />
@@ -58,9 +56,11 @@ const ProductsSection = () => {
                     <ProductsSectionCard text="Breathable top and bottom layer" extraClasses="greenCard" />
                 </div>
                 <div className="col-md-4 hover">
-                    <ProductsSectionCard extraClasses="pinkCard"/>
+                    <ProductsSectionCard extraClasses="pinkCard" />
                 </div>
             </div>
+            <p className="natural">Natural</p>
+            <p className="experience">Experience</p>
         </div>
     )
 }

@@ -1,14 +1,3 @@
-@keyframes cardSlideIn {
-  from {
-    opacity: 0;
-    transform: translateX(-700px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
 .productsSectionCard {
   display: block;
   min-height: 430px;
@@ -18,39 +7,11 @@
   flex-direction: column;
   justify-content: center;
 }
-.static {
-  font-family: $source;
-  font-style: normal;
-  font-weight: 300;
-  font-size: 36px;
-  line-height: 52px;
-  text-align: center;
-  color: rgba(0, 0, 0, 0.8);
-  z-index: 10 !important;
+.greenCard{
+    background: $green;
 }
-.hover,.hover-left {
-  font-family: $source;
-  font-style: normal;
-  font-weight: 200;
-  font-size: 30px;
-  line-height: 52px;
-  text-align: center;
-  color: #000000;
-  z-index: -10 !important;
-  opacity: 0;
-  transition: .5s;
-  transform: translateX(-700px);
-}
-.row:hover .hover{
-    transform: none;
-    opacity: 1;
-}
-.hover-left{
-    transform: translateX(700px);
-}
-.row:hover .hover-left{
-    transform: none;
-    opacity: 1;
+.pinkCard{
+    background:$pink;
 }
 .cardBg1 {
   background: url("/static/img/tile1.webp") no-repeat center;
