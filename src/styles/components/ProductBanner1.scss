@@ -1,8 +1,12 @@
 .productBanner1 {
   height: 65vh;
 }
-  .productBanner1-text {
+.productBanner1-text {
   background: $pink;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5vh 5vw;
 }
 .productBanner1-text .banner1-title {
   font-family: $source;
