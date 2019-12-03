@@ -4,8 +4,8 @@ import React from "react";
 const Nav = () => {
 
     return (
-        <div className="container px-xl-1">
-        <nav className="navbar navbar-expand-lg">
+        <div className="container px-0" id="navbar">
+        <nav className="navbar navbar-expand-lg px-0">
             <a className="navbar-brand" href="#">Kosset</a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
@@ -15,7 +15,7 @@ const Nav = () => {
                     <a className="nav-item nav-link" href="#">About <span className="sr-only">(current)</span></a>
                     <a className="nav-item nav-link" href="#">Products</a>
                     <a className="nav-item nav-link" href="#">App</a>
-                    <a className="nav-item nav-link" href="#">Buy Now</a>
+                    <a className="nav-item nav-link nav-btn px-lg-4 ml-xl-2" href="#">Buy Now</a>
                 </div>
             </div>
         </nav>

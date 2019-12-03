@@ -8,7 +8,26 @@
     color:white;
 }   
 
-.nav{
+.navbar-brand, .navbar-brand:hover{
     font-family: 'Advent Pro';
-    font-size: 3rem;
+    font-size: 2rem;
+    color: #FFFFFF;
+}
+.nav-item{
+    font-family: Source Sans Pro;
+font-style: normal;
+font-weight: 300;
+font-size: 20px;
+line-height: 25px;
+letter-spacing: 0.05em;
+
+color: rgba(255, 255, 255, 0.9);
+}
+
+.nav-item:hover{
+    color: rgba(255, 255, 255, 0.99);
+}
+
+.nav-btn{
+    border: 1.5px solid rgba(255, 255, 255, 0.8);
 }
