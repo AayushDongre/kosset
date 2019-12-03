@@ -1,0 +1,47 @@
+.productsSectionCard {
+  display: block;
+  min-height: 430px;
+  max-width: 33vw;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.static {
+  font-family: $source;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 36px;
+  line-height: 52px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.8);
+}
+.hover {
+  font-family: $source;
+  font-style: normal;
+  font-weight: 200;
+  font-size: 30px;
+  line-height: 52px;
+  text-align: center;
+  color: #000000;
+}
+.cardBg1 {
+  background: url("/static/img/tile1.webp") no-repeat center;
+  background-size: cover;
+}
+.cardBg2 {
+  background: url("/static/img/tile2.webp") no-repeat center;
+  background-size: cover;
+}
+.cardBg3 {
+  background: url("/static/img/tile3.webp") no-repeat center;
+  background-size: cover;
+}
+.cardBg4 {
+  background: url("/static/img/tile4.webp") no-repeat center;
+  background-size: cover;
+}
+.cardBg5 {
+  background: url("/static/img/tile5.webp") no-repeat center;
+  background-size: cover;
+}

@@ -6,59 +6,59 @@ const ProductsSection = () => {
         <div className="productsSection">
             <div className="row">
                 <div className="col-md-4">
-                    <ProductsSectionCard background="cardBg1 cardBg" text="wot"/>
+                    <ProductsSectionCard text=""  extraClasses="cardBg1 cardBg"/>
                 </div>
                 <div className="col-md-4">
-                    <ProductsSectionCard text="Premium Soft Cotton Surface" background="pinkCard" />
+                    <ProductsSectionCard text="Premium Soft Cotton Surface" extraClasses="pinkCard static" />
                 </div>
                 <div className="col-md-4">
-                    <ProductsSectionCard text="To prevent rashes and discomfort" background="greenCard" />
-                </div>
-            </div>
-            <div className="row">
-                <div className="col-md-4">
-                    <ProductsSectionCard/>
-                </div>
-                <div className="col-md-4">
-                    <ProductsSectionCard background="cardBg2 cardBg" />
-                </div>
-                <div className="col-md-4">
-                    <ProductsSectionCard text="Anion Strip" background="greenCard" />
+                    <ProductsSectionCard text="To prevent rashes and discomfort" extraClasses="greenCard hover" />
                 </div>
             </div>
             <div className="row">
                 <div className="col-md-4">
-                    <ProductsSectionCard background="cardBg3 cardBg" />
+                    <ProductsSectionCard extraClasses="hover"/>
                 </div>
                 <div className="col-md-4">
-                    <ProductsSectionCard text="A Wider back" background="pinkCard" />
+                    <ProductsSectionCard extraClasses="cardBg2 cardBg" />
                 </div>
                 <div className="col-md-4">
-                    <ProductsSectionCard/>
+                    <ProductsSectionCard text="Anion Strip" extraClasses="greenCard static" />
                 </div>
             </div>
-
             <div className="row">
                 <div className="col-md-4">
-                    <ProductsSectionCard/>
+                    <ProductsSectionCard extraClasses="cardBg3 cardBg" />
                 </div>
                 <div className="col-md-4">
-                    <ProductsSectionCard background="cardBg4 cardBg" />
+                    <ProductsSectionCard text="A Wider back" extraClasses="pinkCard static" />
                 </div>
                 <div className="col-md-4">
-                    <ProductsSectionCard text="Organic SAP sheet (Superabsorbent Polymer" background="pinkCard" />
+                    <ProductsSectionCard extraClasses="hover"/>
                 </div>
             </div>
 
             <div className="row">
                 <div className="col-md-4">
-                    <ProductsSectionCard background="cardBg5 cardBg" />
+                    <ProductsSectionCard extraClasses="hover"/>
                 </div>
                 <div className="col-md-4">
-                    <ProductsSectionCard text="Breathable top and bottom layer" background="greenCard" />
+                    <ProductsSectionCard extraClasses="cardBg4 cardBg" />
                 </div>
                 <div className="col-md-4">
-                    <ProductsSectionCard/>
+                    <ProductsSectionCard text="Organic SAP sheet (Superabsorbent Polymer" extraClasses="pinkCard static" />
+                </div>
+            </div>
+
+            <div className="row">
+                <div className="col-md-4">
+                    <ProductsSectionCard extraClasses="cardBg5 cardBg" />
+                </div>
+                <div className="col-md-4">
+                    <ProductsSectionCard text="Breathable top and bottom layer" extraClasses="greenCard static" />
+                </div>
+                <div className="col-md-4">
+                    <ProductsSectionCard extraClasses="hover"/>
                 </div>
             </div>
         </div>
