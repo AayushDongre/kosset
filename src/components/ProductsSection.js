@@ -17,7 +17,7 @@ const ProductsSection = () => {
             </div>
             <div className="row">
                 <div className="col-md-4 hover-left">
-                    <ProductsSectionCard extraClasses="pinkCard" />
+                    <ProductsSectionCard text="To fight bacteria and odour" extraClasses="pinkCard" />
                 </div>
                 <div className="col-md-4">
                     <ProductsSectionCard extraClasses="cardBg2 cardBg" />
@@ -34,12 +34,12 @@ const ProductsSection = () => {
                     <ProductsSectionCard text="A Wider back" extraClasses="pinkCard" />
                 </div>
                 <div className="col-md-4 hover">
-                    <ProductsSectionCard extraClasses="greenCard" />
+                    <ProductsSectionCard text="For extra precaution from leakage" extraClasses="greenCard" />
                 </div>
             </div>
             <div className="row">
                 <div className="col-md-4 hover-left">
-                    <ProductsSectionCard extraClasses="greenCard" />
+                    <ProductsSectionCard text="For absorption upto 200ml"  extraClasses="greenCard" />
                 </div>
                 <div className="col-md-4">
                     <ProductsSectionCard extraClasses="cardBg4 cardBg" />
@@ -56,7 +56,7 @@ const ProductsSection = () => {
                     <ProductsSectionCard text="Breathable top and bottom layer" extraClasses="greenCard" />
                 </div>
                 <div className="col-md-4 hover">
-                    <ProductsSectionCard extraClasses="pinkCard" />
+                    <ProductsSectionCard text="To enhance air ventilation"  extraClasses="pinkCard" />
                 </div>
             </div>
             <p className="natural">Natural</p>

@@ -1,5 +1,11 @@
 .productBanner2 {
     height: 65vh;
+    font-family: $source;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 34px;
+    line-height: 52px;
+    color: #000000;
 }
 
 .productBanner2-text {
@@ -15,4 +21,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+}
+.productBanner2 ul{
+    list-style-type: none;
 }
