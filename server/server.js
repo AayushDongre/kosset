@@ -14,16 +14,16 @@ const port = process.env.PORT || 3000
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use('/static', expressStaticGzip(staticPath, {
-    urlContains: 'static/',
+app.get('*', expressStaticGzip(publicPath, {
+    urlContains: '/static',
     fallthrough: false,
     enableBrotli: true
    }));
 
    
-app.get("*", (req, res) => {
-    res.sendFile(path.join(publicPath, "index.html"))
-});
+// app.get("*", (req, res) => {
+//     res.sendFile(path.join(publicPath, "index.html"))
+// });
 
 
 app.listen(port, () => {
