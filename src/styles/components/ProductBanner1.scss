@@ -1,18 +1,16 @@
-.productBanner1 {
-  height: 65vh;
-}
+
 .productBanner1-text {
   background: $pink;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 5vh 5vw;
+  // padding: 5vh 5vw;
 }
 .productBanner1-text .banner1-title {
   font-family: $source;
   font-style: normal;
   font-weight: 600;
-  font-size: 39px;
+  font-size: 2rem;
   line-height: 48px;
   color: #000000;
 }
@@ -20,14 +18,7 @@
   font-family: $source;
   font-style: normal;
   font-weight: 300;
-  font-size: 32px;
+  font-size: 1.4rem;
   line-height: 48px;
-  letter-spacing: 0.01em;
   color: #000000;
-}
-.productBanner1-image {
-  background: url("/static/img/sec1.webp");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
 }

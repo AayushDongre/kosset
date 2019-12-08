@@ -1,5 +1,5 @@
 .productBanner2 {
-    height: 65vh;
+    // height: 80vh;
     font-family: $source;
     font-style: normal;
     font-weight: 300;
@@ -10,17 +10,11 @@
 
 .productBanner2-text {
     background: $green;
+    line-height: 4rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 5vh 5vw;
-}
-
-.productBanner2-image {
-    background: url("/static/img/sec2.webp");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
 }
 .productBanner2 ul{
     list-style-type: none;
