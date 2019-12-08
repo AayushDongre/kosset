@@ -24,9 +24,9 @@ const AppSection = () => {
                         </p>
                     </div>
                 </div>
-                <div className="row py-lg-4">
+                <div className="row py-lg-1">
                     <div className="col-sm-3">
-                        <img src="./static/img/subscriptionIcon.png" className="img-fluid pt-md-3"></img>
+                        <img src="./static/img/subscriptionIcon.png" className="img-fluid pt-md-2"></img>
                         <p className="icon-title">One time subscription</p>
                     </div>
                     <div className="col-sm-9">
