@@ -4,17 +4,19 @@
     background: rgba(250, 210, 211, 0.3);
     position: relative;
 }
-.appSection::after{
+
+.appSection::after {
     content: "";
     display: block;
     position: absolute;
-    top:60%;
+    top: 60%;
     left: 0;
     height: 40% !important;
     width: 100vw !important;
     background: #FAD2D3;
     z-index: -200;
 }
+
 .appSection h1 {
     font-family: $source;
     font-style: normal;
@@ -41,11 +43,12 @@
     font-weight: 300;
     font-size: 36px;
     line-height: 45px;
-    text-align: center;
+    text-align: left;
     color: rgba(0, 0, 0, 0.7);
 }
+
 .companion {
-    font-family:"av";
+    font-family: "av";
     font-style: normal;
     font-weight: bold;
     font-size: 300px;
@@ -56,4 +59,23 @@
     bottom: 43%;
     left: 0;
     z-index: -20;
+}
+
+.track {
+    font-family: $source;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 28px;
+    line-height: 35px;
+    color: #000000;
+}
+
+.dont {
+    font-family: $source;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 28px;
+    line-height: 35px;
+    text-align: center;
+    color: #000000;
 }

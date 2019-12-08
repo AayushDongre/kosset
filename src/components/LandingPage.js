@@ -4,6 +4,8 @@ import ProductsSection from "./ProductsSection";
 import ProductBanner1 from "./ProductBanner1";
 import ProductBanner2 from "./ProductBanner2";
 import AppSection from "./AppSection";
+import CommingSoonSection from "./ComingSoonSection";
+import Footer from "./Footer"
 
 const LandingPage = () => {
     return (
@@ -13,6 +15,8 @@ const LandingPage = () => {
             <ProductsSection />
             <ProductBanner2 />
             <AppSection />
+            <CommingSoonSection />
+            <Footer />
         </div>
     )
 }
