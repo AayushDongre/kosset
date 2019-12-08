@@ -7,7 +7,7 @@ const ProductBanner2 = () => {
             <div className="productBanner2-image px-0 col-md-6">
                 <img src="/static/img/sec2.webp" className="img-fluid" />
             </div>
-            <div className="productBanner2-text col-md-6 ">
+            <div className="productBanner2-text col-md-6 d-flex flew-column align-items-center ">
                     <ul>
                         <li>•  Eco-friendly packets for easy disposal</li>
                         <li>•  Customize your box in-sync with your flow</li>

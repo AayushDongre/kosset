@@ -6,14 +6,12 @@
     font-size: 34px;
     line-height: 52px;
     color: #000000;
+    margin-top: -2rem;
 }
 
 .productBanner2-text {
     background: $green;
     line-height: 4rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     padding: 5vh 5vw;
 }
 .productBanner2 ul{

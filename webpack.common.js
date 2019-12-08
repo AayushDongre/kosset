@@ -10,7 +10,7 @@ module.exports = {
         filename: "bundle.js",
         // filename: '[name]_[chunkhash].js',
         // chunkFilename: '[id].[chunkhash].js',
-        publicPath: '/static/',
+        // publicPath: '/static/',
     },
     module: {
         rules: [{

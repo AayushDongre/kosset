@@ -9,9 +9,9 @@
     content: "";
     display: block;
     position: absolute;
-    top: 60%;
+    top: 45%;
     left: 0;
-    height: 40% !important;
+    height: 55% !important;
     width: 100vw !important;
     background: #FAD2D3;
     z-index: -200;
@@ -21,7 +21,7 @@
     font-family: $source;
     font-style: normal;
     font-weight: normal;
-    font-size: 64px;
+    font-size: 3rem;
     line-height: 80px;
     color: rgba(0, 0, 0, 0.8);
 }
@@ -30,12 +30,12 @@
     font-family: $source;
     font-style: normal;
     font-weight: 300;
-    font-size: 32px;
-    line-height: 45px;
+    font-size: 1.4rem;
     text-align: center;
     color: #000000;
 
 }
+
 
 .tryTheApp {
     font-family: $source;
@@ -56,26 +56,26 @@
     text-transform: capitalize;
     color: rgba(0, 0, 0, 0.05);
     position: absolute;
-    bottom: 43%;
+    bottom: 55%;
     left: 0;
-    z-index: -20;
+    z-index: -400;
 }
 
-.track {
-    font-family: $source;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 28px;
-    line-height: 35px;
-    color: #000000;
+.track{
+    text-align: left !important;
 }
 
 .dont {
     font-family: $source;
     font-style: normal;
-    font-weight: normal;
-    font-size: 28px;
-    line-height: 35px;
-    text-align: center;
+    font-weight: 400 !important;
+    font-size: 1rem;
+    text-align: center !important;
     color: #000000;
+}
+.icon-title{
+    text-align: center !important;
+    font-weight: 400 !important;
+    font-size: 1.2rem !important;
+    padding: 0;
 }
