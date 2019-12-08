@@ -17,9 +17,25 @@ const Footer = () => {
                     <li><a>Kosset Closet</a></li>
                 </ul>
             </div>
-            <div className="col-md-4 kossetCare"></div>
+            <div className="col-md-4 kossetCare">
+                <h1><a>@kossetCare</a></h1>
+                <div className="row">
+                    <div className="col-md-2 offset-3">
+                        <img src="./static/img/facebook.png" className="img-fluid"></img>
+                    </div>
+                    <div className="col-md-2">
+                        <img src="./static/img/instagram.png" className="img-fluid"></img>
+                    </div>
+
+                    <div className="col-md-2">
+                        <img src="./static/img/twitter.png" className="img-fluid"></img>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
+
+
 
 export default Footer;

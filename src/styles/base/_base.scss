@@ -1,11 +1,24 @@
-
-html{
+html {
     scroll-behavior: smooth;
     overflow-x: hidden;
 }
-body{
+
+body {
     font-family: "Roboto", sans-serif;
 }
+
 ::-webkit-scrollbar {
-    display: none;
-}
+    width: 12px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    display:none;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgba(250, 210, 211, 0.9); 
+    border-radius: 10px;
+  }
+  
