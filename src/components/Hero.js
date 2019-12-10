@@ -4,12 +4,15 @@ import React from "react";
 const Nav = () => {
 
     return (
-        <div className="container px-0" id="navbar">
+        <div className="container px-md-0 px-4" id="navbar">
             <nav className="navbar navbar-expand-lg px-0">
                 <a className="navbar-brand" href="#">Kosset</a>
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
+                <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="icon-bar top-bar"></span>
+                    <span class="icon-bar middle-bar"></span>
+                    <span class="icon-bar bottom-bar"></span>
                 </button>
+
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div className="navbar-nav ml-auto">
                         <a className="nav-item nav-link" href="#">About <span className="sr-only">(current)</span></a>
@@ -17,7 +20,7 @@ const Nav = () => {
                         <a className="nav-item nav-link" href="#">App</a>
                         <a className="nav-item nav-link" href="#"> <img src="/static/img/accounticon.svg" ></img></a>
                         <a className="nav-item nav-link" href="#"> <img src="/static/img/carticon.svg" ></img></a>
-                        <a className="nav-item nav-link nav-btn px-lg-4 ml-xl-2" href="#">Buy Now</a>
+                        <a className="nav-item nav-link nav-btn px-lg-4 ml-xl-2 mx-5 mx-sm-0" href="#">Buy Now</a>
                     </div>
                 </div>
             </nav>
@@ -40,10 +43,9 @@ const Hero = () => {
 
             </div>
         </div>
-        // </div>
-
-        // </div>
+  
     )
 }
+
 
 export default Hero;

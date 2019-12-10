@@ -1,13 +1,12 @@
-.productsSection{
-    // padding: 50px 2px !important;
-    margin: 5vh 5vw 0 5vw !important;
-    padding: 50px 50px 0 50px;
-
+.productsSection {
+  // padding: 50px 2px !important;
+  margin: 5vh 5vw 0 5vw !important;
+  padding: 50px 50px 0 50px;
 }
 
-.productsSection .row .col-md-4{
-    margin: 0 !important;
-    padding: 0 !important;
+.productsSection .row .col-md-4 {
+  margin: 0 !important;
+  padding: 0 !important;
 }
 .static {
   font-family: $source;
@@ -19,7 +18,8 @@
   color: rgba(0, 0, 0, 0.8);
   z-index: 10 !important;
 }
-.hover,.hover-left {
+.hover,
+.hover-left {
   font-family: $source;
   font-style: normal;
   font-weight: 200;
@@ -29,33 +29,41 @@
   color: #000000;
   z-index: -10 !important;
   opacity: 0;
-  transition: .5s;
+  transition: 0.5s;
   transform: translateX(-700px);
 }
-.row:hover .hover{
-    transform: none;
-    opacity: 1;
+.row:hover .hover {
+  transform: none;
+  opacity: 1;
 }
-.hover-left{
-    transform: translateX(700px);
+.hover-left {
+  transform: translateX(700px);
 }
-.row:hover .hover-left{
-    transform: none;
-    opacity: 1;
+.row:hover .hover-left {
+  transform: none;
+  opacity: 1;
 }
-.natural, .experience{
-    font-family: 'av', sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 260px;
-    line-height: 58px;
-    letter-spacing: 0.02em;
-    text-transform: capitalize;
-    color: rgba(0, 0, 0, 0.15);
+.natural,
+.experience {
+  font-family: "av", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 260px;
+  line-height: 58px;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+  color: rgba(0, 0, 0, 0.15);
 }
-.natural{
-    transform: translateY(-2000px) translateX(30vw);
+.natural {
+  transform: translateY(-2000px) translateX(30vw);
 }
-.experience{
-    transform: translateY(-1200px) translateX(30vw);
+.experience {
+  transform: translateY(-1200px) translateX(30vw);
+}
+
+// -----------------MEDIA QUERIES---------------------
+@media only screen and (max-width: 768px) {
+  .natural,.experience {
+      font-size: 4rem;
+  }
 }
