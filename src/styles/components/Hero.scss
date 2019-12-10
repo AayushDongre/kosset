@@ -65,6 +65,7 @@
   //   line-height: 32px;
   /* or 133% */
   letter-spacing: 0.02em;
+  animation-duration: 3s;
 
   color: rgba(255, 254, 254, 0.8);
 }
@@ -122,6 +123,17 @@
   .navbar-nav {
   background-color: #A798D5;
   text-align: center;
+}
+
+.heroLeadLine{
+  font-size: 1rem;
+}
+.heroNatural{
+  font-size: 2rem;
+  padding: 5px 0;
+}
+.heroPara{
+  font-size: 0.8rem;
 }
 
 

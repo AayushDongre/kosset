@@ -22,3 +22,15 @@
   line-height: 48px;
   color: #000000;
 }
+// ---------------MEDIA QUERIES------------
+@media only screen and (max-width: 768px) {
+  .banner1-title{
+    text-align: center;
+    font-size: 1.5rem !important;
+  }
+  .productBanner1-text p{
+    text-align: center;
+    font-size: 1rem;
+    line-height: 2rem;
+  }
+}

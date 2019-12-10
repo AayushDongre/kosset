@@ -8,6 +8,7 @@ import 'popper.js'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap';
 import "./styles/styles.scss";
+import 'animate.css'
 
 const jsx = (
         <Router />
