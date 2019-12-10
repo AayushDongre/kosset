@@ -18,8 +18,10 @@ const Nav = () => {
                         <a className="nav-item nav-link" href="#">About <span className="sr-only">(current)</span></a>
                         <a className="nav-item nav-link" href="#">Products</a>
                         <a className="nav-item nav-link" href="#">App</a>
-                        <a className="nav-item nav-link" href="#"> <img src="/static/img/accounticon.svg" ></img></a>
-                        <a className="nav-item nav-link" href="#"> <img src="/static/img/carticon.svg" ></img></a>
+                        <a className="nav-item nav-link d-md-none" href="#">Account</a>
+                        <a className="nav-item nav-link d-md-none" href="#">Cart</a>
+                        <a className="nav-item nav-link d-none d-md-inline-block" href="#"> <img src="/static/img/accounticon.svg" ></img></a>
+                        <a className="nav-item nav-link d-none d-md-inline-block" href="#"> <img src="/static/img/carticon.svg" ></img></a>
                         <a className="nav-item nav-link nav-btn px-lg-4 ml-xl-2 mx-5 mx-sm-0" href="#">Buy Now</a>
                     </div>
                 </div>
