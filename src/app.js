@@ -18,3 +18,15 @@ const jsx = (
 
 
 ReactDOM.render(jsx, document.getElementById("app"))
+
+var nav = document.querySelector(".navbar");
+var heroHeight = document.querySelector('.hero').clientHeight;
+window.onscroll = function () {
+    if (document.body.scrollTop >= heroHeight || document.documentElement.scrollTop >= heroHeight) {
+        nav.classList.add("navbar-black");
+} else {
+        nav.classList.remove("navbar-black");
+    }
+};
+
+

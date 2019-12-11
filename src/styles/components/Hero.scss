@@ -36,6 +36,13 @@
 .nav-btn {
   border: 1.5px solid rgba(255, 255, 255, 0.8);
 }
+.navbar-black{
+  background: rgba(0,0,0,0.8);
+  position: fixed;
+  width: 100vw;
+  left: 0;
+  padding:0 1rem !important;
+}
 
 .wrapper {
   height: 80%;
@@ -117,27 +124,3 @@
 .full-screen{
   background-color: white;
 }
-//  -------------------MEDIA QUERIES-------------
-
-@media only screen and (max-width: 768px) {
-  .navbar-nav {
-  background-color: #A798D5;
-  text-align: center;
-}
-
-.heroLeadLine{
-  font-size: 1rem;
-}
-.heroNatural{
-  font-size: 2rem;
-  padding: 5px 0;
-}
-.heroPara{
-  font-size: 0.8rem;
-}
-.nav-item{
-  font-size: 1rem;
-}
-
-}
-

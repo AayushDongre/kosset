@@ -1,7 +1,6 @@
 .productsSectionCard {
-  display: block;
-  min-height: 430px;
-  max-width: 33vw;
+  height: 100%;
+  width: 100%;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -12,24 +11,4 @@
 }
 .pinkCard{
     background:$pink;
-}
-.cardBg1 {
-  background: url("/static/img/tile1.webp") no-repeat center;
-  background-size: cover;
-}
-.cardBg2 {
-  background: url("/static/img/tile2.webp") no-repeat center;
-  background-size: cover;
-}
-.cardBg3 {
-  background: url("/static/img/tile3.webp") no-repeat center;
-  background-size: cover;
-}
-.cardBg4 {
-  background: url("/static/img/tile4.webp") no-repeat center;
-  background-size: cover;
-}
-.cardBg5 {
-  background: url("/static/img/tile5.webp") no-repeat center;
-  background-size: cover;
 }

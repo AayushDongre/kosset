@@ -7,10 +7,10 @@ const Nav = () => {
         <div className="container px-md-0 px-4 fixed-top" id="navbar">
             <nav className="navbar navbar-expand-lg px-0 pb-0 ">
                 <a className="navbar-brand" href="#">Kosset</a>
-                <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="icon-bar top-bar"></span>
-                    <span class="icon-bar middle-bar"></span>
-                    <span class="icon-bar bottom-bar"></span>
+                <button className="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="icon-bar top-bar"></span>
+                    <span className="icon-bar middle-bar"></span>
+                    <span className="icon-bar bottom-bar"></span>
                 </button>
 
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
