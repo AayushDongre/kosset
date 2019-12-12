@@ -5,28 +5,11 @@ const functions = require('firebase-functions');
 // // Create and Deploy Your First Cloud Functions
 // // https://firebase.google.com/docs/functions/write-firebase-functions
 //
-
-exports.addUser = functions.https.onRequest((request, response) => {
-
-    admin.initializeApp(functions.config().firebase);
-    let db = admin.firestore();
-    let docRef = db.collection('users').doc();
-
-    let setAda = docRef.set({
-        first: request.query.username,
-        last: 'Lovelace',
-        born: 1815
-    }).catch((err) => {
-        response.send(("error" + err))
-    })
-
-});
+admin.initializeApp(functions.config().firebase);
+let db = admin.firestore();
 
 exports.createUser = functions.https.onRequest(async (req, res) => {
-
     try {
-        admin.initializeApp(functions.config().firebase);
-        let db = admin.firestore();
         let users = db.collection('users');
         const currentUser = {
             "uid": req.query.uid,
@@ -35,7 +18,8 @@ exports.createUser = functions.https.onRequest(async (req, res) => {
             "password": req.query.password,
             "phone": req.query.phone,
             "days": req.query.days,
-            "last_date": req.query.last_date
+            "last_date": req.query.last_date,
+            "address": ""
         }
         users.doc(req.query.uid).set(currentUser).then((val) => {
             res.status(200);
@@ -47,21 +31,58 @@ exports.createUser = functions.https.onRequest(async (req, res) => {
         res.status(500);
         res.send(err);
     }
-})
-
-
-exports.readUsers = functions.https.onRequest((request, response) => {
-    admin.initializeApp(functions.config().firebase);
-    let db = admin.firestore();
-
-    db.collection('users').get()
-        .then((snapshot) => {
-            snapshot.forEach((doc) => {
-                console.log(doc.id, '=>', doc.data());
-                response.send(doc.data());
-            });
+});
+exports.fetchUser = functions.https.onRequest(async (req, res) => {
+    try {
+        let users = db.collection("users")
+        const user = users.doc(req.query.uid).get().then((val) => {
+            if (!val.exists) {
+                res.status(400);
+                res.send("No user found")
+            } else {
+                res.send(val.data());
+            }
+        }).catch((err) => {
+            res.status(500);
+            res.send(err);
         })
-        .catch((err) => {
-            console.log('Error getting documents', err);
-        });
+
+    } catch (err) {
+        res.status(500)
+        res.send(err);
+    }
 })
+
+exports.deleteUser = functions.https.onRequest(async (req, res) => {
+    try {
+        let users = db.collection("users");
+        users.doc(req.query.uid).delete().catch((err) => {
+            res.send(err);
+        })
+        res.send("success");
+    } catch (err) {
+        res.send(err);
+    }
+
+});
+exports.addOrder = functions.https.onRequest(async (req, res) => {
+    try {
+        let orders = db.collection("orders");
+        let products = JSON.parse(req.query.products);
+        const currentOrder = {
+            "uid": req.query.uid,
+            "timestamp": req.query.timestamp,
+            "products": products,
+            "address": req.query.address,
+            "phone": req.query.phone
+        }
+       orders.doc(req.query.address+req.query.timestamp).set(currentOrder).then(() => {
+            res.send("success");
+        }).catch((err) => {
+            res.send(err);
+        })
+    } catch (err) {
+        res.send(err);
+    }
+})
+
