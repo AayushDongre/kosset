@@ -6,7 +6,7 @@ const ProductsSectionCard = (props) => {
         <div className={`productsSectionCard ${props.extraClasses}`}>
             {props.text && <p>{props.text}</p>}
             { props.image && <img src={props.imageUrl} className="img-fluid"></img>}
-            {props.otherText && <p className="d-md-none d-inline-block">{props.otherText}</p>}
+            {props.otherText && <p className="d-md-none d-inline-block info-text-card">{props.otherText}</p>}
         </div>
     )
 }

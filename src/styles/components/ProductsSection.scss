@@ -58,6 +58,7 @@
   letter-spacing: 0.02em;
   text-transform: capitalize;
   color: rgba(0, 0, 0, 0.15);
+  z-index: -999;
 }
 .natural {
   transform: translateY(-900px) translateX(30vw);
