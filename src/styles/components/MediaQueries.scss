@@ -5,6 +5,9 @@
         background-color: #A798D5;
         text-align: center;
       }
+      .navbar-black{
+        padding: 0 2rem !important;
+      }
       
       .heroLeadLine{
         font-size: 1rem;
@@ -83,5 +86,31 @@
     .comingSoon p {
       font-size: 1rem;
     }
+    .comingSoon .col-sm-2{
+      text-align: center;
+    }
+    .closet-icon {
+      width: 80px;
+      height:auto;
+    }
+    .mag-icon{
+      width: 80px;
+      padding-bottom: 2rem;
+    }
+    // -------------FOOTER----------
+    .getInTouch h3, .footerKosset h3, .kossetCare a{
+      font-size: 1.5rem;
+      margin-bottom: 0;
+    }
+    .getInTouch p, .footerKosset li{
+      font-size: 1rem;
+      // line-height: 3rem;
+    }
+
+    .kossetCare img{
+      width: 40px;
+      height: 40px;
+    }
+
 
   }

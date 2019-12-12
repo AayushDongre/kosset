@@ -19,14 +19,18 @@ const jsx = (
 
 ReactDOM.render(jsx, document.getElementById("app"))
 
-var nav = document.querySelector(".navbar");
-var heroHeight = document.querySelector('.hero').clientHeight;
+// Navbar color change on scroll
+const nav = document.querySelector(".navbar");
+const navHeight = document.querySelector('.navbar').clientHeight;
 window.onscroll = function () {
-    if (document.body.scrollTop >= heroHeight || document.documentElement.scrollTop >= heroHeight) {
+    if (document.body.scrollTop >= navHeight || document.documentElement.scrollTop >= navHeight) {
         nav.classList.add("navbar-black");
 } else {
         nav.classList.remove("navbar-black");
     }
 };
 
+//animate on scroll
+
+// const 
 

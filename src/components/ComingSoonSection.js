@@ -11,7 +11,7 @@ const ComingSoonSection = () => {
                     </p>
                 </div>
                 <div className="col-sm-2 mx-md-3">
-                    <img className="img-fluid" src="./static/img/closeticon.png"></img>
+                    <img className="img-fluid closet-icon" src="./static/img/closeticon.png"></img>
                 </div>
             </div>
 
@@ -23,7 +23,7 @@ const ComingSoonSection = () => {
                 </p>
             </div>
             <div className="col-sm-2 mx-md-3">
-                <img className="img-fluid" src="./static/img/magicon.png"></img>
+                <img className="img-fluid mag-icon" src="./static/img/magicon.png"></img>
             </div>
         </div>
         </div>
