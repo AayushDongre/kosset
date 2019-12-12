@@ -11,12 +11,16 @@
 
 .navbar-brand,
 .navbar-brand:hover {
-  font-family: "Advent Pro";
-  font-size: 2rem;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1.5rem;
+  text-align: center;
+  text-transform: uppercase;
   color: #ffffff;
 }
-.nav-link{
-    margin: 0 5px;
+.nav-link {
+  margin: 0 5px;
 }
 .nav-item {
   font-family: Source Sans Pro;
@@ -36,12 +40,12 @@
 .nav-btn {
   border: 1.5px solid rgba(255, 255, 255, 0.8);
 }
-.navbar-black{
-  background: rgba(0,0,0,0.9);
+.navbar-black {
+  background: rgba(0, 0, 0, 0.9);
   position: fixed;
   width: 100vw;
   left: 0;
-  padding:0 15rem !important;
+  padding: 0 15rem !important;
 }
 
 .wrapper {
@@ -79,48 +83,47 @@
 //  ------------------NAVBAR -----------------
 
 .icon-bar {
-	width: 22px; 
-	height: 2px;
-	background-color: #B6B6B6;
-	display: block;
-	transition: all 0.2s;
-	margin-top: 4px
+  width: 22px;
+  height: 2px;
+  background-color: #b6b6b6;
+  display: block;
+  transition: all 0.2s;
+  margin-top: 4px;
 }
 
 .navbar-toggler {
   border: none;
   background: transparent !important;
-  outline:0 !important;
+  outline: 0 !important;
 }
-
 
 // ----------NAV ANIMATION--------
 .navbar-toggler .top-bar {
   transform: rotate(45deg);
   transform-origin: 10% 10%;
 }
- 
+
 .navbar-toggler .middle-bar {
   opacity: 0;
 }
- 
+
 .navbar-toggler .bottom-bar {
   transform: rotate(-45deg);
   transform-origin: 10% 90%;
 }
- 
+
 .navbar-toggler.collapsed .top-bar {
   transform: rotate(0);
 }
- 
+
 .navbar-toggler.collapsed .middle-bar {
   opacity: 1;
 }
- 
+
 .navbar-toggler.collapsed .bottom-bar {
   transform: rotate(0);
 }
 
-.full-screen{
+.full-screen {
   background-color: white;
 }
