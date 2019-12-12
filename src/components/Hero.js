@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const Nav = () => {
+export const Nav = () => {
 
     return (
         <div className="container px-md-0 px-4 fixed-top" id="navbar">
