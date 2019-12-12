@@ -2,7 +2,7 @@ import React from 'react'
 
 const AppSection = () => {
     return (
-        <div className="appSection p-md-5 ">
+        <div className="appSection p-md-5 " id="AppSection">
             <div className="container mt-xl-3">
                 <h1>For the Complete Kosset Experience</h1>
                 <p className="tryTheApp">Try the App</p>

@@ -17,7 +17,7 @@ const Nav = () => {
                     <div className="navbar-nav py-md-0 py-5 ml-auto">
                         <a className="nav-item nav-link" href="#">About <span className="sr-only">(current)</span></a>
                         <a className="nav-item nav-link" href="#">Products</a>
-                        <a className="nav-item nav-link" href="#">App</a>
+                        <a className="nav-item nav-link" href="#AppSection">App</a>
                         <a className="nav-item nav-link d-md-none" href="#">Account</a>
                         <a className="nav-item nav-link d-md-none" href="#">Cart</a>
                         <a className="nav-item nav-link d-none d-md-inline-block" href="#"> <img src="/static/img/accounticon.svg" ></img></a>

@@ -21,15 +21,15 @@ const Footer = () => {
                 <h1><a>@kossetcare</a></h1>
                 <div className="container">
                     <div className="d-flex flex-row justify-content-center align-items-center">
-                        <div>
+                        <a href="#">
                             <img src="./static/img/facebook.png" className="img-fluid mx-3"></img>
-                        </div>
-                        <div>
+                        </a>
+                        <a href="#">
                             <img src="./static/img/instagram.png" className="img-fluid mx-3"></img>
-                        </div>
-                        <div>
+                        </a>
+                        <a href="#">
                             <img src="./static/img/twitter.png" className="img-fluid mx-3"></img>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>
