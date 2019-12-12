@@ -6,7 +6,7 @@
         text-align: center;
       }
       .navbar-black{
-        padding: 0 2rem !important;
+        padding: 0 1.5rem !important;
       }
       
       .heroLeadLine{
@@ -111,6 +111,17 @@
       width: 40px;
       height: 40px;
     }
-
+    .faq-title{
+      font-size: 2rem !important;
+    }
+    .faq-hero p{
+      font-size: 0.9rem !important;
+    }
+    .faq-topic{
+      font-size: 1.5rem !important;
+    }
+    .card-body{
+      font-size: 0.8rem;
+    }
 
   }

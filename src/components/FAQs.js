@@ -3,7 +3,7 @@ import React from 'react';
 const FAQs = () => {
     return (
         <div className="container">
-            <h3 className="faq-topic mt-5 pb-2 ml-4 ">Sanitary Pads</h3>
+            <h3 className="faq-topic mt-3 mt-xl-5 pb-2 ml-4 ">Sanitary Pads</h3>
             <div class="accordion" id="accordionExample">
                 <div class="card">
                     <div class="card-header" id="headingOne">
