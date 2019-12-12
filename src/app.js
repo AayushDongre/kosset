@@ -30,7 +30,5 @@ window.onscroll = function () {
     }
 };
 
-//animate on scroll
 
-// const 
 
