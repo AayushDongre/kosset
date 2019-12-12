@@ -6,7 +6,7 @@ import FAQPage from "../components/FAQPage";
 const Router = () => (
     <BrowserRouter>
         <Switch>
-            <Route path="/" component={LandingPage} />         
+            <Route path="/"  exact={true} component={LandingPage} />         
             <Route path="/faq" component={FAQPage} />         
         </Switch>
     </BrowserRouter>

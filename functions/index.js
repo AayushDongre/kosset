@@ -10,18 +10,44 @@ exports.addUser = functions.https.onRequest((request, response) => {
 
     admin.initializeApp(functions.config().firebase);
     let db = admin.firestore();
-    let docRef = db.collection('users');
+    let docRef = db.collection('users').doc();
 
     let setAda = docRef.set({
         first: request.query.username,
         last: 'Lovelace',
         born: 1815
-    }).catch((err)=>{
+    }).catch((err) => {
         response.send(("error" + err))
     })
 
 });
 
+exports.createUser = functions.https.onRequest(async (req, res) => {
+
+    try {
+        admin.initializeApp(functions.config().firebase);
+        let db = admin.firestore();
+        let users = db.collection('users');
+        const currentUser = {
+            "uid": req.query.uid,
+            "name": req.query.name,
+            "email": req.query.email,
+            "password": req.query.password,
+            "phone": req.query.phone,
+            "days": req.query.days,
+            "last_date": req.query.last_date
+        }
+        users.doc(req.query.uid).set(currentUser).then((val) => {
+            res.status(200);
+            res.send("Success");
+        }).catch((err) => {
+            res.send(err);
+        })
+    } catch (err) {
+        res.status(500);
+        res.send(err);
+    }
+})
 
 
 exports.readUsers = functions.https.onRequest((request, response) => {
