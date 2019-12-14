@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -15,6 +16,7 @@ const Footer = () => {
                     <li><a>Account</a></li>
                     <li><a>Terms </a></li>
                     <li><a>Kosset Closet</a></li>
+                    <Link to={{pathname:"/faq",hash:"faq-hero",state:false}}>FAQ</Link>
                 </ul>
             </div>
             <div className="col-md-4 kossetCare p-3">

@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Router from "./routers/Router";
 import { Provider } from 'react-redux';
+import cartStore from './store/configureStore';
 import "normalize.css/normalize.css";
 import 'jquery';
 import 'popper.js'
@@ -10,10 +11,13 @@ import 'bootstrap/dist/js/bootstrap';
 import "./styles/styles.scss";
 import 'animate.css'
 
-const jsx = (
-        <Router />
-);
 
+const store = cartStore();
+const jsx = (
+    <Provider store={store}>
+        <Router />
+    </Provider>
+);
 
 
 
@@ -25,7 +29,7 @@ const navHeight = document.querySelector('.navbar').clientHeight;
 window.onscroll = function () {
     if (document.body.scrollTop >= navHeight || document.documentElement.scrollTop >= navHeight) {
         nav.classList.add("navbar-black");
-} else {
+    } else {
         nav.classList.remove("navbar-black");
     }
 };
