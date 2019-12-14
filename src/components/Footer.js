@@ -1,11 +1,12 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 
 const Footer = () => {
     return (
         <div className="footer row">
             <div className="col-md-4 getInTouch p-4 p-md-0">
                 <h3>Get in touch</h3>
-                <p>xyz@kossetmail.xyz</p>
+                <p>care@kosset.com</p>
                 <p>+91 9869420123</p>
             </div>
             <div className="col-md-4 footerKosset py-lg-5 p-4 p-md-0">
@@ -14,7 +15,7 @@ const Footer = () => {
                     <li><a>Kosset Closet</a></li>
                     <li><a>Account</a></li>
                     <li><a>Terms </a></li>
-                    <li><a>Kosset Closet</a></li>
+                    <Link to="/faq">FAQs</Link>
                 </ul>
             </div>
             <div className="col-md-4 kossetCare p-3">
