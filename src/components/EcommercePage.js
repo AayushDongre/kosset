@@ -1,19 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Nav } from "./Hero";
+import { addTrialBox, addKossetBox } from '../actions/cart';
+import Footer from './Footer';
 
-export default class EcommercePage extends React.Component {
+class EcommercePage extends React.Component {
 
     state = {
         num1:6,
         num2:7,
         num3:2, 
     };
-<<<<<<< HEAD
+
+    KossetBoxCart = () =>{
+        if(this.state.num1+this.state.num2+this.state.num3 == 15)
+            this.props.addKossetBox(this.state.num1,this.state.num2,this.state.num3)
+    }
 
 
-=======
->>>>>>> c662018829ddc98fe9b25f6df5547e333d6fcb68
     render() {
         return (
             <div>
@@ -104,7 +108,7 @@ export default class EcommercePage extends React.Component {
 
                         <div className="row">
                             <button> Buy Now</button>
-                            <button> ADD TO CART</button>
+                            <button onClick={this.KossetBoxCart}> ADD TO CART</button>
                             <span>Total:{this.state.num1+this.state.num2+this.state.num3}/15</span>
                         </div>
                     </div>
@@ -132,9 +136,23 @@ export default class EcommercePage extends React.Component {
                     </div>
                 </div>
 
+                <Footer />
             </div>
         );
     }
 
 }
 
+const mapStateToProps = (state)=>{
+    return{
+        products: state,
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addTrialBox:() => {dispatch(addTrialBox())},
+        addKossetBox:(HFOP, LMFP, PLSD) => {dispatch(addKossetBox(HFOP, LMFP, PLSD))}
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(EcommercePage);

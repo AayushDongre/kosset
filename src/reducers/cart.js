@@ -8,7 +8,7 @@ export default (state = cartReducerDefaultState, action) => {
         case "ADD_KOSSETBOX":
             var found = false;
             for (var i = 0; i < state.length; i++) {
-                if (state[i].product.id.slice(-2) == 'KB') {
+                if (!!state[i].id &&   state[i].id.slice(-2) == 'KB') {
                     found = true;
                     break;
                 }
