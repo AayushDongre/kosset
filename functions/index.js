@@ -71,10 +71,12 @@ exports.addOrder = functions.https.onRequest(async (req, res) => {
         let products = JSON.parse(req.query.products);
         const currentOrder = {
             "uid": req.query.uid,
+            "email": req.query.email,
             "timestamp": req.query.timestamp,
             "products": products,
             "address": req.query.address,
-            "phone": req.query.phone
+            "phone": req.query.phone,
+            "cost": req.query.cost
         }
        orders.doc(req.query.address+req.query.timestamp).set(currentOrder).then(() => {
             res.send("success");

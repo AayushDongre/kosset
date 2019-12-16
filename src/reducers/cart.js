@@ -2,7 +2,7 @@ const cartReducerDefaultState = []
 
 export default ( state = cartReducerDefaultState, action ) => {
     switch(action.type){
-        case "ADD_PRODUCT":
+        case "ADD_TRIALBOX":
             return [...state, action.product];
         
         case "REMOVE_PRODUCT":

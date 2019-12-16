@@ -19,14 +19,16 @@
   text-transform: uppercase;
   color: #ffffff;
 }
+
 .nav-link {
   margin: 0 5px;
 }
+
 .nav-item {
   font-family: Source Sans Pro;
   font-style: normal;
   font-weight: 300;
-  font-size: 1rem ;
+  font-size: 1rem;
   line-height: 25px;
   letter-spacing: 0.05em;
 
@@ -40,6 +42,7 @@
 .nav-btn {
   border: 1.5px solid rgba(255, 255, 255, 0.8);
 }
+
 .navbar-black {
   background: rgba(0, 0, 0, 0.9);
   position: fixed;
@@ -80,6 +83,7 @@
 
   color: rgba(255, 254, 254, 0.8);
 }
+
 //  ------------------NAVBAR -----------------
 
 .icon-bar {
@@ -126,4 +130,11 @@
 
 .full-screen {
   background-color: white;
+}
+
+#purpleNav {
+  background: black !important;
+  position: absolute !important;
+  width: 100vw;
+  left:0;
 }
