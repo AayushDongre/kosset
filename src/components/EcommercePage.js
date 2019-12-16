@@ -1,22 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Nav } from "./Hero";
-import UpDownCounter from './upDownCounter';
 
 export default class EcommercePage extends React.Component {
 
     state = {
         num1:6,
         num2:7,
-        num3:2,
+        num3:2, 
     };
-
-
-
     render() {
         return (
             <div>
-                <Nav id="purpleNav" />
+                <Nav id="purpleNav" />  
 
                 <div className="row">
                     <div className="col-md-6">
