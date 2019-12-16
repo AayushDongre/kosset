@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Nav } from "./Hero";
 import UpDownCounter from './upDownCounter';
 
-export default class EccomercePage extends React.Component {
+export default class EcommercePage extends React.Component {
 
     state = {
         num1:6,
