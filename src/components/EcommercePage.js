@@ -9,11 +9,6 @@ export default class EcommercePage extends React.Component {
         num2:7,
         num3:2, 
     };
-<<<<<<< HEAD
-
-
-=======
->>>>>>> c662018829ddc98fe9b25f6df5547e333d6fcb68
     render() {
         return (
             <div>
