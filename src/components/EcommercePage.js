@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Nav } from "./Hero";
-import UpDownCounter from './upDownCounter';
 
 export default class EccomercePage extends React.Component {
 
@@ -10,7 +9,6 @@ export default class EccomercePage extends React.Component {
         num2:7,
         num3:2,
     };
-
 
 
     render() {

@@ -7,7 +7,7 @@ export const addTrialBox = () => ({
     }
 })
 
-export const addKossetBox = ({ HFOP=6, LMFP=7, PLSD=2 }) => ({
+export const addKossetBox = ({ HFOP=6, LMFP=7, PLSD=2, quantity=1 }) => ({
     type:"ADD_KOSSETBOX",
     product:{
         id: uuid() + "KB",
