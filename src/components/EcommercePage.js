@@ -2,19 +2,22 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Nav } from "./Hero";
 
-export default class EccomercePage extends React.Component {
+export default class EcommercePage extends React.Component {
 
     state = {
         num1:6,
         num2:7,
-        num3:2,
+        num3:2, 
     };
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> c662018829ddc98fe9b25f6df5547e333d6fcb68
     render() {
         return (
             <div>
-                <Nav id="purpleNav" />
+                <Nav id="purpleNav" />  
 
                 <div className="row">
                     <div className="col-md-6">
