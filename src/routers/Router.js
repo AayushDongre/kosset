@@ -5,6 +5,7 @@ import FAQPage from "../components/FAQPage";
 import EcommercePage from "../components/EcommercePage";
 import SignInModal from '../components/SignInModal';
 import Cart from '../components/Cart';
+import Summary from '../components/Summary';
 
 const Router = () => (
     <BrowserRouter>
@@ -14,6 +15,7 @@ const Router = () => (
             <Route path="/products" component={EcommercePage} />  
             <Route path="/cart" component={Cart} />  
             <Route path="/test" component={SignInModal} />  
+            <Route path="/summary" component={Summary} />
         </Switch>
     </BrowserRouter>
 )

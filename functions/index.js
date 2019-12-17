@@ -90,5 +90,31 @@ app.post("/addOrder", (req, res) => {
         res.send(err);
     }
 })
+app.post("/updateUser", (req,res)=>{
+    try {
+        let users = db.collection("users");
+        const uid = req.query.uid
+        const currentUser = {
+            "name": req.query.name ? req.query.name:null,
+            "email": req.query.email?req.query.email:null,
+            "phone": req.query.phone ? req.query.phone :null,
+            "days": req.query.days ? req.query.days : null,
+            "last_date": req.query.last_date ? req.query.last_date : null,
+            "address": req.query.address ? req.query.address : null
+        }
+        let updates = Object.assign({}, req.query)
 
+        users.doc(uid).update(updates)
+        .then(() => {
+            res.status(200)
+            res.send("success")
+        })
+        .catch((err)=>{
+            res.send(err)
+        })
+
+    } catch (err) {
+        res.send(err);
+    }
+})
 exports.api = functions.https.onRequest(app);

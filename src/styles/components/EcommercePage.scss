@@ -1,8 +1,167 @@
 #purpleNav {
-  background: black !important;
+  background: #96B3D1 !important;
   position: fixed;
   left: 0;
   padding: 0 15rem !important;
   padding-top: 0;
   background-clip: content-box, padding-box;
+}
+
+.ecommercePage h1 {
+  height: 30px;
+  color: $cartPink;
+  font-family: $source;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 42px;
+  line-height: 53px;
+}
+
+.ecommercePage .sub-heading {
+  height: 30px;
+  font-family: $source;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 30px;
+  letter-spacing: 0.02em;
+  color: #7A7A7A;
+  padding: 1em 0;
+}
+
+.ecommercePage .free {
+  height: 23px;
+  font-family: $source;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 23px;
+  letter-spacing: 0.05em;
+  color: #FFA7BF;
+}
+
+.ecommercePage .choose {
+  height: 46px;
+  font-family: $source;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 23px;
+  letter-spacing: 0.02em;
+  color: #979797;
+}
+
+.ecommercePage .contents {
+  height: 30px;
+  font-family: $source;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 30px;
+  letter-spacing: 0.02em;
+  color: #7A7A7A;
+}
+
+.content-rows {
+  height: 157px;
+}
+
+.content-row-text {
+  font-family: $source;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 60px;
+  letter-spacing: 0.02em;
+  color: #000000;
+}
+
+.buyButton {
+  width: 187px;
+  height: 51px;
+  background: #FFFFFF;
+  border: 3px solid $cartPink;
+  box-sizing: border-box;
+
+  font-family: $source;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 28px;
+  color: $cartPink;
+}
+
+.addToCartButton {
+  width: 187px;
+  height: 51px;
+  background: #96B3D1;
+
+  font-family: $source;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 28px;
+  color: #FFFFFF;
+
+}
+
+.buyButton:hover {
+  color: $cartPink;
+}
+
+.addToCartButton:hover {
+  color: #FFFFFF;
+}
+
+.button1 {
+  background: #96B3D1;
+}
+
+.button1-mid {
+  border: 1px solid #96B3D1;
+  box-sizing: border-box;
+}
+
+.button2 {
+  background: $cartPink;
+}
+
+.button2-mid {
+  border: 1px solid $cartPink;
+  box-sizing: border-box;
+}
+
+.button3 {
+  background: #7A7A7A;
+}
+
+.button3-mid {
+  border: 1px solid #7A7A7A;
+  box-sizing: border-box;
+}
+
+.button1 span,
+.button2 span,
+.button3 span {
+  color: white;
+}
+
+.buttons-row .col-md-4 {
+  position: relative;
+}
+
+.buttons-row span {
+  position: absolute;
+  left: 0;
+  margin-left: 20px;
+}
+
+.total-15 {
+  font-family: $source;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 60px;
+  letter-spacing: 0.02em;
+  color: #7A7A7A;
 }
