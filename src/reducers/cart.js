@@ -1,15 +1,29 @@
 const cartReducerDefaultState = {
     authenticated: false,
-    cart: []
+    cart: [],
+    total: 0
 }
 
 export default (state = cartReducerDefaultState, action) => {
+    console.log(action.total)
     switch (action.type) {
         case "ADD_TRIALBOX":
-            return {
-                authenticated: state.authenticated,
-                cart: [...state.cart, action.product]
-            };
+            var found = false;
+            for (var i = 0; i < state.cart.length; i++) {
+                if (!!state.cart[i].id && state.cart[i].id.slice(-2) == 'TB') {
+                    found = true;
+                    break;
+                }
+            }
+            if (found)
+                return state
+            else
+                return {
+                    authenticated: state.authenticated,
+                    cart: [...state.cart, action.product],
+                    total: state.total + action.total
+                };
+
 
         case "ADD_KOSSETBOX":
             var found = false;
@@ -24,35 +38,54 @@ export default (state = cartReducerDefaultState, action) => {
             else
                 return {
                     authenticated: state.authenticated,
-                    cart: [...state.cart, action.product]
+                    cart: [...state.cart, action.product],
+                    total: state.total + action.total
                 };
 
-        case "UPDATE_QUANTITY":
-                return {
-                    authenticated:state.authenticated,
-                    cart: state.cart.map((item) => {
-                        if (item.id.slice(-2) == "KB") {
-                            return {
-                                ...item,
-                                quantity: action.quantity
-                            }
+        case "UPDATE_QUANTITY_KOSSET":
+            return {
+                authenticated: state.authenticated,
+                cart: state.cart.map((item) => {
+                    if (item.id.slice(-2) == "KB") {
+                        return {
+                            ...item,
+                            quantity: action.quantity
                         }
-                        else if (item.id.slice(-2) == "TB") {
-                            return item
+                    }
+                    else
+                        return item
+                }),
+                total: state.total + action.total
+            }
+        case "UPDATE_QUANTITY_TRIAL":
+            return {
+                authenticated: state.authenticated,
+                cart: state.cart.map((item) => {
+                    if (item.id.slice(-2) == "TB") {
+                        return {
+                            ...item,
+                            quantity: action.quantity
                         }
-                    })
-                }
+                    }
+                    else 
+                        return item
+                }),
+                total: state.total + action.total
+            }
+
 
         case "AUTHENTICATE":
             return {
                 authenticated: true,
-                cart: state.cart
+                cart: state.cart,
+                total: state.total
             }
 
         case "UNAUTHENTICATE":
             return {
                 authenticated: false,
-                cart: state.cart
+                cart: state.cart,
+                total: state.total
             }
         case "REMOVE_PRODUCT":
             return state.filter((cart) => {

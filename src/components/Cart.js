@@ -5,10 +5,10 @@ import { authenticate, unauthenticate } from '../actions/cart';
 import KossetBoxCart from './KossetBoxCart';
 import TrialBoxCart from './TrialBoxCart'
 import Footer from './Footer'
+import CartCheckoutSection from './CartCheckoutSection';
 
 
 class Cart extends React.Component {
-
 
     render() {
         return (
@@ -19,18 +19,21 @@ class Cart extends React.Component {
                     <hr></hr>
                     {(this.props.products.length == 0) &&
                         <div>
-                            <p>Your cart is empty!</p>    
+                            <p>Your cart is empty!</p>
                         </div>
                     }
                     {
                         this.props.products.map((item) => {
                             if (item.id.slice(-2) == "KB") {
-                                return <KossetBoxCart />
+                                return <KossetBoxCart HFOP={item.HFOP} LMFP={item.LMFP} PLSD={item.PLSD} key={item.id} />
                             }
                             else if (item.id.slice(-2) == "TB") {
-                                return <TrialBoxCart />
+                                return <TrialBoxCart key={item.id} />
                             }
                         })
+                    }
+                    {
+                        this.props.total > 0 && <CartCheckoutSection />
                     }
 
                 </div>
@@ -47,7 +50,8 @@ class Cart extends React.Component {
 const mapStateToProps = (state) => {
     return {
         products: state.cart,
-        authenticated: state.authenticated
+        authenticated: state.authenticated,
+        total: state.total
     }
 }
 const mapDispatchToProps = (dispatch) => {

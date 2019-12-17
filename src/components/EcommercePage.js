@@ -15,13 +15,10 @@ class EcommercePage extends React.Component {
     KossetBoxCart = () => {
         if (this.state.num1 + this.state.num2 + this.state.num3 == 15){
             this.props.addKossetBox(this.state.num1, this.state.num2, this.state.num3)
-            this.props.history.push("/cart")
         }
     }
     TrialBoxCart = () => {
         this.props.addTrialBox()
-        this.props.history.push("/cart")
-
     }
 
     render() {

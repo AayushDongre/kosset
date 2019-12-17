@@ -4,12 +4,18 @@ import Router from "./routers/Router";
 import { Provider } from 'react-redux';
 import cartStore from './store/configureStore';
 import "normalize.css/normalize.css";
-import 'jquery';
+import $ from 'jquery';
 import 'popper.js'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap';
 import "./styles/styles.scss";
 import 'animate.css'
+import { authenticate, unauthenticate } from './actions/cart';
+
+import * as app from 'firebase'
+const firebaseConfig = require("./firebase.config.json")
+app.initializeApp(firebaseConfig)
+
 
 
 const store = cartStore();
@@ -34,5 +40,15 @@ window.onscroll = function () {
     }
 };
 
+app.auth().onAuthStateChanged(function (user) {
+    if (user) {
+        var email = user.email;
+        var emailVerified = user.emailVerified;
+        store.dispatch(authenticate())
+        console.log("yeee")
 
-
+    } else {
+        store.dispatch(unauthenticate())
+        console.log("peepoopoo")
+    }
+});

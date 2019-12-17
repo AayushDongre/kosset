@@ -9,6 +9,7 @@ admin.initializeApp(functions.config().firebase);
 let db = admin.firestore();
 
 exports.createUser = functions.https.onRequest(async (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
     try {
         let users = db.collection('users');
         const currentUser = {
@@ -18,7 +19,7 @@ exports.createUser = functions.https.onRequest(async (req, res) => {
             "phone": req.query.phone,
             "days": req.query.days,
             "last_date": req.query.last_date,
-            "address": ""
+            "address": req.query.address ? req.query.address : ""
         }
         users.doc(req.query.uid).set(currentUser).then((val) => {
             res.status(200);
