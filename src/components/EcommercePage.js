@@ -20,7 +20,16 @@ class EcommercePage extends React.Component {
     TrialBoxCart = () => {
         this.props.addTrialBox()
     }
-
+    KossetBoxCartBuy = () => {
+        if (this.state.num1 + this.state.num2 + this.state.num3 == 15){
+            this.props.addKossetBox(this.state.num1, this.state.num2, this.state.num3)
+            this.props.history.push("/cart")
+        }
+    }
+    TrialBoxCartBuy = () => {
+        this.props.addTrialBox()
+        this.props.history.push("/cart")
+    }
     render() {
         return (
             <div>
@@ -110,7 +119,7 @@ class EcommercePage extends React.Component {
 
 
                         <div className="row">
-                            <button> Buy Now</button>
+                            <button onClick={this.KossetBoxCartBuy}> Buy Now</button>
                             <button onClick={this.KossetBoxCart}> ADD TO CART</button>
                             <span>Total:{this.state.num1 + this.state.num2 + this.state.num3}/15</span>
                         </div>
@@ -132,7 +141,7 @@ class EcommercePage extends React.Component {
                         </div>
 
                         <div className="row">
-                            <button> Buy Now</button>
+                            <button onClick={this.TrialBoxCartBuy}> Buy Now</button>
                             <button onClick={this.TrialBoxCart}> ADD TO CART</button>
                             <span>Total:11/15</span>
                         </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import $ from 'jquery';
 import { connect } from 'react-redux';
 import SignInModal from './SignInModal';
+import { applyDiscount } from '../actions/cart'
 
 class CartCheckoutSection extends React.Component {
 
@@ -10,8 +11,16 @@ class CartCheckoutSection extends React.Component {
         if(!this.props.authenticated){
            $("#signInModal").modal("toggle")
         }
+        else{
+            this.props.history.push("/summary")
+        }
     }
-
+    applyCoupon = (e)=>{
+        const coupon = document.getElementById("couponInput").value
+        if(coupon=="nigger"){
+            this.props.dispatch(applyDiscount(this.props.total*0.3))
+        }
+    }
 
     render() {
         return (
@@ -41,7 +50,7 @@ class CartCheckoutSection extends React.Component {
                             DISCOUNT
                         </div>
                         <div className="col-sm-3">
-                            0
+                            -{this.props.discount}
                         </div>
                     </div>
                     <div className="row">
@@ -49,20 +58,20 @@ class CartCheckoutSection extends React.Component {
                             TOTAL
                         </div>
                         <div className="col-sm-3">
-                            {this.props.total + 50}
+                            {this.props.total + 50 - this.props.discount}
                         </div>
                     </div>
                 </div>
                 <div className="col-md-4">
                     <p>Have a coupon code?</p>
                     <p> COUPON CODE</p>
-                    <input></input>
-                    <button>APPLY</button>
+                    <input name="coupon" id="couponInput"></input>
+                    <button onClick={this.applyCoupon}>APPLY</button>
                 </div>
                 <button type="button" className="btn btn-primary" onClick={this.checkOutClick}>
                 CHECKOUT
                 </button>
-                < SignInModal />
+                < SignInModal history={this.props.history}/>
             </div>
         )
     }
@@ -71,7 +80,8 @@ class CartCheckoutSection extends React.Component {
 const mapStateToProps = (state) => {
     return {
         authenticated:state.authenticated,
-        total: state.total
+        total: state.total,
+        discount:state.discount
     }
 }
 

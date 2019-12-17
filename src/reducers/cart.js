@@ -1,11 +1,11 @@
 const cartReducerDefaultState = {
     authenticated: false,
     cart: [],
-    total: 0
+    total: 0,
+    discount: 0
 }
 
 export default (state = cartReducerDefaultState, action) => {
-    console.log(action.total)
     switch (action.type) {
         case "ADD_TRIALBOX":
             var found = false;
@@ -21,7 +21,8 @@ export default (state = cartReducerDefaultState, action) => {
                 return {
                     authenticated: state.authenticated,
                     cart: [...state.cart, action.product],
-                    total: state.total + action.total
+                    total: state.total + action.total,
+                    discount: state.discount
                 };
 
 
@@ -39,7 +40,8 @@ export default (state = cartReducerDefaultState, action) => {
                 return {
                     authenticated: state.authenticated,
                     cart: [...state.cart, action.product],
-                    total: state.total + action.total
+                    total: state.total + action.total,
+                    discount: state.discount
                 };
 
         case "UPDATE_QUANTITY_KOSSET":
@@ -55,7 +57,8 @@ export default (state = cartReducerDefaultState, action) => {
                     else
                         return item
                 }),
-                total: state.total + action.total
+                total: state.total + action.total,
+                discount: state.discount
             }
         case "UPDATE_QUANTITY_TRIAL":
             return {
@@ -67,10 +70,11 @@ export default (state = cartReducerDefaultState, action) => {
                             quantity: action.quantity
                         }
                     }
-                    else 
+                    else
                         return item
                 }),
-                total: state.total + action.total
+                total: state.total + action.total,
+                discount: state.discount
             }
 
 
@@ -78,19 +82,37 @@ export default (state = cartReducerDefaultState, action) => {
             return {
                 authenticated: true,
                 cart: state.cart,
-                total: state.total
+                total: state.total,
+                discount: state.discount
             }
 
         case "UNAUTHENTICATE":
             return {
                 authenticated: false,
                 cart: state.cart,
-                total: state.total
+                total: state.total,
+                discount: state.discount
             }
         case "REMOVE_PRODUCT":
-            return state.filter((cart) => {
-                return action.id !== expense.id
-            })
+            let subtract = 0;
+            for (var i = 0; i < state.products.length; i++) {
+                if (state.products[i].id == action.id) {
+                    subtract = state.products[i].quantity == 1 ? 250 : state.products[i].quantity == 2 ? 400 : 1000
+                }
+            }
+            return {
+                ...state,
+                products: state.products.filter((expense) => {
+                    return action.id !== expense.id
+                }),
+                total: state.total - subtract
+            }
+
+        case "APPLY_DISCOUNT":
+            return {
+                ...state,
+                discount:action.discount
+            }
 
         default:
             return state;

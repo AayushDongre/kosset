@@ -3,6 +3,7 @@ import * as app from 'firebase'
 import $ from 'jquery';
 import { connect } from 'react-redux';
 import { authenticate, unauthenticate } from '../actions/cart';
+import { Redirect } from 'react-router-dom'
 
 
 
@@ -13,39 +14,55 @@ class SignInModal extends React.Component {
 
     signUp(e) {
         e.preventDefault();
-        console.log(e.target.email.value)
         const email = e.target.email.value
         const password = e.target.pass.value
         const name = e.target.name.value
         const phone = e.target.phone.value
         const Cpassword = e.target.Cpass.value
+        const address = e.target.address.value
+
         let uid = "";
-        const url = "https://us-central1-kosset-69420.cloudfunctions.net/createUser"
+        const url = "https://us-central1-kosset-69420.cloudfunctions.net/api/createUser?"
 
         if (Cpassword == password) {
             app.auth().createUserWithEmailAndPassword(email, password)
                 .then((userObject) => {
                     uid = userObject.user.uid;
                     $('#signInModal').modal('toggle')
+
                     fetch(url + $.param({
                         uid,
                         name,
                         email,
-                        phone
-                    })).catch((err)=>{
-                        console.log(err)
-                    })
+                        phone,
+                        address
+                    }), { method: "post" })
+                        .then((value) => {
+                            $('#signInModal').modal('toggle')
+
+                        })
+                        .catch((err) => {
+                            console.log(err)
+                        })
                 })
                 .catch((err) => {
                     console.log(err)
                 })
         }
-      
+
 
     }
     submit(e) {
         e.preventDefault()
-        console.log("wooot")
+        const email = e.target.email.value
+        const password = e.target.pass.value
+        app.auth().signInWithEmailAndPassword(email, password)
+            .then((value) => {
+                $('#signInModal').modal('toggle')
+            })
+            .catch((err) => {
+                console.log(err)
+            })
     }
 
     signout(e) {
@@ -59,8 +76,6 @@ class SignInModal extends React.Component {
 
     render() {
         $("#signInModal").on("hidden.bs.modal", (e) => { this.setState(() => ({ login: true })) })
-
-
         return (
             <div>
                 <button onClick={this.signout}>sign out</button>
@@ -112,6 +127,10 @@ class SignInModal extends React.Component {
                                         <div className="form-group">
                                             <label htmlFor="phone">Phone Number</label>
                                             <input name="phone" type="number" className="form-control" id="exampladseInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"></input>
+                                        </div>
+                                        <div className="form-group">
+                                            <label htmlFor="address">Address</label>
+                                            <input name="address" type="text" className="form-control" id="examasdpladseInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"></input>
                                         </div>
                                         <div className="form-group">
                                             <label htmlFor="exampleInputPassword1">Password</label>

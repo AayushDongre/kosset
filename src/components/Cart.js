@@ -25,15 +25,15 @@ class Cart extends React.Component {
                     {
                         this.props.products.map((item) => {
                             if (item.id.slice(-2) == "KB") {
-                                return <KossetBoxCart HFOP={item.HFOP} LMFP={item.LMFP} PLSD={item.PLSD} key={item.id} />
+                                return <KossetBoxCart id={item.id} HFOP={item.HFOP} LMFP={item.LMFP} PLSD={item.PLSD} key={item.id} />
                             }
                             else if (item.id.slice(-2) == "TB") {
-                                return <TrialBoxCart key={item.id} />
+                                return <TrialBoxCart id={item.id} key={item.id} />
                             }
                         })
                     }
                     {
-                        this.props.total > 0 && <CartCheckoutSection />
+                        this.props.total > 0 && <CartCheckoutSection history={this.props.history}/>
                     }
 
                 </div>

@@ -45,3 +45,8 @@ export const removeProduct = ({ id } = {}) => ({
     type: "REMOVE_PRODUCT",
     id
 })
+
+export const applyDiscount = (discount = 0) => ({
+    type:"APPLY_DISCOUNT",
+    discount
+})

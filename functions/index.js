@@ -1,15 +1,17 @@
 /* eslint-disable promise/always-return */
 const admin = require('firebase-admin');
 const functions = require('firebase-functions');
-
+const express = require('express');
+const cors = require('cors');
+const app = express();
+app.use(cors({ origin: true }));
 // // Create and Deploy Your First Cloud Functions
 // // https://firebase.google.com/docs/functions/write-firebase-functions
 //
 admin.initializeApp(functions.config().firebase);
 let db = admin.firestore();
 
-exports.createUser = functions.https.onRequest(async (req, res) => {
-    res.set('Access-Control-Allow-Origin', '*');
+app.post('/createUser', (req, res) => {
     try {
         let users = db.collection('users');
         const currentUser = {
@@ -17,8 +19,8 @@ exports.createUser = functions.https.onRequest(async (req, res) => {
             "name": req.query.name,
             "email": req.query.email,
             "phone": req.query.phone,
-            "days": req.query.days,
-            "last_date": req.query.last_date,
+            "days": req.query.days ? req.query.days : "",
+            "last_date": req.query.last_date ? req.query.last_date : "",
             "address": req.query.address ? req.query.address : ""
         }
         users.doc(req.query.uid).set(currentUser).then((val) => {
@@ -31,8 +33,9 @@ exports.createUser = functions.https.onRequest(async (req, res) => {
         res.status(500);
         res.send(err);
     }
+
 });
-exports.fetchUser = functions.https.onRequest(async (req, res) => {
+app.get("/fetchUser", (req, res) => {
     try {
         let users = db.collection("users")
         const user = users.doc(req.query.uid).get().then((val) => {
@@ -53,7 +56,7 @@ exports.fetchUser = functions.https.onRequest(async (req, res) => {
     }
 })
 
-exports.deleteUser = functions.https.onRequest(async (req, res) => {
+app.post("/deleteUser", (req, res) => {
     try {
         let users = db.collection("users");
         users.doc(req.query.uid).delete().catch((err) => {
@@ -63,9 +66,9 @@ exports.deleteUser = functions.https.onRequest(async (req, res) => {
     } catch (err) {
         res.send(err);
     }
-
-});
-exports.addOrder = functions.https.onRequest(async (req, res) => {
+}
+)
+app.post("/addOrder", (req, res) => {
     try {
         let orders = db.collection("orders");
         let products = JSON.parse(req.query.products);
@@ -78,7 +81,7 @@ exports.addOrder = functions.https.onRequest(async (req, res) => {
             "phone": req.query.phone,
             "cost": req.query.cost
         }
-       orders.doc(req.query.address+req.query.timestamp).set(currentOrder).then(() => {
+        orders.doc(req.query.address + req.query.timestamp).set(currentOrder).then(() => {
             res.send("success");
         }).catch((err) => {
             res.send(err);
@@ -88,3 +91,4 @@ exports.addOrder = functions.https.onRequest(async (req, res) => {
     }
 })
 
+exports.api = functions.https.onRequest(app);
