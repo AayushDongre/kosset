@@ -7,21 +7,27 @@ import Footer from './Footer';
 class EcommercePage extends React.Component {
 
     state = {
-        num1:6,
-        num2:7,
-        num3:2, 
+        num1: 6,
+        num2: 7,
+        num3: 2,
     };
 
-    KossetBoxCart = () =>{
-        if(this.state.num1+this.state.num2+this.state.num3 == 15)
-            this.props.addKossetBox(this.state.num1,this.state.num2,this.state.num3)
+    KossetBoxCart = () => {
+        if (this.state.num1 + this.state.num2 + this.state.num3 == 15){
+            this.props.addKossetBox(this.state.num1, this.state.num2, this.state.num3)
+            this.props.history.push("/cart")
+        }
     }
+    TrialBoxCart = () => {
+        this.props.addTrialBox()
+        this.props.history.push("/cart")
 
+    }
 
     render() {
         return (
             <div>
-                <Nav id="purpleNav" />  
+                <Nav id="purpleNav" />
 
                 <div className="row">
                     <div className="col-md-6">
@@ -31,7 +37,7 @@ class EcommercePage extends React.Component {
                         <h1>KOSSET BOX</h1>
                         <p>15 Sanitary Pads with Individual Disposal Packets</p>
                         <p>FREE HERBAL CRAMPS RELIEF ROLL ON</p>
-                        <p>(You can choose to bu the Standard Box OR Choose between the 3 sizes to create your Custom Box of 15 pads</p>
+                        <p>(You can choose to bu the Standard Box OR Choose between the 3 sizes to create your Custom Box of 15 pads)</p>
                         <h2>Contents of Standard Kosset Box</h2>
 
 
@@ -42,15 +48,15 @@ class EcommercePage extends React.Component {
                             <div className="col-md-4">
                                 <div className="input-group">
                                     <span className="input-group-btn">
-                                        <button type="button" className="btn btn-default btn-number" onClick={() => { this.setState(() => ({ num1: (this.state.num1 > 0)?this.state.num1 - 1:this.state.num1 })) }}>
+                                        <button type="button" className="btn btn-default btn-number" onClick={() => { this.setState(() => ({ num1: (this.state.num1 > 0) ? this.state.num1 - 1 : this.state.num1 })) }}>
                                             <span className="glyphicon glyphicon-minus">-</span>
                                         </button>
                                     </span>
                                     <button type="button" className="btn btn-default btn-number" disabled="disabled">
                                         <span>{this.state.num1}</span>
-                                    </button>                                   
-                                     <span className="input-group-btn">
-                                        <button type="button" className="btn btn-default btn-number" onClick={() => { this.setState(() => ({ num1: (this.state.num1+this.state.num2+this.state.num3 < 15)? this.state.num1 + 1:this.state.num1 })) }}>
+                                    </button>
+                                    <span className="input-group-btn">
+                                        <button type="button" className="btn btn-default btn-number" onClick={() => { this.setState(() => ({ num1: (this.state.num1 + this.state.num2 + this.state.num3 < 15) ? this.state.num1 + 1 : this.state.num1 })) }}>
                                             <span className="glyphicon glyphicon-plus">+</span>
                                         </button>
                                     </span>
@@ -61,19 +67,19 @@ class EcommercePage extends React.Component {
 
                         <div className="row">
                             <div className="col-md-8">
-                            Light and Medium Flow Pad(M)
+                                Light and Medium Flow Pad(M)
                             </div>
                             <div className="col-md-4">
                                 <div className="input-group">
                                     <span className="input-group-btn">
-                                        <button type="button" className="btn btn-default btn-number"  onClick={() => { this.setState(() => ({ num2: (this.state.num2 > 0)?this.state.num2 - 1:this.state.num2 })) }}>
+                                        <button type="button" className="btn btn-default btn-number" onClick={() => { this.setState(() => ({ num2: (this.state.num2 > 0) ? this.state.num2 - 1 : this.state.num2 })) }}>
                                             <span className="glyphicon glyphicon-minus">-</span>
                                         </button>
                                     </span>
                                     <button type="button" className="btn btn-default btn-number" disabled="disabled">
                                         <span>{this.state.num2}</span>
                                     </button>                                    <span className="input-group-btn">
-                                        <button type="button" className="btn btn-default btn-number" onClick={() => { this.setState(() => ({ num2: (this.state.num1+this.state.num2+this.state.num3 < 15)? this.state.num2 + 1:this.state.num2 })) }}>
+                                        <button type="button" className="btn btn-default btn-number" onClick={() => { this.setState(() => ({ num2: (this.state.num1 + this.state.num2 + this.state.num3 < 15) ? this.state.num2 + 1 : this.state.num2 })) }}>
                                             <span className="glyphicon glyphicon-plus">+</span>
                                         </button>
                                     </span>
@@ -84,20 +90,20 @@ class EcommercePage extends React.Component {
 
                         <div className="row">
                             <div className="col-md-8">
-                            Panty Liners for  spotting and discharge
+                                Panty Liners for  spotting and discharge
                             </div>
                             <div className="col-md-4">
                                 <div className="input-group">
                                     <span className="input-group-btn">
-                                        <button type="button" className="btn btn-default btn-number"   onClick={() => { this.setState(() => ({ num3: (this.state.num3 > 0)?this.state.num3 - 1:this.state.num3 })) }}>
+                                        <button type="button" className="btn btn-default btn-number" onClick={() => { this.setState(() => ({ num3: (this.state.num3 > 0) ? this.state.num3 - 1 : this.state.num3 })) }}>
                                             <span className="glyphicon glyphicon-minus">-</span>
                                         </button>
                                     </span>
                                     <button type="button" className="btn btn-default btn-number" disabled="disabled">
                                         <span>{this.state.num3}</span>
-                                    </button>                                    
+                                    </button>
                                     <span className="input-group-btn">
-                                        <button type="button" className="btn btn-default btn-number" onClick={() => { this.setState(() => ({ num3: (this.state.num1+this.state.num2+this.state.num3 < 15)? this.state.num3 + 1:this.state.num3 })) }}>
+                                        <button type="button" className="btn btn-default btn-number" onClick={() => { this.setState(() => ({ num3: (this.state.num1 + this.state.num2 + this.state.num3 < 15) ? this.state.num3 + 1 : this.state.num3 })) }}>
                                             <span className="glyphicon glyphicon-plus">+</span>
                                         </button>
                                     </span>
@@ -109,7 +115,7 @@ class EcommercePage extends React.Component {
                         <div className="row">
                             <button> Buy Now</button>
                             <button onClick={this.KossetBoxCart}> ADD TO CART</button>
-                            <span>Total:{this.state.num1+this.state.num2+this.state.num3}/15</span>
+                            <span>Total:{this.state.num1 + this.state.num2 + this.state.num3}/15</span>
                         </div>
                     </div>
                 </div>
@@ -130,7 +136,7 @@ class EcommercePage extends React.Component {
 
                         <div className="row">
                             <button> Buy Now</button>
-                            <button> ADD TO CART</button>
+                            <button onClick={this.TrialBoxCart}> ADD TO CART</button>
                             <span>Total:11/15</span>
                         </div>
                     </div>
@@ -143,16 +149,16 @@ class EcommercePage extends React.Component {
 
 }
 
-const mapStateToProps = (state)=>{
-    return{
+const mapStateToProps = (state) => {
+    return {
         products: state,
     }
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        addTrialBox:() => {dispatch(addTrialBox())},
-        addKossetBox:(HFOP, LMFP, PLSD) => {dispatch(addKossetBox(HFOP, LMFP, PLSD))}
+        addTrialBox: () => { dispatch(addTrialBox()) },
+        addKossetBox: (HFOP, LMFP, PLSD) => { dispatch(addKossetBox(HFOP, LMFP, PLSD)) }
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(EcommercePage);
+export default connect(mapStateToProps, mapDispatchToProps)(EcommercePage);

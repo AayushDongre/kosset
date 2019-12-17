@@ -15,7 +15,6 @@ exports.createUser = functions.https.onRequest(async (req, res) => {
             "uid": req.query.uid,
             "name": req.query.name,
             "email": req.query.email,
-            "password": req.query.password,
             "phone": req.query.phone,
             "days": req.query.days,
             "last_date": req.query.last_date,

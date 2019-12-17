@@ -35,6 +35,7 @@
     "express": "^4.17.1",
     "express-fileupload": "^1.1.6-alpha.5",
     "express-static-gzip": "^2.0.5",
+    "firebase": "^7.6.0",
     "jquery": "^3.4.1",
     "node-sass": "^4.12.0",
     "normalize.css": "^8.0.1",

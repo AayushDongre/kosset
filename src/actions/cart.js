@@ -18,6 +18,18 @@ export const addKossetBox = ( HFOP=6, LMFP=7, PLSD=2, quantity=1 ) => ({
     },
 
 })
+export const updateKossetBoxQuantity = (quantity) => ({
+    type:"UPDATE_QUANTITY",
+    quantity
+})
+
+export const authenticate = () => ({
+    type:"AUTHENTICATE"
+})
+
+export const unauthenticate = () => ({
+    type:"UNAUTHENTICATE"
+})
 
 export const removeProduct = ({ id } = {}) => ({
     type:"REMOVE_PRODUCT",

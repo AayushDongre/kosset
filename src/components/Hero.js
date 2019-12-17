@@ -1,12 +1,12 @@
 import React from "react";
-
+import { Link } from 'react-router-dom';
 
 export const Nav = (props) => {
 
     return (
         <div className={(!(props.id) &&'container')  + ` px-md-0 px-4 fixed-top`} id={props.id}>
             <nav className="navbar navbar-expand-lg px-0 pb-0">
-                <a className="navbar-brand mt-1" href="#">Kosset</a>
+                <Link className="navbar-brand mt-1" to="/">Kosset</Link>
                 <button className="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="icon-bar top-bar"></span>
                     <span className="icon-bar middle-bar"></span>
@@ -21,8 +21,8 @@ export const Nav = (props) => {
                         <a className="nav-item nav-link d-md-none" href="#">Account</a>
                         <a className="nav-item nav-link d-md-none" href="#">Cart</a>
                         <a className="nav-item nav-link d-none d-md-inline-block" href="#"> <img src="/static/img/accounticon.svg" ></img></a>
-                        <a className="nav-item nav-link d-none d-md-inline-block" href="#"> <img src="/static/img/carticon.svg" ></img></a>
-                        <a className="nav-item nav-link nav-btn px-lg-4 ml-xl-2 mx-5 mx-sm-0" href="#">Buy Now</a>
+                        <Link className="nav-item nav-link d-none d-md-inline-block" to="/cart"> <img src="/static/img/carticon.svg" ></img></Link>
+                        <Link className="nav-item nav-link nav-btn px-lg-4 ml-xl-2 mx-5 mx-sm-0" to="/products">Buy Now</Link>
                     </div>
                 </div>
             </nav>
