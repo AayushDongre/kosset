@@ -12,30 +12,36 @@ class Cart extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="cart">
                 <Nav id="purpleNav" />
-                <div className="container">
-                    <h1>Cart</h1>
-                    <hr></hr>
-                    {(this.props.products.length == 0) &&
-                        <div>
-                            <p>Your cart is empty!</p>
+                <div className="row my-4 pt-5">
+                    <div className="container">
+                        <div className="row mb-4 cartHeadingRow">
+                            <div className="col-12">
+                                <h1>Cart</h1>
+                            </div>
                         </div>
-                    }
-                    {
-                        this.props.products.map((item) => {
-                            if (item.id.slice(-2) == "KB") {
-                                return <KossetBoxCart id={item.id} HFOP={item.HFOP} LMFP={item.LMFP} PLSD={item.PLSD} key={item.id} />
-                            }
-                            else if (item.id.slice(-2) == "TB") {
-                                return <TrialBoxCart id={item.id} key={item.id} />
-                            }
-                        })
-                    }
-                    {
-                        this.props.total > 0 && <CartCheckoutSection history={this.props.history}/>
-                    }
 
+                        {(this.props.products.length == 0) &&
+                            <div>
+                                <p>Your cart is empty!</p>
+                            </div>
+                        }
+                        {
+                            this.props.products.map((item) => {
+                                if (item.id.slice(-2) == "KB") {
+                                    return <KossetBoxCart id={item.id} HFOP={item.HFOP} LMFP={item.LMFP} PLSD={item.PLSD} key={item.id} />
+                                }
+                                else if (item.id.slice(-2) == "TB") {
+                                    return <TrialBoxCart id={item.id} key={item.id} />
+                                }
+                            })
+                        }
+                        {
+                            this.props.total > 0 && <CartCheckoutSection history={this.props.history} />
+                        }
+
+                    </div>
                 </div>
                 <Footer />
             </div>

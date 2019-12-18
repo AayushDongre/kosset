@@ -1,0 +1,60 @@
+.orderSummary {
+    width: 372px;
+    height: 291px;
+    background: #DBE6EB;
+    font-family: $source;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 45px;
+    color: rgba(122, 122, 122, 0.8);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.checkout-rows {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+}
+
+.checkout-row {
+    font-family: $source;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 28px;
+    color: #6A6A6A;
+    margin-bottom: 10px;
+}
+
+.checkout-total {
+    color: #FFA7BF;
+}
+
+.haveCoupon {
+    font-family: $source;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 28px;
+    color: #FFA7BF;
+}
+
+.couponCode {
+    font-family: $source;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 28px;
+    color: #6A6A6A;
+}
+
+.couponApply {
+    background: #7A7A7A;
+    color: #FFF;
+    width: 138px;
+    height: 49px;
+}

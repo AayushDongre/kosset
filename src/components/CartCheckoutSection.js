@@ -24,49 +24,55 @@ class CartCheckoutSection extends React.Component {
 
     render() {
         return (
-            <div className="row">
-                <div className="col-md-4">
+            <div className="row mt-3">
+                <div className="col-md-4 orderSummary">
                     ORDER SUMARY
                 </div>
-                <div className="col-md-4">
-                    <div className="row">
+                <div className="col-md-4 px-4 checkout-rows">
+                    <div className="row checkout-row">
                         <div className="col-sm-9">
                             SUBTOTAL
                         </div>
                         <div className="col-sm-3">
-                            {this.props.total}
+                        <span>&#8377;</span>
+                        {this.props.total}
                         </div>
                     </div>
-                    <div className="row">
+                    <div className="row checkout-row">
                         <div className="col-sm-9">
                             SHIPPING CHARGES
                         </div>
                         <div className="col-sm-3">
-                            50
+                        <span>&#8377;</span>
+                        50
                         </div>
                     </div>
-                    <div className="row">
+                    <div className="row checkout-row">
                         <div className="col-sm-9">
                             DISCOUNT
                         </div>
                         <div className="col-sm-3">
-                            -{this.props.discount}
+                            -                           
+                             <span>&#8377;</span>
+                            {this.props.discount}
                         </div>
                     </div>
-                    <div className="row">
+                    <div className="row checkout-row checkout-total">
                         <div className="col-sm-9">
-                            TOTAL
+                            TOTAL<br></br>
+                            <span>(inclusive of all taxes)</span>
                         </div>
                         <div className="col-sm-3">
-                            {this.props.total + 50 - this.props.discount}
+                        <span>&#8377;</span>
+                        {this.props.total + 50 - this.props.discount}
                         </div>
                     </div>
                 </div>
                 <div className="col-md-4">
-                    <p>Have a coupon code?</p>
-                    <p> COUPON CODE</p>
-                    <input name="coupon" id="couponInput"></input>
-                    <button onClick={this.applyCoupon}>APPLY</button>
+                    <p className="haveCoupon">Have a coupon code?</p>
+                    <p className="couponCode"> COUPON CODE</p>
+                    <input name="coupon" id="couponInput"></input><br></br>
+                    <button className="btn mt-3 couponApply" onClick={this.applyCoupon}>APPLY</button>
                 </div>
                 <button type="button" className="btn btn-primary" onClick={this.checkOutClick}>
                 CHECKOUT
