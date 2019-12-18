@@ -43,14 +43,14 @@ class EcommercePage extends React.Component {
                         <h1>KOSSET BOX</h1>
                         <p className="sub-heading">15 Sanitary Pads with Individual Disposal Packets</p>
                         <p className="free">FREE HERBAL CRAMPS RELIEF ROLL ON</p>
-                        <p className="choose">(You can choose to bu the Standard Box OR Choose between the 3 sizes to create your Custom Box of 15 pads)</p>
+                        <p className="choose">(You can choose to buy the Standard Box OR Choose between the 3 sizes to create your Custom Box of 15 pads)</p>
                         <h2 className="contents">Contents of Standard Kosset Box</h2>
 
                         <div className="content-rows">
                             <div className="row content-row">
                                 <div className="col-md-8 content-row-text">
                                     Heavy Flow and Overnight Pads(L)
-                                </div>
+                                </div>  
                                 <div className="col-md-4">
                                     <div className="input-group">
                                         <span className="input-group-btn">
@@ -121,8 +121,8 @@ class EcommercePage extends React.Component {
 
                         <div className="row buttons-row">
                             <div className="col-md-8 mt-4">
-                                <button onClick={this.KossetBoxCartBuy} className="buyButton btn mt-4 mr-4"> Buy Now</button>
-                                <button onClick={this.KossetBoxCart} className="addToCartButton btn mt-4"> ADD TO CART</button>
+                                <button onClick={this.KossetBoxCartBuy} className="buyButton btn mt-4 mr-4 px-xl-4"> Buy Now</button>
+                                <button onClick={this.KossetBoxCart} className="addToCartButton btn mt-4 px-xl-3"> ADD TO CART</button>
                             </div>
                             <div className="col-md-4 mt-4">
                                 <span className="mt-4 total-15">Total:{this.state.num1 + this.state.num2 + this.state.num3}/15</span>
@@ -146,7 +146,7 @@ class EcommercePage extends React.Component {
 
                         <div className="row mt-4">
                             <div className="col-md-8 mt-4">
-                                <button onClick={this.TrialBoxCartBuy} className="btn buyButton mr-4"> Buy Now</button>
+                                <button onClick={this.TrialBoxCartBuy} className="btn buyButton mr-4 px-xl-4"> Buy Now</button>
                                 <button onClick={this.TrialBoxCart} className="btn addToCartButton"> ADD TO CART</button>
                             </div>
                         </div>

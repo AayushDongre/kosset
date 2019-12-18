@@ -32,9 +32,13 @@ ReactDOM.render(jsx, document.getElementById("app"))
 // Navbar color change on scroll
 const nav = document.querySelector(".navbar");
 const navHeight = document.querySelector('.navbar').clientHeight;
+const landing = document.getElementById("purpleNav")
 window.onscroll = function () {
     if (document.body.scrollTop >= navHeight || document.documentElement.scrollTop >= navHeight) {
-        nav.classList.add("navbar-black");
+        if(!landing){
+            nav.classList.add("navbar-black");
+        }
+        
     } else {
         nav.classList.remove("navbar-black");
     }

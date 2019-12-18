@@ -77,9 +77,9 @@
   font-family: $source;
   font-style: normal;
   font-weight: 600;
-  font-size: 22px;
-  line-height: 28px;
+  font-size: 1rem;
   color: $cartPink;
+  letter-spacing: 0.02em;
 }
 
 .addToCartButton {
@@ -87,11 +87,14 @@
 
   font-family: $source;
   font-style: normal;
-  font-weight: 600;
-  font-size: 22px;
-  line-height: 28px;
+  font-weight: 400;
+  font-size: 1rem;
   color: #FFFFFF;
 
+}
+
+.btn{
+  border-radius: 0;
 }
 
 .buyButton:hover {
@@ -102,7 +105,11 @@
   color: #FFFFFF;
 }
 
-.button-
+.button1, .button1-mid, .button2,
+.button2-mid, .button3, 
+.button3-mid {
+  border-radius: 0 !important;
+}
 
 .button1 {
   background: #96B3D1;
