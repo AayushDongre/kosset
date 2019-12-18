@@ -12,10 +12,10 @@ class KossetBoxCart extends React.Component {
         return (
             <div className="row mt-5 kossetBoxCart">
                 <div className="row">
-                    <div className="col-md-3">
-                        <img src="./static/img/kossetBox-main.webp" className="img-fluid"></img>
+                    <div className="col-md-4">
+                        <img src="./static/img/kossetBox_cartimg.png" className="img-fluid px-0 "></img>
                     </div>
-                    <div className="col-md-9 px-5">
+                    <div className="col-md-8 px-5">
                         <h1>KOSSET BOX</h1>
                         <p className="free">FREE HERBAL PERIOD CRAMPS RELEIF ROLL ON</p>
 
