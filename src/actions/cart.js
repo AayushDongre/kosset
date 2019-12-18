@@ -41,7 +41,7 @@ export const unauthenticate = () => ({
     type: "UNAUTHENTICATE"
 })
 
-export const removeProduct = ({ id } = {}) => ({
+export const removeProduct = (id) => ({
     type: "REMOVE_PRODUCT",
     id
 })

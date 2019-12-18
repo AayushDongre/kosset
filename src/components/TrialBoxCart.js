@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { updateTrialBoxQuantity } from '../actions/cart';
+import { updateTrialBoxQuantity, removeProduct } from '../actions/cart';
 import $ from 'jquery';
 
 class TrialBoxCart extends React.Component {
@@ -16,7 +16,13 @@ class TrialBoxCart extends React.Component {
                     <img src="./static/img/trialBox_cartimg.webp" className="img-fluid px-0"></img>
                 </div>
                 <div className="col-md-9 px-5">
-                    <h1>KOSSET TRIAL BOX</h1>
+                    <h1>KOSSET TRIAL BOX
+                    <button type="button" onClick={() => {
+                            this.props.remove(this.props.ID)
+                        }} className="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </h1>
                     <p className="sub-heading">3 Sanitary Pads with Individual Disposal Packets</p>
 
                     <div className="content-rows">
@@ -49,7 +55,7 @@ class TrialBoxCart extends React.Component {
                         this.setState(() => ({ prevPrice: 30 }))
                         $(".qb4").addClass("borderedqb")
                         $(".qb5").removeClass("borderedqb")
-                    }} className="col-md-3 quantityBox qb4 borderedqb">
+                    }} className={this.props.prevPrice.quantity == 1 ? "col-md-3 quantityBox qb4 borderedqb" : "col-md-3 quantityBox qb4"}>
                         <h3>1 BOX</h3>
                         <p>
                             <span>&#8377;</span>
@@ -61,7 +67,7 @@ class TrialBoxCart extends React.Component {
                         this.setState(() => ({ prevPrice: 50 }))
                         $(".qb4").removeClass("borderedqb")
                         $(".qb5").addClass("borderedqb")
-                    }} className="col-md-3 quantityBox qb5">
+                    }} className={this.props.prevPrice.quantity == 2 ? "col-md-3 quantityBox qb5 borderedqb" : "col-md-3 quantityBox qb5"}>
                         <h3>2 BOXES</h3>
                         <p>
                             <span>&#8377;</span>
@@ -92,6 +98,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         updateQuantity: (quantity, prevQuantity) => { dispatch(updateTrialBoxQuantity(quantity, prevQuantity)) },
+        remove: (id) => { dispatch(removeProduct(id)) }
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(TrialBoxCart);

@@ -1,5 +1,5 @@
 import React from 'react';
-import { updateKossetBoxQuantity } from '../actions/cart';
+import { updateKossetBoxQuantity, removeProduct } from '../actions/cart';
 import { connect } from 'react-redux';
 import $ from 'jquery';
 
@@ -9,7 +9,6 @@ class KossetBoxCart extends React.Component {
     }
 
     render() {
-
         return (
             <div className="row mt-xl-4 kossetBoxCart">
                 <div className="row flex-grow-1 mx-1">
@@ -17,7 +16,13 @@ class KossetBoxCart extends React.Component {
                         <img src="./static/img/kossetBox_cartimg.png" className="img-fluid px-0 "></img>
                     </div>
                     <div className="col-md-8">
-                        <h1>KOSSET BOX</h1>
+                        <h1>KOSSET BOX
+                            <button type="button" onClick={() => {
+                                this.props.remove(this.props.ID)
+                            }} className="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </h1>
                         <p className="free pb-2">FREE HERBAL PERIOD CRAMPS RELEIF ROLL ON</p>
 
                         <div className="content-rows">
@@ -33,7 +38,7 @@ class KossetBoxCart extends React.Component {
                             <div className="row content-row-text">
                                 <div className="col-sm-11">
                                     <p>Light and Medium Flow Pad(M)</p>
-                                 </div>
+                                </div>
                                 <div className="col-sm-1">
                                     <span>{this.props.LMFP}</span>
                                 </div>
@@ -62,7 +67,7 @@ class KossetBoxCart extends React.Component {
                         $(".qb1").addClass("borderedqb")
                         $(".qb2").removeClass("borderedqb")
                         $(".qb3").removeClass("borderedqb")
-                    }} className="col-md-3 quantityBox qb1 borderedqb">
+                    }} className={this.props.prevPrice.quantity == 1 ? "col-md-3 quantityBox qb1 borderedqb" : "col-md-3 quantityBox qb1"}>
                         <h3>1 BOX</h3>
                         <p>
                             <span>&#8377;</span>
@@ -75,7 +80,7 @@ class KossetBoxCart extends React.Component {
                         $(".qb1").removeClass("borderedqb")
                         $(".qb2").addClass("borderedqb")
                         $(".qb3").removeClass("borderedqb")
-                    }} className="col-md-3 quantityBox qb2">
+                    }} className={this.props.prevPrice.quantity == 2 ? "col-md-3 quantityBox qb2 borderedqb" : "col-md-3 quantityBox qb2"}>
                         <h3>2 BOXES</h3>
                         <p>
                             <span>&#8377;</span>
@@ -92,7 +97,7 @@ class KossetBoxCart extends React.Component {
                         $(".qb1").removeClass("borderedqb")
                         $(".qb2").removeClass("borderedqb")
                         $(".qb3").addClass("borderedqb")
-                    }} className="col-md-3 quantityBox qb3">
+                    }} className={this.props.prevPrice.quantity == 6 ? "col-md-3 quantityBox qb3 borderedqb" : "col-md-3 quantityBox qb3"}>
                         <h3>6 BOXES</h3>
                         <p>
                             <span>&#8377;</span>
@@ -122,6 +127,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         updateQuantity: (quantity, prevPrice) => { dispatch(updateKossetBoxQuantity(quantity, prevPrice)) },
+        remove: (id) => { dispatch(removeProduct(id)) }
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(KossetBoxCart);

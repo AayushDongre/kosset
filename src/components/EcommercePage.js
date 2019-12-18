@@ -10,11 +10,14 @@ class EcommercePage extends React.Component {
         num1: 6,
         num2: 7,
         num3: 2,
+        error: ""
     };
 
     KossetBoxCart = () => {
         if (this.state.num1 + this.state.num2 + this.state.num3 == 15) {
             this.props.addKossetBox(this.state.num1, this.state.num2, this.state.num3)
+        } else {
+            this.setState(() => ({ error: "Total should be 15" }))
         }
     }
     TrialBoxCart = () => {
@@ -24,6 +27,8 @@ class EcommercePage extends React.Component {
         if (this.state.num1 + this.state.num2 + this.state.num3 == 15) {
             this.props.addKossetBox(this.state.num1, this.state.num2, this.state.num3)
             this.props.history.push("/cart")
+        } else {
+            this.setState(() => ({ error: "Total should be 15" }))
         }
     }
     TrialBoxCartBuy = () => {
@@ -50,7 +55,7 @@ class EcommercePage extends React.Component {
                             <div className="row content-row">
                                 <div className="col-md-8 content-row-text">
                                     <p>Heavy Flow and Overnight Pads(L)</p>
-                                </div>  
+                                </div>
                                 <div className="col-md-4">
                                     <div className="input-group">
                                         <span className="input-group-btn">
@@ -74,7 +79,7 @@ class EcommercePage extends React.Component {
                             <div className="row content-row">
                                 <div className="col-md-8 content-row-text">
                                     <p>Light and Medium Flow Pad(M)</p>
-                            </div>
+                                </div>
                                 <div className="col-md-4">
                                     <div className="input-group">
                                         <span className="input-group-btn">
@@ -97,8 +102,8 @@ class EcommercePage extends React.Component {
 
                             <div className="row content-row">
                                 <div className="col-md-8 content-row-text">
-                                        <p>Panty Liners for  spotting and discharge</p>
-                            </div>
+                                    <p>Panty Liners for  spotting and discharge</p>
+                                </div>
                                 <div className="col-md-4">
                                     <div className="input-group">
                                         <span className="input-group-btn">
@@ -126,6 +131,7 @@ class EcommercePage extends React.Component {
                             </div>
                             <div className="col-md-4 mt-4">
                                 <span className="mt-4 total-15">Total:{this.state.num1 + this.state.num2 + this.state.num3}/15</span>
+                                <span className="mt-5 total-15">{this.state.error}</span>
                             </div>
                         </div>
                     </div>

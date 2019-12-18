@@ -58,6 +58,7 @@ app.auth().onAuthStateChanged(function (user) {
 
 const saveToLocalStorage = (state) => {
     try {
+        state.discount = 0
         const stringState = JSON.stringify(state)
         localStorage.setItem('state', stringState)
     } catch(e){

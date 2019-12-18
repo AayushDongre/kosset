@@ -9,7 +9,11 @@ import { Redirect } from 'react-router-dom'
 
 class SignInModal extends React.Component {
 
-    signUp(e) {
+    state = {
+        error: ""
+    }
+
+    signUp = (e) => {
         e.preventDefault();
         const email = e.target.email.value
         const password = e.target.pass.value
@@ -20,46 +24,81 @@ class SignInModal extends React.Component {
 
         let uid = "";
         const url = "https://us-central1-kosset-69420.cloudfunctions.net/api/createUser?"
+        if (!!email && !!password && !!name && !!phone && !!address) {
 
-        if (Cpassword == password) {
-            app.auth().createUserWithEmailAndPassword(email, password)
-                .then((userObject) => {
-                    uid = userObject.user.uid;
-                    $('#signInModal').modal('toggle')
+            if (Cpassword == password) {
 
-                    fetch(url + $.param({
-                        uid,
-                        name,
-                        email,
-                        phone,
-                        address
-                    }), { method: "post" })
-                        .then((value) => {
-                            $('#signInModal').modal('toggle')
+                if (password.length <= 6) {
+                    this.setState(() => ({ error: "Please enter a longer password" }))
+                    return;
+                }
+                this.setState(() => ({ error: "" }))
 
-                        })
-                        .catch((err) => {
-                            console.log(err)
-                        })
-                })
-                .catch((err) => {
-                    console.log(err)
-                })
+                app.auth().createUserWithEmailAndPassword(email, password)
+                    .then((userObject) => {
+                        uid = userObject.user.uid;
+                        $('#signInModal').modal('toggle')
+
+                        fetch(url + $.param({
+                            uid,
+                            name,
+                            email,
+                            phone,
+                            address
+                        }), { method: "post" })
+                            .then((value) => {
+                                $('#signInModal').modal('toggle')
+
+                            })
+                            .catch((err) => {
+                                console.log(err)
+                            })
+                    })
+                    .catch((err) => {
+                        if (err.code == "auth/email-already-in-use") {
+                            this.setState(() => ({ error: "Email adress already in use" }))
+                        }
+                    })
+            } else {
+                this.setState(() => ({ error: "Passwords dont match. Please try again" }))
+                e.target.pass.value = ""
+                e.target.Cpass.value = ""
+            }
+
+        } else {
+            this.setState(() => ({ error: "Please make sure all fields are filled." }))
         }
 
-
     }
-    submit(e) {
+
+    submit = (e) => {
         e.preventDefault()
         const email = e.target.email.value
         const password = e.target.pass.value
-        app.auth().signInWithEmailAndPassword(email, password)
-            .then((value) => {
-                $('#signInModal').modal('toggle')
-            })
-            .catch((err) => {
-                console.log(err)
-            })
+
+        if (!!email && !!password) {
+            this.setState(() => ({ error: "" }))
+            app.auth().signInWithEmailAndPassword(email, password)
+                .then((value) => {
+                    $('#signInModal').modal('toggle')
+                })
+                .catch((err) => {
+                    switch (err.code) {
+                        case "auth/wrong-password":
+                            this.setState(() => ({ error: "Wrong password!" }))
+                            break
+                        case "auth/user-not-found":
+                            this.setState(()=>({error:"Invalid email"}))
+                            break
+                        default:
+                            console.log(err)
+                    }
+                })
+        }
+        else {
+            this.setState(() => ({ error: "Please enter email and password" }))
+        }
+
     }
 
     signout(e) {
@@ -75,7 +114,7 @@ class SignInModal extends React.Component {
         $("#signInModal").on("hidden.bs.modal", (e) => { this.setState(() => ({ login: true })) })
         return (
             <div>
-                <button  onClick={this.signout}>sign out</button>
+                <button onClick={this.signout}>sign out</button>
 
                 <div className="modal fade" id="signInModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div className="modal-dialog" role="document">
@@ -88,17 +127,16 @@ class SignInModal extends React.Component {
                             </div>
                             <div className="modal-body px-xl-5 pb-lg-5">
 
-
                                 {this.state.login &&
                                     <form onSubmit={this.submit}>
                                         <div className="form-group">
-                                            <label htmlFor="exampleInputEmail1">Email/Phone</label>
-                                            <input name="email" type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email/phone"></input>
+                                            <label htmlFor="inputEmail1">Email/Phone</label>
+                                            <input name="email" type="email" className="form-control" id="inputEmail1" aria-describedby="emailHelp" placeholder="Enter email address"></input>
                                         </div>
                                         <div className="form-group mb-xl-4">
-                                            <label htmlFor="exampleInputPassword1">Password</label>
-                                            <input name="pass" type="password" className="form-control" id="exampleInputPassword1" placeholder="Password"></input>
-                                            <p className="error-text pt-2">Wrong Password/Login</p>
+                                            <label htmlFor="inputPassword1">Password</label>
+                                            <input name="pass" type="password" className="form-control" id="inputPassword1" placeholder="Password"></input>
+                                            <p className="error-text pt-2">{this.state.error}</p>
                                         </div>
                                         <button className="btn btn-primary">Submit</button>
 
@@ -115,28 +153,30 @@ class SignInModal extends React.Component {
                                     !this.state.login &&
                                     <form onSubmit={this.signUp}>
                                         <div className="form-group">
-                                            <label htmlFor="name">Name</label>
+                                            <label htmlFor="name">*Name</label>
                                             <input name="name" type="text" className="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter Name"></input>
                                         </div>
                                         <div className="form-group">
-                                            <label htmlFor="exampleInputEmail1">Email address</label>
-                                            <input name="email" type="email" className="form-control" id="exampleInputsdfmail1" aria-describedby="emailHelp" placeholder="Enter email"></input>
+                                            <label htmlFor="signUpemail">*Email address</label>
+                                            <input name="email" type="email" className="form-control" id="signUpemail" aria-describedby="emailHelp" placeholder="Enter email"></input>
                                         </div>
                                         <div className="form-group">
-                                            <label htmlFor="phone">Phone Number</label>
-                                            <input name="phone" type="number" className="form-control" id="exampladseInputEmail1" aria-describedby="emailHelp" placeholder="Enter Phone"></input>
+                                            <label htmlFor="signUpPhone">*Phone Number</label>
+                                            <input name="phone" type="number" className="form-control" id="signUpPhone" aria-describedby="emailHelp" placeholder="Enter Phone"></input>
                                         </div>
                                         <div className="form-group">
-                                            <label htmlFor="address">Address</label>
-                                            <input name="address" type="text" className="form-control" id="examasdpladseInputEmail1" aria-describedby="emailHelp" placeholder=""></input>
+                                            <label htmlFor="address">*Address</label>
+                                            <input name="address" type="text" className="form-control" id="address" aria-describedby="emailHelp" placeholder="Enter delivery addresss"></input>
                                         </div>
                                         <div className="form-group">
-                                            <label htmlFor="exampleInputPassword1">Password</label>
-                                            <input name="pass" type="password" className="form-control" id="exampleInputPassword1" placeholder="Password"></input>
+                                            <label htmlFor="signUpPassword">*Password</label>
+                                            <input name="pass" type="password" className="form-control" id="signUpPassword" placeholder="Password"></input>
                                         </div>
                                         <div className="form-group">
-                                            <label htmlFor="exampleInputPassword1">Confirm Password</label>
-                                            <input name="Cpass" type="password" className="form-control" id="exampleInputPasswofrd1" placeholder="Password"></input>
+                                            <label htmlFor="confirmPass">*Confirm Password</label>
+                                            <input name="Cpass" type="password" className="form-control" id="confirmPass" placeholder="Password"></input>
+                                            <p className="error-text pt-2">{this.state.error}</p>
+
                                         </div>
                                         <button className="btn btn-primary">Submit</button>
                                     </form>
