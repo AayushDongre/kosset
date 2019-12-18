@@ -131,7 +131,7 @@ class EcommercePage extends React.Component {
                     </div>
                 </div>
 
-                <div className="row mx-2 mb-5 my-2 px-5 pt-5">
+                <div className="row mx-2 mb-5  px-5 py-5">
                     <div className="col-md-6 px-5">
                         <img src="./static/img/kossetBox-trial.webp" className="img-fluid"></img>
                     </div>
