@@ -8,17 +8,17 @@ class CartCheckoutSection extends React.Component {
 
     checkOutClick = (e) => {
         e.preventDefault();
-        if(!this.props.authenticated){
-           $("#signInModal").modal("toggle")
+        if (!this.props.authenticated) {
+            $("#signInModal").modal("toggle")
         }
-        else{
+        else {
             this.props.history.push("/summary")
         }
     }
-    applyCoupon = (e)=>{
+    applyCoupon = (e) => {
         const coupon = document.getElementById("couponInput").value
-        if(coupon=="nigger"){
-            this.props.dispatch(applyDiscount(this.props.total*0.3))
+        if (coupon == "nigger") {
+            this.props.dispatch(applyDiscount(this.props.total * 0.3))
         }
     }
 
@@ -34,8 +34,8 @@ class CartCheckoutSection extends React.Component {
                             SUBTOTAL
                         </div>
                         <div className="col-sm-3">
-                        <span>&#8377;</span>
-                        {this.props.total}
+                            <span>&#8377;</span>
+                            {this.props.total}
                         </div>
                     </div>
                     <div className="row checkout-row">
@@ -43,8 +43,8 @@ class CartCheckoutSection extends React.Component {
                             SHIPPING CHARGES
                         </div>
                         <div className="col-sm-3">
-                        <span>&#8377;</span>
-                        50
+                            <span>&#8377;</span>
+                            50
                         </div>
                     </div>
                     <div className="row checkout-row">
@@ -52,7 +52,7 @@ class CartCheckoutSection extends React.Component {
                             DISCOUNT
                         </div>
                         <div className="col-sm-3">
-                            -                           
+                            -
                              <span>&#8377;</span>
                             {this.props.discount}
                         </div>
@@ -63,8 +63,8 @@ class CartCheckoutSection extends React.Component {
                             <span>(inclusive of all taxes)</span>
                         </div>
                         <div className="col-sm-3">
-                        <span>&#8377;</span>
-                        {this.props.total + 50 - this.props.discount}
+                            <span>&#8377;</span>
+                            {this.props.total + 50 - this.props.discount}
                         </div>
                     </div>
                 </div>
@@ -74,10 +74,12 @@ class CartCheckoutSection extends React.Component {
                     <input name="coupon" id="couponInput"></input><br></br>
                     <button className="btn mt-3 couponApply" onClick={this.applyCoupon}>APPLY</button>
                 </div>
-                <button type="button" className="btn btn-primary" onClick={this.checkOutClick}>
-                CHECKOUT
-                </button>
-                < SignInModal history={this.props.history}/>
+                <div className="col-12 mt-3 checkoutButtonRow">
+                    <button type="button" className="btn checkoutButton" onClick={this.checkOutClick}>
+                        CHECKOUT
+                    </button>
+                </div>
+                < SignInModal history={this.props.history} />
             </div>
         )
     }
@@ -85,9 +87,9 @@ class CartCheckoutSection extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        authenticated:state.authenticated,
+        authenticated: state.authenticated,
         total: state.total,
-        discount:state.discount
+        discount: state.discount
     }
 }
 

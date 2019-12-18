@@ -23,7 +23,7 @@ class Cart extends React.Component {
                         </div>
 
                         {(this.props.products.length == 0) &&
-                            <div>
+                            <div style={{height:"50vh"}}>
                                 <p>Your cart is empty!</p>
                             </div>
                         }

@@ -10,51 +10,58 @@ class TrialBoxCart extends React.Component {
 
     render() {
         return (
-            <div className="row">
+            <div className="row mt-5 trialBoxCart">
                 <div className="col-md-3">
                     <img src="./static/img/kossetBox-main.webp" className="img-fluid"></img>
                 </div>
-                <div className="col-md-9">
-                    <h3>KOSSET TRIAL BOX</h3>
-                    <p>3 Sanitary Pads with Individual Disposal Packets</p>
+                <div className="col-md-9 px-5">
+                    <h1>KOSSET TRIAL BOX</h1>
+                    <p className="sub-heading">3 Sanitary Pads with Individual Disposal Packets</p>
 
-                    <div className="row">
-                        <div className="col-sm-10">
-                            <p>1 Heavy Flow and Oernight Pad(L)</p>
+                    <div className="content-rows">
+                        <div className="row content-row-text">
+                            <div className="col-sm-10">
+                                <p>1 Heavy Flow and Oernight Pad(L)</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div className="row">
-                        <div className="col-sm-10">
-                            <p>1 Light and Medium Flow Pad(M)</p>
+                        <div className="row content-row-text">
+                            <div className="col-sm-10">
+                                <p>1 Light and Medium Flow Pad(M)</p>
+                            </div>
                         </div>
-                    </div>
 
-
-                    <div className="row">
-                        <div className="col-sm-10">
-                            <p>1 Panty Liners for light spotting and discharge</p>
+                        <div className="row content-row-text">
+                            <div className="col-sm-10">
+                                <p>1 Panty Liners for light spotting and discharge</p>
+                            </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
-                <p>Select a quantity to proceed:</p>
+                <p className="selectQuantity row">Select a quantity to proceed:</p>
 
-                <div className="row">
+                <div className="row m-5 quantitySelectionRowTrial">
 
                     <div onClick={() => {
                         this.props.updateQuantity(1, this.state.prevPrice)
                         this.setState(() => ({ prevPrice: 30 }))
-                    }} className="col-md-3">
+                    }} className="col-md-3 quantityBox">
                         <h3>1 BOX</h3>
-                        <p>30</p>
+                        <p>
+                            <span>&#8377;</span>
+                            30
+                        </p>
                     </div>
                     <div onClick={() => {
                         this.props.updateQuantity(2, this.state.prevPrice)
                         this.setState(() => ({ prevPrice: 50 }))
-                    }} className="col-md-3">
+                    }} className="col-md-3 quantityBox">
                         <h3>2 BOXES</h3>
-                        <p>50</p>
+                        <p>
+                            <span>&#8377;</span>
+                            50
+                        </p>
                     </div>
 
                 </div>
