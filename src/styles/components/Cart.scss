@@ -2,10 +2,14 @@
     font-family: $source;
     font-style: normal;
     font-weight: normal;
-    font-size: 36px;
-    line-height: 45px;
+    font-size: 2rem;
     color: #7A7A7A;
-    border-bottom: 4px solid rgba(255, 167, 191, 0.4);
+    border-bottom: 4px solid rgba(255, 167, 191, 0.4);  
+}
+
+.cartHeadingRow h1{
+    font-size: 2rem;
+    text-transform: uppercase;
 }
 
 .kossetBoxCart {
@@ -19,7 +23,6 @@
     font-style: normal;
     font-weight: normal;
     font-size: 42px;
-    line-height: 53px;
 }
 
 .kossetBoxCart .free {
@@ -27,7 +30,6 @@
     font-style: italic;
     font-weight: 600;
     font-size: 18px;
-    line-height: 23px;
     letter-spacing: 0.05em;
     color: #FFA7BF;
 }
@@ -43,7 +45,6 @@
     font-style: normal;
     font-weight: 600;
     font-size: 24px;
-    line-height: 30px;
     letter-spacing: 0.02em;
     color: #7A7A7A;
 }
@@ -70,7 +71,6 @@
     font-style: normal;
     font-weight: 600;
     font-size: 28px;
-    line-height: 40px;
     color: $cartPink;
 }
 
@@ -79,7 +79,6 @@
     font-style: italic;
     font-weight: normal;
     font-size: 16px;
-    line-height: 20px;
     letter-spacing: 0.05em;
     color: #FF9DB8;
 }
