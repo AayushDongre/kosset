@@ -5,8 +5,8 @@ export const Nav = (props) => {
 
     return (
         <div className={(!(props.id) &&'container')  + ` px-md-0 px-4 fixed-top`} id={props.id}>
-            <nav className="navbar navbar-expand-lg px-0 pb-0">
-                <Link className="navbar-brand mt-1" to="/">Kosset</Link>
+            <nav className={((props.id) && 'py-0') + ` navbar navbar-expand-lg px-0 pb-0 `}>
+                <Link className="navbar-brand mt-1 mt-xl-0" to="/">Kosset</Link>
                 <button className="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="icon-bar top-bar"></span>
                     <span className="icon-bar middle-bar"></span>
@@ -14,7 +14,7 @@ export const Nav = (props) => {
                 </button>
 
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div className="navbar-nav py-md-0 py-5 ml-auto">
+                    <div className="navbar-nav ml-auto">
                         <a className="nav-item nav-link" href="#">About <span className="sr-only">(current)</span></a>
                         <a className="nav-item nav-link" href="#">Products</a>
                         <a className="nav-item nav-link" href="#AppSection">App</a>
