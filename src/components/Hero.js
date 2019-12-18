@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 export const Nav = (props) => {
 
     return (
-        <div className={(!(props.id) &&'container')  + ` px-md-0 px-4 fixed-top`} id={props.id}>
-            <nav className={((props.id) && 'py-0') + ` navbar navbar-expand-lg px-0 pb-0 `}>
+        <div className={(!(props.id) && 'container') + ` px-md-0 px-4 fixed-top`} id={props.id}>
+            <nav className={((props.id) && 'py-0') + ` navbar navbar-expand-lg px-md-5 pb-0 `}>
                 <Link className="navbar-brand mt-1 mt-xl-0" to="/">Kosset</Link>
                 <button className="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="icon-bar top-bar"></span>
@@ -15,11 +15,11 @@ export const Nav = (props) => {
 
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div className="navbar-nav ml-auto">
-                        <a className="nav-item nav-link" href="#">About <span className="sr-only">(current)</span></a>
-                        <a className="nav-item nav-link" href="#">Products</a>
-                        <a className="nav-item nav-link" href="#AppSection">App</a>
-                        <a className="nav-item nav-link d-md-none" href="#">Account</a>
-                        <a className="nav-item nav-link d-md-none" href="#">Cart</a>
+                        <Link className="nav-item nav-link" to="/">About <span className="sr-only">(current)</span></Link>
+                        <Link className="nav-item nav-link" to="/products">Products</Link>
+                        <Link className="nav-item nav-link" to="/">App</Link>
+                        <Link className="nav-item nav-link d-md-none" to="#">Account</Link>
+                        <Link className="nav-item nav-link d-md-none" to="/cart">Cart</Link>
                         <a className="nav-item nav-link d-none d-md-inline-block" href="#"> <img src="/static/img/accounticon.svg" ></img></a>
                         <Link className="nav-item nav-link d-none d-md-inline-block" to="/cart"> <img src="/static/img/carticon.svg" ></img></Link>
                         <Link className="nav-item nav-link nav-btn px-lg-4 ml-xl-2 mx-5 mx-sm-0" to="/products">Buy Now</Link>
