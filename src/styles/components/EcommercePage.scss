@@ -96,6 +96,10 @@
   border-radius: 0;
 }
 
+.button1 span, .button2 span, .button3 span{
+  color: white !important;
+}
+
 .buyButton:hover {
   color: $cartPink;
 }
