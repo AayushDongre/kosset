@@ -32,7 +32,7 @@ class EcommercePage extends React.Component {
     }
     render() {
         return (
-            <div className="ecommercePage">
+            <div className="ecommercePage container-fluid">
                 <Nav id="purpleNav" />
 
                 <div className="row m-2 px-5 pt-5">
@@ -42,14 +42,14 @@ class EcommercePage extends React.Component {
                     <div className="col-md-6 p-5">
                         <h1>KOSSET BOX</h1>
                         <p className="sub-heading">15 Sanitary Pads with Individual Disposal Packets</p>
-                        <p className="free">FREE HERBAL CRAMPS RELIEF ROLL ON</p>
+                        <p className="free m-0">FREE HERBAL CRAMPS RELIEF ROLL ON</p>
                         <p className="choose">(You can choose to buy the Standard Box OR Choose between the 3 sizes to create your Custom Box of 15 pads)</p>
                         <h2 className="contents">Contents of Standard Kosset Box</h2>
 
                         <div className="content-rows">
                             <div className="row content-row">
                                 <div className="col-md-8 content-row-text">
-                                    Heavy Flow and Overnight Pads(L)
+                                    <p>Heavy Flow and Overnight Pads(L)</p>
                                 </div>  
                                 <div className="col-md-4">
                                     <div className="input-group">
@@ -73,7 +73,7 @@ class EcommercePage extends React.Component {
 
                             <div className="row content-row">
                                 <div className="col-md-8 content-row-text">
-                                    Light and Medium Flow Pad(M)
+                                    <p>Light and Medium Flow Pad(M)</p>
                             </div>
                                 <div className="col-md-4">
                                     <div className="input-group">
@@ -97,7 +97,7 @@ class EcommercePage extends React.Component {
 
                             <div className="row content-row">
                                 <div className="col-md-8 content-row-text">
-                                    Panty Liners for  spotting and discharge
+                                        <p>Panty Liners for  spotting and discharge</p>
                             </div>
                                 <div className="col-md-4">
                                     <div className="input-group">
@@ -139,9 +139,9 @@ class EcommercePage extends React.Component {
                         <h1>KOSSET TRIAL BOX</h1>
                         <p className="sub-heading">3 Sanitary Pads with Individual Disposal Packets</p>
                         <div className="content-rows">
-                            <div className="content-row-text">1 Heavy Flow and Oernight Pad(L)</div>
-                            <div className="content-row-text">1 Light and Medium Flow Pad(M)</div>
-                            <div className="content-row-text">1 Panty Liners for light spotting and discharge</div>
+                            <div className="content-row-text"><p>1 Heavy Flow and Overnight Pad(L)</p></div>
+                            <div className="content-row-text"><p>1 Light and Medium Flow Pad(M)</p></div>
+                            <div className="content-row-text"><p>1 Panty Liner for light spotting and discharge</p></div>
                         </div>
 
                         <div className="row mt-4">
