@@ -26,9 +26,9 @@ class CartCheckoutSection extends React.Component {
         return (
             <div className="row mt-3">
                 <div className="col-md-4 orderSummary">
-                    ORDER SUMARY
+                    ORDER SUMMARY
                 </div>
-                <div className="col-md-4 px-4 checkout-rows">
+                <div className="col-md-5 px-5 checkout-rows align-self-center">
                     <div className="row checkout-row">
                         <div className="col-sm-9">
                             SUBTOTAL
@@ -68,14 +68,14 @@ class CartCheckoutSection extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div className="col-md-4">
+                <div className="col-md-3 align-self-center px-3">
                     <p className="haveCoupon">Have a coupon code?</p>
                     <p className="couponCode"> COUPON CODE</p>
                     <input name="coupon" id="couponInput"></input><br></br>
                     <button className="btn mt-3 couponApply" onClick={this.applyCoupon}>APPLY</button>
                 </div>
                 <div className="col-12 mt-3 checkoutButtonRow">
-                    <button type="button" className="btn checkoutButton" onClick={this.checkOutClick}>
+                    <button type="button" className="btn checkoutButton mt-xl-4 px-xl-4" onClick={this.checkOutClick}>
                         CHECKOUT
                     </button>
                 </div>

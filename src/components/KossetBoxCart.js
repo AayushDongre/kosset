@@ -11,19 +11,19 @@ class KossetBoxCart extends React.Component {
     render() {
 
         return (
-            <div className="row mt-5 kossetBoxCart">
-                <div className="row">
+            <div className="row mt-xl-4 kossetBoxCart">
+                <div className="row flex-grow-1 mx-1">
                     <div className="col-md-4">
                         <img src="./static/img/kossetBox_cartimg.png" className="img-fluid px-0 "></img>
                     </div>
-                    <div className="col-md-8 px-5">
+                    <div className="col-md-8">
                         <h1>KOSSET BOX</h1>
-                        <p className="free">FREE HERBAL PERIOD CRAMPS RELEIF ROLL ON</p>
+                        <p className="free pb-2">FREE HERBAL PERIOD CRAMPS RELEIF ROLL ON</p>
 
                         <div className="content-rows">
                             <div className="row content-row-text">
                                 <div className="col-sm-11 ">
-                                    Heavy Flow and Overnight Pads(L)
+                                    <p>Heavy Flow and Overnight Pads(L) </p>
                                 </div>
                                 <div className="col-sm-1">
                                     <span>{this.props.HFOP}</span>
@@ -32,7 +32,7 @@ class KossetBoxCart extends React.Component {
 
                             <div className="row content-row-text">
                                 <div className="col-sm-11">
-                                    Light and Medium Flow Pad(M)
+                                    <p>Light and Medium Flow Pad(M)</p>
                                  </div>
                                 <div className="col-sm-1">
                                     <span>{this.props.LMFP}</span>
@@ -42,7 +42,7 @@ class KossetBoxCart extends React.Component {
 
                             <div className="row content-row-text">
                                 <div className="col-sm-11">
-                                    Panty Liners for  spotting and discharge
+                                    <p>Panty Liners for  spotting and discharge</p>
                                 </div>
                                 <div className="col-sm-1">
                                     <span>{this.props.PLSD}</span>
@@ -52,7 +52,7 @@ class KossetBoxCart extends React.Component {
 
                     </div>
                 </div>
-                <div className="selectQuantity row">Select a quantity to proceed:</div>
+                <div className="selectQuantity col-12 mt-xl-5">Select a quantity to proceed:</div>
 
                 <div className="row m-5 quantitySelectionRow">
 

@@ -30,7 +30,6 @@
   font-style: italic;
   font-weight: 600;
   font-size: 18px;
-  line-height: 23px;
   letter-spacing: 0.05em;
   color: #FFA7BF;
 }
@@ -55,14 +54,17 @@
   color: #7A7A7A;
 }
 
-
+.content-rows span{
+  font-weight: 600;
+  color: #7A7A7A;
+}
 
 .content-row-text {
   font-family: $source;
   font-style: normal;
   font-weight: 300;
   font-size: 22px;
-  line-height: 60px;
+  // line-height: 2.5rem;
   letter-spacing: 0.02em;
   color: #000000;
 }

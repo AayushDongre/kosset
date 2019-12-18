@@ -11,9 +11,9 @@ class TrialBoxCart extends React.Component {
 
     render() {
         return (
-            <div className="row mt-5 trialBoxCart">
-                <div className="col-md-3">
-                    <img src="./static/img/kossetBox-main.webp" className="img-fluid"></img>
+            <div className="row mt-xl-4 trialBoxCart">
+                <div className="col-md-3 align-self-center">
+                    <img src="./static/img/trialBox_cartimg.webp" className="img-fluid px-0"></img>
                 </div>
                 <div className="col-md-9 px-5">
                     <h1>KOSSET TRIAL BOX</h1>
@@ -40,9 +40,9 @@ class TrialBoxCart extends React.Component {
 
                     </div>
                 </div>
-                <p className="selectQuantity row">Select a quantity to proceed:</p>
+                <p className="selectQuantity col-12 mt-4">Select a quantity to proceed:</p>
 
-                <div className="row m-5 quantitySelectionRowTrial">
+                <div className="row m-4 quantitySelectionRowTrial">
 
                     <div onClick={() => {
                         this.props.updateQuantity(1, this.state.prevPrice)
@@ -66,6 +66,10 @@ class TrialBoxCart extends React.Component {
                         <p>
                             <span>&#8377;</span>
                             50
+                        </p>
+                        <p className="perBox">
+                            <span>&#8377;</span>
+                            25 per box
                         </p>
                     </div>
 
