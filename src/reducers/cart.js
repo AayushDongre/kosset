@@ -111,7 +111,7 @@ export default (state = cartReducerDefaultState, action) => {
         case "APPLY_DISCOUNT":
             return {
                 ...state,
-                discount:action.discount
+                discount: action.discount
             }
 
         default:

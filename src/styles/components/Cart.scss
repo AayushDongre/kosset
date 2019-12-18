@@ -13,7 +13,7 @@
     ;
 }
 
-.kossetBoxCart h1 {
+.kossetBoxCart h1,.trialBoxCart h1 {
     color: $cartPink;
     font-family: $source;
     font-style: normal;
@@ -83,8 +83,13 @@
     letter-spacing: 0.05em;
     color: #FF9DB8;
 }
-
-.borderedQuantityBox {
-    background: red !important;
+.quantitySelectionRowTrial {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
 }
 
+.trialBoxCart{
+    border-bottom: 4px solid rgba(255, 167, 191, 0.4);
+  }
