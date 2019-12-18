@@ -98,6 +98,7 @@ class SignInModal extends React.Component {
                                         <div className="form-group mb-xl-4">
                                             <label htmlFor="exampleInputPassword1">Password</label>
                                             <input name="pass" type="password" className="form-control" id="exampleInputPassword1" placeholder="Password"></input>
+                                            <p className="error-text pt-2">Wrong Password/Login</p>
                                         </div>
                                         <button className="btn btn-primary">Submit</button>
 
@@ -127,7 +128,7 @@ class SignInModal extends React.Component {
                                         </div>
                                         <div className="form-group">
                                             <label htmlFor="address">Address</label>
-                                            <input name="address" type="text" className="form-control" id="examasdpladseInputEmail1" aria-describedby="emailHelp" placeholder="Address"></input>
+                                            <input name="address" type="text" className="form-control" id="examasdpladseInputEmail1" aria-describedby="emailHelp" placeholder=""></input>
                                         </div>
                                         <div className="form-group">
                                             <label htmlFor="exampleInputPassword1">Password</label>
