@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { updateTrialBoxQuantity } from '../actions/cart';
+import $ from 'jquery';
 
 class TrialBoxCart extends React.Component {
 
@@ -46,7 +47,9 @@ class TrialBoxCart extends React.Component {
                     <div onClick={() => {
                         this.props.updateQuantity(1, this.state.prevPrice)
                         this.setState(() => ({ prevPrice: 30 }))
-                    }} className="col-md-3 quantityBox">
+                        $(".qb4").addClass("borderedqb")
+                        $(".qb5").removeClass("borderedqb")
+                    }} className="col-md-3 quantityBox qb4 borderedqb">
                         <h3>1 BOX</h3>
                         <p>
                             <span>&#8377;</span>
@@ -56,7 +59,9 @@ class TrialBoxCart extends React.Component {
                     <div onClick={() => {
                         this.props.updateQuantity(2, this.state.prevPrice)
                         this.setState(() => ({ prevPrice: 50 }))
-                    }} className="col-md-3 quantityBox">
+                        $(".qb4").removeClass("borderedqb")
+                        $(".qb5").addClass("borderedqb")
+                    }} className="col-md-3 quantityBox qb5">
                         <h3>2 BOXES</h3>
                         <p>
                             <span>&#8377;</span>

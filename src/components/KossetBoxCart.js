@@ -1,6 +1,7 @@
 import React from 'react';
 import { updateKossetBoxQuantity } from '../actions/cart';
 import { connect } from 'react-redux';
+import $ from 'jquery';
 
 class KossetBoxCart extends React.Component {
     state = {
@@ -8,7 +9,7 @@ class KossetBoxCart extends React.Component {
     }
 
     render() {
-   
+
         return (
             <div className="row mt-5 kossetBoxCart">
                 <div className="row">
@@ -58,7 +59,10 @@ class KossetBoxCart extends React.Component {
                     <div onClick={() => {
                         this.props.updateQuantity(1, this.state.prevPrice)
                         this.setState(() => ({ prevPrice: 250 }))
-                    }} className="col-md-3 quantityBox">
+                        $(".qb1").addClass("borderedqb")
+                        $(".qb2").removeClass("borderedqb")
+                        $(".qb3").removeClass("borderedqb")
+                    }} className="col-md-3 quantityBox qb1 borderedqb">
                         <h3>1 BOX</h3>
                         <p>
                             <span>&#8377;</span>
@@ -68,7 +72,10 @@ class KossetBoxCart extends React.Component {
                     <div onClick={() => {
                         this.props.updateQuantity(2, this.state.prevPrice)
                         this.setState(() => ({ prevPrice: 400 }))
-                    }} className="col-md-3 quantityBox">
+                        $(".qb1").removeClass("borderedqb")
+                        $(".qb2").addClass("borderedqb")
+                        $(".qb3").removeClass("borderedqb")
+                    }} className="col-md-3 quantityBox qb2">
                         <h3>2 BOXES</h3>
                         <p>
                             <span>&#8377;</span>
@@ -82,7 +89,10 @@ class KossetBoxCart extends React.Component {
                     <div onClick={() => {
                         this.props.updateQuantity(6, this.state.prevPrice)
                         this.setState(() => ({ prevPrice: 1000 }))
-                    }} className="col-md-3 quantityBox">
+                        $(".qb1").removeClass("borderedqb")
+                        $(".qb2").removeClass("borderedqb")
+                        $(".qb3").addClass("borderedqb")
+                    }} className="col-md-3 quantityBox qb3">
                         <h3>6 BOXES</h3>
                         <p>
                             <span>&#8377;</span>

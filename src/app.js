@@ -4,7 +4,6 @@ import Router from "./routers/Router";
 import { Provider } from 'react-redux';
 import cartStore from './store/configureStore';
 import "normalize.css/normalize.css";
-import $ from 'jquery';
 import 'popper.js'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap';
@@ -56,3 +55,13 @@ app.auth().onAuthStateChanged(function (user) {
         console.log("peepoopoo")
     }
 });
+
+const saveToLocalStorage = (state) => {
+    try {
+        const stringState = JSON.stringify(state)
+        localStorage.setItem('state', stringState)
+    } catch(e){
+        console.log(e)
+    }
+}
+store.subscribe(() => saveToLocalStorage(store.getState()) )
