@@ -1,18 +1,6 @@
 const cartReducerDefaultState = {
     authenticated: false,
-    cart: [
-        {
-          id: '0054df3d-2040-4ebe-bf8e-a1b54266a77aKB',
-          HFOP: 8,
-          LMFP: 2,
-          PLSD: 5,
-          quantity: 1
-        },
-        {
-          id: '7a33a55f-7ef1-441b-97d0-5d99d56ed0b3TB',
-          quantity: 1
-        }
-      ],
+    cart: [],
     total: 0,
     discount: 0
 }
