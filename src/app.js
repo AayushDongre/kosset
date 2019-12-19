@@ -10,7 +10,7 @@ import 'bootstrap/dist/js/bootstrap.min.js';
 import "./styles/styles.scss";
 import 'animate.css'
 import { authenticate, unauthenticate, setUid, unSetUid } from './actions/cart';
-
+import $ from 'jquery'
 import * as app from 'firebase'
 const firebaseConfig = require("./firebase.config.json")
 app.initializeApp(firebaseConfig)
@@ -28,20 +28,14 @@ const jsx = (
 
 ReactDOM.render(jsx, document.getElementById("app"))
 
-// Navbar color change on scroll
-const nav = document.querySelector(".navbar");
-const navHeight = document.querySelector('.navbar').clientHeight;
-const landing = document.getElementById("purpleNav")
-window.onscroll = function () {
-    if (document.body.scrollTop >= navHeight || document.documentElement.scrollTop >= navHeight) {
-        if(!landing){
-            nav.classList.add("navbar-black");
-        }
-        
-    } else {
-        nav.classList.remove("navbar-black");
-    }
-};
+
+$(document).scroll((e)=>{
+    if($(document).scrollTop() > $(".navbar").height() && !!$(".hero").length)
+        $(".navbar").addClass("navbar-black")
+    else
+        $(".navbar").removeClass("navbar-black")
+})
+
 
 app.auth().onAuthStateChanged(function (user) {
     if (user) {
