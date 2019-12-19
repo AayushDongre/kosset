@@ -59,10 +59,25 @@ app.get("/fetchUser", (req, res) => {
 app.post("/deleteUser", (req, res) => {
     try {
         let users = db.collection("users");
-        users.doc(req.query.uid).delete().catch((err) => {
-            res.send(err);
-        })
-        res.send("success");
+        let subscriptions = db.collection("subscriptions")
+
+        subscriptions.doc(req.query.uid).get()
+            .then((subscription) => {
+                if (subscription.exists) {
+                    res.status(400)
+                    res.send("Cancel active subscriptions first to continue")
+                }
+                else {
+                    users.doc(req.query.uid).delete().then(() => {
+                        res.send("success");
+                    }).catch((err) => {
+                        res.send(err);
+                    })
+                }
+            })
+            .catch((err)=>{
+                res.send(err)
+            })
     } catch (err) {
         res.send(err);
     }
@@ -117,21 +132,34 @@ app.post("/updateUser", (req, res) => {
         res.send(err);
     }
 })
-app.post("/addAddress", (req,res)=>{
+app.post("/deleteUser", (req, res) => {
+    let users = db.collection("users");
+    const uid = req.query.uid;
+    users.doc(uid).delete()
+        .then(() => {
+            res.status(200)
+            res.send("success")
+        })
+        .catch((err) => {
+            res.send(err)
+        })
+})
+
+app.post("/addAddress", (req, res) => {
     try {
         let users = db.collection("users");
         const uid = req.query.uid
         const address = req.query.address
         users.doc(uid).update({
-            address:admin.firestore.FieldValue.arrayUnion(address)
+            address: admin.firestore.FieldValue.arrayUnion(address)
         })
-        .then(()=>{
-            res.status(200)
-            res.send("success")
-        })
-        .catch((err)=>{
-            res.send(err)
-        })
+            .then(() => {
+                res.status(200)
+                res.send("success")
+            })
+            .catch((err) => {
+                res.send(err)
+            })
     } catch (err) {
         res.send(err)
     }

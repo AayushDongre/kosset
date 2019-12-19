@@ -5,7 +5,9 @@ import SignInModal from './SignInModal';
 import { applyDiscount } from '../actions/cart'
 
 class CartCheckoutSection extends React.Component {
-
+    componentDidMount(){
+        console.log(this.props.discount)
+    }
     checkOutClick = (e) => {
         e.preventDefault();
         if (!this.props.authenticated) {
@@ -19,7 +21,7 @@ class CartCheckoutSection extends React.Component {
         const coupon = document.getElementById("couponInput").value
         console.log(coupon)
         if (coupon == "nigger") {
-            this.props.dispatch(applyDiscount(this.props.total * 0.3))
+            this.props.dispatch(applyDiscount(30))
         }
     }
 
@@ -55,8 +57,8 @@ class CartCheckoutSection extends React.Component {
                         <div className="col-sm-3">
                             -
                              <span>&#8377;</span>
-                            {this.props.discount}
-                        </div>
+                             {this.props.discount*0.01*this.props.total}
+                             </div>
                     </div>
                     <div className="row checkout-row checkout-total">
                         <div className="col-sm-9">
@@ -65,7 +67,7 @@ class CartCheckoutSection extends React.Component {
                         </div>
                         <div className="col-sm-3">
                             <span>&#8377;</span>
-                            {this.props.total + 50 - this.props.discount}
+                            {this.props.total + this.props.shipping - this.props.discount*0.01*this.props.total}
                         </div>
                     </div>
                 </div>
@@ -90,7 +92,8 @@ const mapStateToProps = (state) => {
     return {
         authenticated: state.authenticated,
         total: state.total,
-        discount: state.discount
+        discount: state.discount,
+        shipping: state.shipping
     }
 }
 

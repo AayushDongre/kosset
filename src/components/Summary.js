@@ -39,13 +39,13 @@ class Summary extends React.Component {
                                             <span className="summaryBoxText">SUBTOTAL</span><span className="summaryBoxNum"><span>&#8377;</span>{this.props.total}</span>
                                         </div>
                                         <div className="row summaryBoxRow">
-                                            <span className="summaryBoxText">SHIPPING CHARGES</span><span className="summaryBoxNum"><span>&#8377;</span>50</span>
+                                            <span className="summaryBoxText">SHIPPING CHARGES</span><span className="summaryBoxNum"><span>&#8377;</span>{this.props.shipping}</span>
                                         </div>
                                         <div className="row summaryBoxRow discount">
-                                            <span className="summaryBoxText">DISCOUNT</span><span className="summaryBoxNum">-<span>&#8377;</span>{this.props.discount}</span>
+                                            <span className="summaryBoxText">DISCOUNT</span><span className="summaryBoxNum">-<span>&#8377;</span>{this.props.discount*0.01*this.props.total}</span>
                                         </div>
                                         <div className="row summaryBoxRow">
-                                            <span className="summaryBoxText"></span><span className="final summaryBoxNum"><span>&#8377;</span>{this.props.total + 50 - this.props.discount}</span>
+                                            <span className="summaryBoxText"></span><span className="final summaryBoxNum"><span>&#8377;</span>{this.props.total + 50 - this.props.discount*0.01*this.props.total}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -69,7 +69,8 @@ const mapStateToProps = (state) => {
         products: state.cart,
         authenticated: state.authenticated,
         total: state.total,
-        discount: state.discount
+        discount: state.discount,
+        shipping: state.shipping
     }
 }
 export default connect(mapStateToProps)(Summary)
