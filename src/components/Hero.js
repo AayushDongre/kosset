@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
-import SignInModal from './SignInModal'
 import $ from 'jquery'
 import firebase from 'firebase/app'
 import { resetState } from '../actions/cart'
@@ -32,7 +31,7 @@ class NavMain extends React.Component {
                             <Link className="nav-item nav-link" to="/">About <span className="sr-only">(current)</span></Link>
                             <Link className="nav-item nav-link" to="/products">Products</Link>
                             <Link className="nav-item nav-link" to="/">App</Link>
-                            <a className="nav-item nav-link d-md-none dropdown-toggle" data-toggle="dropdown"></a>
+                            <a className="nav-item nav-link d-md-none dropdown-toggle" data-toggle="dropdown">Account</a>
                             <Link className="nav-item nav-link d-md-none" to="/cart">Cart</Link>
                             <div className="dropdown">
                                 <a className="nav-item nav-link d-none d-md-inline-block dropdown-toggle" data-toggle="dropdown" href="#">
@@ -48,7 +47,7 @@ class NavMain extends React.Component {
                                 </div>
                             </div>
 
-                            <Link className="nav-item nav-link d-none d-md-inline-block" to="/cart"> <img src={this.props.cart.length < 1 ? "/static/img/carticon.svg" : "/static/img/cartIcon-filled.png"} ></img></Link>
+                            <Link className="nav-item nav-link d-none d-md-inline-block" to="/cart"> <img src={this.props.cart.length < 1 ? "/static/img/carticon.svg" : "/static/img/cartIcon-filled.svg"} ></img></Link>
                             <Link className="nav-item nav-link nav-btn px-xl-4 px-1  ml-xl-2 mx-5 mx-sm-0 mb-3 mb-lg-0" to="/products">Buy Now</Link>
                         </div>
                     </div>
@@ -85,7 +84,6 @@ const Hero = (props) => {
                         have to compromise. We are doing so by offering a range of alternative products and services under one platform to take care of all menstruation, sexual health and sanitation related needs.</p>
 
             </div>
-            <SignInModal id="navbarSignInModal" />
 
         </div>
 

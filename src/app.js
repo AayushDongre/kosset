@@ -11,6 +11,7 @@ import "./styles/styles.scss";
 import 'animate.css'
 import { authenticate, unauthenticate, setUid, unSetUid } from './actions/cart';
 import $ from 'jquery'
+import SignInModal from './components/SignInModal'
 import * as app from 'firebase'
 const firebaseConfig = require("./firebase.config.json")
 app.initializeApp(firebaseConfig)
@@ -21,6 +22,7 @@ const store = cartStore();
 const jsx = (
     <Provider store={store}>
         <Router />
+        <SignInModal id="navbarSignInModal" />
     </Provider>
 );
 

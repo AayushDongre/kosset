@@ -25,10 +25,10 @@ class Summary extends React.Component {
                                     {
                                         this.props.products.map((item) => {
                                             if (item.id.slice(-2) == "KB") {
-                                                return <KossetBoxSummary ID={item.id} HFOP={item.HFOP} LMFP={item.LMFP} PLSD={item.PLSD} key={item.id} />
+                                                return <KossetBoxSummary ID={item.id} HFOP={item.HFOP} LMFP={item.LMFP} PLSD={item.PLSD} key={item.id} quantity={item.quantity}/>
                                             }
                                             else if (item.id.slice(-2) == "TB") {
-                                                return <TrialBoxSummary ID={item.id} key={item.id} />
+                                                return <TrialBoxSummary ID={item.id} key={item.id} quantity={item.quantity}/>
                                             }
                                         })
                                     }

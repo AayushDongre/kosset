@@ -11,30 +11,29 @@ import { PureComponent } from "react";
 import { withRouter } from "react-router-dom";
 
 class ScrollIntoView extends PureComponent {
-    componentDidMount = () => window.scrollTo(0, 0);
+    componentWilldMount = () => window.scrollTo(0, 0);
     componentDidUpdate = prevProps => {
         if (this.props.location !== prevProps.location) window.scrollTo(0, 0);
     };
     render = () => this.props.children;
 }
-
 const Router = () => (
     <BrowserRouter>
         <Switch>
-            <AnimatedSwitch
-                atEnter={{ opacity: 0 }}
-                atLeave={{ opacity: 0 }}
-                atActive={{ opacity: 1 }}
-            >
-                <ScrollIntoView>
+            <ScrollIntoView>
+                <AnimatedSwitch
+                    atEnter={{ opacity: 0 }}
+                    atLeave={{ opacity: 0 }}
+                    atActive={{ opacity: 1 }}
+                >
                     <Route path="/" exact={true} component={LandingPage} />
                     <Route path="/faq" component={FAQPage} />
                     <Route path="/products" component={EcommercePage} />
                     <Route path="/cart" component={Cart} />
                     <Route path="/test" component={SignInModal} />
                     <Route path="/summary" component={Summary} />
-                </ScrollIntoView>
-            </ AnimatedSwitch>
+                </ AnimatedSwitch>
+            </ScrollIntoView>
         </Switch>
     </BrowserRouter>
 )
