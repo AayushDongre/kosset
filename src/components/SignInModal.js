@@ -104,7 +104,23 @@ class SignInModal extends React.Component {
         e.preventDefault()
         firebase.auth().signOut()
         this.props.resetState()
-
+    }
+    deleteAccount = (e) => {
+        e.preventDefault()
+        //doesnt work when active subscriptions. (cloud API works fine) 
+        fetch(`https://us-central1-kosset-69420.cloudfunctions.net/api/deleteUser?uid=${this.props.currentUid}`,{ method: "post" })
+        .then((res)=>{
+            if(res.status==200){
+                firebase.auth().currentUser.delete()
+                this.props.resetState()
+            }
+            else{
+                console.log(res)
+            }
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
     }
 
     state = {
@@ -116,6 +132,8 @@ class SignInModal extends React.Component {
         return (
             <div>
                 <button onClick={this.signout}>sign out</button>
+                <button onClick={this.deleteAccount}>delete account</button>
+
 
                 <div className="modal fade" id="signInModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div className="modal-dialog" role="document">
@@ -194,7 +212,8 @@ class SignInModal extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        authenticated: state.authenticated
+        authenticated: state.authenticated,
+        currentUid:state.currentUid
     }
 }
 const mapDispatchToProps = (dispatch) => {
