@@ -17,6 +17,7 @@ class CartCheckoutSection extends React.Component {
     }
     applyCoupon = (e) => {
         const coupon = document.getElementById("couponInput").value
+        console.log(coupon)
         if (coupon == "nigger") {
             this.props.dispatch(applyDiscount(this.props.total * 0.3))
         }
