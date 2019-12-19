@@ -32,7 +32,7 @@ class NavMain extends React.Component {
                             <Link className="nav-item nav-link" to="/">About <span className="sr-only">(current)</span></Link>
                             <Link className="nav-item nav-link" to="/products">Products</Link>
                             <Link className="nav-item nav-link" to="/">App</Link>
-                            <Link className="nav-item nav-link d-md-none" to="#">Account</Link>
+                            <a className="nav-item nav-link d-md-none dropdown-toggle" data-toggle="dropdown"></a>
                             <Link className="nav-item nav-link d-md-none" to="/cart">Cart</Link>
                             <div className="dropdown">
                                 <a className="nav-item nav-link d-none d-md-inline-block dropdown-toggle" data-toggle="dropdown" href="#">
