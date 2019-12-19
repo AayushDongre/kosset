@@ -106,7 +106,7 @@ const mapStateToProps = (state) => {
         authenticated: state.authenticated,
         total: state.total,
         discount: state.discount,
-        uid: state.uid
+        uid: state.currentUid
     }
 }
 export default connect(mapStateToProps)(SummaryCheckout)

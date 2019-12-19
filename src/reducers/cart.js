@@ -25,7 +25,7 @@ export default (state = cartReducerDefaultState, action) => {
                     cart: [...state.cart, action.product],
                     total: state.total + action.total,
                     discount: state.discount,
-                    uid: state.currentUid,
+                    currentUid: state.currentUid,
                     shipping: state.shipping
                 };
 
@@ -46,7 +46,7 @@ export default (state = cartReducerDefaultState, action) => {
                     cart: [...state.cart, action.product],
                     total: state.total + action.total,
                     discount: state.discount,
-                    uid: state.currentUid,
+                    currentUid: state.currentUid,
                     shipping: state.shipping
                 };
 
@@ -65,7 +65,7 @@ export default (state = cartReducerDefaultState, action) => {
                 }),
                 total: state.total + action.total,
                 discount: state.discount,
-                uid: state.currentUid,
+                currentUid: state.currentUid,
                 shipping: state.shipping
             }
         case "UPDATE_QUANTITY_TRIAL":
@@ -83,7 +83,7 @@ export default (state = cartReducerDefaultState, action) => {
                 }),
                 total: state.total + action.total,
                 discount: state.discount,
-                uid: state.currentUid,
+                currentUid: state.currentUid,
                 shipping: state.shipping
             }
 
@@ -94,7 +94,7 @@ export default (state = cartReducerDefaultState, action) => {
                 cart: state.cart,
                 total: state.total,
                 discount: state.discount,
-                uid: state.currentUid,
+                currentUid: state.currentUid,
                 shipping: state.shipping
             }
 
@@ -104,7 +104,7 @@ export default (state = cartReducerDefaultState, action) => {
                 cart: state.cart,
                 total: state.total,
                 discount: state.discount,
-                uid: state.currentUid,
+                currentUid: state.currentUid,
                 shipping:state.shipping
             }
         case "REMOVE_PRODUCT":
@@ -133,12 +133,12 @@ export default (state = cartReducerDefaultState, action) => {
         case "SET_UID":
             return {
                 ...state,
-                uid: action.uid
+                currentUid: action.uid
             }
         case "UNSET_UID":
             return {
                 ...state,
-                uid: ""
+                currentUid: ""
             }
 
         case "RESET_STATE":

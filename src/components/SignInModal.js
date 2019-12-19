@@ -9,7 +9,8 @@ import { authenticate, unauthenticate, resetState } from '../actions/cart';
 class SignInModal extends React.Component {
 
     state = {
-        error: ""
+        error: "",
+        login: true
     }
 
     signUp = (e) => {
@@ -46,7 +47,7 @@ class SignInModal extends React.Component {
                             address: JSON.stringify([address])
                         }), { method: "post" })
                             .then((value) => {
-                                $('#signInModal').modal('toggle')
+                                $("#"+this.props.id).modal('toggle')
 
                             })
                             .catch((err) => {
@@ -79,7 +80,7 @@ class SignInModal extends React.Component {
             this.setState(() => ({ error: "" }))
             firebase.auth().signInWithEmailAndPassword(email, password)
                 .then((value) => {
-                    $('#signInModal').modal('toggle')
+                    $("#"+this.props.id).modal('toggle')
                 })
                 .catch((err) => {
                     switch (err.code) {
@@ -100,42 +101,11 @@ class SignInModal extends React.Component {
 
     }
 
-    signout = (e) => {
-        e.preventDefault()
-        firebase.auth().signOut()
-        this.props.resetState()
-    }
-    deleteAccount = (e) => {
-        e.preventDefault()
-        //doesnt work when active subscriptions. (cloud API works fine) 
-        fetch(`https://us-central1-kosset-69420.cloudfunctions.net/api/deleteUser?uid=${this.props.currentUid}`,{ method: "post" })
-        .then((res)=>{
-            if(res.status==200){
-                firebase.auth().currentUser.delete()
-                this.props.resetState()
-            }
-            else{
-                console.log(res)
-            }
-        })
-        .catch((err)=>{
-            console.log(err)
-        })
-    }
-
-    state = {
-        login: true
-    }
-
     render() {
-        $("#signInModal").on("hidden.bs.modal", (e) => { this.setState(() => ({ login: true })) })
+        $(this.props.id).on("hidden.bs.modal", (e) => { this.setState(() => ({ login: true })) })
         return (
             <div>
-                <button onClick={this.signout}>sign out</button>
-                <button onClick={this.deleteAccount}>delete account</button>
-
-
-                <div className="modal fade" id="signInModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal fade" id={this.props.id} tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div className="modal-dialog" role="document">
                         <div className="modal-content">
                             <div className="modal-header">

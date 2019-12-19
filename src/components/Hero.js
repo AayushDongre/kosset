@@ -1,36 +1,78 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import { connect } from "react-redux";
+import SignInModal from './SignInModal'
+import $ from 'jquery'
+import firebase from 'firebase/app'
+import { resetState } from '../actions/cart'
 
-export const Nav = (props) => {
+class NavMain extends React.Component {
 
-    return (
-        <div className={(!(props.id) && 'container') + ` fixed-top`} id={props.id}>
-            <nav className={((props.id) && 'py-0') + ` navbar navbar-expand-lg pb-0`}>
-                <Link className="navbar-brand mt-1 mt-xl-0" to="/">Kosset</Link>
-                <button className="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="icon-bar top-bar"></span>
-                    <span className="icon-bar middle-bar"></span>
-                    <span className="icon-bar bottom-bar"></span>
-                </button>
+    signout = (e) => {
+        e.preventDefault()
+        firebase.auth().signOut()
+        this.props.resetState()
+    }
+    render() {
 
-                <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div className="navbar-nav ml-auto">
-                        <Link className="nav-item nav-link" to="/">About <span className="sr-only">(current)</span></Link>
-                        <Link className="nav-item nav-link" to="/products">Products</Link>
-                        <Link className="nav-item nav-link" to="/">App</Link>
-                        <Link className="nav-item nav-link d-md-none" to="#">Account</Link>
-                        <Link className="nav-item nav-link d-md-none" to="/cart">Cart</Link>
-                        <a className="nav-item nav-link d-none d-md-inline-block" href="#"> <img src="/static/img/accounticon.svg" ></img></a>
-                        <Link className="nav-item nav-link d-none d-md-inline-block" to="/cart"> <img src="/static/img/carticon.svg" ></img></Link>
-                        <Link className="nav-item nav-link nav-btn px-xl-4 px-1  ml-xl-2 mx-5 mx-sm-0 mb-3 mb-lg-0" to="/products">Buy Now</Link>
+        return (
+            <div className={(!(this.props.id) && 'container') + ` fixed-top`} id={this.props.id}>
+
+                <nav className={((this.props.id) && 'py-0') + ` navbar navbar-expand-lg pb-0`}>
+
+                    <Link className="navbar-brand mt-1 mt-xl-0" to="/">Kosset</Link>
+                    <button className="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="icon-bar top-bar"></span>
+                        <span className="icon-bar middle-bar"></span>
+                        <span className="icon-bar bottom-bar"></span>
+                    </button>
+
+                    <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div className="navbar-nav ml-auto">
+                            <Link className="nav-item nav-link" to="/">About <span className="sr-only">(current)</span></Link>
+                            <Link className="nav-item nav-link" to="/products">Products</Link>
+                            <Link className="nav-item nav-link" to="/">App</Link>
+                            <Link className="nav-item nav-link d-md-none" to="#">Account</Link>
+                            <Link className="nav-item nav-link d-md-none" to="/cart">Cart</Link>
+                            <div className="dropdown">
+                                <a className="nav-item nav-link d-none d-md-inline-block dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <img src="/static/img/accounticon.svg" ></img>
+                                </a>
+                                <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    {!this.props.authenticated && <a className="dropdown-item" onClick={() => {
+                                        $("#navbarSignInModal").modal("toggle")
+                                        // $(".modal-backdrop").css("display", "none")
+                                    }}>Sign In</a>}
+                                    {this.props.authenticated && <a className="dropdown-item" onClick={this.signout}>Sign out</a>}
+                                    {this.props.authenticated && <a className="dropdown-item">Delete Account</a>}
+                                </div>
+                            </div>
+
+                            <Link className="nav-item nav-link d-none d-md-inline-block" to="/cart"> <img src={this.props.cart.length < 1 ? "/static/img/carticon.svg" : "/static/img/cartIcon-filled.png"} ></img></Link>
+                            <Link className="nav-item nav-link nav-btn px-xl-4 px-1  ml-xl-2 mx-5 mx-sm-0 mb-3 mb-lg-0" to="/products">Buy Now</Link>
+                        </div>
                     </div>
-                </div>
-            </nav>
-        </div>
-    )
+                </nav>
+            </div>
+        )
+    }
+}
+const mapStateToProps = (state) => {
+    return {
+        authenticated: state.authenticated,
+        cart: state.cart
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        resetState: () => { dispatch(resetState()) }
+    }
 }
 
-const Hero = () => {
+const Nav = connect(mapStateToProps, mapDispatchToProps)(NavMain)
+export { Nav }
+
+const Hero = (props) => {
     return (
         <div className="hero pt-5">
             <Nav />
@@ -43,10 +85,13 @@ const Hero = () => {
                         have to compromise. We are doing so by offering a range of alternative products and services under one platform to take care of all menstruation, sexual health and sanitation related needs.</p>
 
             </div>
+            <SignInModal id="navbarSignInModal" />
+
         </div>
 
     )
 }
 
 
-export default Hero;
+
+export default connect(mapStateToProps)(Hero)

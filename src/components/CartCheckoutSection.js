@@ -82,7 +82,7 @@ class CartCheckoutSection extends React.Component {
                         CHECKOUT
                     </button>
                 </div>
-                < SignInModal history={this.props.history} />
+                < SignInModal history={this.props.history} id="signInModal"/>
             </div>
         )
     }
