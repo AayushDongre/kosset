@@ -2,7 +2,7 @@
 @media only screen and (max-width: 768px) {
 
   .navbar{
-    padding: 0 1rem;
+    padding-left: 0.5rem;
   }
     .navbar-nav {
         background-color: #A798D5;
@@ -135,5 +135,40 @@
     .icon-bar{
       color: white;
       background: white;
+    }
+
+    // ----------ECOMMERCE PAGE-------------
+    .ecommercePage h1{
+      font-size: 1.875rem !important;
+      line-height: normal !important;
+      margin-bottom: 0;
+    }
+    .sub-heading, .contents{
+      font-size: 1rem !important;
+      line-height: 1.5 !important;
+      margin-bottom: 0;
+      padding: 0.25rem 0;
+    }
+    .free {
+      font-size: 0.9rem !important;
+    }
+    .choose{
+      font-size: 0.8rem !important;
+      line-height: 1.2 !important;
+    }
+    .content-row-text p{
+      line-height: 1 !important;
+      font-size: 1rem !important;
+      margin-bottom: 0 !important;
+    }
+    .content-rows .input-group{
+      margin: 0.750rem 0;
+    }
+    .buttons-row .order-2 {
+      margin-top: 1.5rem !important;
+    }
+    .total-15{
+      margin-top: -1rem;
+      font-size: 0.8rem !important;
     }
   }

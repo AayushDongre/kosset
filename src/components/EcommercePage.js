@@ -40,11 +40,11 @@ class EcommercePage extends React.Component {
             <div className="ecommercePage container-fluid">
                 <Nav id="purpleNav" />
 
-                <div className="row m-2 px-5 pt-5">
-                    <div className="col-md-6 p-5">
+                <div className="row m-2 px-xl-5 px-lg-4 pt-5">
+                    <div className="col-md-6 p-xl-5 p-lg-4 p-1">
                         <img src="./static/img/kossetBox-main.webp" className="img-fluid"></img>
                     </div>
-                    <div className="col-md-6 p-5">
+                    <div className="col-md-6 p-xl-5 p-lg-3">
                         <h1>KOSSET BOX</h1>
                         <p className="sub-heading">15 Sanitary Pads with Individual Disposal Packets</p>
                         <p className="free m-0">FREE HERBAL CRAMPS RELIEF ROLL ON</p>
@@ -125,32 +125,32 @@ class EcommercePage extends React.Component {
                         </div>
 
                         <div className="row buttons-row">
-                            <div className="col-md-8 mt-4">
-                                <button onClick={this.KossetBoxCartBuy} className="buyButton btn mt-4 mr-4 px-xl-4"> Buy Now</button>
-                                <button onClick={this.KossetBoxCart} className="addToCartButton btn mt-4 px-xl-3"> ADD TO CART</button>
+                            <div className="col-md-8 mt-xl-4 mt-lg-3 order-2 order-lg-2">
+                                <button onClick={this.KossetBoxCartBuy} className="buyButton btn mt-lg-4 mt-2 mr-4 px-xl-4"> Buy Now</button>
+                                <button onClick={this.KossetBoxCart} className="addToCartButton btn mt-lg-4 mt-2 px-xl-3"> ADD TO CART</button>
                             </div>
-                            <div className="col-md-4 mt-4">
-                                <span className="mt-4 total-15">Total:{this.state.num1 + this.state.num2 + this.state.num3}/15</span>
-                                <span className="mt-5 total-15">{this.state.error}</span>
+                            <div className="col-md-4 mt-xl-4 order-1 order-lg-1">
+                                <span className="mt-xl-4 total-15">Total:{this.state.num1 + this.state.num2 + this.state.num3}/15</span>
+                                <span className="mt-xl-5 total-15">{this.state.error}</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div className="row mx-2 mb-5  px-5 py-5">
-                    <div className="col-md-6 px-5">
+                <div className="row mx-2 mb-5 mt-5 mt-lg-0 p-xl-5 p-lg-3">
+                    <div className="col-md-6 px-xl-5 px-lg-3">
                         <img src="./static/img/kossetBox-trial.webp" className="img-fluid"></img>
                     </div>
-                    <div className="col-md-6 px-5">
+                    <div className="col-md-6 px-xl-5 px-lg-3">
                         <h1>KOSSET TRIAL BOX</h1>
                         <p className="sub-heading">3 Sanitary Pads with Individual Disposal Packets</p>
                         <div className="content-rows">
-                            <div className="content-row-text"><p>1 Heavy Flow and Overnight Pad(L)</p></div>
-                            <div className="content-row-text"><p>1 Light and Medium Flow Pad(M)</p></div>
+                            <div className="content-row-text py-3 py-lg-0"><p>1 Heavy Flow and Overnight Pad(L)</p></div>
+                            <div className="content-row-text pb-3 pb-lg-0"><p>1 Light and Medium Flow Pad(M)</p></div>
                             <div className="content-row-text"><p>1 Panty Liner for light spotting and discharge</p></div>
                         </div>
 
-                        <div className="row mt-4">
+                        <div className="row mt-lg-4">
                             <div className="col-md-8 mt-4">
                                 <button onClick={this.TrialBoxCartBuy} className="btn buyButton mr-4 px-xl-4"> Buy Now</button>
                                 <button onClick={this.TrialBoxCart} className="btn addToCartButton"> ADD TO CART</button>
