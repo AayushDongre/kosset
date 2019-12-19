@@ -13,14 +13,14 @@ class KossetBoxCart extends React.Component {
             <div className="row mt-xl-4 kossetBoxCart">
                 <div className="row flex-grow-1 mx-1">
                     <div className="col-md-4">
-                        <img src="./static/img/kossetBox_cartimg.png" className="img-fluid px-0 "></img>
+                        <img src="./static/img/kossetBox-main.webp" className="img-fluid px-0 "></img>
                     </div>
                     <div className="col-md-8">
                         <h1>KOSSET BOX
                             <button type="button" onClick={() => {
                                 this.props.remove(this.props.ID)
                             }} className="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
+                                <span aria-hidden="true" className="cartCross">&times;</span>
                             </button>
                         </h1>
                         <p className="free pb-2">FREE HERBAL PERIOD CRAMPS RELEIF ROLL ON</p>

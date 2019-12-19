@@ -12,15 +12,15 @@ class TrialBoxCart extends React.Component {
     render() {
         return (
             <div className="row mt-xl-4 trialBoxCart">
-                <div className="col-md-3 align-self-center">
-                    <img src="./static/img/trialBox_cartimg.webp" className="img-fluid px-0"></img>
+                <div className="col-md-4 align-self-center">
+                    <img src="./static/img/kossetBox-trial.webp" className="img-fluid px-0"></img>
                 </div>
-                <div className="col-md-9 px-5">
+                <div className="col-md-8">
                     <h1>KOSSET TRIAL BOX
                     <button type="button" onClick={() => {
                             this.props.remove(this.props.ID)
                         }} className="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
+                            <span aria-hidden="true" className="cartCross">&times;</span>
                         </button>
                     </h1>
                     <p className="sub-heading">3 Sanitary Pads with Individual Disposal Packets</p>

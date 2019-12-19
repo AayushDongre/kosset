@@ -82,16 +82,23 @@
   color: $cartPink;
   letter-spacing: 0.02em;
 }
-
+.buyButton:hover{
+  background:$cartPink;
+  color:white !important;
+  
+}
 .addToCartButton {
   background: #96B3D1;
-
   font-family: $source;
   font-style: normal;
   font-weight: 400;
   font-size: 1rem;
   color: #FFFFFF;
-
+}
+.addToCartButton:hover,.addToCartButton:active{ 
+  color: #96B3D1 !important;
+  background: white;
+  border: 3px solid #96B3D1;
 }
 
 .btn{
