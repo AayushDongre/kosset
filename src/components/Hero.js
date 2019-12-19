@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 export const Nav = (props) => {
 
     return (
-        <div className={(!(props.id) && 'container') + ` px-md-0 px-4 fixed-top`} id={props.id}>
-            <nav className={((props.id) && 'py-0') + ` navbar navbar-expand-lg px-md-5 pb-0 `}>
+        <div className={(!(props.id) && 'container') + ` fixed-top`} id={props.id}>
+            <nav className={((props.id) && 'py-0') + ` navbar navbar-expand-lg pb-0`}>
                 <Link className="navbar-brand mt-1 mt-xl-0" to="/">Kosset</Link>
                 <button className="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="icon-bar top-bar"></span>
@@ -22,7 +22,7 @@ export const Nav = (props) => {
                         <Link className="nav-item nav-link d-md-none" to="/cart">Cart</Link>
                         <a className="nav-item nav-link d-none d-md-inline-block" href="#"> <img src="/static/img/accounticon.svg" ></img></a>
                         <Link className="nav-item nav-link d-none d-md-inline-block" to="/cart"> <img src="/static/img/carticon.svg" ></img></Link>
-                        <Link className="nav-item nav-link nav-btn px-xl-4 px-lg-2 ml-xl-2 mx-5 mx-sm-0" to="/products">Buy Now</Link>
+                        <Link className="nav-item nav-link nav-btn px-xl-4 px-1  ml-xl-2 mx-5 mx-sm-0 mb-3 mb-lg-0" to="/products">Buy Now</Link>
                     </div>
                 </div>
             </nav>
@@ -34,7 +34,7 @@ const Hero = () => {
     return (
         <div className="hero pt-5">
             <Nav />
-            <div className="container wrapper d-flex flex-column justify-content-center px-4 px-md-0 pt-5">
+            <div className="container wrapper d-flex flex-column justify-content-center px-4 pt-5">
                 <p className="heroLeadLine mb-0">Kosset is on a simple mission of making every Woman’s Period a Pain-free,<br />Convenient,<br />
                     Seamless and most importantly,
             </p>

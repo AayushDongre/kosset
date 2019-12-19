@@ -1,11 +1,17 @@
 // --------------MEDIA QUERY-------------
 @media only screen and (max-width: 768px) {
 
+  .navbar{
+    padding: 0 1rem;
+  }
     .navbar-nav {
         background-color: #A798D5;
         text-align: center;
       }
       .navbar-black{
+        padding: 0 1.75rem !important;
+      }
+      #purpleNav{
         padding: 0 1.5rem !important;
       }
       

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
     return (
@@ -12,10 +12,10 @@ const Footer = () => {
             <div className="col-md-4 footerKosset py-lg-5 p-4 p-md-0">
                 <h3 className="mt-lg-5">KOSSET<span>™️</span></h3>
                 <ul>
-                    <li><a>Kosset Closet</a></li>
-                    <li><a>Account</a></li>
-                    <li><a>Terms </a></li>
-                    <Link to="/faq">FAQs</Link>
+                    <Link className="d-block my-1 mb-lg-3" to="/products">Kosset Closet</Link>
+                    <Link className="d-block my-1 mb-lg-3" to="/faq">FAQs</Link>
+                    <Link className="d-block my-1 mb-lg-3" to="/">Terms & Conditions</Link>
+                    <Link className="d-block my-1" to="/">Privacy Policy</Link>
                 </ul>
             </div>
             <div className="col-md-4 kossetCare p-3">
