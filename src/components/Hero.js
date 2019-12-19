@@ -12,6 +12,23 @@ class NavMain extends React.Component {
         firebase.auth().signOut()
         this.props.resetState()
     }
+    deleteAccount = (e) => {
+        e.preventDefault()
+        //doesnt work when active subscriptions. (cloud API works fine) 
+        fetch("https://us-central1-kosset-69420.cloudfunctions.net/api/deleteUser?uid=${this.props.currentUid",{ method: "post" })
+        .then((res)=>{
+            if(res.status==200){
+                firebase.auth().currentUser.delete()
+                this.props.resetState()
+            }
+            else{
+                console.log(res)
+            }
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+    }
     render() {
 
         return (
@@ -43,12 +60,12 @@ class NavMain extends React.Component {
                                         // $(".modal-backdrop").css("display", "none")
                                     }}>Sign In</a>}
                                     {this.props.authenticated && <a className="dropdown-item" onClick={this.signout}>Sign out</a>}
-                                    {this.props.authenticated && <a className="dropdown-item">Delete Account</a>}
+                                    {this.props.authenticated && <a className="dropdown-item" onClick={this.deleteAccount}>Delete Account</a>}
                                 </div>
                             </div>
 
                             <Link className="nav-item nav-link d-none d-md-inline-block" to="/cart"> <img src={this.props.cart.length < 1 ? "/static/img/carticon.svg" : "/static/img/cartIcon-filled.svg"} ></img></Link>
-                            <Link className="nav-item nav-link nav-btn px-xl-4 px-1  ml-xl-2 mx-5 mx-sm-0 mb-3 mb-lg-0" to="/products">Buy Now</Link>
+                            <Link className="nav-item nav-link nav-btn px-xl-4 px-1  ml-xl-2 mx-5 mx-sm-0 mb-3 mb-lg-0 navBuy" to="/products">Buy Now</Link>
                         </div>
                     </div>
                 </nav>

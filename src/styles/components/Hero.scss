@@ -1,5 +1,5 @@
 .hero {
-  font-family: Source Sans Pro;
+  font-family: $source;
   height: 100vh;
   background: url("/static/img/herobg.webp");
   // background-attachment: fixed;
@@ -8,7 +8,10 @@
   background-repeat: no-repeat;
   color: white;
 }
-
+.navBuy:hover{
+  background: #ffffff;
+  color:#7A7A7A !important;
+}
 
 .navbar-brand,
 .navbar-brand:hover {

@@ -111,3 +111,10 @@
 .checkout-row .col-sm-3{
   color: #474747
 }
+.cartCross{
+  background: $cartPink;
+  color: #ffffff;
+  display: inline-block;
+  height: 1.5rem !important;
+  width: 1.5rem !important;
+}
