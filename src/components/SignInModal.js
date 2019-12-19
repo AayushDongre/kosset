@@ -1,9 +1,8 @@
 import React from 'react';
-import * as app from 'firebase'
+import firebase from 'firebase/app'
 import $ from 'jquery';
 import { connect } from 'react-redux';
-import { authenticate, unauthenticate } from '../actions/cart';
-import { Redirect } from 'react-router-dom'
+import { authenticate, unauthenticate, resetState } from '../actions/cart';
 
 
 
@@ -34,7 +33,7 @@ class SignInModal extends React.Component {
                 }
                 this.setState(() => ({ error: "" }))
 
-                app.auth().createUserWithEmailAndPassword(email, password)
+                firebase.auth().createUserWithEmailAndPassword(email, password)
                     .then((userObject) => {
                         uid = userObject.user.uid;
                         $('#signInModal').modal('toggle')
@@ -44,7 +43,7 @@ class SignInModal extends React.Component {
                             name,
                             email,
                             phone,
-                            address:JSON.stringify([address])
+                            address: JSON.stringify([address])
                         }), { method: "post" })
                             .then((value) => {
                                 $('#signInModal').modal('toggle')
@@ -78,7 +77,7 @@ class SignInModal extends React.Component {
 
         if (!!email && !!password) {
             this.setState(() => ({ error: "" }))
-            app.auth().signInWithEmailAndPassword(email, password)
+            firebase.auth().signInWithEmailAndPassword(email, password)
                 .then((value) => {
                     $('#signInModal').modal('toggle')
                 })
@@ -88,7 +87,7 @@ class SignInModal extends React.Component {
                             this.setState(() => ({ error: "Wrong password!" }))
                             break
                         case "auth/user-not-found":
-                            this.setState(()=>({error:"Invalid email"}))
+                            this.setState(() => ({ error: "Invalid email" }))
                             break
                         default:
                             console.log(err)
@@ -101,9 +100,11 @@ class SignInModal extends React.Component {
 
     }
 
-    signout(e) {
+    signout = (e) => {
         e.preventDefault()
-        app.auth().signOut()
+        firebase.auth().signOut()
+        this.props.resetState()
+
     }
 
     state = {
@@ -200,7 +201,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         authenticate: () => { dispatch(authenticate()) },
         unauthenticate: () => { dispatch(unauthenticate()) },
-
+        resetState: () => { dispatch(resetState()) }
     }
 }
 

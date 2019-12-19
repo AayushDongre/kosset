@@ -58,3 +58,6 @@ export const setUid = (uid) => ({
 export const unSetUid = () => ({
     type:"UNSET_UID"
 })
+export const resetState = () => ({
+    type:"RESET_STATE"
+})

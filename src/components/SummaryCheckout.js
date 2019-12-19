@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import * as app from 'firebase'
 import $ from 'jquery';
 
 class SummaryCheckout extends React.Component {
 
     state = {
         user: {},
-        addAddress: false
+        addAddress: false,
+        selectedAddress:""
     }
     componentDidMount() {
         this.updateUser()
@@ -62,7 +62,16 @@ class SummaryCheckout extends React.Component {
                         {
                             this.state.user.address &&
                             this.state.user.address.map((address) => {
-                                return <AddressCard address={address} key={address} />
+                                return (
+                                    <div className="row m-4 addressRow px-3 content-row" key={address} >
+                                        <div className="addressText content-row-text" onClick={(e) => {
+                                            var add = e.target.innerHTML
+                                            this.setState(() => ({ selectedAddress: add }))
+                                            $(".borderedab").toggleClass("borderedab")
+                                            $(e.target).parent().addClass("borderedab")
+                                        }}>{address}</div>
+                                    </div>
+                                )
                             })
                         }
                         <div className="addAddress row m-4" onClick={this.addAddress}>Add Deliver Address</div>
@@ -90,15 +99,6 @@ class SummaryCheckout extends React.Component {
             </div>
         )
     }
-}
-
-
-const AddressCard = (props) => {
-    return (
-        <div className="row m-4 addressRow px-3 content-row">
-            <div className="addressText content-row-text">{props.address}</div>
-        </div>
-    )
 }
 
 const mapStateToProps = (state) => {

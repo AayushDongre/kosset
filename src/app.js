@@ -6,7 +6,7 @@ import cartStore from './store/configureStore';
 import "normalize.css/normalize.css";
 import 'popper.js'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap';
+import 'bootstrap/dist/js/bootstrap.min.js';
 import "./styles/styles.scss";
 import 'animate.css'
 import { authenticate, unauthenticate, setUid, unSetUid } from './actions/cart';

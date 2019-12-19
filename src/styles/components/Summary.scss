@@ -110,6 +110,12 @@
 
 .addressRow {
     border: 4px solid rgba(255, 167, 191, 0.4);
+    padding: 0 !important;
+}
+.addressText{
+    height: 100%;
+    width: 100%;
+    margin: 0;
 }
 
 .payCol {
@@ -129,6 +135,10 @@
     text-decoration-line: underline;
     color: #FFA7BF;
 }
-.addAddress:hover{
+.addressText:hover,.addAddress:hover{
     cursor: pointer;
 }
+.borderedab {
+    border: 4px solid #ffa7bf;
+  }
+  
