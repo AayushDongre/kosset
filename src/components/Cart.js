@@ -16,7 +16,7 @@ class Cart extends React.Component {
                 <Nav id="purpleNav" />
                 <div className="row my-4 pt-5">
                     <div className="container">
-                        <div className="row mb-4 cartHeadingRow">
+                        <div className="row mb-4 headingRow">
                             <div className="col-12">
                                 <h1>Cart</h1>
                             </div>

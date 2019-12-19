@@ -9,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap';
 import "./styles/styles.scss";
 import 'animate.css'
-import { authenticate, unauthenticate } from './actions/cart';
+import { authenticate, unauthenticate, setUid, unSetUid } from './actions/cart';
 
 import * as app from 'firebase'
 const firebaseConfig = require("./firebase.config.json")
@@ -47,11 +47,14 @@ app.auth().onAuthStateChanged(function (user) {
     if (user) {
         var email = user.email;
         var emailVerified = user.emailVerified;
+        var uid = user.uid;
         store.dispatch(authenticate())
+        store.dispatch(setUid(uid))
         console.log("yeee")
 
     } else {
         store.dispatch(unauthenticate())
+        store.dispatch(unSetUid())
         console.log("peepoopoo")
     }
 });

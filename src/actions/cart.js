@@ -46,7 +46,15 @@ export const removeProduct = (id) => ({
     id
 })
 
-export const applyDiscount = (discount = 0) => ({
+export const applyDiscount = (discount) => ({
     type:"APPLY_DISCOUNT",
     discount
+})
+
+export const setUid = (uid) => ({
+    type:"SET_UID",
+    uid
+})
+export const unSetUid = () => ({
+    type:"UNSET_UID"
 })

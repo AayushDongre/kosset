@@ -44,7 +44,7 @@ class SignInModal extends React.Component {
                             name,
                             email,
                             phone,
-                            address
+                            address:JSON.stringify([address])
                         }), { method: "post" })
                             .then((value) => {
                                 $('#signInModal').modal('toggle')

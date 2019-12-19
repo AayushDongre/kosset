@@ -21,7 +21,7 @@ app.post('/createUser', (req, res) => {
             "phone": req.query.phone,
             "days": req.query.days ? req.query.days : "",
             "last_date": req.query.last_date ? req.query.last_date : "",
-            "address": req.query.address ? req.query.address : ""
+            "address": req.query.address ? JSON.parse(req.query.address) : []
         }
         users.doc(req.query.uid).set(currentUser).then((val) => {
             res.status(200);
@@ -90,14 +90,14 @@ app.post("/addOrder", (req, res) => {
         res.send(err);
     }
 })
-app.post("/updateUser", (req,res)=>{
+app.post("/updateUser", (req, res) => {
     try {
         let users = db.collection("users");
         const uid = req.query.uid
         const currentUser = {
-            "name": req.query.name ? req.query.name:null,
-            "email": req.query.email?req.query.email:null,
-            "phone": req.query.phone ? req.query.phone :null,
+            "name": req.query.name ? req.query.name : null,
+            "email": req.query.email ? req.query.email : null,
+            "phone": req.query.phone ? req.query.phone : null,
             "days": req.query.days ? req.query.days : null,
             "last_date": req.query.last_date ? req.query.last_date : null,
             "address": req.query.address ? req.query.address : null
@@ -105,16 +105,36 @@ app.post("/updateUser", (req,res)=>{
         let updates = Object.assign({}, req.query)
 
         users.doc(uid).update(updates)
-        .then(() => {
+            .then(() => {
+                res.status(200)
+                res.send("success")
+            })
+            .catch((err) => {
+                res.send(err)
+            })
+
+    } catch (err) {
+        res.send(err);
+    }
+})
+app.post("/addAddress", (req,res)=>{
+    try {
+        let users = db.collection("users");
+        const uid = req.query.uid
+        const address = req.query.address
+        users.doc(uid).update({
+            address:admin.firestore.FieldValue.arrayUnion(address)
+        })
+        .then(()=>{
             res.status(200)
             res.send("success")
         })
         .catch((err)=>{
             res.send(err)
         })
-
     } catch (err) {
-        res.send(err);
+        res.send(err)
     }
 })
+
 exports.api = functions.https.onRequest(app);
