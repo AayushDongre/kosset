@@ -22,7 +22,7 @@ export const Nav = (props) => {
                         <Link className="nav-item nav-link d-md-none" to="/cart">Cart</Link>
                         <a className="nav-item nav-link d-none d-md-inline-block" href="#"> <img src="/static/img/accounticon.svg" ></img></a>
                         <Link className="nav-item nav-link d-none d-md-inline-block" to="/cart"> <img src="/static/img/carticon.svg" ></img></Link>
-                        <Link className="nav-item nav-link nav-btn px-lg-4 ml-xl-2 mx-5 mx-sm-0" to="/products">Buy Now</Link>
+                        <Link className="nav-item nav-link nav-btn px-xl-4 px-lg-2 ml-xl-2 mx-5 mx-sm-0" to="/products">Buy Now</Link>
                     </div>
                 </div>
             </nav>
