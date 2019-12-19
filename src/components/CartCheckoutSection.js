@@ -27,7 +27,7 @@ class CartCheckoutSection extends React.Component {
 
     render() {
         return (
-            <div className="row mt-3">
+            <div className="row mt-xl-3 mt-md-2">
                 <div className="col-md-4 orderSummary">
                     ORDER SUMMARY
                 </div>
