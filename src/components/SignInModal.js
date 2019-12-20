@@ -102,7 +102,7 @@ class SignInModal extends React.Component {
     }
 
     render() {
-        $(this.props.id).on("hidden.bs.modal", (e) => { this.setState(() => ({ login: true })) })
+        $("#"+this.props.id).on("hidden.bs.modal", (e) => { this.setState(() => ({ login: true })) })
         return (
             <div>
                 <div className="modal fade" id={this.props.id} tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
