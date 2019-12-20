@@ -15,7 +15,7 @@ class Summary extends React.Component {
                     <Nav id="purpleNav" />
                     <div className="row my-xl-4 my-lg-3 pt-xl-5 pt-lg-3 pt-3 px-4 px-md-2">
                         <div className="container">
-                            <div className="row mb-4 pt-5 headingRow">
+                            <div className="row mb-4 pt-3 headingRow">
                                 <div className="col-12">
                                     <h1>SUMMARY</h1>
                                 </div>
@@ -34,7 +34,7 @@ class Summary extends React.Component {
                                     }
                                 </div>
                                 <div className="col-md-6 summaryCol">
-                                    <div className="summaryBox">
+                                    <div className="summaryBox py-xl-5">
                                         <div className="row summaryBoxRow">
                                             <span className="summaryBoxText">SUBTOTAL</span><span className="summaryBoxNum"><span>&#8377;</span>{this.props.total}</span>
                                         </div>

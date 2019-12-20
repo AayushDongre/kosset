@@ -18,7 +18,7 @@ const TrialBoxSummary = (props) => {
                 <div className="row content-row-text">
                     <p>Panty Liners for  spotting and discharge</p>
                 </div>
-                <p className="quantityRow mt-xl-4 mt-md-3"><span className="quantity">QUANTITY:</span>    {props.quantity} {props.quantity==1?"BOX":"BOXES"}</p>
+                <p className="quantityRow mt-xl-1 mb-0"><span className="quantity">QUANTITY:</span>    {props.quantity} {props.quantity==1?"BOX":"BOXES"}</p>
             </div>
         </div>
     )

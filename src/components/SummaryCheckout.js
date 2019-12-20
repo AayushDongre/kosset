@@ -57,6 +57,7 @@ class SummaryCheckout extends React.Component {
         return (
             <div className="summaryCheckout container">
                 <h2>DELIVERY INFORMATION</h2>
+                <p>Select an address</p>
                 <div className="row">
                     <div className="col-md-8">
                         {

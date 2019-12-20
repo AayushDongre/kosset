@@ -2,10 +2,9 @@
     min-height: 50% !important;
 }
 
-// .kossetBoxSummary,
-// .trialBoxSummary {
-//     // border-bottom: 4px solid rgba(255, 167, 191, 0.4);
-// }
+.summary .headingRow h1{
+    font-size: 2rem;
+}
 
 .kossetBoxSummary h1,
 .trialBoxSummary h1 {
@@ -13,16 +12,13 @@
     font-family: $source;
     font-style: normal;
     font-weight: normal;
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-}
-.trialBoxSummary{
-    border-bottom: 3px solid rgba(255, 167, 191, 0.4);
+    font-size: 2.2rem;
+    margin-bottom: 0;
 }
 
 .kossetBoxSummary .content-row-text,
 .trialBoxSummary .content-row-text {
-    margin: 1.2rem 0;
+    margin: 0.01rem 0;
 }
 
 .kossetBoxSummary .free {
@@ -34,7 +30,7 @@
     font-family: $source;
     font-style: normal;
     font-weight: 600;
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: #7A7A7A;
 }
 
@@ -43,14 +39,11 @@
     font-family: $source;
     font-style: normal;
     font-weight: 600;
-    font-size: 1.5rem;
-    line-height: 60px;
+    font-size: 1.2rem;
     color: #FF9DB8;
 }
 
 .summaryBox {
-    width: 440px;
-    height: 291px;
     background: #FCE8E9;
     display: flex;
     flex-direction: column;
@@ -58,7 +51,7 @@
 }
 
 .summaryBoxRow {
-    margin: 1rem 2rem;
+    margin: 0.5rem 2rem;
     justify-content: space-between;
 }
 
@@ -66,7 +59,7 @@
     font-family: $source;
     font-style: normal;
     font-weight: normal;
-    font-size: 1.8rem;
+    font-size: 1.375rem;
     color: #6A6A6A;
 }
 
@@ -106,9 +99,15 @@
     font-family: $source;
     font-style: normal;
     font-weight: normal;
-    font-size: 36px;
-    line-height: 45px;
+    font-size: 2rem;
     color: #7A7A7A;
+    padding-top: 0.8rem;
+}
+.summaryCheckout p{
+    font-family: $source;
+    font-size: 1rem;
+    color: #6A6A6A;
+    margin: 0;
 }
 
 .addressRow {
