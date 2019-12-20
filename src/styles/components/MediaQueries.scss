@@ -207,25 +207,70 @@
   }
 
   // ----------CART CHECKOUT SECTION-------
-  .orderSummary{
+  .orderSummary {
     font-size: 1.5rem !important;
     padding: 1rem 0;
   }
-  .checkout-row{
+  .checkout-row {
     margin-top: 1rem;
   }
-  .checkout-row .col-9{
+  .checkout-row .col-9 {
     font-size: 1rem !important;
   }
-  .checkout-row .col-9 span{
+  .checkout-row .col-9 span {
     font-size: 0.8rem;
   }
-  .haveCoupon, .couponCode{
+  .haveCoupon,
+  .couponCode {
     font-size: 1rem !important;
     line-height: normal !important;
   }
-  .checkoutButton{
+  .checkoutButton {
+    font-size: 1rem !important;
+  }
+  // ------------SUMMARY-----------
+  .headingRow .col-12 {
+    margin-bottom: 0.5rem;
+  }
+  .summary .headingRow h1,
+  .summaryCheckout h2 {
+    font-size: 1.4rem !important;
+  }
+  .kossetBoxSummary h1,
+  .trialBoxSummary h1 {
+    font-weight: 600 !important;
+    font-size: 1.5rem !important;
+  }
+  .kossetBoxSummary .content-row-text p,
+  .trialBoxSummary .content-row-text p {
+    padding: 0.5rem 0;
+  }
+  .kossetBoxSummary .quantityRow,
+  .kossetBoxSummary .quantityRow .quantity .trialBoxSummary .quantityRow,
+  .trialBoxSummary .quantityRow .quantity {
     font-size: 1rem !important;
   }
 
+  .summaryBoxRow{
+    margin: 0 0.25rem;
+  }
+  .summaryBoxText {
+    font-size: 1rem !important;
+    padding: 0 1.2rem !important;
+  }
+  .summaryBoxNum {
+    font-size: 1.2rem !important;
+    padding: 0 1.2rem !important;
+  }
+  .kossetBoxSummary .content-row-text span,
+  .trialBoxSummary .content-row-text span{
+    padding-top: 0.25rem !important;
+  }
+  .addressText{
+    font-size: 1rem !important;
+  }
+  .addAddress{
+    font-size: 1rem !important;
+    margin-top: -1rem !important;
+  }
 }

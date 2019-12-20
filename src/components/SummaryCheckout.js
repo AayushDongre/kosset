@@ -139,15 +139,15 @@ class SummaryCheckout extends React.Component {
     render() {
         return (
             <div className="summaryCheckout container">
-                <h2>DELIVERY INFORMATION</h2>
-                <p>Select an address</p>
+                <h2 className="px-3 px-md-0">DELIVERY INFORMATION</h2>
+                <p className="px-3 px-md-0">Select an address</p>
                 <div className="row">
                     <div className="col-md-8">
                         {
                             this.state.user.address &&
                             this.state.user.address.map((address) => {
                                 return (
-                                    <div className="row m-4 addressRow px-3 content-row" key={address} >
+                                    <div className="row m-4 addressRow px-xl-3 px-2 content-row" key={address} >
                                         <div className="addressText content-row-text" onClick={(e) => {
                                             var add = e.target.innerHTML
                                             this.setState(() => ({ selectedAddress: add }))
@@ -158,7 +158,7 @@ class SummaryCheckout extends React.Component {
                                 )
                             })
                         }
-                        <div className="addAddress row m-4" onClick={this.addAddress}>Add Deliver Address</div>
+                        <div className="addAddress row m-xl-4 m-md-3 mx-4 my-0" onClick={this.addAddress}>Add Delivery Address</div>
 
                         {
                             this.state.addAddress &&

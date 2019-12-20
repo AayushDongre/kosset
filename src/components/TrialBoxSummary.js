@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 const TrialBoxSummary = (props) => {
     return (
-        <div className="trialBoxSummary">
+        <div className="trialBoxSummary mb-md-2 mb-3">
             <h1>TRIAL BOX</h1>
             <div className="content-rows">
                 <div className="row content-row-text">

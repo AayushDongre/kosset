@@ -31,8 +31,7 @@ const Router = () => (
                     <Route path="/cart" component={Cart} />
                     <Route path="/test" component={SignInModal} />
                     <Route path="/summary" component={Summary} />
-                    <Route path="/pay" component={Paytm} />
-                </ AnimatedSwitch>
+                </AnimatedSwitch>
             </ScrollIntoView>
         </Switch>
     </BrowserRouter>
