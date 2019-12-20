@@ -3,11 +3,15 @@ const admin = require('firebase-admin');
 const functions = require('firebase-functions');
 const express = require('express');
 const cors = require('cors');
+const querystring = require('query-string');
+const { paytmConfig } = require('./extensions/config');
+const paytmChecksum = require('./extensions/checksum');
+
+
 const app = express();
 app.use(cors({ origin: true }));
-// // Create and Deploy Your First Cloud Functions
-// // https://firebase.google.com/docs/functions/write-firebase-functions
-//
+
+
 admin.initializeApp(functions.config().firebase);
 let db = admin.firestore();
 
@@ -75,7 +79,7 @@ app.post("/deleteUser", (req, res) => {
                     })
                 }
             })
-            .catch((err)=>{
+            .catch((err) => {
                 res.send(err)
             })
     } catch (err) {
@@ -162,6 +166,41 @@ app.post("/addAddress", (req, res) => {
             })
     } catch (err) {
         res.send(err)
+    }
+})
+app.post("/pay", (request, response) => {
+    try {
+        // const orders = db.collection('orders');
+        const data = {};
+        data.MID = paytmConfig.MID; // Provided by Paytm
+        data.ORDER_ID = request.query.uid
+            + request.query.timestamp; // unique OrderId for every request
+        data.CUST_ID = request.query.uid; // unique customer identifier
+        data.INDUSTRY_TYPE_ID = paytmConfig.INDUSTRY_TYPE_ID; // Provided by Paytm
+        data.CHANNEL_ID = paytmConfig.CHANNEL_ID; // Provided by Paytm
+        data.TXN_AMOUNT = request.query.price; // transaction amount
+        data.WEBSITE = paytmConfig.WEBSITE; // Provided by Paytm
+        data.CALLBACK_URL = paytmConfig.CALLBACK_URL; // Provided by Paytm
+        data.EMAIL = request.query.email; // customer email id
+        data.MOBILE_NO = request.query.phone; // customer 10 digit mobile no.
+        paytmChecksum.genchecksum(
+            data,
+            paytmConfig.MERCHANT_KEY,
+            (err, checksum) => {
+                console.log('Checksum: ', checksum, '\n');
+                response.status(200).json(
+                    {
+                        CHECKSUMHASH: checksum,
+                        ...data,
+                    },
+                );
+            },
+        );
+
+    } catch (err) {
+        response.status(500).json({
+            error: err,
+        });
     }
 })
 

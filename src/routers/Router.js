@@ -8,7 +8,6 @@ import Cart from '../components/Cart';
 import Summary from '../components/Summary';
 import { AnimatedSwitch } from 'react-router-transition';
 import { PureComponent } from "react";
-import { withRouter } from "react-router-dom";
 
 class ScrollIntoView extends PureComponent {
     componentWilldMount = () => window.scrollTo(0, 0);
@@ -32,6 +31,7 @@ const Router = () => (
                     <Route path="/cart" component={Cart} />
                     <Route path="/test" component={SignInModal} />
                     <Route path="/summary" component={Summary} />
+                    <Route path="/pay" component={Paytm} />
                 </ AnimatedSwitch>
             </ScrollIntoView>
         </Switch>
