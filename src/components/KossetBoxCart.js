@@ -10,7 +10,7 @@ class KossetBoxCart extends React.Component {
 
     render() {
         return (
-            <div className="row mt-xl-4 kossetBoxCart">
+            <div className="row mt-xl-4 mt-3 kossetBoxCart">
                 <div className="row flex-grow-1 mx-1">
                     <div className="col-md-4">
                         <img src="./static/img/kossetBox-main.webp" className="img-fluid px-0 "></img>
@@ -20,36 +20,36 @@ class KossetBoxCart extends React.Component {
                             <button type="button" onClick={() => {
                                 this.props.remove(this.props.ID)
                             }} className="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true" className="cartCross">&times;</span>
+                                <span aria-hidden="true" className="cartCross mt-1">&times;</span>
                             </button>
                         </h1>
                         <p className="free pb-2">FREE HERBAL PERIOD CRAMPS RELEIF ROLL ON</p>
 
                         <div className="content-rows">
-                            <div className="row content-row-text">
-                                <div className="col-sm-11 ">
+                            <div className="row content-row-text ">
+                                <div className="col-10 ">
                                     <p>Heavy Flow and Overnight Pads(L) </p>
                                 </div>
-                                <div className="col-sm-1">
+                                <div className="col-1">
                                     <span>{this.props.HFOP}</span>
                                 </div>
                             </div>
 
                             <div className="row content-row-text">
-                                <div className="col-sm-11">
+                                <div className="col-10">
                                     <p>Light and Medium Flow Pad(M)</p>
                                 </div>
-                                <div className="col-sm-1">
+                                <div className="col-1">
                                     <span>{this.props.LMFP}</span>
                                 </div>
                             </div>
 
 
                             <div className="row content-row-text">
-                                <div className="col-sm-11">
+                                <div className="col-10">
                                     <p>Panty Liners for  spotting and discharge</p>
                                 </div>
-                                <div className="col-sm-1">
+                                <div className="col-1">
                                     <span>{this.props.PLSD}</span>
                                 </div>
                             </div>
@@ -57,9 +57,9 @@ class KossetBoxCart extends React.Component {
 
                     </div>
                 </div>
-                <div className="selectQuantity col-12 mt-xl-5">Select a quantity to proceed:</div>
+                <div className="selectQuantity col-12 mt-xl-5 mt-md-4 mt-2">Select a quantity to proceed:</div>
 
-                <div className="row m-5 quantitySelectionRow">
+                <div className="row m-xl-5 m-lg-3 m-3 quantitySelectionRow">
 
                     <div onClick={() => {
                         this.props.updateQuantity(1, this.state.prevPrice)
@@ -67,11 +67,15 @@ class KossetBoxCart extends React.Component {
                         $(".qb1").addClass("borderedqb")
                         $(".qb2").removeClass("borderedqb")
                         $(".qb3").removeClass("borderedqb")
-                    }} className={this.props.prevPrice.quantity == 1 ? "col-md-3 quantityBox qb1 borderedqb" : "col-md-3 quantityBox qb1"}>
+                    }} className={this.props.prevPrice.quantity == 1 ? "col-lg-3 col-4 quantityBox qb1 borderedqb" : "col-lg-3 col-4  quantityBox qb1"}>
                         <h3>1 BOX</h3>
                         <p>
                             <span>&#8377;</span>
                             250
+                        </p>
+                        <p className="perBox" style={{ opacity: 0 }}>
+                            <span>&#8377;</span>
+                            200
                         </p>
                     </div>
                     <div onClick={() => {
@@ -80,7 +84,7 @@ class KossetBoxCart extends React.Component {
                         $(".qb1").removeClass("borderedqb")
                         $(".qb2").addClass("borderedqb")
                         $(".qb3").removeClass("borderedqb")
-                    }} className={this.props.prevPrice.quantity == 2 ? "col-md-3 quantityBox qb2 borderedqb" : "col-md-3 quantityBox qb2"}>
+                    }} className={this.props.prevPrice.quantity == 2 ? "col-lg-3 col-4  quantityBox qb2 borderedqb" : "col-lg-3 col-4 quantityBox qb2"}>
                         <h3>2 BOXES</h3>
                         <p>
                             <span>&#8377;</span>
@@ -97,7 +101,7 @@ class KossetBoxCart extends React.Component {
                         $(".qb1").removeClass("borderedqb")
                         $(".qb2").removeClass("borderedqb")
                         $(".qb3").addClass("borderedqb")
-                    }} className={this.props.prevPrice.quantity == 6 ? "col-md-3 quantityBox qb3 borderedqb" : "col-md-3 quantityBox qb3"}>
+                    }} className={this.props.prevPrice.quantity == 6 ? "col-lg-3 col-4  quantityBox qb3 borderedqb" : "col-lg-3 col-4 quantityBox qb3"}>
                         <h3>6 BOXES</h3>
                         <p>
                             <span>&#8377;</span>

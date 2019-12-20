@@ -11,7 +11,7 @@ class TrialBoxCart extends React.Component {
 
     render() {
         return (
-            <div className="row mt-xl-4 trialBoxCart">
+            <div className="row mt-3 mt-xl-4 trialBoxCart">
                 <div className="col-md-4 align-self-center">
                     <img src="./static/img/kossetBox-trial.webp" className="img-fluid px-0"></img>
                 </div>
@@ -19,7 +19,7 @@ class TrialBoxCart extends React.Component {
                     <h1>KOSSET TRIAL BOX
                     <button type="button" onClick={() => {
                             this.props.remove(this.props.ID)
-                        }} className="close" data-dismiss="modal" aria-label="Close">
+                        }} className="close mt-1" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true" className="cartCross">&times;</span>
                         </button>
                     </h1>
@@ -46,20 +46,24 @@ class TrialBoxCart extends React.Component {
 
                     </div>
                 </div>
-                <p className="selectQuantity col-12 mt-4">Select a quantity to proceed:</p>
+                <p className="selectQuantity col-12 mt-xl-4 mt-2">Select a quantity to proceed:</p>
 
-                <div className="row m-4 quantitySelectionRowTrial">
+                <div className="row mx-5 m-lg-4 quantitySelectionRowTrial">
 
                     <div onClick={() => {
                         this.props.updateQuantity(1, this.state.prevPrice)
                         this.setState(() => ({ prevPrice: 30 }))
                         $(".qb4").addClass("borderedqb")
                         $(".qb5").removeClass("borderedqb")
-                    }} className={this.props.prevPrice.quantity == 1 ? "col-md-3 quantityBox qb4 borderedqb" : "col-md-3 quantityBox qb4"}>
+                    }} className={this.props.prevPrice.quantity == 1 ? "col-md-3 col-6 quantityBox qb4 borderedqb" : "col-md-3 col-6 quantityBox qb4"}>
                         <h3>1 BOX</h3>
                         <p>
                             <span>&#8377;</span>
                             30
+                        </p>
+                        <p className="perBox" style={{opacity: 0}}>
+                            <span>&#8377;</span>
+                            25 per box
                         </p>
                     </div>
                     <div onClick={() => {
@@ -67,7 +71,7 @@ class TrialBoxCart extends React.Component {
                         this.setState(() => ({ prevPrice: 50 }))
                         $(".qb4").removeClass("borderedqb")
                         $(".qb5").addClass("borderedqb")
-                    }} className={this.props.prevPrice.quantity == 2 ? "col-md-3 quantityBox qb5 borderedqb" : "col-md-3 quantityBox qb5"}>
+                    }} className={this.props.prevPrice.quantity == 2 ? "col-md-3 col-6 quantityBox qb5 borderedqb" : "col-md-3 col-6 quantityBox qb5"}>
                         <h3>2 BOXES</h3>
                         <p>
                             <span>&#8377;</span>

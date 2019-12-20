@@ -15,10 +15,10 @@ class Cart extends React.Component {
             <div className="cart">
                 <Nav id="purpleNav" />
                 <div className="row my-xl-4 my-md-lg-2 pt-5">
-                    <div className="container px-4 px-md-1">
+                    <div className="container px-5 px-md-1 my-3 my-md-0">
                         <div className="row mb-4 headingRow">
                             <div className="col-12">
-                                <h1>Cart</h1>
+                                <h1>CART</h1>
                             </div>
                         </div>
 
