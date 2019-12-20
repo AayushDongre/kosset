@@ -27,51 +27,51 @@ class CartCheckoutSection extends React.Component {
 
     render() {
         return (
-            <div className="row mt-3">
+            <div className="row mt-xl-3 mt-4 mt-md-2">
                 <div className="col-md-4 orderSummary">
                     ORDER SUMMARY
                 </div>
-                <div className="col-md-5 px-5 checkout-rows align-self-center">
+                <div className="col-md-5 px-xl-5 checkout-rows align-self-center">
                     <div className="row checkout-row">
-                        <div className="col-sm-9">
+                        <div className="col-9">
                             SUBTOTAL
                         </div>
-                        <div className="col-sm-3">
+                        <div className="col-3">
                             <span>&#8377;</span>
                             {this.props.total}
                         </div>
                     </div>
                     <div className="row checkout-row">
-                        <div className="col-sm-9">
+                        <div className="col-9">
                             SHIPPING CHARGES
                         </div>
-                        <div className="col-sm-3">
+                        <div className="col-3">
                             <span>&#8377;</span>
                             50
                         </div>
                     </div>
                     <div className="row checkout-row">
-                        <div className="col-sm-9">
+                        <div className="col-9">
                             DISCOUNT
                         </div>
-                        <div className="col-sm-3">
+                        <div className="col-3">
                             -
                              <span>&#8377;</span>
                              {this.props.discount*0.01*this.props.total}
                              </div>
                     </div>
                     <div className="row checkout-row checkout-total">
-                        <div className="col-sm-9">
+                        <div className="col-9">
                             TOTAL<br></br>
                             <span>(inclusive of all taxes)</span>
                         </div>
-                        <div className="col-sm-3">
+                        <div className="col-3">
                             <span>&#8377;</span>
                             {this.props.total + this.props.shipping - this.props.discount*0.01*this.props.total}
                         </div>
                     </div>
                 </div>
-                <div className="col-md-3 align-self-center px-3">
+                <div className="col-md-3 align-self-center px-lg-3">
                     <p className="haveCoupon">Have a coupon code?</p>
                     <p className="couponCode"> COUPON CODE</p>
                     <input name="coupon" id="couponInput"></input><br></br>

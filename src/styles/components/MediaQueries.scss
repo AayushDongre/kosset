@@ -1,174 +1,231 @@
 // --------------MEDIA QUERY-------------
 @media only screen and (max-width: 768px) {
-
-  .navbar{
+  .navbar {
     padding-left: 0.5rem;
   }
-    .navbar-nav {
-        background-color: #A798D5;
-        text-align: center;
-      }
-      .navbar-black{
-        padding: 0 1.75rem !important;
-      }
-      #purpleNav{
-        padding: 0 1.5rem !important;
-      }
-      
-      .heroLeadLine{
-        font-size: 1rem;
-      }
-      .heroNatural{
-        font-size: 2rem;
-        padding: 5px 0;
-      }
-      .heroPara{
-        font-size: 0.8rem;
-      }
-      .nav-item{
-        font-size: 1rem;
-      }
-
-    .companion {
-        font-size: 4rem;
-    }
-    .natural,.experience {
-        font-size: 4rem;
-    }
-
-    .productsSection{
-        margin: 2rem 0 4rem 0 !important;
-        padding: 0 !important;
-    }
-    .static{
-        font-size:1rem !important;
-        line-height: 1rem;
-    }
-    .natural,.experience{
-        display: none;
-    }
-    .productBanner2-text li{
-      font-size: 1rem;
-      line-height: 3rem;
-    }
-    .appSection h1{
-      font-size: 1.8rem;
-      line-height: normal;
-      padding-top: 1.5rem;
-    }
-  
-    .tryTheApp{
-      font-size: 1.2rem !important;
-    }
-    .just{
-      font-size: 1rem !important;
-    }
-    .phone {
-      width: 200px;
-      height: auto;
-    }
-    .play-store-icon {
-      width: 150px;
-      height: auto;
-    }
-    .cal-icon, .sub-icon{
-      width: 100px;
-    }
-    .track{
-      font-size: 0.8rem !important;
-      text-align: center !important;
-    }
-    .dont{
-      font-size: 1rem !important;
-    }
-    .comingSoon h4{
-      font-size: 1.2rem;
-      padding-top: 2rem;
-    }
-    .coming-soon{
-      font-size: 1.2rem;
-      opacity: 0.4;
-    }
-    .comingSoon p {
-      font-size: 1rem;
-    }
-    .comingSoon .col-sm-2{
-      text-align: center;
-    }
-    .closet-icon {
-      width: 80px;
-      height:auto;
-    }
-    .mag-icon{
-      width: 80px;
-      padding-bottom: 2rem;
-    }
-    // -------------FOOTER----------
-    .getInTouch h3, .footerKosset h3, .kossetCare a{
-      font-size: 1.5rem;
-      margin-bottom: 0;
-    }
-    .getInTouch p, .footerKosset li{
-      font-size: 1rem;
-      // line-height: 3rem;
-    }
-
-    .kossetCare img{
-      width: 40px;
-      height: 40px;
-    }
-    .faq-title{
-      font-size: 2rem !important;
-    }
-    .faq-hero p{
-      font-size: 0.9rem !important;
-    }
-    .faq-topic{
-      font-size: 1.5rem !important;
-    }
-    .card-body{
-      font-size: 0.8rem;
-    }
-    #purpleNav{
-      padding: 0 1rem !important;
-    }
-    .icon-bar{
-      color: white;
-      background: white;
-    }
-
-    // ----------ECOMMERCE PAGE-------------
-    .ecommercePage h1{
-      font-size: 1.875rem !important;
-      line-height: normal !important;
-      margin-bottom: 0;
-    }
-    .sub-heading, .contents{
-      font-size: 1rem !important;
-      line-height: 1.5 !important;
-      margin-bottom: 0;
-      padding: 0.25rem 0;
-    }
-    .free {
-      font-size: 0.9rem !important;
-    }
-    .choose{
-      font-size: 0.8rem !important;
-      line-height: 1.2 !important;
-    }
-    .content-row-text p{
-      line-height: 1 !important;
-      font-size: 1rem !important;
-      margin-bottom: 0 !important;
-    }
-    .content-rows .input-group{
-      margin: 0.750rem 0;
-    }
-    .buttons-row .order-2 {
-      margin-top: 1.5rem !important;
-    }
-    .total-15{
-      margin-top: -1rem;
-      font-size: 0.8rem !important;
-    }
+  .navbar-nav {
+    background-color: #a798d5;
+    text-align: center;
   }
+  .navbar-black {
+    padding: 0 1.75rem !important;
+  }
+  #purpleNav {
+    padding: 0 1.5rem !important;
+  }
+
+  .heroLeadLine {
+    font-size: 1rem;
+  }
+  .heroNatural {
+    font-size: 2rem;
+    padding: 5px 0;
+  }
+  .heroPara {
+    font-size: 0.8rem;
+  }
+  .nav-item {
+    font-size: 1rem;
+  }
+
+  .companion {
+    font-size: 4rem;
+  }
+  .natural,
+  .experience {
+    font-size: 4rem;
+  }
+
+  .productsSection {
+    margin: 2rem 0 4rem 0 !important;
+    padding: 0 !important;
+  }
+  .static {
+    font-size: 1rem !important;
+    line-height: 1rem;
+  }
+  .natural,
+  .experience {
+    display: none;
+  }
+  .productBanner2-text li {
+    font-size: 1rem;
+    line-height: 3rem;
+  }
+  .appSection h1 {
+    font-size: 1.8rem;
+    line-height: normal;
+    padding-top: 1.5rem;
+  }
+
+  .tryTheApp {
+    font-size: 1.2rem !important;
+  }
+  .just {
+    font-size: 1rem !important;
+  }
+  .phone {
+    width: 200px;
+    height: auto;
+  }
+  .play-store-icon {
+    width: 150px;
+    height: auto;
+  }
+  .cal-icon,
+  .sub-icon {
+    width: 100px;
+  }
+  .track {
+    font-size: 0.8rem !important;
+    text-align: center !important;
+  }
+  .dont {
+    font-size: 1rem !important;
+  }
+  .comingSoon h4 {
+    font-size: 1.2rem;
+    padding-top: 2rem;
+  }
+  .coming-soon {
+    font-size: 1.2rem;
+    opacity: 0.4;
+  }
+  .comingSoon p {
+    font-size: 1rem;
+  }
+  .comingSoon .col-sm-2 {
+    text-align: center;
+  }
+  .closet-icon {
+    width: 80px;
+    height: auto;
+  }
+  .mag-icon {
+    width: 80px;
+    padding-bottom: 2rem;
+  }
+  // -------------FOOTER----------
+  .getInTouch h3,
+  .footerKosset h3,
+  .kossetCare a {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+  }
+  .getInTouch p,
+  .footerKosset li {
+    font-size: 1rem;
+    // line-height: 3rem;
+  }
+
+  .kossetCare img {
+    width: 40px;
+    height: 40px;
+  }
+  .faq-title {
+    font-size: 2rem !important;
+  }
+  .faq-hero p {
+    font-size: 0.9rem !important;
+  }
+  .faq-topic {
+    font-size: 1.5rem !important;
+  }
+  .card-body {
+    font-size: 0.8rem;
+  }
+  #purpleNav {
+    padding: 0 1rem !important;
+  }
+  .icon-bar {
+    color: white;
+    background: white;
+  }
+
+  // ----------ECOMMERCE PAGE-------------
+  .ecommercePage h1 {
+    font-size: 1.875rem !important;
+    line-height: normal !important;
+    margin-bottom: 0;
+  }
+  .sub-heading,
+  .contents {
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 0;
+    padding: 0.25rem 0;
+  }
+  .free {
+    font-size: 0.8rem !important;
+  }
+  .choose {
+    font-size: 0.8rem !important;
+    line-height: 1.2 !important;
+  }
+  .content-row-text p {
+    line-height: 1 !important;
+    font-size: 1rem !important;
+    margin-bottom: 0 !important;
+  }
+  .content-rows .input-group {
+    margin: 0.75rem 0;
+  }
+  .buttons-row .order-2 {
+    margin-top: 1.5rem !important;
+  }
+  .total-15 {
+    margin-top: -1rem;
+    font-size: 0.8rem !important;
+  }
+  // ------------CART----------
+
+  .headingRow h1 {
+    font-size: 1.875rem !important;
+    margin-bottom: 0.25rem;
+  }
+  .kossetBoxCart h1,
+  .trialBoxCart h1 {
+    margin-top: 1rem !important;
+  }
+  .content-row-text p,
+  .col-1 {
+    padding: 0.9rem 0;
+  }
+  .quantityBox h3 {
+    font-size: 1rem !important;
+  }
+  .perBox {
+    font-size: 0.6rem !important;
+  }
+  .quantityBox {
+    padding: 5px !important;
+    border: 1px solid #ffa7bf;
+  }
+
+  .selectQuantity {
+    font-size: 1rem !important;
+  }
+
+  // ----------CART CHECKOUT SECTION-------
+  .orderSummary{
+    font-size: 1.5rem !important;
+    padding: 1rem 0;
+  }
+  .checkout-row{
+    margin-top: 1rem;
+  }
+  .checkout-row .col-9{
+    font-size: 1rem !important;
+  }
+  .checkout-row .col-9 span{
+    font-size: 0.8rem;
+  }
+  .haveCoupon, .couponCode{
+    font-size: 1rem !important;
+    line-height: normal !important;
+  }
+  .checkoutButton{
+    font-size: 1rem !important;
+  }
+
+}
