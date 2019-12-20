@@ -45,7 +45,7 @@ class Summary extends React.Component {
                                             <span className="summaryBoxText">DISCOUNT</span><span className="summaryBoxNum">-<span>&#8377;</span>{this.props.discount*0.01*this.props.total}</span>
                                         </div>
                                         <div className="row summaryBoxRow">
-                                            <span className="summaryBoxText"></span><span className="final summaryBoxNum"><span>&#8377;</span>{this.props.total + 50 - this.props.discount*0.01*this.props.total}</span>
+                                            <span className="summaryBoxText"></span><span className="final summaryBoxNum"><span>&#8377;</span>{this.props.total + this.props.shipping - this.props.discount*0.01*this.props.total}</span>
                                         </div>
                                     </div>
                                 </div>
