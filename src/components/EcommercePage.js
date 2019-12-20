@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { Nav } from "./Hero";
 import { addTrialBox, addKossetBox } from '../actions/cart';
 import Footer from './Footer';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
 
 class EcommercePage extends React.Component {
 
@@ -16,12 +18,30 @@ class EcommercePage extends React.Component {
     KossetBoxCart = () => {
         if (this.state.num1 + this.state.num2 + this.state.num3 == 15) {
             this.props.addKossetBox(this.state.num1, this.state.num2, this.state.num3)
+            toast.warn('Added To Cart', {
+                position: "bottom-right",
+                autoClose: 2000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                className:"toastCustom",
+            });
         } else {
             this.setState(() => ({ error: "Total should be 15" }))
         }
     }
     TrialBoxCart = () => {
         this.props.addTrialBox()
+        toast.warn('Added To Cart', {
+            position: "bottom-right",
+            autoClose: 2000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            className:"toastCustom"
+        });
     }
     KossetBoxCartBuy = () => {
         if (this.state.num1 + this.state.num2 + this.state.num3 == 15) {
@@ -40,6 +60,17 @@ class EcommercePage extends React.Component {
             <div className="ecommercePage container-fluid">
                 <Nav id="purpleNav" />
 
+                <ToastContainer
+                    position="bottom-right"
+                    autoClose={2000}
+                    hideProgressBar
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnVisibilityChange
+                    draggable
+                    pauseOnHover
+                />
                 <div className="row m-2 px-xl-5 px-lg-4 pt-5">
                     <div className="col-md-6 p-xl-5 p-lg-4 p-1">
                         <img src="./static/img/kossetBox-main.webp" className="img-fluid"></img>
