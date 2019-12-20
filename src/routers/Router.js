@@ -6,6 +6,7 @@ import EcommercePage from "../components/EcommercePage";
 import SignInModal from '../components/SignInModal';
 import Cart from '../components/Cart';
 import Summary from '../components/Summary';
+import TnC from '../components/TnC';
 import { AnimatedSwitch } from 'react-router-transition';
 import { PureComponent } from "react";
 
@@ -31,6 +32,7 @@ const Router = () => (
                     <Route path="/cart" component={Cart} />
                     <Route path="/test" component={SignInModal} />
                     <Route path="/summary" component={Summary} />
+                    <Route path="/tnc" component={TnC}/>
                 </AnimatedSwitch>
             </ScrollIntoView>
         </Switch>

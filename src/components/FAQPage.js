@@ -4,13 +4,14 @@ import FAQs from './FAQs.js'
 import Footer from './Footer.js'
 import { Nav } from './Hero.js'
 
-//make child components alag files me, import and add inside the div
 
 const FAQPage = () => {
     return (
         <div>
             <Nav />
-            <FAQheader />
+            <FAQheader title={'Frequently Asked Questions'}
+                subtitle={'You can browse the questions below to find what you are looking for.'}
+            />
             <FAQs />
             <Footer />
         </div>

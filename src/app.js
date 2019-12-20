@@ -32,7 +32,7 @@ ReactDOM.render(jsx, document.getElementById("app"))
 
 
 $(document).scroll((e)=>{
-    if($(document).scrollTop() > $(".navbar").height() && !!$(".hero").length)
+    if($(document).scrollTop() > $(".navbar").height() && (!!$(".hero").length || !!$("#faq-hero").length))
         $(".navbar").addClass("navbar-black")
     else
         $(".navbar").removeClass("navbar-black")
