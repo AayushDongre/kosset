@@ -13,7 +13,7 @@ class Summary extends React.Component {
             return (
                 <div className="summary">
                     <Nav id="purpleNav" />
-                    <div className="row my-4 pt-5">
+                    <div className="row my-xl-4 my-lg-3 pt-xl-5 pt-lg-3 pt-3 px-4 px-md-2">
                         <div className="container">
                             <div className="row mb-4 pt-5 headingRow">
                                 <div className="col-12">
