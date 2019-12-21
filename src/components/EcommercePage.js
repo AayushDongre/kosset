@@ -5,6 +5,14 @@ import { addTrialBox, addKossetBox } from '../actions/cart';
 import Footer from './Footer';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
+import { Link } from 'react-router-dom'
+
+const GoToCart = () => (
+    <div>
+      <p>Added to Cart</p>
+      <button className="toCartBtn"><Link to="/cart"> Go to cart</Link> </button>
+    </div>
+  )
 
 class EcommercePage extends React.Component {
 
@@ -19,9 +27,9 @@ class EcommercePage extends React.Component {
     KossetBoxCart = () => {
         if (this.state.num1 + this.state.num2 + this.state.num3 == 15) {
             this.props.addKossetBox(this.state.num1, this.state.num2, this.state.num3)
-            toast.warn('Added To Cart', {
+            toast.warn(<GoToCart/>, {
                 position: "bottom-right",
-                autoClose: 2000,
+                autoClose: 2000000,
                 hideProgressBar: true,
                 closeOnClick: true,
                 pauseOnHover: true,
