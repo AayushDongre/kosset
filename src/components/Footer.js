@@ -14,7 +14,7 @@ const Footer = () => {
                 <ul>
                     <Link className="d-block my-1 mb-lg-3" to="/products">Kosset Closet</Link>
                     <Link className="d-block my-1 mb-lg-3" to="/faq">FAQs</Link>
-                    <Link className="d-block my-1 mb-lg-3" to="/">Terms & Conditions</Link>
+                    <Link className="d-block my-1 mb-lg-3" to="/tnc">Terms & Conditions</Link>
                     <Link className="d-block my-1" to="/">Privacy Policy</Link>
                 </ul>
             </div>
