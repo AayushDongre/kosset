@@ -4,6 +4,9 @@ import { connect } from "react-redux";
 import $ from 'jquery'
 import firebase from 'firebase/app'
 import { resetState } from '../actions/cart'
+import * as app from 'firebase';
+
+// console.log(app.auth().currentUser);
 
 class NavMain extends React.Component {
 

@@ -42,6 +42,7 @@ $(document).scroll((e)=>{
 
 app.auth().onAuthStateChanged(function (user) {
     if (user) {
+        console.log(user)
         var email = user.email;
         var emailVerified = user.emailVerified;
         var uid = user.uid;
