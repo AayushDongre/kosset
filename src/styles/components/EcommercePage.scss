@@ -181,11 +181,21 @@
   font-family: $source;
 }
 
-.toCartBtn{
-  background-color: white;
-  color: #6a6a6a;
+.toCartBtn, .toCartBtn a{
+  background-color: white !important;
+  color: #6a6a6a !important;
+  font-family: $source;
 }
 
-.toCartBtn:active{
-  
+.toCartBtn{
+  border: none;
+  box-shadow: none;
+  border-radius: 3px;
+}
+.toastCustom p{
+  margin: 0 0.75rem !important;
+  display: inline-block;
+}
+.toCartBtn a:hover{
+  color: black !important;
 }

@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom'
 const GoToCart = () => (
     <div>
       <p>Added to Cart</p>
-      <button className="toCartBtn"><Link to="/cart"> Go to cart</Link> </button>
+      <button className="toCartBtn px-2 py-1"><Link to="/cart"> Go to cart</Link> </button>
     </div>
   )
 
@@ -29,7 +29,7 @@ class EcommercePage extends React.Component {
             this.props.addKossetBox(this.state.num1, this.state.num2, this.state.num3)
             toast.warn(<GoToCart/>, {
                 position: "bottom-right",
-                autoClose: 2000000,
+                autoClose: 2000,
                 hideProgressBar: true,
                 closeOnClick: true,
                 pauseOnHover: true,
@@ -42,7 +42,7 @@ class EcommercePage extends React.Component {
     }
     TrialBoxCart = () => {
         this.props.addTrialBox()
-        toast.warn('Added To Cart', {
+        toast.warn(<GoToCart/>, {
             position: "bottom-right",
             autoClose: 2000,
             hideProgressBar: true,
