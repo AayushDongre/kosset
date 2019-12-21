@@ -30,13 +30,14 @@ const jsx = (
 
 ReactDOM.render(jsx, document.getElementById("app"))
 
-
+//Change Navbar color on scroll
 $(document).scroll((e)=>{
     if($(document).scrollTop() > $(".navbar").height() && (!!$(".hero").length || !!$("#faq-hero").length))
         $(".navbar").addClass("navbar-black")
     else
         $(".navbar").removeClass("navbar-black")
 })
+
 
 
 app.auth().onAuthStateChanged(function (user) {
