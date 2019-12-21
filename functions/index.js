@@ -2,6 +2,7 @@
 const admin = require('firebase-admin');
 const functions = require('firebase-functions');
 const express = require('express');
+const axios = require("axios")
 const cors = require('cors');
 const querystring = require('query-string');
 const { paytmConfig } = require('./extensions/config');
@@ -203,5 +204,69 @@ app.post("/pay", (request, response) => {
         });
     }
 })
+app.post("/callback", (request, response) => {
+    try {
+        // const orders = db.collection('orders');
+        const data = {};
+        data.MID = paytmConfig.MID; // Provided by Paytm
+        data.ORDER_ID = request.query.uid
+            + request.query.timestamp; // unique OrderId for every request
+        data.CUST_ID = request.query.uid; // unique customer identifier
+        data.INDUSTRY_TYPE_ID = paytmConfig.INDUSTRY_TYPE_ID; // Provided by Paytm
+        data.CHANNEL_ID = paytmConfig.CHANNEL_ID; // Provided by Paytm
+        data.TXN_AMOUNT = request.query.price; // transaction amount
+        data.WEBSITE = paytmConfig.WEBSITE; // Provided by Paytm
+        data.CALLBACK_URL = paytmConfig.CALLBACK_URL; // Provided by Paytm
+        data.EMAIL = request.query.email; // customer email id
+        data.MOBILE_NO = request.query.phone; // customer 10 digit mobile no.
+        paytmChecksum.genchecksum(
+            data,
+            paytmConfig.MERCHANT_KEY,
+            (err, checksum) => {
+                console.log('Checksum: ', checksum, '\n');
+                response.status(200).json(
+                    {
+                        CHECKSUMHASH: checksum,
+                        ...data,
+                    },
+                );
+            },
+        );
 
+    } catch (err) {
+        response.status(500).json({
+            error: err,
+        });
+    }
+})
+app.get("/status", (request, response) => {
+    axios
+        .post(paytmConfig.STATUS_URL, {
+            MID: paytmConfig.MID,
+            ORDER_ID: request.query.ORDER_ID,
+            CHECKSUMHASH: request.query.CHECKSUMHASH,
+        })
+        .then((res) => {
+            console.log(`statusCode: ${res.statusCode}`);
+            response.status(res.statusCode).json(res);
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+})
+app.post("/status", (request, response) => {
+    axios
+        .post(paytmConfig.STATUS_URL, {
+            MID: paytmConfig.MID,
+            ORDER_ID: request.query.ORDER_ID,
+            CHECKSUMHASH: request.query.CHECKSUMHASH,
+        })
+        .then((res) => {
+            console.log(`statusCode: ${res.statusCode}`);
+            response.status(res.statusCode).json(res);
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+})
 exports.api = functions.https.onRequest(app);

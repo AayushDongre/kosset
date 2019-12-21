@@ -36,7 +36,7 @@ const Footer = () => {
             </div>
             <div className="end-footer container-fluid d-inline py-2">
                 <span> © KOSSET 2019</span>
-                <span className="sudodevs px-4 ">made by sudodevs</span>
+               <span className="sudodevs px-4 "><a href="https://www.sudodevs.com">made by sudodevs</a></span> 
             </div>
         </div>
 

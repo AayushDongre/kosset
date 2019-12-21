@@ -15,9 +15,7 @@ class SummaryCheckout extends React.Component {
     componentDidMount() {
         this.updateUser()
     }
-    componentWillUpdate() {
-        $("#paytm").submit()
-    }
+
     addAddress = () => {
         this.setState(() => ({ addAddress: true }))
     }
@@ -101,11 +99,11 @@ class SummaryCheckout extends React.Component {
                     //     })
                     // console.log("https://securegw-stage.paytm.in/order/process?" + $.param(json))
 
-                    var link = document.createElement('a');
-                    link.href = "https://securegw.paytm.in/order/process?" + $.param(json)+"PAYMENT_TYPE_ID=PPI&PAYMENT_MODE_ONLY=YES";
-                    document.body.appendChild(link);
-                    console.log("https://securegw.paytm.in/order/process?" + $.param(json)+"PAYMENT_TYPE_ID=PPI&PAYMENT_MODE_ONLY=YES")
-                    link.click();
+                    // var link = document.createElement('a');
+                    // link.href = "https://securegw.paytm.in/order/process?" + $.param(json) + "PAYMENT_TYPE_ID=PPI&PAYMENT_MODE_ONLY=YES";
+                    // document.body.appendChild(link);
+                    // // console.log("https://securegw.paytm.in/order/process?" + $.param(json) + "PAYMENT_TYPE_ID=PPI&PAYMENT_MODE_ONLY=YES")
+                    // link.click();
 
                     // document.getElementById("mid").value = json.MID
                     // document.getElementById("website").value = json.WEBSITE
@@ -154,6 +152,10 @@ class SummaryCheckout extends React.Component {
                     //         </table>
                     //     </form>
                     // </div>
+                        const form = $(`<div> <center> <h1>Please do not refresh this page...</h1> </center> <form method="post" action="https://securegw-stage.paytm.in/order/process" id="paytm" name="paytm"> <table border="1"> <tbody> <tr> <td> <input type="hidden" name="MID" value=${json.MID}></input> <input type="hidden" name="WEBSITE" value=${json.WEBSITE}></input> <input type="hidden" name="ORDER_ID" value=${json.ORDER_ID}></input> <input type="hidden" name="CUST_ID" value=${json.CUST_ID}></input> <input type="hidden" name="MOBILE_NO" value=${json.MOBILE_NO}></input> <input type="hidden" name="EMAIL" value=${json.EMAIL}></input> <input type="hidden" name="INDUSTRY_TYPE_ID" value=${json.INDUSTRY_TYPE_ID}></input> <input type="hidden" name="CHANNEL_ID" value=${json.CHANNEL_ID}></input> <input type="hidden" name="TXN_AMOUNT" value=${json.TXN_AMOUNT}></input> <input type="hidden" name="CALLBACK_URL" value=${json.CALLBACK_URL}></input> <input type="hidden" name="CHECKSUMHASH" value=${json.CHECKSUMHASH}></input> <input type="hidden" name="PAYMENTMODE" value=PPI></input></td> </tr> </tbody> </table> </form> </div>`)
+                    form.hide().appendTo('body');
+                    form.submit();
+                    document.getElementById("paytm").submit()
                     // this.setState(() => ({ paytm }))
                 })
             })
