@@ -13,11 +13,11 @@ class Summary extends React.Component {
             return (
                 <div className="summary">
                     <Nav id="purpleNav" />
-                    <div className="row my-xl-4 my-lg-3 pt-xl-5 pt-lg-3 pt-3 px-4 px-md-2">
+                    <div className="row my-xl-4 my-lg-3 my-4 pt-xl-5 pt-lg-3 pt-4 px-4 px-md-2">
                         <div className="container">
-                            <div className="row mb-4 pt-5 headingRow">
+                            <div className="row mb-xl-4 mb-md-2 pt-3 headingRow">
                                 <div className="col-12">
-                                    <h1>SUMMARY</h1>
+                                    <h1>ORDER SUMMARY</h1>
                                 </div>
                             </div>
                             <div className="row">
@@ -34,7 +34,7 @@ class Summary extends React.Component {
                                     }
                                 </div>
                                 <div className="col-md-6 summaryCol">
-                                    <div className="summaryBox">
+                                    <div className="summaryBox p-4">
                                         <div className="row summaryBoxRow">
                                             <span className="summaryBoxText">SUBTOTAL</span><span className="summaryBoxNum"><span>&#8377;</span>{this.props.total}</span>
                                         </div>
@@ -45,7 +45,7 @@ class Summary extends React.Component {
                                             <span className="summaryBoxText">DISCOUNT</span><span className="summaryBoxNum">-<span>&#8377;</span>{this.props.discount*0.01*this.props.total}</span>
                                         </div>
                                         <div className="row summaryBoxRow">
-                                            <span className="summaryBoxText"></span><span className="final summaryBoxNum"><span>&#8377;</span>{this.props.total + this.props.shipping - this.props.discount*0.01*this.props.total}</span>
+                                            <span className="final summaryBoxText">TOTAL</span><span className="final summaryBoxNum"><span>&#8377;</span>{this.props.total + this.props.shipping - this.props.discount*0.01*this.props.total}</span>
                                         </div>
                                     </div>
                                 </div>

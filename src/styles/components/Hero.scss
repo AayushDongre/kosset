@@ -36,7 +36,8 @@
   line-height: 25px;
   letter-spacing: 0.05em;
 
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.9) !important;
+  transition: all ease-in 500ms;
 }
 
 .nav-item:hover {
@@ -134,4 +135,12 @@
 
 .full-screen {
   background-color: white;
+}
+
+.dropdown-menu{
+  animation-duration: 400ms !important; 
+}
+.dropdown-item.active, .dropdown-item:active{
+  background-color: #7A7A7A;
+  color: white !important;
 }

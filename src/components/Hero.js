@@ -50,11 +50,12 @@ class NavMain extends React.Component {
                             <Link className="nav-item nav-link" to="/">App</Link>
                             <a className="nav-item nav-link d-md-none dropdown-toggle" data-toggle="dropdown">Account</a>
                             <Link className="nav-item nav-link d-md-none" to="/cart">Cart</Link>
-                            <div className="dropdown">
+                            <div className="dropdown ">
                                 <a className="nav-item nav-link d-none d-md-inline-block dropdown-toggle" data-toggle="dropdown" href="#">
                                     <img src="/static/img/accounticon.svg" ></img>
                                 </a>
-                                <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <div className="dropdown-menu animated fadeInUp mt-xl-4" aria-labelledby="dropdownMenuButton">
+                                <h6 className="dropdown-header">Account</h6>
                                     {!this.props.authenticated && <a className="dropdown-item" onClick={() => {
                                         $("#navbarSignInModal").modal("toggle")
                                         // $(".modal-backdrop").css("display", "none")
