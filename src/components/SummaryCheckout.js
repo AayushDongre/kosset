@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import $ from 'jquery';
 import { Redirect } from 'react-router-dom';
+import axios from 'axios'
 
 class SummaryCheckout extends React.Component {
 
@@ -14,9 +15,7 @@ class SummaryCheckout extends React.Component {
     componentDidMount() {
         this.updateUser()
     }
-    componentWillUpdate() {
-        $("#paytm").submit()
-    }
+
     addAddress = () => {
         this.setState(() => ({ addAddress: true }))
     }
@@ -73,25 +72,51 @@ class SummaryCheckout extends React.Component {
         fetch(url + $.param(params), { method: "post" })
             .then((res) => {
                 res.json().then((json) => {
-                    console.log(json)
-                    const formData = new FormData()
-                    formData.append("MID", json.MID)
-                    formData.append("WEBSITE", json.WEBSITE)
-                    formData.append("ORDER_ID", json.ORDER_ID)
-                    formData.append("CUST_ID", json.CUST_ID)
-                    formData.append("MOBILE_NO", json.MOBILE_NO)
-                    formData.append("EMAIL", json.EMAIL)
-                    formData.append("INDUSTRY_TYPE_ID", json.INDUSTRY_TYPE_ID)
-                    formData.append("CHANNEL_ID", json.CHANNEL_ID)
-                    formData.append("TXN_AMOUNT", json.TXN_AMOUNT)
-                    formData.append("CALLBACK_URL", json.CALLBACK_URL)
-                    formData.append("CHECKSUMHASH", json.CHECKSUMHASH)
-                    console.log("https://securegw-stage.paytm.in/order/process?" + $.param(json))
-                    
-                    var link = document.createElement('a');
-                    link.href = "https://securegw-stage.paytm.in/order/process?" + $.param(json)+"PAYMENT_TYPE_ID=PPI&PAYMENT_MODE_ONLY=YES";
-                    document.body.appendChild(link);
-                    link.click();
+                    // console.log(json)
+                    // var formData = new FormData()
+                    // formData.append("MID", json.MID)
+                    // formData.append("WEBSITE", json.WEBSITE)
+                    // formData.append("ORDER_ID", json.ORDER_ID)
+                    // formData.append("CUST_ID", json.CUST_ID)
+                    // formData.append("MOBILE_NO", json.MOBILE_NO)
+                    // formData.append("EMAIL", json.EMAIL)
+                    // formData.append("INDUSTRY_TYPE_ID", json.INDUSTRY_TYPE_ID)
+                    // formData.append("CHANNEL_ID", json.CHANNEL_ID)
+                    // formData.append("TXN_AMOUNT", json.TXN_AMOUNT)
+                    // formData.append("CALLBACK_URL", json.CALLBACK_URL)
+                    // formData.append("CHECKSUMHASH", json.CHECKSUMHASH)
+                    // axios({
+                    //     method: 'post',
+                    //     url: 'https://securegw-stage.paytm.in/order/process',
+                    //     data: formData,
+                    //     headers: {'Content-Type': 'multipart/form-data' }
+                    //     })
+                    //     .then(()=>{
+                    //         console.log("esfsdf")
+                    //     })
+                    //     .catch((err)=>{
+                    //         console.log(err)
+                    //     })
+                    // console.log("https://securegw-stage.paytm.in/order/process?" + $.param(json))
+
+                    // var link = document.createElement('a');
+                    // link.href = "https://securegw.paytm.in/order/process?" + $.param(json) + "PAYMENT_TYPE_ID=PPI&PAYMENT_MODE_ONLY=YES";
+                    // document.body.appendChild(link);
+                    // // console.log("https://securegw.paytm.in/order/process?" + $.param(json) + "PAYMENT_TYPE_ID=PPI&PAYMENT_MODE_ONLY=YES")
+                    // link.click();
+
+                    // document.getElementById("mid").value = json.MID
+                    // document.getElementById("website").value = json.WEBSITE
+                    // document.getElementById("orderid").value = json.ORDER_ID
+                    // document.getElementById("custid").value = json.CUST_ID
+                    // document.getElementById("mobile").value = json.MOBILE_NO
+                    // document.getElementById("email").value = json.EMAIL
+                    // document.getElementById("industry").value = json.INDUSTRY_TYPE_ID
+                    // document.getElementById("channelid").value = json.CHANNEL_ID
+                    // document.getElementById("txn").value = json.TXN_AMOUNT
+                    // document.getElementById("callback").value = json.CALLBACK_URL
+                    // document.getElementById("checksum").value = json.CHECKSUMHASH
+                    // document.getElementById("paytm").submit()
                     // fetch("https://securegw-stage.paytm.in/order/process?"+$.param(json),
                     // {   
                     //     method:"post",
@@ -127,6 +152,10 @@ class SummaryCheckout extends React.Component {
                     //         </table>
                     //     </form>
                     // </div>
+                        const form = $(`<div> <center> <h1>Please do not refresh this page...</h1> </center> <form method="post" action="https://securegw-stage.paytm.in/order/process" id="paytm" name="paytm"> <table border="1"> <tbody> <tr> <td> <input type="hidden" name="MID" value=${json.MID}></input> <input type="hidden" name="WEBSITE" value=${json.WEBSITE}></input> <input type="hidden" name="ORDER_ID" value=${json.ORDER_ID}></input> <input type="hidden" name="CUST_ID" value=${json.CUST_ID}></input> <input type="hidden" name="MOBILE_NO" value=${json.MOBILE_NO}></input> <input type="hidden" name="EMAIL" value=${json.EMAIL}></input> <input type="hidden" name="INDUSTRY_TYPE_ID" value=${json.INDUSTRY_TYPE_ID}></input> <input type="hidden" name="CHANNEL_ID" value=${json.CHANNEL_ID}></input> <input type="hidden" name="TXN_AMOUNT" value=${json.TXN_AMOUNT}></input> <input type="hidden" name="CALLBACK_URL" value=${json.CALLBACK_URL}></input> <input type="hidden" name="CHECKSUMHASH" value=${json.CHECKSUMHASH}></input> <input type="hidden" name="PAYMENTMODE" value=PPI></input></td> </tr> </tbody> </table> </form> </div>`)
+                    form.hide().appendTo('body');
+                    form.submit();
+                    document.getElementById("paytm").submit()
                     // this.setState(() => ({ paytm }))
                 })
             })
