@@ -9,47 +9,60 @@ import { Link } from 'react-router-dom'
 
 const GoToCart = () => (
     <div>
-      <p>Added to Cart</p>
-      <button className="toCartBtn px-2 py-1"><Link to="/cart"> Go to cart</Link> </button>
+        <p>Added to Cart</p>
+        <button className="toCartBtn px-2 py-1"><Link to="/cart"> Go to cart</Link> </button>
     </div>
-  )
+)
 
 class EcommercePage extends React.Component {
 
     state = {
         num1: 6,
         num2: 7,
-        num3: 2,
-        error: ""
+        num3: 2
     };
-  
+
 
     KossetBoxCart = () => {
         if (this.state.num1 + this.state.num2 + this.state.num3 == 15) {
             this.props.addKossetBox(this.state.num1, this.state.num2, this.state.num3)
-            toast.warn(<GoToCart/>, {
+            toast.warn(<GoToCart />, {
                 position: "bottom-right",
-                autoClose: 2000,
+                autoClose: 200000,
                 hideProgressBar: true,
                 closeOnClick: true,
                 pauseOnHover: true,
                 draggable: true,
-                className:"toastCustom",
+                className: "toastCustom",
+                toastId: 'KboxCart'
             });
         } else {
-            this.setState(() => ({ error: "Total should be 15" }))
+            if (! toast.isActive('15Warning')) {
+                toast.warn('Total Should be 15', {
+                    position: "bottom-right",
+                    autoClose: 2000,
+                    hideProgressBar: true,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    className: "toastCustom",
+                    toastId: '15Warning'
+                });
+              }
+            
         }
     }
     TrialBoxCart = () => {
         this.props.addTrialBox()
-        toast.warn(<GoToCart/>, {
+        toast.warn(<GoToCart />, {
             position: "bottom-right",
             autoClose: 2000,
             hideProgressBar: true,
             closeOnClick: true,
             pauseOnHover: true,
             draggable: true,
-            className:"toastCustom"
+            className: "toastCustom",
+            toastId: 'TboxCart'
         });
     }
     KossetBoxCartBuy = () => {
@@ -57,7 +70,20 @@ class EcommercePage extends React.Component {
             this.props.addKossetBox(this.state.num1, this.state.num2, this.state.num3)
             this.props.history.push("/cart")
         } else {
-            this.setState(() => ({ error: "Total should be 15" }))
+            if (!toast.isActive(this.toastId)) {
+                toast.warn('Total Should be 15', {
+                    position: "bottom-right",
+                    autoClose: 2000,
+                    hideProgressBar: true,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    className: "toastCustom",
+                    toastId: '15Warning'
+                });
+            }
+
+
         }
     }
     TrialBoxCartBuy = () => {
@@ -171,7 +197,6 @@ class EcommercePage extends React.Component {
                             </div>
                             <div className="col-md-4 mt-xl-4 order-1 order-lg-1">
                                 <span className="mt-xl-4 total-15">Total:{this.state.num1 + this.state.num2 + this.state.num3}/15</span>
-                                <span className="mt-xl-5 total-15">{this.state.error}</span>
                             </div>
                         </div>
                     </div>
