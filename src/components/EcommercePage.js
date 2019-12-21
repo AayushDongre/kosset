@@ -14,6 +14,7 @@ class EcommercePage extends React.Component {
         num3: 2,
         error: ""
     };
+  
 
     KossetBoxCart = () => {
         if (this.state.num1 + this.state.num2 + this.state.num3 == 15) {
