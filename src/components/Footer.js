@@ -38,7 +38,6 @@ const Footer = () => {
                 <span> © KOSSET 2019</span>
                <span className="sudodevs px-4 "><a href="https://www.sudodevs.com">made by sudodevs</a></span> 
             </div>
-            <p><Link className="d-block my-1" to="/">Privacy Policy</Link></p>
         </div>
 
     )
