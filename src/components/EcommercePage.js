@@ -5,7 +5,7 @@ import { addTrialBox, addKossetBox } from '../actions/cart';
 import Footer from './Footer';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 const GoToCart = () => (
     <div>
@@ -13,6 +13,7 @@ const GoToCart = () => (
         <button className="toCartBtn px-2 py-1"><Link to="/cart"> Go to cart</Link> </button>
     </div>
 )
+  
 
 class EcommercePage extends React.Component {
 
@@ -252,5 +253,6 @@ const mapDispatchToProps = (dispatch) => {
         addKossetBox: (HFOP, LMFP, PLSD, quantity, customised) => { dispatch(addKossetBox(HFOP, LMFP, PLSD, quantity, customised)) }
     }
 }
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(EcommercePage);

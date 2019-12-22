@@ -5,7 +5,7 @@
   "main": "webpack.common.js",
   "scripts": {
     "build:prod": "webpack --config webpack.prod.js --mode=production",
-    "build:dev": "webpack-dev-server --port 5500 --watch --open --config  webpack.dev.js --host 0.0.0.0 --hot --useLocalIp",
+    "build:dev": "webpack-dev-server --port 5501 --watch --open --config  webpack.dev.js --host 0.0.0.0 --hot --useLocalIp",
     "test": "jest --config=jest.config.json",
     "start": "node server/server.js",
     "heroku-postbuild": "npm run-script build:prod"
@@ -44,6 +44,7 @@
     "popper.js": "^1.15.0",
     "react": "^16.8.6",
     "react-dom": "^16.10.1",
+    "react-lazyload": "^2.6.5",
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.0.1",
     "react-router-transition": "^2.0.0",
