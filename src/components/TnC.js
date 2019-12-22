@@ -8,7 +8,7 @@ const TnC = () => {
         <div>
             <Nav />
             <FAQheader title={'Terms & Conditions'} subtitle={''} />
-            <div className="container py-xl-4 py-md-3">
+            <div className="container tnc py-xl-4 py-md-3">
                 <h2>Terms of Use</h2>
                 <p>The following terms and conditions govern your use of kossetcare.com (hereinafter referred to as “Site”) owned by "NAME HERE" Limited (hereinafter referred to as “we”, “us” or “our”).
                 By using the Site, you accept and agree to the terms and conditions under these Terms of Use.
