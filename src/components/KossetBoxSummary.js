@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 const KossetBoxSummary = (props) => {
     return (
         <div className="kossetBoxSummary">
-            <h1>KOSSET BOX</h1>
+            <h1>{props.customised ? "CUSTOMISED" : "KOSSET"} BOX</h1>
             <div className="content-rows">
                 <div className="row content-row-text">
                     <p>Heavy Flow and Overnight Pads(L) : </p>
@@ -22,7 +22,7 @@ const KossetBoxSummary = (props) => {
                     <span>{props.PLSD}</span>
                 </div>
                 <p className="free">+ FREE HERBAL PERIOD CRAMPS RELEIF ROLL ON</p>
-                <p className="quantityRow mt-4"><span className="quantity">QUANTITY:</span>    {props.quantity} {props.quantity==1?"BOX":"BOXES"}</p>
+                <p className="quantityRow mt-4"><span className="quantity">QUANTITY:</span>    {props.quantity} {props.quantity == 1 ? "BOX" : "BOXES"}</p>
             </div>
         </div>
     )

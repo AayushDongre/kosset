@@ -4,9 +4,7 @@ import { connect } from "react-redux";
 import $ from 'jquery'
 import firebase from 'firebase/app'
 import { resetState } from '../actions/cart'
-import * as app from 'firebase';
 
-// console.log(app.auth().currentUser);
 
 class NavMain extends React.Component {
 
@@ -39,7 +37,7 @@ class NavMain extends React.Component {
 
                 <nav className={((this.props.id) && 'py-0') + ` navbar navbar-expand-lg pb-0`}>
 
-                    <Link className="navbar-brand mt-1 mt-xl-0" to="/">Kosset</Link>
+                    <Link className="navbar-brand mt-1 mt-xl-0" to="/" id="navbar-heading">Kosset</Link>
                     <button className="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="icon-bar top-bar"></span>
                         <span className="icon-bar middle-bar"></span>

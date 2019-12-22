@@ -6,7 +6,9 @@ import $ from 'jquery';
 class TrialBoxCart extends React.Component {
 
     state = {
-        prevPrice: this.props.prevPrice ? (this.props.prevPrice.quantity == 1 ? 30 : 50) : 30
+        prevPrice: this.props.prevPrice ? (this.props.prevPrice.quantity == 1 ? 30 : 50) : 30,
+        prevQuantity: this.props.prevPrice.quantity
+
     }
 
     render() {
@@ -51,8 +53,8 @@ class TrialBoxCart extends React.Component {
                 <div className="row mx-5 m-lg-4 quantitySelectionRowTrial">
 
                     <div onClick={() => {
-                        this.props.updateQuantity(1, this.state.prevPrice)
-                        this.setState(() => ({ prevPrice: 30 }))
+                        this.props.updateQuantity(1, this.state.prevPrice, this.state.prevQuantity)
+                        this.setState(() => ({ prevPrice: 30, prevQuantity: 1 }))
                         $(".qb4").addClass("borderedqb")
                         $(".qb5").removeClass("borderedqb")
                     }} className={this.props.prevPrice.quantity == 1 ? "col-md-3 col-6 quantityBox qb4 borderedqb" : "col-md-3 col-6 quantityBox qb4"}>
@@ -61,14 +63,14 @@ class TrialBoxCart extends React.Component {
                             <span>&#8377;</span>
                             30
                         </p>
-                        <p className="perBox" style={{opacity: 0}}>
+                        <p className="perBox" style={{ opacity: 0 }}>
                             <span>&#8377;</span>
                             25 per box
                         </p>
                     </div>
                     <div onClick={() => {
-                        this.props.updateQuantity(2, this.state.prevPrice)
-                        this.setState(() => ({ prevPrice: 50 }))
+                        this.props.updateQuantity(2, this.state.prevPrice, this.state.prevQuantity)
+                        this.setState(() => ({ prevPrice: 50, prevQuantity: 2 }))
                         $(".qb4").removeClass("borderedqb")
                         $(".qb5").addClass("borderedqb")
                     }} className={this.props.prevPrice.quantity == 2 ? "col-md-3 col-6 quantityBox qb5 borderedqb" : "col-md-3 col-6 quantityBox qb5"}>
@@ -101,7 +103,7 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        updateQuantity: (quantity, prevQuantity) => { dispatch(updateTrialBoxQuantity(quantity, prevQuantity)) },
+        updateQuantity: (quantity, prevPrice,prevQuantity) => { dispatch(updateTrialBoxQuantity(quantity, prevPrice, prevQuantity)) },
         remove: (id) => { dispatch(removeProduct(id)) }
     }
 }

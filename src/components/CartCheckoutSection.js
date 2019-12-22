@@ -38,7 +38,7 @@ class CartCheckoutSection extends React.Component {
                         </div>
                         <div className="col-3">
                             <span>&#8377;</span>
-                            {this.props.total}
+                            {this.props.actualTotal}
                         </div>
                     </div>
                     <div className="row checkout-row">
@@ -47,7 +47,7 @@ class CartCheckoutSection extends React.Component {
                         </div>
                         <div className="col-3">
                             <span>&#8377;</span>
-                            50
+                           {this.props.shipping}
                         </div>
                     </div>
                     <div className="row checkout-row">
@@ -57,7 +57,7 @@ class CartCheckoutSection extends React.Component {
                         <div className="col-3">
                             -
                              <span>&#8377;</span>
-                             {this.props.discount*0.01*this.props.total}
+                             {this.props.discount*0.01*this.props.total+(this.props.actualTotal - this.props.total) }
                              </div>
                     </div>
                     <div className="row checkout-row checkout-total">
@@ -93,7 +93,8 @@ const mapStateToProps = (state) => {
         authenticated: state.authenticated,
         total: state.total,
         discount: state.discount,
-        shipping: state.shipping
+        shipping: state.shipping,
+        actualTotal:state.actualTotal
     }
 }
 

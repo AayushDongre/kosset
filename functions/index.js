@@ -114,15 +114,10 @@ app.post("/updateUser", (req, res) => {
     try {
         let users = db.collection("users");
         const uid = req.query.uid
-        const currentUser = {
-            "name": req.query.name ? req.query.name : null,
-            "email": req.query.email ? req.query.email : null,
-            "phone": req.query.phone ? req.query.phone : null,
-            "days": req.query.days ? req.query.days : null,
-            "last_date": req.query.last_date ? req.query.last_date : null,
-            "address": req.query.address ? req.query.address : null
-        }
-        let updates = Object.assign({}, req.query)
+        let currentUser = req.query
+        if(!!currentUser.address)
+            currentUser.address = JSON.parse(currentUser.address)
+        let updates = Object.assign({}, currentUser)
 
         users.doc(uid).update(updates)
             .then(() => {

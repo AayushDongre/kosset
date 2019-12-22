@@ -5,6 +5,7 @@ import { Nav } from './Hero';
 import KossetBoxSummary from './KossetBoxSummary';
 import TrialBoxSummary from './TrialBoxSummary';
 import SummaryCheckout from './SummaryCheckout';
+import { Redirect } from 'react-router-dom';
 
 class Summary extends React.Component {
 
@@ -25,7 +26,7 @@ class Summary extends React.Component {
                                     {
                                         this.props.products.map((item) => {
                                             if (item.id.slice(-2) == "KB") {
-                                                return <KossetBoxSummary ID={item.id} HFOP={item.HFOP} LMFP={item.LMFP} PLSD={item.PLSD} key={item.id} quantity={item.quantity}/>
+                                                return <KossetBoxSummary ID={item.id} HFOP={item.HFOP} LMFP={item.LMFP} PLSD={item.PLSD} key={item.id} quantity={item.quantity} customised={item.customised}/>
                                             }
                                             else if (item.id.slice(-2) == "TB") {
                                                 return <TrialBoxSummary ID={item.id} key={item.id} quantity={item.quantity}/>
@@ -36,13 +37,13 @@ class Summary extends React.Component {
                                 <div className="col-md-6 summaryCol">
                                     <div className="summaryBox p-4">
                                         <div className="row summaryBoxRow">
-                                            <span className="summaryBoxText">SUBTOTAL</span><span className="summaryBoxNum"><span>&#8377;</span>{this.props.total}</span>
+                                            <span className="summaryBoxText">SUBTOTAL</span><span className="summaryBoxNum"><span>&#8377;</span>{this.props.actualTotal}</span>
                                         </div>
                                         <div className="row summaryBoxRow">
                                             <span className="summaryBoxText">SHIPPING CHARGES</span><span className="summaryBoxNum"><span>&#8377;</span>{this.props.shipping}</span>
                                         </div>
                                         <div className="row summaryBoxRow discount">
-                                            <span className="summaryBoxText">DISCOUNT</span><span className="summaryBoxNum">-<span>&#8377;</span>{this.props.discount*0.01*this.props.total}</span>
+                                            <span className="summaryBoxText">DISCOUNT</span><span className="summaryBoxNum">-<span>&#8377;</span>{this.props.discount*0.01*this.props.total + (this.props.actualTotal - this.props.total)}</span>
                                         </div>
                                         <div className="row summaryBoxRow">
                                             <span className="final summaryBoxText">TOTAL</span><span className="final summaryBoxNum"><span>&#8377;</span>{this.props.total + this.props.shipping - this.props.discount*0.01*this.props.total}</span>
@@ -58,8 +59,8 @@ class Summary extends React.Component {
             )
         else
             return <div>
-                404 not found
-        </div>
+                    <Redirect to="/" />
+            </div>
     }
 
 }
@@ -70,7 +71,8 @@ const mapStateToProps = (state) => {
         authenticated: state.authenticated,
         total: state.total,
         discount: state.discount,
-        shipping: state.shipping
+        shipping: state.shipping,
+        actualTotal:state.actualTotal
     }
 }
 export default connect(mapStateToProps)(Summary)

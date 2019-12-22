@@ -5,7 +5,8 @@ import $ from 'jquery';
 
 class KossetBoxCart extends React.Component {
     state = {
-        prevPrice: this.props.prevPrice ? (this.props.prevPrice.quantity == 1 ? 250 : this.props.prevPrice.quantity == 2 ? 400 : 1000) : 250
+        prevPrice: this.props.prevPrice ? (this.props.prevPrice.quantity == 1 ? 250 : this.props.prevPrice.quantity == 2 ? 400 : 1000) : 250,
+        prevQuantity: this.props.prevPrice.quantity
     }
 
     render() {
@@ -16,7 +17,7 @@ class KossetBoxCart extends React.Component {
                         <img src="./static/img/kossetBox-main.webp" className="img-fluid px-0 "></img>
                     </div>
                     <div className="col-md-8">
-                        <h1>KOSSET BOX
+                        <h1>{this.props.customised ? "CUSTOMISED" : "KOSSET"} BOX
                             <button type="button" onClick={() => {
                                 this.props.remove(this.props.ID)
                             }} className="close" data-dismiss="modal" aria-label="Close">
@@ -62,8 +63,9 @@ class KossetBoxCart extends React.Component {
                 <div className="row m-xl-5 m-lg-3 m-3 quantitySelectionRow">
 
                     <div onClick={() => {
-                        this.props.updateQuantity(1, this.state.prevPrice)
-                        this.setState(() => ({ prevPrice: 250 }))
+                        this.props.updateQuantity(1, this.state.prevPrice, this.state.prevQuantity)
+                        this.setState(() => ({ prevPrice: 250, prevQuantity: 1 }))
+
                         $(".qb1").addClass("borderedqb")
                         $(".qb2").removeClass("borderedqb")
                         $(".qb3").removeClass("borderedqb")
@@ -79,8 +81,8 @@ class KossetBoxCart extends React.Component {
                         </p>
                     </div>
                     <div onClick={() => {
-                        this.props.updateQuantity(2, this.state.prevPrice)
-                        this.setState(() => ({ prevPrice: 400 }))
+                        this.props.updateQuantity(2, this.state.prevPrice, this.state.prevQuantity)
+                        this.setState(() => ({ prevPrice: 400, prevQuantity: 2 }))
                         $(".qb1").removeClass("borderedqb")
                         $(".qb2").addClass("borderedqb")
                         $(".qb3").removeClass("borderedqb")
@@ -96,8 +98,8 @@ class KossetBoxCart extends React.Component {
                         </p>
                     </div>
                     <div onClick={() => {
-                        this.props.updateQuantity(6, this.state.prevPrice)
-                        this.setState(() => ({ prevPrice: 1000 }))
+                        this.props.updateQuantity(6, this.state.prevPrice, this.state.prevQuantity)
+                        this.setState(() => ({ prevPrice: 1000, prevQuantity: 6 }))
                         $(".qb1").removeClass("borderedqb")
                         $(".qb2").removeClass("borderedqb")
                         $(".qb3").addClass("borderedqb")
@@ -130,7 +132,7 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        updateQuantity: (quantity, prevPrice) => { dispatch(updateKossetBoxQuantity(quantity, prevPrice)) },
+        updateQuantity: (quantity, prevPrice, prevQuantity) => { dispatch(updateKossetBoxQuantity(quantity, prevPrice, prevQuantity)) },
         remove: (id) => { dispatch(removeProduct(id)) }
     }
 }

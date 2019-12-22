@@ -2,6 +2,7 @@ const cartReducerDefaultState = {
     authenticated: false,
     cart: [],
     total: 0,
+    actualTotal: 0,
     discount: 0,
     currentUid: "",
     shipping: 50
@@ -26,7 +27,8 @@ export default (state = cartReducerDefaultState, action) => {
                     total: state.total + action.total,
                     discount: state.discount,
                     currentUid: state.currentUid,
-                    shipping: state.shipping
+                    shipping: state.shipping,
+                    actualTotal: state.actualTotal + action.actualTotal,
                 };
 
 
@@ -47,7 +49,8 @@ export default (state = cartReducerDefaultState, action) => {
                     total: state.total + action.total,
                     discount: state.discount,
                     currentUid: state.currentUid,
-                    shipping: state.shipping
+                    shipping: state.shipping,
+                    actualTotal: state.actualTotal + action.actualTotal,
                 };
 
         case "UPDATE_QUANTITY_KOSSET":
@@ -66,7 +69,8 @@ export default (state = cartReducerDefaultState, action) => {
                 total: state.total + action.total,
                 discount: state.discount,
                 currentUid: state.currentUid,
-                shipping: state.shipping
+                shipping: state.shipping,
+                actualTotal: state.actualTotal + action.actualTotal
             }
         case "UPDATE_QUANTITY_TRIAL":
             return {
@@ -84,7 +88,8 @@ export default (state = cartReducerDefaultState, action) => {
                 total: state.total + action.total,
                 discount: state.discount,
                 currentUid: state.currentUid,
-                shipping: state.shipping
+                shipping: state.shipping,
+                actualTotal: state.actualTotal + action.actualTotal
             }
 
 
@@ -95,7 +100,8 @@ export default (state = cartReducerDefaultState, action) => {
                 total: state.total,
                 discount: state.discount,
                 currentUid: state.currentUid,
-                shipping: state.shipping
+                shipping: state.shipping,
+                actualTotal: state.actualTotal 
             }
 
         case "UNAUTHENTICATE":
@@ -105,16 +111,22 @@ export default (state = cartReducerDefaultState, action) => {
                 total: state.total,
                 discount: state.discount,
                 currentUid: state.currentUid,
-                shipping:state.shipping
+                shipping: state.shipping,
+                actualTotal: state.actualTotal 
             }
         case "REMOVE_PRODUCT":
             let subtract = 0;
+            let actualSubtract = 0
             for (var i = 0; i < state.cart.length; i++) {
                 if (state.cart[i].id == action.id) {
-                    if (state.cart[i].id.slice(-2) == 'KB')
+                    if (state.cart[i].id.slice(-2) == 'KB') {
                         subtract = state.cart[i].quantity == 1 ? 250 : state.cart[i].quantity == 2 ? 400 : 1000
-                    if (state.cart[i].id.slice(-2) == 'TB')
+                        actualSubtract = state.cart[i].quantity * 250
+                    }
+                    if (state.cart[i].id.slice(-2) == 'TB') {
                         subtract = state.cart[i].quantity == 1 ? 30 : 50
+                        actualSubtract = state.cart[i].quantity * 30
+                    }
                 }
             }
             return {
@@ -122,7 +134,8 @@ export default (state = cartReducerDefaultState, action) => {
                 cart: state.cart.filter((expense) => {
                     return action.id !== expense.id
                 }),
-                total: state.total - subtract
+                total: state.total - subtract,
+                actualTotal:state.actualTotal - actualSubtract
             }
 
         case "APPLY_DISCOUNT":
@@ -143,7 +156,7 @@ export default (state = cartReducerDefaultState, action) => {
 
         case "RESET_STATE":
             return cartReducerDefaultState
-            
+
         default:
             return state;
     }

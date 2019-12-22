@@ -8,29 +8,34 @@ export const addTrialBox = () => ({
         id: uuid() + "TB",
         quantity:1
     },
-    total:30
+    total:30,
+    actualTotal:30
 })
-export const updateTrialBoxQuantity = (quantity, prevPrice) => ({
+export const updateTrialBoxQuantity = (quantity, prevPrice, prevQuantity) => ({
     type: "UPDATE_QUANTITY_TRIAL",
     quantity,
-    total: (quantity == 1 ? 30 : 50) - prevPrice
+    total: (quantity == 1 ? 30 : 50) - prevPrice,
+    actualTotal: quantity*30 - prevQuantity*30
 })
 
-export const addKossetBox = (HFOP = 6, LMFP = 7, PLSD = 2, quantity = 1) => ({
+export const addKossetBox = (HFOP = 6, LMFP = 7, PLSD = 2, quantity = 1, customised ) => ({
     type: "ADD_KOSSETBOX",
     product: {
         id: uuid() + "KB",
         HFOP,
         LMFP,
         PLSD,
-        quantity
+        quantity,
+        customised
     },
-    total: 250
+    total: 250,
+    actualTotal:250
 })
-export const updateKossetBoxQuantity = (quantity, prevPrice) => ({
+export const updateKossetBoxQuantity = (quantity, prevPrice, prevQuantity) => ({
     type: "UPDATE_QUANTITY_KOSSET",
     quantity,
-    total: (quantity == 1 ? 250 : quantity == 2 ? 400 : 1000) - prevPrice
+    total: (quantity == 1 ? 250 : quantity == 2 ? 400 : 1000) - prevPrice,
+    actualTotal: quantity*250 - prevQuantity*250
 })
 
 export const authenticate = () => ({

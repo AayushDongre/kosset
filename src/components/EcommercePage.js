@@ -24,8 +24,13 @@ class EcommercePage extends React.Component {
 
 
     KossetBoxCart = () => {
+        let customised = false
         if (this.state.num1 + this.state.num2 + this.state.num3 == 15) {
-            this.props.addKossetBox(this.state.num1, this.state.num2, this.state.num3)
+            if (this.state.num1 != 6 || this.state.num2 != 7 || this.state.num3 != 2)
+                customised = true
+            else
+                customised = false
+            this.props.addKossetBox(this.state.num1, this.state.num2, this.state.num3, 1, customised)
             toast.warn(<GoToCart />, {
                 position: "bottom-right",
                 autoClose: 200000,
@@ -37,7 +42,7 @@ class EcommercePage extends React.Component {
                 toastId: 'KboxCart'
             });
         } else {
-            if (! toast.isActive('15Warning')) {
+            if (!toast.isActive('15Warning')) {
                 toast.warn('Total Should be 15', {
                     position: "bottom-right",
                     autoClose: 2000,
@@ -48,8 +53,8 @@ class EcommercePage extends React.Component {
                     className: "toastCustom",
                     toastId: '15Warning'
                 });
-              }
-            
+            }
+
         }
     }
     TrialBoxCart = () => {
@@ -66,8 +71,13 @@ class EcommercePage extends React.Component {
         });
     }
     KossetBoxCartBuy = () => {
+        var customised
         if (this.state.num1 + this.state.num2 + this.state.num3 == 15) {
-            this.props.addKossetBox(this.state.num1, this.state.num2, this.state.num3)
+            if (this.state.num1 != 6 || this.state.num2 != 7 || this.state.num3 != 2)
+                customised = true
+            else
+                customised = false
+            this.props.addKossetBox(this.state.num1, this.state.num2, this.state.num3, 1, customised)
             this.props.history.push("/cart")
         } else {
             if (!toast.isActive(this.toastId)) {
@@ -111,7 +121,7 @@ class EcommercePage extends React.Component {
                         <img src="./static/img/kossetBox-main.webp" className="img-fluid"></img>
                     </div>
                     <div className="col-md-6 p-xl-5 p-lg-3">
-                        <h1>KOSSET BOX</h1>
+                        <h1>{(this.state.num1==6 && this.state.num2 == 7 && this.state.num3 == 2)?"KOSSET":"CUSTOMISED"} BOX</h1>
                         <p className="sub-heading">15 Sanitary Pads with Individual Disposal Packets</p>
                         <p className="free m-0">FREE HERBAL CRAMPS RELIEF ROLL ON</p>
                         <p className="choose">(You can choose to buy the Standard Box OR Choose between the 3 sizes to create your Custom Box of 15 pads)</p>
@@ -239,7 +249,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         addTrialBox: () => { dispatch(addTrialBox()) },
-        addKossetBox: (HFOP, LMFP, PLSD) => { dispatch(addKossetBox(HFOP, LMFP, PLSD)) }
+        addKossetBox: (HFOP, LMFP, PLSD, quantity, customised) => { dispatch(addKossetBox(HFOP, LMFP, PLSD, quantity, customised)) }
     }
 }
 
