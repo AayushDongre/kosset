@@ -7,9 +7,15 @@ const cors = require('cors');
 const querystring = require('query-string');
 const { paytmConfig } = require('./extensions/config');
 const paytmChecksum = require('./extensions/checksum');
-
-
+var bodyParser = require('body-parser');
+const url = require('url')
 const app = express();
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
+// in latest body-parser use like below.
+app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use(cors({ origin: true }));
 
 
@@ -115,7 +121,7 @@ app.post("/updateUser", (req, res) => {
         let users = db.collection("users");
         const uid = req.query.uid
         let currentUser = req.query
-        if(!!currentUser.address)
+        if (!!currentUser.address)
             currentUser.address = JSON.parse(currentUser.address)
         let updates = Object.assign({}, currentUser)
 
@@ -201,32 +207,33 @@ app.post("/pay", (request, response) => {
 })
 app.post("/callback", (request, response) => {
     try {
-        // const orders = db.collection('orders');
-        const data = {};
-        data.MID = paytmConfig.MID; // Provided by Paytm
-        data.ORDER_ID = request.query.uid
-            + request.query.timestamp; // unique OrderId for every request
-        data.CUST_ID = request.query.uid; // unique customer identifier
-        data.INDUSTRY_TYPE_ID = paytmConfig.INDUSTRY_TYPE_ID; // Provided by Paytm
-        data.CHANNEL_ID = paytmConfig.CHANNEL_ID; // Provided by Paytm
-        data.TXN_AMOUNT = request.query.price; // transaction amount
-        data.WEBSITE = paytmConfig.WEBSITE; // Provided by Paytm
-        data.CALLBACK_URL = paytmConfig.CALLBACK_URL; // Provided by Paytm
-        data.EMAIL = request.query.email; // customer email id
-        data.MOBILE_NO = request.query.phone; // customer 10 digit mobile no.
-        paytmChecksum.genchecksum(
-            data,
-            paytmConfig.MERCHANT_KEY,
-            (err, checksum) => {
-                console.log('Checksum: ', checksum, '\n');
-                response.status(200).json(
-                    {
-                        CHECKSUMHASH: checksum,
-                        ...data,
-                    },
-                );
-            },
-        );
+        const checksumhash = request.body.CHECKSUMHASH
+        const data = {
+            ...request.body
+        };
+        delete data.CHECKSUMHASH
+
+        var isValid = paytmChecksum.verifychecksum(data, paytmConfig.MERCHANT_KEY, checksumhash)
+        if (isValid) {
+            response.redirect(url.format({
+                pathname: "https://kosset-69420.firebaseapp.com/status",
+                query: {
+                    "success": true,
+                    "checksumhash": checksumhash,
+                    "orderid": request.body.ORDERID
+                }
+            }));
+        }
+        else {
+            response.redirect(url.format({
+                pathname: "https://kosset-69420.firebaseapp.com/status",
+                query: {
+                    "success": false,
+                    "checksumhash": checksumhash,
+                    "orderid": request.body.ORDERID
+                }
+            }));
+        }
 
     } catch (err) {
         response.status(500).json({

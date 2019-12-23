@@ -63,6 +63,10 @@ export const setUid = (uid) => ({
 export const unSetUid = () => ({
     type:"UNSET_UID"
 })
+export const addAddress = (address) => ({
+    type:"ADD_ADDRESS",
+    address
+})
 export const resetState = () => ({
     type:"RESET_STATE"
 })

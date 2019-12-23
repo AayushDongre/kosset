@@ -45,6 +45,7 @@ app.auth().onAuthStateChanged(function (user) {
         var uid = user.uid;
         store.dispatch(authenticate())
         store.dispatch(setUid(uid))
+        console.log(user)
     } else {
         store.dispatch(unauthenticate())
         store.dispatch(unSetUid())

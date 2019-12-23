@@ -5,7 +5,8 @@ const cartReducerDefaultState = {
     actualTotal: 0,
     discount: 0,
     currentUid: "",
-    shipping: 50
+    shipping: 50,
+    address: ""
 }
 
 export default (state = cartReducerDefaultState, action) => {
@@ -29,6 +30,7 @@ export default (state = cartReducerDefaultState, action) => {
                     currentUid: state.currentUid,
                     shipping: state.shipping,
                     actualTotal: state.actualTotal + action.actualTotal,
+                    address: state.address
                 };
 
 
@@ -51,6 +53,7 @@ export default (state = cartReducerDefaultState, action) => {
                     currentUid: state.currentUid,
                     shipping: state.shipping,
                     actualTotal: state.actualTotal + action.actualTotal,
+                    address: state.address
                 };
 
         case "UPDATE_QUANTITY_KOSSET":
@@ -70,7 +73,8 @@ export default (state = cartReducerDefaultState, action) => {
                 discount: state.discount,
                 currentUid: state.currentUid,
                 shipping: state.shipping,
-                actualTotal: state.actualTotal + action.actualTotal
+                actualTotal: state.actualTotal + action.actualTotal,
+                address: state.address
             }
         case "UPDATE_QUANTITY_TRIAL":
             return {
@@ -89,7 +93,8 @@ export default (state = cartReducerDefaultState, action) => {
                 discount: state.discount,
                 currentUid: state.currentUid,
                 shipping: state.shipping,
-                actualTotal: state.actualTotal + action.actualTotal
+                actualTotal: state.actualTotal + action.actualTotal,
+                address: state.address
             }
 
 
@@ -101,7 +106,8 @@ export default (state = cartReducerDefaultState, action) => {
                 discount: state.discount,
                 currentUid: state.currentUid,
                 shipping: state.shipping,
-                actualTotal: state.actualTotal 
+                actualTotal: state.actualTotal,
+                address: state.address
             }
 
         case "UNAUTHENTICATE":
@@ -112,7 +118,8 @@ export default (state = cartReducerDefaultState, action) => {
                 discount: state.discount,
                 currentUid: state.currentUid,
                 shipping: state.shipping,
-                actualTotal: state.actualTotal 
+                actualTotal: state.actualTotal,
+                address: state.address
             }
         case "REMOVE_PRODUCT":
             let subtract = 0;
@@ -135,7 +142,7 @@ export default (state = cartReducerDefaultState, action) => {
                     return action.id !== expense.id
                 }),
                 total: state.total - subtract,
-                actualTotal:state.actualTotal - actualSubtract
+                actualTotal: state.actualTotal - actualSubtract
             }
 
         case "APPLY_DISCOUNT":
@@ -153,6 +160,12 @@ export default (state = cartReducerDefaultState, action) => {
                 ...state,
                 currentUid: ""
             }
+        case "ADD_ADDRESS":
+            return {
+                ...state,
+                address:action.address
+            }
+
 
         case "RESET_STATE":
             return cartReducerDefaultState

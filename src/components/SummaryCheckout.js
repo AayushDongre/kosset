@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import $ from 'jquery';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios'
+import { addAddress } from '../actions/cart'
 
 class SummaryCheckout extends React.Component {
 
@@ -60,27 +61,31 @@ class SummaryCheckout extends React.Component {
 
     pay = (e) => {
         e.preventDefault()
-        const url = "https://us-central1-kosset-69420.cloudfunctions.net/api/pay?"
-        const params = {
-            uid: this.state.user.uid,
-            phone: this.state.user.phone,
-            email: this.state.user.email,
-            timestamp: new Date().getTime(),
-            // price:this.props.total + this.props.shipping - this.props.discount*0.01*this.props.total
-            price: this.props.total + this.props.shipping - this.props.discount * 0.01 * this.props.total
-        }
-        fetch(url + $.param(params), { method: "post" })
-            .then((res) => {
-                res.json().then((json) => {
-                    const form = $(`<div> <center> <h1>Please do not refresh this page...</h1> </center> <form method="post" action="https://securegw-stage.paytm.in/order/process" id="paytm" name="paytm"> <table border="1"> <tbody> <tr> <td> <input type="hidden" name="MID" value=${json.MID}></input> <input type="hidden" name="WEBSITE" value=${json.WEBSITE}></input> <input type="hidden" name="ORDER_ID" value=${json.ORDER_ID}></input> <input type="hidden" name="CUST_ID" value=${json.CUST_ID}></input> <input type="hidden" name="MOBILE_NO" value=${json.MOBILE_NO}></input> <input type="hidden" name="EMAIL" value=${json.EMAIL}></input> <input type="hidden" name="INDUSTRY_TYPE_ID" value=${json.INDUSTRY_TYPE_ID}></input> <input type="hidden" name="CHANNEL_ID" value=${json.CHANNEL_ID}></input> <input type="hidden" name="TXN_AMOUNT" value=${json.TXN_AMOUNT}></input> <input type="hidden" name="CALLBACK_URL" value=${json.CALLBACK_URL}></input> <input type="hidden" name="CHECKSUMHASH" value=${json.CHECKSUMHASH}></input> <input type="hidden" name="PAYMENTMODE" value=PPI></input></td> </tr> </tbody> </table> </form> </div>`)
-                    form.hide().appendTo('body');
-                    form.submit();
-                    document.getElementById("paytm").submit()
+        console.log(this.state.selectedAddress)
+        this.props.dispatch(addAddress(this.state.selectedAddress))
+        if (!!this.state.selectedAddress) {
+            const url = "https://us-central1-kosset-69420.cloudfunctions.net/api/pay?"
+            const params = {
+                uid: this.state.user.uid,
+                phone: this.state.user.phone,
+                email: this.state.user.email,
+                timestamp: new Date().getTime(),
+                // price:this.props.total + this.props.shipping - this.props.discount*0.01*this.props.total
+                price: this.props.total + this.props.shipping - this.props.discount * 0.01 * this.props.total
+            }
+            fetch(url + $.param(params), { method: "post" })
+                .then((res) => {
+                    res.json().then((json) => {
+                        const form = $(`<div> <center> <h1>Please do not refresh this page...</h1> </center> <form method="post" action="https://securegw-stage.paytm.in/order/process" id="paytm" name="paytm"> <table border="1"> <tbody> <tr> <td> <input type="hidden" name="MID" value=${json.MID}></input> <input type="hidden" name="WEBSITE" value=${json.WEBSITE}></input> <input type="hidden" name="ORDER_ID" value=${json.ORDER_ID}></input> <input type="hidden" name="CUST_ID" value=${json.CUST_ID}></input> <input type="hidden" name="MOBILE_NO" value=${json.MOBILE_NO}></input> <input type="hidden" name="EMAIL" value=${json.EMAIL}></input> <input type="hidden" name="INDUSTRY_TYPE_ID" value=${json.INDUSTRY_TYPE_ID}></input> <input type="hidden" name="CHANNEL_ID" value=${json.CHANNEL_ID}></input> <input type="hidden" name="TXN_AMOUNT" value=${json.TXN_AMOUNT}></input> <input type="hidden" name="CALLBACK_URL" value=${json.CALLBACK_URL}></input> <input type="hidden" name="CHECKSUMHASH" value=${json.CHECKSUMHASH}></input> <input type="hidden" name="PAYMENTMODE" value=PPI></input></td> </tr> </tbody> </table> </form> </div>`)
+                        form.hide().appendTo('body');
+                        form.submit();
+                        document.getElementById("paytm").submit()
+                    })
                 })
-            })
-            .catch((err) => {
-                console.log(err)
-            })
+                .catch((err) => {
+                    console.log(err)
+                })
+        }
     }
 
 
@@ -93,58 +98,59 @@ class SummaryCheckout extends React.Component {
                     <div className="col-md-8">
                         {
                             this.state.user.address &&
-                            this.state.user.address.map((address) => {
+                            this.state.user.address.map((address, index) => {
                                 return (
                                     <div className="row m-4 addressRow px-xl-3 px-2 content-row" key={address} >
                                         <div className="addressText content-row-text" onClick={(e) => {
-                                            var add = e.target.innerHTML
-                                            this.setState(() => ({ selectedAddress: add }))
-                                            $(".borderedab").toggleClass("borderedab")
-                                            $(e.target).parent().addClass("borderedab")
+
+                                            this.setState(() => ({ selectedAddress:this.state.user.address[index]}))
+
+                                        $(".borderedab").toggleClass("borderedab")
+                                        $(e.target).parent().addClass("borderedab")
                                         }}>{address}
-                                            <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={() => {
-                                                var newAddresses = this.state.user.address.filter((addressNew) => {
-                                                    return address != addressNew
+                                        <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={() => {
+                                            var newAddresses = this.state.user.address.filter((addressNew) => {
+                                                return address != addressNew
+                                            })
+                                            const url = `https://us-central1-kosset-69420.cloudfunctions.net/api/updateUser?uid=${this.props.uid}&address=${JSON.stringify(newAddresses)}`
+                                            fetch(url, { method: "post" })
+                                                .then(() => {
+                                                    this.updateUser()
                                                 })
-                                                const url = `https://us-central1-kosset-69420.cloudfunctions.net/api/updateUser?uid=${this.props.uid}&address=${JSON.stringify(newAddresses)}`
-                                                fetch(url,{ method: "post" })
-                                                    .then(() => {
-                                                        this.updateUser()
-                                                    })
-                                                    .catch((err) => {
-                                                        console.log(err)
-                                                    })
-                                            }}>
-                                                <span aria-hidden="true" className="cartCross mt-1 mr-2">&times;</span>
-                                            </button>
-                                        </div>
+                                                .catch((err) => {
+                                                    console.log(err)
+                                                })
+                                        }}>
+                                            <span aria-hidden="true" className="cartCross mt-1 mr-2">&times;</span>
+                                        </button>
                                     </div>
-                                )
-                            })
-                        }
+                                    </div>
+                    )
+                })
+            }
                         <div className="addAddress row m-xl-4 m-md-3 mx-4 my-0" onClick={this.addAddress}>Add Delivery Address</div>
 
-                        {
-                            this.state.addAddress &&
-                            <div className="input-group">
-                                <textarea className="form-control" aria-label="With textarea" id="addressId"></textarea>
-                                <div className="input-group-append">
-                                    <div onClick={this.addressSubmit} className="btn checkoutButton mt-xl-4 px-xl-4">
-                                        Continue
-                                </div>
+                    {
+                        this.state.addAddress &&
+                        <div className="input-group">
+                            <textarea className="form-control" aria-label="With textarea" id="addressId"></textarea>
+                            <div className="input-group-append">
+                                <div onClick={this.addressSubmit} className="btn checkoutButton mt-xl-4 px-xl-4">
+                                    Continue
                                 </div>
                             </div>
+                        </div>
 
-                        }
+                    }
 
-                    </div>
-                    <div className="col-md-4 payCol">
-                        <button type="button" className="btn checkoutButton mt-xl-4 px-xl-4" onClick={this.pay}>
-                            PROCEED TO PAY
+                </div>
+                <div className="col-md-4 payCol">
+                    <button type="button" className="btn checkoutButton mt-xl-4 px-xl-4" onClick={this.pay}>
+                        PROCEED TO PAY
                          </button>
-                    </div>
                 </div>
             </div>
+            </div >
         )
     }
 }
