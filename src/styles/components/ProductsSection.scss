@@ -37,17 +37,22 @@
   transition: 0.5s;
   transform: translateX(-700px);
 }
-.row:hover .hover {
-  transform: none;
-  opacity: 1;
-}
+// .row:hover .hover {
+//   transform: none;
+//   opacity: 1;
+// }
+
 .hover-left {
   transform: translateX(700px);
 }
-.row:hover .hover-left {
+.unhovered {
   transform: none;
   opacity: 1;
 }
+// .row:hover .hover-left {
+//   transform: none;
+//   opacity: 1;
+// }
 .natural,
 .experience {
   font-family: "av", sans-serif;

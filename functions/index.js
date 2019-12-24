@@ -1,10 +1,7 @@
-/* eslint-disable promise/always-return */
 const admin = require('firebase-admin');
 const functions = require('firebase-functions');
 const express = require('express');
-const axios = require("axios")
 const cors = require('cors');
-const querystring = require('query-string');
 var bodyParser = require('body-parser');
 const url = require('url')
 const fetch = require('node-fetch');
@@ -324,9 +321,8 @@ app.post("/emailSender", (req, response) => {
                 }
             ]
         })
-    request
         .then((result) => {
-            console.log(result.body)
+            console.log(result)
         })
         .catch((err) => {
             console.log(err.statusCode)
