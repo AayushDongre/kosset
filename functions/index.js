@@ -12,6 +12,8 @@ const { paytmConfig } = require('./extensions/config');
 const paytmChecksum = require('./extensions/checksum');
 const app = express();
 const mailer = require('./mailer')
+const mailjet = require('node-mailjet')
+    .connect('4c6405e2a10c45b50593abca1a6d801b', '38a11292f6efb8a96da0f6332828c44a')
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 // in latest body-parser use like below.
@@ -293,4 +295,44 @@ app.post("/newUser", async (req, res) => {
     }
 })
 
+app.post("/emailSender", (req, response) => {
+    const secret = req.body.secret;
+    if (secret !== "sony1234") {
+        response.status(403).json({
+            error: "wrong secret you dufus",
+        })
+    }
+    const request = mailjet
+        .post("send", { 'version': 'v3.1' })
+        .request({
+            "Messages": [
+                {
+                    "From": {
+                        "Email": "anurag@sudodevs.com",
+                        "Name": "Anurag"
+                    },
+                    "To": [
+                        {
+                            "Email": "support@sudodevs.com",
+                            "Name": "Anurag"
+                        }
+                    ],
+                    "Subject": "Greetings from Mailjet.",
+                    "TextPart": "My first Mailjet email",
+                    "HTMLPart": "<h3>Dear passenger 1, welcome to <a href='https://www.mailjet.com/'>Mailjet</a>!</h3><br />May the delivery force be with you!",
+                    "CustomID": "AppGettingStartedTest"
+                }
+            ]
+        })
+    request
+        .then((result) => {
+            console.log(result.body)
+        })
+        .catch((err) => {
+            console.log(err.statusCode)
+        });
+        response.send(200).json({
+            success: 200
+        });
+    });
 exports.api = functions.https.onRequest(app);
