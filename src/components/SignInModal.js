@@ -3,8 +3,7 @@ import firebase from 'firebase/app'
 import $ from 'jquery';
 import { connect } from 'react-redux';
 import { authenticate, unauthenticate, resetState } from '../actions/cart';
-
-
+import { newUserAdmin, newUser } from '../emailTemplates';
 
 class SignInModal extends React.Component {
 
@@ -47,8 +46,18 @@ class SignInModal extends React.Component {
                             address: JSON.stringify([address])
                         }), { method: "post" })
                             .then((value) => {
-                                $("#"+this.props.id).modal('toggle')
-
+                                $("#" + this.props.id).modal('toggle')
+                                //mail
+                                fetch("https://us-central1-kosset-69420.cloudfunctions.net/api/newUser", {
+                                    method: "post",
+                                    body: JSON.stringify(
+                                        {
+                                            htmlUser: newUser(email, name),
+                                            htmlAdmin: newUserAdmin(email, name)
+                                        }
+                                    )
+                                })
+                                .catch(err => console.log(err))
                             })
                             .catch((err) => {
                                 console.log(err)
@@ -80,7 +89,7 @@ class SignInModal extends React.Component {
             this.setState(() => ({ error: "" }))
             firebase.auth().signInWithEmailAndPassword(email, password)
                 .then((value) => {
-                    $("#"+this.props.id).modal('toggle')
+                    $("#" + this.props.id).modal('toggle')
                 })
                 .catch((err) => {
                     switch (err.code) {
@@ -102,7 +111,7 @@ class SignInModal extends React.Component {
     }
 
     render() {
-        $("#"+this.props.id).on("hidden.bs.modal", (e) => { this.setState(() => ({ login: true })) })
+        $("#" + this.props.id).on("hidden.bs.modal", (e) => { this.setState(() => ({ login: true })) })
         return (
             <div>
                 <div className="modal fade" id={this.props.id} tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -183,7 +192,7 @@ class SignInModal extends React.Component {
 const mapStateToProps = (state) => {
     return {
         authenticated: state.authenticated,
-        currentUid:state.currentUid
+        currentUid: state.currentUid
     }
 }
 const mapDispatchToProps = (dispatch) => {
