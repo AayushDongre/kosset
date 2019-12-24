@@ -28,7 +28,7 @@ export default (state = cartReducerDefaultState, action) => {
                     total: state.total + action.total,
                     discount: state.discount,
                     currentUid: state.currentUid,
-                    shipping: state.shipping,
+                    shipping: (state.total + action.total) >= 500 ? 0 : 50,
                     actualTotal: state.actualTotal + action.actualTotal,
                     address: state.address
                 };
@@ -51,7 +51,7 @@ export default (state = cartReducerDefaultState, action) => {
                     total: state.total + action.total,
                     discount: state.discount,
                     currentUid: state.currentUid,
-                    shipping: state.shipping,
+                    shipping: (state.total + action.total) >= 500 ? 0 : 50,
                     actualTotal: state.actualTotal + action.actualTotal,
                     address: state.address
                 };
@@ -72,7 +72,7 @@ export default (state = cartReducerDefaultState, action) => {
                 total: state.total + action.total,
                 discount: state.discount,
                 currentUid: state.currentUid,
-                shipping: state.shipping,
+                shipping: (state.total + action.total) >= 500 ? 0 : 50,
                 actualTotal: state.actualTotal + action.actualTotal,
                 address: state.address
             }
@@ -92,7 +92,7 @@ export default (state = cartReducerDefaultState, action) => {
                 total: state.total + action.total,
                 discount: state.discount,
                 currentUid: state.currentUid,
-                shipping: state.shipping,
+                shipping: (state.total + action.total) >= 500 ? 0 : 50,
                 actualTotal: state.actualTotal + action.actualTotal,
                 address: state.address
             }
@@ -142,7 +142,8 @@ export default (state = cartReducerDefaultState, action) => {
                     return action.id !== expense.id
                 }),
                 total: state.total - subtract,
-                actualTotal: state.actualTotal - actualSubtract
+                actualTotal: state.actualTotal - actualSubtract,
+                shipping: (state.total - subtract) >= 500 ? 0 : 50
             }
 
         case "APPLY_DISCOUNT":
@@ -163,7 +164,7 @@ export default (state = cartReducerDefaultState, action) => {
         case "ADD_ADDRESS":
             return {
                 ...state,
-                address:action.address
+                address: action.address
             }
 
 

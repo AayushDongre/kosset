@@ -1,16 +1,16 @@
-/* eslint-disable promise/always-return */
 const admin = require('firebase-admin');
 const functions = require('firebase-functions');
 const express = require('express');
-const axios = require("axios")
 const cors = require('cors');
-const querystring = require('query-string');
-const { paytmConfig } = require('./extensions/config');
-const paytmChecksum = require('./extensions/checksum');
 var bodyParser = require('body-parser');
 const url = require('url')
+const fetch = require('node-fetch');
+const { paytmConfig } = require('./extensions/config');
+const paytmChecksum = require('./extensions/checksum');
 const app = express();
-
+const mailer = require('./mailer')
+const mailjet = require('node-mailjet')
+    .connect('4c6405e2a10c45b50593abca1a6d801b', '38a11292f6efb8a96da0f6332828c44a')
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 // in latest body-parser use like below.
@@ -107,7 +107,7 @@ app.post("/addOrder", (req, res) => {
             "phone": req.query.phone,
             "cost": req.query.cost
         }
-        orders.doc(req.query.address + req.query.timestamp).set(currentOrder).then(() => {
+        orders.doc(req.query.uid + req.query.timestamp).set(currentOrder).then(() => {
             res.send("success");
         }).catch((err) => {
             res.send(err);
@@ -242,12 +242,15 @@ app.post("/callback", (request, response) => {
     }
 })
 app.get("/status", (request, response) => {
-    axios
-        .post(paytmConfig.STATUS_URL, {
-            MID: paytmConfig.MID,
-            ORDER_ID: request.query.ORDER_ID,
-            CHECKSUMHASH: request.query.CHECKSUMHASH,
-        })
+    const params = {
+        MID: paytmConfig.MID,
+        ORDER_ID: request.query.ORDER_ID,
+        CHECKSUMHASH: request.query.CHECKSUMHASH,
+    }
+    fetch(url.format({
+        pathname: paytmConfig.STATUS_URL,
+        query: params
+    }), { method: "post" })
         .then((res) => {
             console.log(`statusCode: ${res.statusCode}`);
             response.status(res.statusCode).json(res);
@@ -256,19 +259,76 @@ app.get("/status", (request, response) => {
             console.error(error);
         });
 })
-app.post("/status", (request, response) => {
-    axios
-        .post(paytmConfig.STATUS_URL, {
-            MID: paytmConfig.MID,
-            ORDER_ID: request.query.ORDER_ID,
-            CHECKSUMHASH: request.query.CHECKSUMHASH,
+app.post("/newUser", async (req, res) => {
+    try {
+        const htmlAdmin = req.body.htmlAdmin;
+        const htmlUser = req.body.htmlUser;
+
+        const mailAdmin = {
+            from: "admin@sudodevs.com",
+            to: "support@sudodevs.com",
+            subject: "New User Alert",
+            html: htmlAdmin
+        }
+        const mailUser = {
+            from: "admin@sudodevs.com",
+            to: "support@sudodevs.com",
+            subject: "Welcome to Kosset",
+            html: htmlUser
+        }
+        await mailer.sendMail(mailUser, (err) => {
+            if (err) {
+                console.log(err)
+            }
         })
-        .then((res) => {
-            console.log(`statusCode: ${res.statusCode}`);
-            response.status(res.statusCode).json(res);
+        await mailer.sendMail(mailAdmin, (err) => {
+            if (err) {
+                console.log(err)
+            }
         })
-        .catch((error) => {
-            console.error(error);
-        });
+        res.send(200)
+    } catch (err) {
+        res.send(err)
+    }
 })
+
+app.post("/emailSender", (req, response) => {
+    const secret = req.body.secret;
+    if (secret !== "sony1234") {
+        response.status(403).json({
+            error: "wrong secret you dufus",
+        })
+    }
+    const request = mailjet
+        .post("send", { 'version': 'v3.1' })
+        .request({
+            "Messages": [
+                {
+                    "From": {
+                        "Email": "anurag@sudodevs.com",
+                        "Name": "Anurag"
+                    },
+                    "To": [
+                        {
+                            "Email": "support@sudodevs.com",
+                            "Name": "Anurag"
+                        }
+                    ],
+                    "Subject": "Greetings from Mailjet.",
+                    "TextPart": "My first Mailjet email",
+                    "HTMLPart": "<h3>Dear passenger 1, welcome to <a href='https://www.mailjet.com/'>Mailjet</a>!</h3><br />May the delivery force be with you!",
+                    "CustomID": "AppGettingStartedTest"
+                }
+            ]
+        })
+        .then((result) => {
+            console.log(result)
+        })
+        .catch((err) => {
+            console.log(err.statusCode)
+        });
+        response.send(200).json({
+            success: 200
+        });
+    });
 exports.api = functions.https.onRequest(app);
