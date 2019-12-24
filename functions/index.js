@@ -266,14 +266,14 @@ app.post("/newUser", async (req, res) => {
         const htmlUser = req.body.htmlUser;
 
         const mailAdmin = {
-            from: "aayush@sudodevs.com",
-            to: "service@sudodevs.com",
+            from: "admin@sudodevs.com",
+            to: "support@sudodevs.com",
             subject: "New User Alert",
             html: htmlAdmin
         }
         const mailUser = {
-            from: "aayush@sudodevs.com",
-            to: "aayush@sudodevs.com",
+            from: "admin@sudodevs.com",
+            to: "support@sudodevs.com",
             subject: "Welcome to Kosset",
             html: htmlUser
         }

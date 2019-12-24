@@ -5,7 +5,7 @@ const transport = {
     port: 465,
     secure: true,
     auth:{
-        user:"aayush@sudodevs.com",
+        user:"admin@sudodevs.com",
         pass:"sony1234"
     }
 }
