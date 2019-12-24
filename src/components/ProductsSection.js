@@ -47,7 +47,7 @@ const ProductsSection = () => {
                     <ProductsSectionCard image={true} imageUrl="./static/img/tile4.webp" />
                 </div>
                 <div className="col-md-4 col-6 static">
-                    <ProductsSectionCard text="Organic SAP sheet (Superabsorbent Polymer" otherText="For absorption upto 200ml" extraClasses="pinkCard" />
+                    <ProductsSectionCard text="Organic SAP sheet (Superabsorbent Polymer)" otherText="For absorption upto 200ml" extraClasses="pinkCard" />
                 </div>
             </div>
             <div className="row no-gutters">

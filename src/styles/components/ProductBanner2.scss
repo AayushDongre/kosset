@@ -3,7 +3,7 @@
     font-family: $source;
     font-style: normal;
     font-weight: 300;
-    font-size: 34px;
+    font-size: 1.5rem;
     line-height: 52px;
     color: #000000;
     margin-top: -2rem;
@@ -11,9 +11,9 @@
 
 .productBanner2-text {
     background: $green;
-    line-height: 4rem;
+    line-height: 3.5rem;
     padding: 5vh 5vw;
 }
 .productBanner2 ul{
-    list-style-type: none;
+        list-style-image: url('/static/img/budlisticon.svg');
 }
