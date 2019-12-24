@@ -37,7 +37,7 @@ $(document).scroll((e)=>{
     else
         $(".navbar").removeClass("navbar-black")
 })
-
+//help
 
 
 app.auth().onAuthStateChanged(function (user) {
