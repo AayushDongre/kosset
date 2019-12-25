@@ -119,7 +119,7 @@ class EcommercePage extends React.Component {
                 />
                 <div className="row m-2 px-xl-5 px-lg-4 pt-5">
                     <div className="col-md-6 p-xl-5 p-lg-4 p-1">
-                        <img src="./static/img/kossetBox-main.webp" className="img-fluid"></img>
+                        <img src="./static/img/kossetBox-main.png" className="img-fluid"></img>
                     </div>
                     <div className="col-md-6 p-xl-5 p-lg-3">
                         <h1>{(this.state.num1==6 && this.state.num2 == 7 && this.state.num3 == 2)?"KOSSET":"CUSTOMISED"} BOX</h1>
@@ -215,7 +215,7 @@ class EcommercePage extends React.Component {
 
                 <div className="row mx-2 mb-5 mt-5 mt-lg-0 p-xl-5 p-lg-3">
                     <div className="col-md-6 px-xl-5 px-lg-3">
-                        <img src="./static/img/kossetBox-trial.webp" className="img-fluid"></img>
+                        <img src="./static/img/kossetBox-trial.png" className="img-fluid"></img>
                     </div>
                     <div className="col-md-6 px-xl-5 px-lg-3">
                         <h1>KOSSET TRIAL BOX</h1>

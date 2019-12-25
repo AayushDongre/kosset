@@ -16,12 +16,7 @@ const ProductBanner1 = () => {
                 </div>
             </div>
             <div className="productBanner1-image px-0 col-lg-6">
-                <picture>
-                    <source srcSet="/static/img/sec1.webp" type="image/webp" className="img-fluid"/>
-                        <source srcSet="/static/img/sec1.png" type="image/png" className="img-fluid"/>
-                        <img src="/static/img/sec1.webp" className="img-fluid" />
-                </picture>
-                            
+                <img src="/static/img/sec1.png" className="img-fluid" />            
             </div>
         </div>
                     )
