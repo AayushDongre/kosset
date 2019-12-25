@@ -14,11 +14,10 @@
     padding: 0 1.5rem !important;
   }
 
-  .hero{
+  .hero {
     height: 95vh;
     background: url("/static/img/herobgM.webp");
     background-position: right bottom 0.2px;
-
   }
   .heroLeadLine {
     font-size: 1rem;
@@ -56,13 +55,32 @@
     display: none;
   }
 
-  .productBanner1-text p{
+  .productBanner1-text p {
     line-height: 2rem;
   }
+
+  .buyNow {
+    text-align: center;
+  }
+
+  .buyNow-Pb2 {
+    width: 30%;
+  }
+
   .productBanner2-text li {
     font-size: 1rem;
-    line-height: 3rem;
+    line-height: 2rem;
   }
+  .productBanner2-text {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .appSection::after{
+    top: 45%;
+    height: 55% !important;
+  }
+
   .appSection h1 {
     font-size: 1.8rem;
     line-height: normal;
@@ -85,7 +103,8 @@
   }
   .cal-icon,
   .sub-icon {
-    width: 100px;
+    width: 60px;
+    height: 80px;
   }
   .track {
     font-size: 0.8rem !important;
@@ -262,7 +281,7 @@
     font-size: 1rem !important;
   }
 
-  .summaryBoxRow{
+  .summaryBoxRow {
     margin: 0 0.25rem;
   }
   .summaryBoxText {
@@ -274,13 +293,13 @@
     padding: 0 1.2rem !important;
   }
   .kossetBoxSummary .content-row-text span,
-  .trialBoxSummary .content-row-text span{
+  .trialBoxSummary .content-row-text span {
     padding-top: 0.25rem !important;
   }
-  .addressText{
+  .addressText {
     font-size: 1rem !important;
   }
-  .addAddress{
+  .addAddress {
     font-size: 1rem !important;
     margin-top: -1rem !important;
   }

@@ -1,13 +1,11 @@
 .tnc {
-  .container {
-    font-family: $source;
-  }
+  font-family: $source;
+}
 
-  .container p {
-    font-weight: 300;
-  }
+.tnc p {
+  font-weight: 300 !important;
+}
 
-  .container h2 {
-    margin-top: 1rem;
-  }
+.tnc h2 {
+  margin-top: 1rem;
 }

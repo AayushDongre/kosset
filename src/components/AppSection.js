@@ -5,8 +5,9 @@ const AppSection = () => {
         <div className="appSection p-md-5 " id="AppSection">
             <div className="container mt-xl-3">
                 <h1>For the Complete Kosset Experience</h1>
-                <p className="tryTheApp">Try the App</p>
-                <img className="py-2 img-fluid play-store-icon" src="/static/img/playstore.webp"></img>
+                <p className="tryTheApp">Try the <strong>KOSSET CLOSET</strong> App</p>
+                <img className="py-2 mx-2 mx-lg-4 img-fluid play-store-icon" src="/static/img/playstore.webp"></img>
+                <img className="py-2 mx-2 mx-lg-4 img-fluid play-store-icon" src="/static/img/appstore.png"></img>
                 <p className="just mt-3">Just like your closet at home, it's a one-stop digital closet
              that stores all your menstruatuion, sexual health and sanitation related needs.</p>
             </div>
@@ -20,7 +21,7 @@ const AppSection = () => {
                     </div>
                     <div className="col-sm-9">
                         <p className="track">
-                            Tracks your period, fertility and ovulation so you dont have to stress about remembering dates
+                            Tracks your period, fertility and ovulation so you don't have to stress about remembering dates
                         </p>
                     </div>
                 </div>
@@ -31,12 +32,12 @@ const AppSection = () => {
                     </div>
                     <div className="col-sm-9">
                         <p className="track px-lg-0 px-1">
-                            Never,ever again will you have last minute troubles. Set up your one time Kosset subscriptiopn and the
-                            Closet will deliver your custom Cosset box to your as per your period cycle and chosen frequency. You
+                            Never, ever again will you have last minute troubles. Set up your one time Kosset subscription and the
+                            Closet will deliver your Custom Kosset box to you as per your period cycle and chosen frequency. You
                             can skip or pause your subscription whenever you want.
                         </p>
                     </div>
-                    <p className="dont px-4 px-xl-5 mt-lg-5 py-4 py-md-0">Dont wish to subscribe yet? The closet lets you buy your custom Cosset box on the go in under a minute.</p>
+                    <p className="dont px-4 px-xl-5 mt-lg-5 py-4 py-md-0">Don't wish to subscribe yet? The Closet lets you buy your Custom Kosset box on the go in under a minute.</p>
                 </div>
             </div>
         </div>

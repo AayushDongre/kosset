@@ -5,8 +5,16 @@
   flex-direction: column;
   justify-content: center;
  
-  // padding: 5vh 5vw;
 }
+
+
+.buyNow-Pb, .buyNow-Pb2{
+  font-family: $source;
+}
+.buyNow-Pb2{
+  width: 25%;
+}
+
 .productBanner1-text .banner1-title {
   font-family: $source;
   font-style: normal;
