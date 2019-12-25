@@ -15,7 +15,7 @@ const Footer = () => {
                     <Link className="d-block my-1 mb-lg-3" to="/products">Kosset Closet</Link>
                     <Link className="d-block my-1 mb-lg-3" to="/faq">FAQs</Link>
                     <Link className="d-block my-1 mb-lg-3" to="/tnc">Terms & Conditions</Link>
-                    <Link className="d-block my-1" to="/">Privacy Policy</Link>
+                    <Link className="d-block my-1" to="/privacyPolicy">Privacy Policy</Link>
                 </ul>
             </div>
             <div className="col-md-4 kossetCare p-3">
