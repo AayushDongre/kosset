@@ -5,7 +5,11 @@ const ProductBanner2 = () => {
     return (
         <div className="productBanner2 row">
             <div className="productBanner2-image px-0 col-md-6">
-                <img src="/static/img/sec2.webp" className="img-fluid" />
+            <picture>
+                    <source srcSet="/static/img/sec2.webp" type="image/webp" className="img-fluid"/>
+                        <source srcSet="/static/img/sec2.png" type="image/png" className="img-fluid"/>
+                        <img src="/static/img/sec2.webp" className="img-fluid" />
+                </picture>
             </div>
             <div className="productBanner2-text col-md-6 d-flex flex-column justify-content-center">
                     <ul>

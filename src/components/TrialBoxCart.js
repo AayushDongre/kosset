@@ -15,7 +15,7 @@ class TrialBoxCart extends React.Component {
         return (
             <div className="row mt-3 mt-xl-4 trialBoxCart">
                 <div className="col-md-4 align-self-center">
-                    <img src="./static/img/kossetBox-trial.webp" className="img-fluid px-0"></img>
+                    <img src="./static/img/kossetBox-trial.png" className="img-fluid px-0"></img>
                 </div>
                 <div className="col-md-8">
                     <h1>KOSSET TRIAL BOX

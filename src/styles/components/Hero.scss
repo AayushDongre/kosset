@@ -1,13 +1,22 @@
-.hero {
+.webp .hero {
   font-family: $source;
   height: 100vh;
   background: url("/static/img/herobg.webp");
   // background-attachment: fixed;
-  background-position: center bottom 0.1px;
+  background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   color: white;
 }
+
+.no-webp .hero{
+  background: url("/static/img/herobg.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+}
+
 
 .navBuy:hover{
   background: #ffffff;
@@ -81,9 +90,9 @@
 .heroPara {
   font-style: normal;
   font-weight: 300;
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   line-height: 2rem;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
   animation-duration: 3s;
 
   color: rgba(255, 254, 254, 0.8);

@@ -100,7 +100,7 @@ class SummaryCheckout extends React.Component {
                             this.state.user.address &&
                             this.state.user.address.map((address, index) => {
                                 return (
-                                    <div className="row m-4 addressRow px-xl-3 px-2 content-row" key={address} >
+                                    <div className="row mx-md-0 my-2 my-md-4 mx-3 addressRow px-2 content-row" key={address} >
                                         <div className="addressText content-row-text" onClick={(e) => {
 
                                             this.setState(() => ({ selectedAddress:this.state.user.address[index]}))
@@ -121,19 +121,19 @@ class SummaryCheckout extends React.Component {
                                                     console.log(err)
                                                 })
                                         }}>
-                                            <span aria-hidden="true" className="cartCross mt-1 mr-2">&times;</span>
+                                            <span aria-hidden="true" className="cartCross">&times;</span>
                                         </button>
                                     </div>
                                     </div>
                     )
                 })
             }
-                        <div className="addAddress row m-xl-4 m-md-3 mx-4 my-0" onClick={this.addAddress}>Add Delivery Address</div>
+                        <div className="addAddress row mx-xl-0 my-xl-4 my-2 mx-3" onClick={this.addAddress}>Add Delivery Address</div>
 
                     {
                         this.state.addAddress &&
-                        <div className="input-group">
-                            <textarea className="form-control" aria-label="With textarea" id="addressId"></textarea>
+                        <div className="input-group px-3 px-md-0">
+                            <textarea className="form-control" aria-label="With textarea" id="addressId" style={{resize:'none'}}></textarea>
                             <div className="input-group-append">
                                 <div onClick={this.addressSubmit} className="btn checkoutButton mt-xl-4 px-xl-4">
                                     Continue
@@ -145,7 +145,7 @@ class SummaryCheckout extends React.Component {
 
                 </div>
                 <div className="col-md-4 payCol">
-                    <button type="button" className="btn checkoutButton mt-xl-4 px-xl-4" onClick={this.pay}>
+                    <button type="button" className="btn checkoutButton px-xl-4 mt-4" onClick={this.pay}>
                         PROCEED TO PAY
                          </button>
                 </div>

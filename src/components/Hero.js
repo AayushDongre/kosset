@@ -16,19 +16,19 @@ class NavMain extends React.Component {
     deleteAccount = (e) => {
         e.preventDefault()
         //doesnt work when active subscriptions. (cloud API works fine) 
-        fetch("https://us-central1-kosset-69420.cloudfunctions.net/api/deleteUser?uid=${this.props.currentUid",{ method: "post" })
-        .then((res)=>{
-            if(res.status==200){
-                firebase.auth().currentUser.delete()
-                this.props.resetState()
-            }
-            else{
-                console.log(res)
-            }
-        })
-        .catch((err)=>{
-            console.log(err)
-        })
+        fetch("https://us-central1-kosset-69420.cloudfunctions.net/api/deleteUser?uid=${this.props.currentUid", { method: "post" })
+            .then((res) => {
+                if (res.status == 200) {
+                    firebase.auth().currentUser.delete()
+                    this.props.resetState()
+                }
+                else {
+                    console.log(res)
+                }
+            })
+            .catch((err) => {
+                console.log(err)
+            })
     }
     render() {
 
@@ -56,7 +56,7 @@ class NavMain extends React.Component {
                                     <img src="/static/img/accounticon.svg" ></img>
                                 </a>
                                 <div className="dropdown-menu animated fadeInUp mt-xl-4" aria-labelledby="dropdownMenuButton">
-                                <h6 className="dropdown-header">Account</h6>
+                                    <h6 className="dropdown-header">Account</h6>
                                     {!this.props.authenticated && <a className="dropdown-item" onClick={() => {
                                         $("#navbarSignInModal").modal("toggle")
                                         // $(".modal-backdrop").css("display", "none")
@@ -95,12 +95,11 @@ const Hero = (props) => {
         <div className="hero pt-5">
             <Nav />
             <div className="container wrapper d-flex flex-column justify-content-center px-4 pt-5">
-                <p className="heroPara mb-0">Kosset is on a simple mission of making every Woman’s Period a Pain-free,<br />Convenient,
-                    Seamless and most importantly,
+                <p className="heroPara mb-0 animated slideInDown"><strong>Kosset</strong> is on a simple mission of making every Woman’s Period a Pain-free,<br />Convenient,
+                    Seamless and most importantly, A Natural Experience
             </p>
-                <h2 className="heroNatural mb-0 animated slideInDown">A Natural Experience</h2>
                 <p className="heroPara animated slideInDown">so that she, or the environment don’t
-                        have to compromise. We are doing so by offering a range of alternative products and services under one platform to take care of all menstruation, <br/> sexual health and sanitation related needs.</p>
+                        have to compromise. We are doing so by offering a range of alternative products and services under one platform to take care of all menstruation, <br /> sexual health and sanitation related needs.</p>
 
             </div>
 

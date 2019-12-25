@@ -14,7 +14,7 @@ class KossetBoxCart extends React.Component {
             <div className="row mt-xl-4 mt-3 kossetBoxCart">
                 <div className="row flex-grow-1 mx-1">
                     <div className="col-md-4">
-                        <img src="./static/img/kossetBox-main.webp" className="img-fluid px-0 "></img>
+                        <img src="./static/img/kossetBox-main.png" className="img-fluid px-0 "></img>
                     </div>
                     <div className="col-md-8">
                         <h1>{this.props.customised ? "CUSTOMISED" : "KOSSET"} BOX
