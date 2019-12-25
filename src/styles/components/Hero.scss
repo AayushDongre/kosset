@@ -1,16 +1,8 @@
-.webp .hero {
+.hero {
   font-family: $source;
   height: 100vh;
-  background: url("/static/img/herobg.webp");
-  // background-attachment: fixed;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: white;
-}
-
-.no-webp .hero{
   background: url("/static/img/herobg.png");
+  // background-attachment: fixed;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
