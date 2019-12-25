@@ -65,7 +65,6 @@ $(window).on("resize scroll", () => {
     isInViewport(hover5) ? hover5.addClass("unhovered") : hover5.removeClass("unhovered")
   
     if (window.matchMedia("(max-width: 767px)").matches) {
-        console.log(isInViewportPhone(hover1.parent()))
         isInViewportPhone(hover1.parent()) ? hover1.siblings(".static").addClass("animated fadeInLeft") : hover1.siblings(".static").removeClass("fadeInLeft")
         isInViewportPhone(hover2.parent()) ? hover2.siblings(".static").addClass("animated fadeInRight") : hover2.siblings(".static").removeClass("fadeInRight")
         isInViewportPhone(hover3.parent()) ? hover3.siblings(".static").addClass("animated fadeInLeft") : hover3.siblings(".static").removeClass("fadeInLeft")

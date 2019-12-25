@@ -292,43 +292,43 @@ app.post("/newUser", async (req, res) => {
     }
 })
 
-app.post("/emailSender", (req, response) => {
-    const secret = req.body.secret;
-    if (secret !== "sony1234") {
-        response.status(403).json({
-            error: "wrong secret you dufus",
-        })
-    }
-    const request = mailjet
-        .post("send", { 'version': 'v3.1' })
-        .request({
-            "Messages": [
-                {
-                    "From": {
-                        "Email": "anurag@sudodevs.com",
-                        "Name": "Anurag"
-                    },
-                    "To": [
-                        {
-                            "Email": "support@sudodevs.com",
-                            "Name": "Anurag"
-                        }
-                    ],
-                    "Subject": "Greetings from Mailjet.",
-                    "TextPart": "My first Mailjet email",
-                    "HTMLPart": "<h3>Dear passenger 1, welcome to <a href='https://www.mailjet.com/'>Mailjet</a>!</h3><br />May the delivery force be with you!",
-                    "CustomID": "AppGettingStartedTest"
-                }
-            ]
-        })
-        .then((result) => {
-            console.log(result)
-        })
-        .catch((err) => {
-            console.log(err.statusCode)
-        });
-        response.send(200).json({
-            success: 200
-        });
-    });
+// app.post("/emailSender", (req, response) => {
+//     const secret = req.body.secret;
+//     if (secret !== "sony1234") {
+//         response.status(403).json({
+//             error: "wrong secret you dufus",
+//         })
+//     }
+//     const request = mailjet
+//         .post("send", { 'version': 'v3.1' })
+//         .request({
+//             "Messages": [
+//                 {
+//                     "From": {
+//                         "Email": "anurag@sudodevs.com",
+//                         "Name": "Anurag"
+//                     },
+//                     "To": [
+//                         {
+//                             "Email": "support@sudodevs.com",
+//                             "Name": "Anurag"
+//                         }
+//                     ],
+//                     "Subject": "Greetings from Mailjet.",
+//                     "TextPart": "My first Mailjet email",
+//                     "HTMLPart": "<h3>Dear passenger 1, welcome to <a href='https://www.mailjet.com/'>Mailjet</a>!</h3><br />May the delivery force be with you!",
+//                     "CustomID": "AppGettingStartedTest"
+//                 }
+//             ]
+//         })
+//         .then((result) => {
+//             console.log(result)
+//         })
+//         .catch((err) => {
+//             console.log(err.statusCode)
+//         });
+//         response.send(200).json({
+//             success: 200
+//         });
+//     });
 exports.api = functions.https.onRequest(app);
