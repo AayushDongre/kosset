@@ -6,8 +6,8 @@ const ComingSoonSection = () => {
             <div className="row my-md-5 py-md-4">
                 <div className="col-sm-8 offset-1">
                     <h4>Gynac in my Closet<span className="coming-soon">(Coming Soon)</span></h4>
-                    <p className="py-md-3">Get all yor period and sexual health related questions answered immediately by highly trained 
-                        Gynecologists we have stuffed un the closet.Book an appointment with the Gynecologists near you.They are just clicks away.
+                    <p className="py-md-3">Get all your period and sexual health related questions answered immediately by highly trained 
+                        Gynecologists we have stuffed in the Closet. Book an appointment with Gynecologists near you. They are just 2 clicks away.
                     </p>
                 </div>
                 <div className="col-sm-2 mx-md-3">
@@ -17,9 +17,9 @@ const ComingSoonSection = () => {
 
             <div className="row my-md-5 py-md-4">
             <div className="col-sm-8 offset-1">
-                <h4>The Cosset Magazine<span className="coming-soon">(Coming Soon)</span></h4>
+                <h4>The Kosset Magazine<span className="coming-soon">(Coming Soon)</span></h4>
                 <p className="py-md-3">
-                A new-age, redefined, digital magazine for the woman who puts her health, passions, carrer and lfestyle first
+                A new-age, redefined, digital magazine for the woman who puts her health, passions, Carrer and lifestyle first.
                 </p>
             </div>
             <div className="col-sm-2 mx-md-3">

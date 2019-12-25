@@ -6,8 +6,8 @@ const Footer = () => {
         <div className="footer row">
             <div className="col-md-4 getInTouch p-4 p-md-0">
                 <h3>Get in touch</h3>
-                <p>care@kosset.com</p>
-                <p>+91 9869420123</p>
+                <p>support@kossetcare.com</p>
+                <p>customer@kossetcare.com</p>
             </div>
             <div className="col-md-4 footerKosset py-lg-5 p-4 p-md-0">
                 <h3 className="mt-lg-5">KOSSET<span>™️</span></h3>
@@ -36,7 +36,7 @@ const Footer = () => {
             </div>
             <div className="end-footer container-fluid d-inline py-2">
                 <span> © KOSSET 2019</span>
-               <span className="sudodevs px-4 "><a href="https://www.sudodevs.com">made by sudodevs</a></span> 
+               <span ><a className="sudodevs px-4 " href="https://www.sudodevs.com">made by sudodevs</a></span> 
             </div>
         </div>
 
