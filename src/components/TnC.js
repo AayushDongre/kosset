@@ -11,10 +11,10 @@ const TnC = () => {
             <FAQheader title={'Terms & Conditions'} subtitle={''} />
             <div className="container tnc py-xl-4 py-md-3">
                 <h2>Terms of Use</h2>
-                <p>The following terms and conditions govern your use of kossetcare.com (hereinafter referred to as “Site”) owned by "NAME HERE" Limited (hereinafter referred to as “we”, “us” or “our”).
+                <p>The following terms and conditions govern your use of kossetcare.com (hereinafter referred to as “Site”) owned by Plush HealthCare Limited (hereinafter referred to as “we”, “us” or “our”).
                 By using the Site, you accept and agree to the terms and conditions under these Terms of Use.
                 </p>
-                <p>This Terms of Use was updated on "SITE RELEASE DATE"</p>
+                <p>This Terms of Use was updated on 24 Decemeber 2019</p>
                 <h3>Terms of Sale</h3>
                 <p>This Site offers for sale sanitary pads (hereinafter referred to as “Products”).
                  By accessing the Site or purchasing the Products you agree to terms and conditions set forth herein in this Terms of Use.</p>
