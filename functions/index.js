@@ -216,7 +216,7 @@ app.post("/callback", (request, response) => {
         var isValid = paytmChecksum.verifychecksum(data, paytmConfig.MERCHANT_KEY, checksumhash)
         if (isValid) {
             response.redirect(url.format({
-                pathname: "https://kosset-69420.firebaseapp.com/status",
+                pathname: "https://kossetcare.com/status",
                 query: {
                     "success": true,
                     "checksumhash": checksumhash,
@@ -226,7 +226,7 @@ app.post("/callback", (request, response) => {
         }
         else {
             response.redirect(url.format({
-                pathname: "https://kosset-69420.firebaseapp.com/status",
+                pathname: "https://kossetcare.com/status",
                 query: {
                     "success": false,
                     "checksumhash": checksumhash,

@@ -26,11 +26,10 @@ class Status extends React.Component {
     state = {
         queries: quertString.parse(this.props.location.search),
         user: {},
-        message: "Order placed! Redirecting to home page"
+        message: ""
     }
     componentDidMount() {
-        console.log(this.state.queries.checksumhash)
-        if (!!this.props.address) {
+         if (!!this.props.address) {
             // this.addOrder()
             const url = "https://securegw-stage.paytm.in/order/status"
             const params = {
@@ -41,10 +40,13 @@ class Status extends React.Component {
             fetch(url, { method: "post", body: JSON.stringify(params) })
                 .then(res => res.json())
                 .then((res) => {
-                    if (res.RESPMSG == "TXN_SUCCESS") {
+                    console.log(res)
+                    if (res.STATUS === "TXN_SUCCESS") {
+
+                        this.setState(() => ({ message: "Order placed! Redirecting to home page" }))
                         this.addOrder()
                     }
-                    else if (res.RESPMSG == "TXN_FAILURE") {
+                    else if (res.STATUS === "TXN_FAILURE") {
                         this.setState(() => ({ message: "Error placing order!" }))
                     }
                 })
@@ -91,9 +93,6 @@ class Status extends React.Component {
                 .catch((err) => {
                     console.log(err)
                 })
-        }
-        else {
-            this.setState(() => ({ message: "Error placing order!" }))
         }
     }
 
