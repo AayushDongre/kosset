@@ -61,8 +61,7 @@ const ProductsSection = () => {
                     <ProductsSectionCard text="To enhance air ventilation"  extraClasses="pinkCard" />
                 </div>
             </div>
-            <p className="natural">Natural</p>
-            <p className="experience">Experience</p>
+    
         </div>
     )
 }

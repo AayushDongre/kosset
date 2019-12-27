@@ -13,7 +13,6 @@ const AppSection = () => {
                 
             </div>
             <img src="/static/img/phone.webp" className="phone img-fluid mt-3 mb-3"></img>
-            <h2 className="companion">Companion</h2>
             <div className="container">
                 <div className="row py-lg-5">
                     <div className="col-sm-3">
