@@ -5,7 +5,7 @@ import ProductsSectionCard from "./ProductsSectionCard";
 
 const ProductsSection = () => {
     return (
-        <div className="productsSection">
+        <div className="productsSection mb-xl-5">
             <div className="row no-gutters">
                 <div className="col-md-4 col-6 order-2 order-md-1">
                     <ProductsSectionCard  image={true} imageUrl="./static/img/tile1.png" />
