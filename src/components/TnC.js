@@ -11,13 +11,11 @@ const TnC = () => {
             <FAQheader title={'Terms & Conditions'} subtitle={''} />
             <div className="container tnc py-xl-4 py-md-3">
                 <h2>Terms of Use</h2>
-                <p>The following terms and conditions govern your use of kossetcare.com (hereinafter referred to as “Site”) owned by Plush HealthCare Limited (hereinafter referred to as “we”, “us” or “our”).
+                <p>The following terms and conditions govern your use of kossetcare.com (hereinafter referred to as “Site”) owned by Plush Healthcare and Media Private Limited (hereinafter referred to as “we”, “us” or “our”).
                 By using the Site, you accept and agree to the terms and conditions under these Terms of Use.
                 </p>
-                <p>This Terms of Use was updated on 24 Decemeber 2019</p>
                 <h3>Terms of Sale</h3>
-                <p>This Site offers for sale sanitary pads (hereinafter referred to as “Products”).
-                 By accessing the Site or purchasing the Products you agree to terms and conditions set forth herein in this Terms of Use.</p>
+                <p>This Site offers for the sale of female hygiene products (hereinafter referred to as “Products”). By accessing the Site or purchasing the Products you agree to terms and conditions set forth herein in this Terms of Use.</p>
                 <p>We put our utmost effort to ensure that all the details of the Products including description and images which appear on this Site are accurate; however, errors may occur.
                  If we discover any error in the availability, pricing, or description of the product we may correct it and if the order has been placed we may inform you of such change and request you to reconfirm your order or cancel it.</p>
                 <p>The Product aims to provide an irritation-free experience, based on our design and research. In case the Product purchased causes any side effects please note that we will in no manner be responsible for the same.
