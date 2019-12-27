@@ -48,6 +48,10 @@ const PrivacyPolicy = () => {
                  on our website which will bind to you as and when updated.
                 Your continued use of the Service after we post any modifications to the Privacy Policy on the Site will constitute your acknowledgment of the modifications and your consent to abide and be bound by the modified Privacy Policy.
                 </p>
+                <h3>Grievance Officer</h3>
+                <p>In accordance with Information Technology Act, 2000 (as amended) and rules made there under, the name and contact details of the Grievance Officer who may be contacted for are published on the Website.</p>
+                <p>Grievance officer name: Tushar Avadhani</p>
+                <p>E-mail id: support@kossetcare.com</p>
             </div>
             <Footer />
         </div>

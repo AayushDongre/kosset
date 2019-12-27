@@ -6,10 +6,11 @@ const AppSection = () => {
             <div className="container mt-xl-3">
                 <h1>For the Complete Kosset Experience</h1>
                 <p className="tryTheApp">Try the <strong>KOSSET CLOSET</strong> App</p>
-                <img className="py-2 mx-2 mx-lg-4 img-fluid play-store-icon" src="/static/img/playstore.png"></img>
-                <img className="py-2 mx-2 mx-lg-4 img-fluid play-store-icon" src="/static/img/appstore.png"></img>
                 <p className="just mt-3">Just like your closet at home, it's a one-stop digital closet
              that stores all your menstruatuion, sexual health and sanitation related needs.</p>
+                <img className="py-2 mx-2 mx-lg-4 img-fluid play-store-icon" src="/static/img/playstore.png"></img>
+                <img className="py-2 mx-2 mx-lg-4 img-fluid play-store-icon" src="/static/img/appstore.png"></img>
+                
             </div>
             <img src="/static/img/phone.webp" className="phone img-fluid mt-3 mb-3"></img>
             <h2 className="companion">Companion</h2>

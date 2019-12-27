@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import LazyLoad from 'react-lazyload';
 
 
 const ProductBanner1 = () => {
@@ -16,10 +17,12 @@ const ProductBanner1 = () => {
                 </div>
             </div>
             <div className="productBanner1-image px-0 col-lg-6">
-                <img src="/static/img/sec1.png" className="img-fluid" />            
+                <LazyLoad height="100%" once>
+                    <img src="/static/img/sec1.png" className="img-fluid" />
+                </LazyLoad>
             </div>
         </div>
-                    )
-                }
-                
+    )
+}
+
 export default ProductBanner1;
