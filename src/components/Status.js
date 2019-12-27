@@ -40,7 +40,6 @@ class Status extends React.Component {
             fetch(url, { method: "post", body: JSON.stringify(params) })
                 .then(res => res.json())
                 .then((res) => {
-                    console.log(res)
                     if (res.STATUS === "TXN_SUCCESS") {
 
                         this.setState(() => ({ message: "Order placed! Redirecting to home page" }))

@@ -5,9 +5,7 @@ import SignInModal from './SignInModal';
 import { applyDiscount } from '../actions/cart'
 
 class CartCheckoutSection extends React.Component {
-    componentDidMount(){
-        console.log(this.props.discount)
-    }
+
     checkOutClick = (e) => {
         e.preventDefault();
         if (!this.props.authenticated) {
@@ -19,8 +17,7 @@ class CartCheckoutSection extends React.Component {
     }
     applyCoupon = (e) => {
         const coupon = document.getElementById("couponInput").value
-        console.log(coupon)
-        if (coupon == "nigger") {
+        if (coupon == "KOSSET30") {
             this.props.dispatch(applyDiscount(30))
         }
     }

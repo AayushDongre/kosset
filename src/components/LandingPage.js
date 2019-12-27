@@ -7,6 +7,7 @@ import AppSection from "./AppSection";
 import CommingSoonSection from "./ComingSoonSection";
 import Footer from "./Footer"
 
+
 const LandingPage = () => {
     return (
         <div>
