@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import $ from 'jquery'
 import firebase from 'firebase/app'
 import { resetState } from '../actions/cart'
-import AppSection from "./AppSection";
 import { HashLink as Hlink } from 'react-router-hash-link';
 
 
