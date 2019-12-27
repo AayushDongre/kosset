@@ -4,6 +4,9 @@ import { connect } from "react-redux";
 import $ from 'jquery'
 import firebase from 'firebase/app'
 import { resetState } from '../actions/cart'
+import AppSection from "./AppSection";
+import { HashLink as Hlink } from 'react-router-hash-link';
+
 
 
 class NavMain extends React.Component {
@@ -48,7 +51,7 @@ class NavMain extends React.Component {
                         <div className="navbar-nav ml-auto">
                             <Link className="nav-item nav-link" to="/">About <span className="sr-only">(current)</span></Link>
                             <Link className="nav-item nav-link" to="/products">Products</Link>
-                            <Link className="nav-item nav-link" to="/">App</Link>
+                            <Hlink className="nav-item nav-link" to="/#AppSection">App</Hlink>
                             <a className="nav-item nav-link d-md-none dropdown-toggle" data-toggle="dropdown">Account</a>
                             <Link className="nav-item nav-link d-md-none" to="/cart">Cart</Link>
                             <div className="dropdown ">

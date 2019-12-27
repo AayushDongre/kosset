@@ -21,7 +21,7 @@ const AppSection = () => {
                     </div>
                     <div className="col-sm-9">
                         <p className="track">
-                            Tracks your period, fertility and ovulation so you don't have to stress about remembering dates
+                            Tracks your period, fertility and ovulation so you don't have to stress about remembering dates.
                         </p>
                     </div>
                 </div>
