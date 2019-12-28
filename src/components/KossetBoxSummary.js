@@ -12,7 +12,7 @@ const KossetBoxSummary = (props) => {
                 </div>
 
                 <div className="row content-row-text">
-                    <p>Light and Medium Flow Pad(M) : </p>
+                    <p>Light and Medium Flow Pads(M) : </p>
                     <span>{props.LMFP}</span>
                 </div>
 

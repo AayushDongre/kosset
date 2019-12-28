@@ -19,7 +19,7 @@ const ComingSoonSection = () => {
             <div className="col-sm-8 offset-1">
                 <h4>The Kosset Magazine<span className="coming-soon"> (Coming Soon)</span></h4>
                 <p className="py-md-3">
-                A new-age, redefined, digital magazine for the woman who puts her health, passions, Carrer and lifestyle first.
+                A new-age, redefined, digital magazine for the woman who puts her health, passions, career and lifestyle first.
                 </p>
             </div>
             <div className="col-sm-2 mx-md-3">

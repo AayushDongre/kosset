@@ -96,12 +96,13 @@ const Hero = (props) => {
     return (
         <div className="hero pt-5">
             <Nav />
-            <div className="container wrapper d-flex flex-column justify-content-center px-4 pt-5">
+            <div className=" wrapper d-flex flex-column-reverse px-4 pt-xl-2">
+                <p className="heroPara animated slideInDown">so that she, or the environment don’t
+                        have to compromise. We are doing so by offering a range of alternative products and services under one platform to take care of all menstruation, sexual health and sanitation related needs.</p>
+
                 <p className="heroPara mb-0 animated slideInDown"><strong>Kosset</strong> is on a simple mission of making every Woman’s Period a Pain-free,<br />Convenient,
                     Seamless and most importantly, A Natural Experience
             </p>
-                <p className="heroPara animated slideInDown">so that she, or the environment don’t
-                        have to compromise. We are doing so by offering a range of alternative products and services under one platform to take care of all menstruation, <br /> sexual health and sanitation related needs.</p>
 
             </div>
 

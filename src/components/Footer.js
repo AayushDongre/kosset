@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { HashLink as Hlink } from 'react-router-hash-link';
 
 const Footer = () => {
     return (
@@ -12,7 +13,7 @@ const Footer = () => {
             <div className="col-md-4 footerKosset py-lg-5 p-4 p-md-0">
                 <h3 className="mt-lg-5">KOSSET<span>™️</span></h3>
                 <ul>
-                    <Link className="d-block my-1 mb-lg-3" to="/products">Kosset Closet</Link>
+                    <Hlink className="d-block my-1 mv-lg-3" to="/#AppSection">Kosset Closet</Hlink>
                     <Link className="d-block my-1 mb-lg-3" to="/faq">FAQs</Link>
                     <Link className="d-block my-1 mb-lg-3" to="/tnc">Terms & Conditions</Link>
                     <Link className="d-block my-1" to="/privacyPolicy">Privacy Policy</Link>
@@ -36,7 +37,7 @@ const Footer = () => {
             </div>
             <div className="end-footer container-fluid d-inline py-2">
                 <span> © KOSSET 2019</span>
-               <span ><a className="sudodevs px-4 " href="https://www.sudodevs.com">made by sudodevs</a></span> 
+                <span ><a className="sudodevs px-4 " href="https://www.sudodevs.com">made by sudodevs</a></span>
             </div>
         </div>
 

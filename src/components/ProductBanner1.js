@@ -17,7 +17,7 @@ const ProductBanner1 = () => {
                 </div>
             </div>
             <div className="productBanner1-image px-0 col-lg-6">
-                <LazyLoad height="100%" once>
+                <LazyLoad height="100%" once={true}>
                     <img src="/static/img/sec1.png" className="img-fluid" />
                 </LazyLoad>
             </div>

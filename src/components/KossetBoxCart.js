@@ -38,7 +38,7 @@ class KossetBoxCart extends React.Component {
 
                             <div className="row content-row-text">
                                 <div className="col-10">
-                                    <p>Light and Medium Flow Pad(M)</p>
+                                    <p>Light and Medium Flow Pads(M)</p>
                                 </div>
                                 <div className="col-1">
                                     <span>{this.props.LMFP}</span>

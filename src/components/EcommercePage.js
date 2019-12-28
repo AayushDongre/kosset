@@ -120,16 +120,14 @@ class EcommercePage extends React.Component {
                 />
                 <div className="row m-2 px-xl-5 px-lg-4 pt-5">
                     <div className="col-md-6 p-xl-5 p-lg-4 p-1">
-                        <LazyLoad height="100%">
-                            <img src="./static/img/kossetBox-main.png" className="img-fluid"></img>
-                        </LazyLoad>
+                        <img src="./static/img/kossetBox-main.png" className="img-fluid"></img>
                     </div>
                     <div className="col-md-6 p-xl-5 p-lg-3">
-                        <h1>{(this.state.num1 == 6 && this.state.num2 == 7 && this.state.num3 == 2) ? "KOSSET" : "CUSTOMISED"} BOX</h1>
+                        <h1>KOSSET BOX</h1>
                         <p className="sub-heading">15 Sanitary Pads with Individual Disposal Packets</p>
                         <p className="free m-0">FREE HERBAL CRAMPS RELIEF ROLL ON</p>
-                        <p className="choose">(You can choose to buy the Standard Box OR Choose between the 3 sizes to create your Custom Box of 15 pads)</p>
-                        <h2 className="contents">Contents of Standard Kosset Box</h2>
+                        <p className="choose">You can choose to buy the Standard Box OR Choose between the 3 sizes to create your Custom Box of 15 pads</p>
+                        <h2 className="contents">Contents of {(this.state.num1 == 6 && this.state.num2 == 7 && this.state.num3 == 2) ? "Kosset" : "Customized"} Box</h2>
 
                         <div className="content-rows">
                             <div className="row content-row">
@@ -158,7 +156,7 @@ class EcommercePage extends React.Component {
 
                             <div className="row content-row">
                                 <div className="col-md-8 content-row-text">
-                                    <p>Light and Medium Flow Pad(M)</p>
+                                    <p>Light and Medium Flow Pads(M)</p>
                                 </div>
                                 <div className="col-md-4">
                                     <div className="input-group">
@@ -218,7 +216,7 @@ class EcommercePage extends React.Component {
 
                 <div className="row mx-2 mb-5 mt-5 mt-lg-0 p-xl-5 p-lg-3">
                     <div className="col-md-6 px-xl-5 px-lg-3">
-                    <LazyLoad height="100%">
+                        <LazyLoad height="100%" once={true}>
                             <img src="./static/img/kossetBox-trial.png" className="img-fluid"></img>
                         </LazyLoad>
                     </div>
