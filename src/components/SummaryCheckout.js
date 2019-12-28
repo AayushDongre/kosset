@@ -61,7 +61,6 @@ class SummaryCheckout extends React.Component {
 
     pay = (e) => {
         e.preventDefault()
-        console.log(this.state.selectedAddress)
         this.props.dispatch(addAddress(this.state.selectedAddress))
         if (!!this.state.selectedAddress) {
             const url = "https://us-central1-kosset-69420.cloudfunctions.net/api/pay?"
