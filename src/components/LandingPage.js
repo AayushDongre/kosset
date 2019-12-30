@@ -11,7 +11,7 @@ import Footer from "./Footer"
 const LandingPage = () => {
     return (
         <div>
-            < Hero />
+            <Hero />
             <ProductBanner1 />
             <ProductsSection />
             <ProductBanner2 />

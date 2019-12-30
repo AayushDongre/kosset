@@ -32,6 +32,13 @@ class NavMain extends React.Component {
                 console.log(err)
             })
     }
+
+    componentDidMount() {
+        $(document).ready(function () {
+            $('.heroPara').addClass('animated slideInDown');
+        });
+    }
+
     render() {
 
         return (
@@ -97,10 +104,10 @@ const Hero = (props) => {
         <div className="hero pt-5">
             <Nav />
             <div className=" wrapper d-flex flex-column-reverse px-4 pt-xl-2">
-                <p className="heroPara animated slideInDown">so that she, or the environment don’t
+                <p className="heroPara ">so that she, or the environment don’t
                         have to compromise. We are doing so by offering a range of alternative products and services under one platform to take care of all menstruation, sexual health and sanitation related needs.</p>
 
-                <p className="heroPara mb-0 animated slideInDown"><strong>Kosset</strong> is on a simple mission of making every Woman’s Period a Pain-free,<br />Convenient,
+                <p className="heroPara mb-0"><strong>Kosset</strong> is on a simple mission of making every Woman’s Period a Pain-free,<br />Convenient,
                     Seamless and most importantly, A Natural Experience
             </p>
 
