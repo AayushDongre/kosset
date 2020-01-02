@@ -37,7 +37,7 @@ export default (state = cartReducerDefaultState, action) => {
         case "ADD_KOSSETBOX":
             var found = false;
             var deletedCart = state.cart.filter((item) => {
-                    return !item.id.slice(-2) == 'KB'
+                return !item.id.slice(-2) == 'KB'
             })
 
             return {
@@ -161,7 +161,15 @@ export default (state = cartReducerDefaultState, action) => {
                 ...state,
                 address: action.address
             }
-
+        case "EMPTY_CART":
+            return {
+                ...state,
+                cart: [],
+                total: 0,
+                actualTotal: 0,
+                discount: 0,
+                shipping: 50,
+            }
 
         case "RESET_STATE":
             return cartReducerDefaultState

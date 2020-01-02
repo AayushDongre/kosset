@@ -70,3 +70,6 @@ export const addAddress = (address) => ({
 export const resetState = () => ({
     type:"RESET_STATE"
 })
+export const emptyCart = () => ({
+    type:"EMPTY_CART"
+})
