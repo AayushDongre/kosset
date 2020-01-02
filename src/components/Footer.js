@@ -26,8 +26,8 @@ const Footer = () => {
                         <a href="https://facebook.com/kossetcare">
                             <img src="./static/img/facebook.png" className="img-fluid mx-3"></img>
                         </a>
-                        <a href="#">
-                            <img src="https://instagram.com/kossetcare" className="img-fluid mx-3"></img>
+                        <a href="https://instagram.com/kossetcare">
+                            <img src="./static/img/instagram.png" className="img-fluid mx-3"></img>
                         </a>
                         <a href="#">
                             <img src="./static/img/twitter.png" className="img-fluid mx-3"></img>
