@@ -14,7 +14,7 @@ const ProductBanner2 = () => {
             <ul>
                 <li>Eco-friendly packets for easy disposal</li>
                 <li>Your period essentials delivered to your doorstep</li>
-                <li>Option to choose from 3 sizes to create your custom box of 15 pads in sync with your flow</li>
+                <li>Option to choose from 3 sizes to create your Custom box of 15 pads in sync with your flow</li>
 
             </ul>
             <Link className="buyNow-Pb2 btn btn-outline-dark mx-4 mb-2  " to="/products">Buy Now</Link>
