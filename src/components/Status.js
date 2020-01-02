@@ -5,6 +5,8 @@ import $ from 'jquery'
 import { Nav } from './Hero';
 import quertString from 'query-string'
 import { Link } from 'react-router-dom';
+import { emptyCart } from '../actions/cart';
+
 // {
 //     TXNID: "20191224111212800110168030901121029"
 // BANKTXNID: "27961335"
@@ -29,19 +31,20 @@ class Status extends React.Component {
         message: ""
     }
     componentDidMount() {
-         if (!!this.props.address) {
+        if (!!this.props.address) {
             // this.addOrder()
             const url = "https://securegw-stage.paytm.in/order/status"
             const params = {
-                MID: "fIPGtY85595319389729",
+                MID: "TqzoFF00389650572051",
                 ORDER_ID: this.state.queries.orderid,
                 CHECKSUMHASH: this.state.queries.checksumhash,
             }
             fetch(url, { method: "post", body: JSON.stringify(params) })
                 .then(res => res.json())
                 .then((res) => {
+                    // console.log(res);
                     if (res.STATUS === "TXN_SUCCESS") {
-
+                        this.props.emptyCart()
                         this.setState(() => ({ message: "Order placed! Redirecting to home page" }))
                         this.addOrder()
                     }
@@ -128,6 +131,62 @@ const mapStateToProps = (state) => {
         address: state.address
     }
 }
-export default connect(mapStateToProps)(Status)
+const mapDispatchToProps = (dispatch) => {
+    return {
+        emptyCart: () => { dispatch(emptyCart()) }
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(Status)
 
 
+
+
+// {
+//     TXNID: "20200102111212800110168826901149371"
+//     BANKTXNID: "30782485"
+//     ORDERID: "bFPAPY5VGMNKH0UUb6BCIa9FwZ921577970579896"
+//     TXNAMOUNT: "80.00"
+//     STATUS: "TXN_SUCCESS"
+//     TXNTYPE: "SALE"
+//     GATEWAYNAME: "WALLET"
+//     RESPCODE: "01"
+//     RESPMSG: "Txn Success"
+//     BANKNAME: "WALLET"
+//     MID: "TqzoFF00389650572051"
+//     PAYMENTMODE: "PPI"
+//     REFUNDAMT: "0.00"
+//     TXNDATE: "2020-01-02 18:39:41.0"
+// }
+
+// {
+//     TXNID: "20200102111212800110168417701150883"
+//     BANKTXNID: "777001596232986"
+//     ORDERID: "bFPAPY5VGMNKH0UUb6BCIa9FwZ921577970823264"
+//     TXNAMOUNT: "1030.00"
+//     STATUS: "TXN_SUCCESS"
+//     TXNTYPE: "SALE"
+//     GATEWAYNAME: "HDFC"
+//     RESPCODE: "01"
+//     RESPMSG: "Txn Success"
+//     BANKNAME: "United Bank of India"
+//     MID: "TqzoFF00389650572051"
+//     PAYMENTMODE: "DC"
+//     REFUNDAMT: "0.00"
+//     TXNDATE: "2020-01-02 18:43:43.0"
+// }
+// {
+//     TXNID: "20200102111212800110168663501154290"
+//     BANKTXNID: "777001250581780"
+//     ORDERID: "bFPAPY5VGMNKH0UUb6BCIa9FwZ921577971001882"
+//     TXNAMOUNT: "330.00"
+//     STATUS: "TXN_SUCCESS"
+//     TXNTYPE: "SALE"
+//     GATEWAYNAME: "HDFC"
+//     RESPCODE: "01"
+//     RESPMSG: "Txn Success"
+//     BANKNAME: "HDFC Bank"
+//     MID: "TqzoFF00389650572051"
+//     PAYMENTMODE: "CC"
+//     REFUNDAMT: "0.00"
+//     TXNDATE: "2020-01-02 18:46:43.0"
+// }
