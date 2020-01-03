@@ -84,9 +84,9 @@ export const newOrderAdmin = (details, name, cart) => {
         else if (cart[i].id.slice(-2) == 'KB') {
             if (cart[i].HFOP != 6 || cart[i].LMFP != 7 || cart[i].PLSD != 2) {
                 review += `<br> <h2>${cart[i].quantity} x Custom Box, with </h2>`
-                review += `<br> <p>    ${cart[i].HFOP} x Heavy Flow and Overnight Pads(L)  </p>`
-                review += `<br> <p>    ${cart[i].LMFP} x Light and Medium Flow Pads(M) </p>`
-                review += `<br> <p>    ${cart[i].PLSD} x Panty Liners for  spotting and discharge </p>`
+                review += `<p>    ${cart[i].HFOP} x Heavy Flow and Overnight Pads(L)  </p>`
+                review += ` <p>    ${cart[i].LMFP} x Light and Medium Flow Pads(M) </p>`
+                review += ` <p>    ${cart[i].PLSD} x Panty Liners for  spotting and discharge </p>`
             }
             else
                 review += `<br> <h2>${cart[i].quantity} x Kosset Box </h2>`
