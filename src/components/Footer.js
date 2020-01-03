@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { HashLink as Hlink } from 'react-router-hash-link';
+import { HashLink as Link } from 'react-router-hash-link';
 
 const Footer = () => {
     return (
@@ -13,7 +12,7 @@ const Footer = () => {
             <div className="col-md-4 footerKosset py-lg-5 p-4 p-md-0">
                 <h3 className="mt-lg-5">KOSSET<span>™️</span></h3>
                 <ul>
-                    <Hlink className="d-block my-1 mv-lg-3" to="/#AppSection">Kosset Closet</Hlink>
+                    <Link smooth className="d-block my-1 mv-lg-3" to="/#AppSection">Kosset Closet</Link>
                     <Link className="d-block my-1 mb-lg-3" to="/faq">FAQs</Link>
                     <Link className="d-block my-1 mb-lg-3" to="/tnc">Terms & Conditions</Link>
                     <Link className="d-block my-1" to="/privacyPolicy">Privacy Policy</Link>
@@ -23,10 +22,10 @@ const Footer = () => {
                 <h1><a>@kossetcare</a></h1>
                 <div className="container">
                     <div className="d-flex flex-row justify-content-center align-items-center">
-                        <a href="#">
+                        <a href="https://facebook.com/kossetcare">
                             <img src="./static/img/facebook.png" className="img-fluid mx-3"></img>
                         </a>
-                        <a href="#">
+                        <a href="https://instagram.com/kossetcare">
                             <img src="./static/img/instagram.png" className="img-fluid mx-3"></img>
                         </a>
                         <a href="#">
