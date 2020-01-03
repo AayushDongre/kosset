@@ -6,8 +6,10 @@ import KossetBoxSummary from './KossetBoxSummary';
 import TrialBoxSummary from './TrialBoxSummary';
 import SummaryCheckout from './SummaryCheckout';
 import { Redirect } from 'react-router-dom';
+import { newOrderUser, newOrderAdmin } from '../emailTemplates';
 
 class Summary extends React.Component {
+
 
     render() {
         if (this.props.authenticated)

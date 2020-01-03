@@ -44,20 +44,20 @@ class SignInModal extends React.Component {
                             email,
                             phone,
                             address: JSON.stringify([address])
-                        }), { method: "post" })
+                        }), {
+                            method: "post",
+                            headers:{
+                                "Content-Type": "application/json",                                                                                                
+                            },
+                            body: JSON.stringify(
+                                {
+                                    htmlUser: newUser(email, name),
+                                    htmlAdmin: newUserAdmin(email, name)
+                                }
+                            )
+                        })
                             .then((value) => {
                                 $("#" + this.props.id).modal('toggle')
-                                //mail
-                                fetch("https://us-central1-kosset-69420.cloudfunctions.net/api/newUser", {
-                                    method: "post",
-                                    body: JSON.stringify(
-                                        {
-                                            htmlUser: newUser(email, name),
-                                            htmlAdmin: newUserAdmin(email, name)
-                                        }
-                                    )
-                                })
-                                .catch(err => console.log(err))
                             })
                             .catch((err) => {
                                 console.log(err)

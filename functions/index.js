@@ -7,10 +7,8 @@ const url = require('url')
 const fetch = require('node-fetch');
 const { paytmConfig } = require('./extensions/config');
 const paytmChecksum = require('./extensions/checksum');
+
 const app = express();
-const mailer = require('./mailer')
-const mailjet = require('node-mailjet')
-    .connect('4c6405e2a10c45b50593abca1a6d801b', '38a11292f6efb8a96da0f6332828c44a')
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 // in latest body-parser use like below.
@@ -34,7 +32,25 @@ app.post('/createUser', (req, res) => {
             "last_date": req.query.last_date ? req.query.last_date : "",
             "address": req.query.address ? JSON.parse(req.query.address) : []
         }
+        // const templates = JSON.parse(req.body)
+        console.log("yesss", req.body.htmlAdmin)
         users.doc(req.query.uid).set(currentUser).then((val) => {
+
+            db.collection('mail').add({
+                to: 'support@sudodevs.com',
+                message: {
+                    subject: 'New user alert!',
+                    html: req.body.htmlAdmin
+                }
+            });
+            db.collection('mail').add({
+                to: req.query.email,
+                message: {
+                    subject: 'Login to kossetcare.com',
+                    html: req.body.htmlUser
+                }
+            });
+
             res.status(200);
             res.send("Success");
         }).catch((err) => {
@@ -108,6 +124,21 @@ app.post("/addOrder", (req, res) => {
             "cost": req.query.cost
         }
         orders.doc(req.query.uid + req.query.timestamp).set(currentOrder).then(() => {
+
+            db.collection('mail').add({
+                to: 'support@sudodevs.com',
+                message: {
+                    subject: 'New Order alert!',
+                    html: req.body.htmlAdmin
+                }
+            });
+            db.collection('mail').add({
+                to: req.query.email,
+                message: {
+                    subject: 'Your order has been placed!',
+                    html: req.body.htmlUser
+                }
+            });
             res.send("success");
         }).catch((err) => {
             res.send(err);

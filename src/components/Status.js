@@ -6,6 +6,7 @@ import { Nav } from './Hero';
 import quertString from 'query-string'
 import { Link } from 'react-router-dom';
 import { emptyCart } from '../actions/cart';
+import { newOrderUser, newOrderAdmin } from '../emailTemplates';
 
 // {
 //     TXNID: "20191224111212800110168030901121029"
@@ -28,7 +29,8 @@ class Status extends React.Component {
     state = {
         queries: quertString.parse(this.props.location.search),
         user: {},
-        message: ""
+        message: "",
+        cart:[]
     }
     componentDidMount() {
         if (!!this.props.address) {
@@ -44,6 +46,7 @@ class Status extends React.Component {
                 .then((res) => {
                     // console.log(res);
                     if (res.STATUS === "TXN_SUCCESS") {
+                        this.setState(() => ({cart:this.props.cart}))
                         this.props.emptyCart()
                         this.setState(() => ({ message: "Order placed! Redirecting to home page" }))
                         this.addOrder()
@@ -88,7 +91,18 @@ class Status extends React.Component {
                 cost: this.props.total + this.props.shipping - this.props.discount * 0.01 * this.props.total,
                 address: this.props.address,
             }
-            fetch(url + $.param(params), { method: "post" })
+            fetch(url + $.param(params), {
+                method: "post",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(
+                    {
+                        htmlUser: newOrderUser(params, this.state.cart),
+                        htmlAdmin: newOrderAdmin(params, this.state.user.name, this.state.cart)
+                    }
+                )
+            })
                 .then((res) => {
                     this.props.history.push("/")
                 })
@@ -136,7 +150,7 @@ const mapDispatchToProps = (dispatch) => {
         emptyCart: () => { dispatch(emptyCart()) }
     }
 }
-export default connect(mapStateToProps,mapDispatchToProps)(Status)
+export default connect(mapStateToProps, mapDispatchToProps)(Status)
 
 
 
