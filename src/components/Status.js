@@ -35,9 +35,9 @@ class Status extends React.Component {
     componentDidMount() {
         if (!!this.props.address) {
             // this.addOrder()
-            const url = "https://securegw-stage.paytm.in/order/status"
+            const url = "https://securegw.paytm.in/order/status"
             const params = {
-                MID: "TqzoFF00389650572051",
+                MID: "PVFBwD51389231186375",
                 ORDER_ID: this.state.queries.orderid,
                 CHECKSUMHASH: this.state.queries.checksumhash,
             }
