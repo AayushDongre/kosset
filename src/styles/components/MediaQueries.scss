@@ -301,3 +301,12 @@
     font-size: 1.325rem !important;
   }
 }
+
+@media only screen and (min-width: 1600px) {
+  .heroPara{
+    font-size: 1.5rem !important;
+  }
+  .hero-b{
+    padding: 0 2rem 2rem 2rem !important;
+  }
+}
