@@ -107,7 +107,7 @@ const Hero = (props) => {
                 <p className="heroPara ">so that, she or the environment don’t
                         have to compromise. <br/> We are doing so by offering a range of alternative products and services under one platform to fulfill all menstruation, sexual health and gynaecology related needs.</p>
 
-                <p className="heroPara mb-0 "><strong>Kosset</strong> is on a simple mission of making every woman’s period a pain-free, convenient,
+                <p className="heroPara mb-0 "><strong>Kosset</strong> is on a simple mission of making every woman’s period a pain-free, <br/> convenient,
                     seamless and most importantly, a Natural Experience,
             </p>
 

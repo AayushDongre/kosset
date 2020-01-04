@@ -291,11 +291,16 @@
   .addAddress {
     font-size: 0.875rem !important;
   }
+
+  .faq-hero{
+    background-image: url('/static/img/headerbgM.png') !important;
+    background-position: center left 0.1px !important;
+  }
 }
 
 
 // -----------------
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-widt: 1440px) {
   
   .heroPara {
     font-size: 1.325rem !important;
