@@ -150,7 +150,8 @@ class SummaryCheckout extends React.Component {
                              </button>
                         </div>
                         <div className="col-md-12 payCol">
-                            <Link type="button" className="btn checkoutButton px-xl-4 mt-4" to='/status?mode=COD&success=true'>
+        
+        <Link type="button" className="btn checkoutButton px-xl-4 mt-4" to='/status?mode=COD&success=true' onClick={() => this.props.dispatch(addAddress(this.state.selectedAddress))}>
                                 PAY CASH ON DELIVERY
                             </Link>
                         </div>

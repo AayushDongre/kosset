@@ -121,9 +121,10 @@ app.post("/addOrder", (req, res) => {
             "products": products,
             "address": req.query.address,
             "phone": req.query.phone,
-            "cost": req.query.cost
+            "cost": req.query.cost,
+            "orderid": req.query.orderid
         }
-        orders.doc(req.query.uid + req.query.timestamp).set(currentOrder).then(() => {
+        orders.doc(req.query.orderid).set(currentOrder).then(() => {
 
             db.collection('mail').add({
                 to: [ "support@sudodevs.com","customer@kossetcare.com"],

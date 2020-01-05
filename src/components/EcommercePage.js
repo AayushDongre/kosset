@@ -127,7 +127,7 @@ class EcommercePage extends React.Component {
                         <p className="sub-heading">15 Sanitary Pads with Individual Disposal Packets</p>
                         <p className="free m-0">FREE HERBAL CRAMPS RELIEF ROLL ON</p>
                         <p className="choose">You can choose to buy the Standard Box OR Choose between the 3 sizes to create your Custom Box of 15 pads </p>
-                        <h2 className="contents">{(this.state.num1==6 && this.state.num2 == 7 && this.state.num3 == 2)?"Contents of Standard Kosset":"Customised"} Box</h2>
+                        <h2 className="contents">{(this.state.num1==6 && this.state.num2 == 7 && this.state.num3 == 2)?"Contents of Standard Kosset":"Custom"} Box</h2>
 
                         <div className="content-rows">
                             <div className="row content-row">

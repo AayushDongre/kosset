@@ -44,7 +44,7 @@ class Status extends React.Component {
             if (this.state.queries.mode === 'COD') {
                 this.setState(() => ({ cart: this.props.cart }))
                 this.setState(() => ({ message: "Order placed! Redirecting to home page" }))
-                this.addOrder()
+                this.addOrder(this.props.uid + new Date().getTime())
             }
             else {
                 fetch(url, { method: "post", body: JSON.stringify(params) })
@@ -54,7 +54,7 @@ class Status extends React.Component {
                         if (res.STATUS === "TXN_SUCCESS") {
                             this.setState(() => ({ cart: this.props.cart }))
                             this.setState(() => ({ message: "Order placed! Redirecting to home page" }))
-                            this.addOrder()
+                            this.addOrder(res.orderid)
                         }
                         else if (res.STATUS === "TXN_FAILURE") {
                             this.setState(() => ({ message: "Error placing order!" }))
@@ -67,7 +67,7 @@ class Status extends React.Component {
             this.props.history.goBack()
         }
     }
-    addOrder() {
+    addOrder(orderid) {
         const uid = this.props.uid;
         const url = "https://us-central1-kosset-69420.cloudfunctions.net/api/fetchUser?"
         const params = {
@@ -78,14 +78,14 @@ class Status extends React.Component {
             .then((res) => {
                 res.json().then((json) => {
                     this.setState(() => ({ user: json }))
-                    this.placeorder()
+                    this.placeorder(orderid)
                 })
             })
             .catch((err) => {
                 console.log(err)
             })
     }
-    placeorder() {
+    placeorder(orderid) {
         if (this.state.queries.success == "true") {
             const url = "https://us-central1-kosset-69420.cloudfunctions.net/api/addOrder?"
             const params = {
@@ -96,9 +96,10 @@ class Status extends React.Component {
                 products: JSON.stringify(this.props.cart),
                 cost: this.props.total + this.props.shipping - this.props.discount * 0.01 * this.props.total,
                 address: this.props.address,
+                orderid:orderid
             }
-            console.log("bbbbbbbbbbbbb")
-
+            let payment;
+            this.state.queries.mode === 'COD' ? payment = 'COD' : payment = 'ONLINE';
             fetch(url + $.param(params), {
                 method: "post",
                 headers: {
@@ -106,8 +107,8 @@ class Status extends React.Component {
                 },
                 body: JSON.stringify(
                     {
-                        htmlUser: newOrderUser(params, this.props.total + this.props.shipping - this.props.discount * 0.01 * this.props.total, this.state.cart),
-                        htmlAdmin: newOrderAdmin(params, this.props.total + this.props.shipping - this.props.discount * 0.01 * this.props.total, this.state.user.name, this.state.cart)
+                        htmlUser: newOrderUser(params, this.props.total + this.props.shipping - this.props.discount * 0.01 * this.props.total, this.state.cart,payment),
+                        htmlAdmin: newOrderAdmin(params, this.props.total + this.props.shipping - this.props.discount * 0.01 * this.props.total, this.state.user.name, this.state.cart, payment)
                     }
                 )
             })

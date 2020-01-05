@@ -34,7 +34,7 @@ export const newUser = (email, name) => {
     `
     return jsx
 }
-export const newOrderUser = (details, cost,cart) => {
+export const newOrderUser = (details, cost, cart, payment) => {
 
     let review = '';
     for (let i = 0; i < cart.length; i++) {
@@ -52,6 +52,8 @@ export const newOrderUser = (details, cost,cart) => {
                 review += `<br> <h2>${cart[i].quantity} x Kosset Box </h2>`
         }
     }
+    let method;
+    payment == 'COD' ? method = 'Cash On deliver' : method = 'Online Payment';
     const jsx = `
         <html>
             <head>
@@ -68,13 +70,14 @@ export const newOrderUser = (details, cost,cart) => {
                 <br>
                 <h3>Delivery Address: ${details.address}</h3>
                 <h3>Total Cost: ${cost}</h3>
+                <h3>Payment Mode: ${method}</h3>
 
             </body>
         </html>
     `
     return jsx
 }
-export const newOrderAdmin = (details, cost,name, cart) => {
+export const newOrderAdmin = (details, cost,name, cart, payment) => {
 
     let review = '';
     for (let i = 0; i < cart.length; i++) {
@@ -92,7 +95,8 @@ export const newOrderAdmin = (details, cost,name, cart) => {
                 review += `<br> <h2>${cart[i].quantity} x Kosset Box </h2>`
         }
     }
-
+    let method = '';
+    payment == 'COD' ? method = 'Cash On deliver' : method = 'Online Payment';
     const jsx = `
         <html>
             <head>
@@ -114,6 +118,7 @@ export const newOrderAdmin = (details, cost,name, cart) => {
                 <h3>Phone number: ${details.phone}</h3>
                 <h3>Delivery Address: ${details.address}</h3>
                 <h3>Total Cost: ${cost}</h3>
+                <h3>Payment Mode: ${method}</h3>
                 
             </body>
         </html>
