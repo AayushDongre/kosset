@@ -30,8 +30,8 @@ class Status extends React.Component {
         queries: quertString.parse(this.props.location.search),
         user: {},
         message: "",
-        cart:[]
-    }
+        cart: []
+    }   
     componentDidMount() {
         if (!!this.props.address) {
             // this.addOrder()
@@ -41,20 +41,26 @@ class Status extends React.Component {
                 ORDER_ID: this.state.queries.orderid,
                 CHECKSUMHASH: this.state.queries.checksumhash,
             }
-            fetch(url, { method: "post", body: JSON.stringify(params) })
-                .then(res => res.json())
-                .then((res) => {
-                    // console.log(res);
-                    if (res.STATUS === "TXN_SUCCESS") {
-                        this.setState(() => ({cart:this.props.cart}))
-                        this.props.emptyCart()
-                        this.setState(() => ({ message: "Order placed! Redirecting to home page" }))
-                        this.addOrder()
-                    }
-                    else if (res.STATUS === "TXN_FAILURE") {
-                        this.setState(() => ({ message: "Error placing order!" }))
-                    }
-                })
+            if (this.state.queries.mode === 'COD') {
+                this.setState(() => ({ cart: this.props.cart }))
+                this.setState(() => ({ message: "Order placed! Redirecting to home page" }))
+                this.addOrder()
+            }
+            else {
+                fetch(url, { method: "post", body: JSON.stringify(params) })
+                    .then(res => res.json())
+                    .then((res) => {
+                        // console.log(res);
+                        if (res.STATUS === "TXN_SUCCESS") {
+                            this.setState(() => ({ cart: this.props.cart }))
+                            this.setState(() => ({ message: "Order placed! Redirecting to home page" }))
+                            this.addOrder()
+                        }
+                        else if (res.STATUS === "TXN_FAILURE") {
+                            this.setState(() => ({ message: "Error placing order!" }))
+                        }
+                    })
+            }
 
         }
         else {
@@ -91,6 +97,8 @@ class Status extends React.Component {
                 cost: this.props.total + this.props.shipping - this.props.discount * 0.01 * this.props.total,
                 address: this.props.address,
             }
+            console.log("bbbbbbbbbbbbb")
+
             fetch(url + $.param(params), {
                 method: "post",
                 headers: {
@@ -98,12 +106,13 @@ class Status extends React.Component {
                 },
                 body: JSON.stringify(
                     {
-                        htmlUser: newOrderUser(params, this.state.cart),
-                        htmlAdmin: newOrderAdmin(params, this.state.user.name, this.state.cart)
+                        htmlUser: newOrderUser(params, this.props.total + this.props.shipping - this.props.discount * 0.01 * this.props.total, this.state.cart),
+                        htmlAdmin: newOrderAdmin(params, this.props.total + this.props.shipping - this.props.discount * 0.01 * this.props.total, this.state.user.name, this.state.cart)
                     }
                 )
             })
                 .then((res) => {
+                    this.props.emptyCart()
                     this.props.history.push("/")
                 })
                 .catch((err) => {

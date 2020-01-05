@@ -17,7 +17,7 @@ class KossetBoxCart extends React.Component {
                         <img src="./static/img/kossetBox-main.png" className="img-fluid px-0 "></img>
                     </div>
                     <div className="col-md-8">
-                        <h1>{this.props.customised ? "CUSTOMISED" : "KOSSET"} BOX
+                        <h1>{this.props.customised ? "CUSTOM" : "KOSSET"} BOX
                             <button type="button" onClick={() => {
                                 this.props.remove(this.props.ID)
                             }} className="close" data-dismiss="modal" aria-label="Close">

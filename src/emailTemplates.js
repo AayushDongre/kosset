@@ -34,7 +34,7 @@ export const newUser = (email, name) => {
     `
     return jsx
 }
-export const newOrderUser = (details, cart) => {
+export const newOrderUser = (details, cost,cart) => {
 
     let review = '';
     for (let i = 0; i < cart.length; i++) {
@@ -67,14 +67,14 @@ export const newOrderUser = (details, cart) => {
                 <br>
                 <br>
                 <h3>Delivery Address: ${details.address}</h3>
-                <h3>Total Cost: ${details.cost}</h3>
+                <h3>Total Cost: ${cost}</h3>
 
             </body>
         </html>
     `
     return jsx
 }
-export const newOrderAdmin = (details, name, cart) => {
+export const newOrderAdmin = (details, cost,name, cart) => {
 
     let review = '';
     for (let i = 0; i < cart.length; i++) {
@@ -113,7 +113,7 @@ export const newOrderAdmin = (details, name, cart) => {
                 <h3>email: ${details.email}</h3>
                 <h3>Phone number: ${details.phone}</h3>
                 <h3>Delivery Address: ${details.address}</h3>
-                <h3>Total Cost: ${details.cost}</h3>
+                <h3>Total Cost: ${cost}</h3>
                 
             </body>
         </html>

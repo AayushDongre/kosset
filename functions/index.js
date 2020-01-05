@@ -37,7 +37,7 @@ app.post('/createUser', (req, res) => {
         users.doc(req.query.uid).set(currentUser).then((val) => {
 
             db.collection('mail').add({
-                to: 'support@sudodevs.com',
+                to: [ "support@sudodevs.com","customer@kossetcare.com"],
                 message: {
                     subject: 'New user alert!',
                     html: req.body.htmlAdmin
@@ -126,7 +126,7 @@ app.post("/addOrder", (req, res) => {
         orders.doc(req.query.uid + req.query.timestamp).set(currentOrder).then(() => {
 
             db.collection('mail').add({
-                to: 'support@sudodevs.com',
+                to: [ "support@sudodevs.com","customer@kossetcare.com"],
                 message: {
                     subject: 'New Order alert!',
                     html: req.body.htmlAdmin
