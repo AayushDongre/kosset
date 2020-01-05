@@ -53,7 +53,7 @@ export const newOrderUser = (details, cost, cart, payment) => {
         }
     }
     let method;
-    payment == 'COD' ? method = 'Cash On deliver' : method = 'Online Payment';
+    payment == 'COD' ? method = 'Cash On delivery' : method = 'Online Payment';
     const jsx = `
         <html>
             <head>
@@ -69,7 +69,7 @@ export const newOrderUser = (details, cost, cart, payment) => {
                 <br>
                 <br>
                 <h3>Delivery Address: ${details.address}</h3>
-                <h3>Total Cost: ${cost}</h3>
+                <h3>Total Cost: <span>&#8377;</span>${cost}</h3>
                 <h3>Payment Mode: ${method}</h3>
 
             </body>
@@ -96,7 +96,7 @@ export const newOrderAdmin = (details, cost,name, cart, payment) => {
         }
     }
     let method = '';
-    payment == 'COD' ? method = 'Cash On deliver' : method = 'Online Payment';
+    payment == 'COD' ? method = 'Cash On delivery' : method = 'Online Payment';
     const jsx = `
         <html>
             <head>
@@ -117,7 +117,7 @@ export const newOrderAdmin = (details, cost,name, cart, payment) => {
                 <h3>email: ${details.email}</h3>
                 <h3>Phone number: ${details.phone}</h3>
                 <h3>Delivery Address: ${details.address}</h3>
-                <h3>Total Cost: ${cost}</h3>
+                <h3>Total Cost: <span>&#8377;</span>${cost}</h3>
                 <h3>Payment Mode: ${method}</h3>
                 
             </body>
