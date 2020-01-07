@@ -52,6 +52,12 @@ const PrivacyPolicy = () => {
                 <p>In accordance with Information Technology Act, 2000 (as amended) and rules made there under, the name and contact details of the Grievance Officer who may be contacted for are published on the Website.</p>
                 <p>Grievance officer name: Tushar Avadhani</p>
                 <p>E-mail id: support@kossetcare.com</p>
+
+                <h3>Contact Us</h3>
+                <h6>Plush Healthcare and Media Pvt. Ltd</h6>
+                <h6>G1 FL NO 103 SNO 140-3 SUS ROAD PASHAN, PUNE-411008</h6>
+                <h6>+91 9307425282</h6>
+                <h6>plush.healthcare@gmail.com</h6>
             </div>
             <Footer />
         </div>
