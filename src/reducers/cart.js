@@ -36,21 +36,32 @@ export default (state = cartReducerDefaultState, action) => {
 
         case "ADD_KOSSETBOX":
             var found = false;
-            var deletedCart = state.cart.filter((item) => {
-                return !item.id.slice(-2) == 'KB'
-            })
+            for (var i = 0; i < state.cart.length; i++) {
+                if (!!state.cart[i].id && state.cart[i].id.slice(-2) == 'KB') {
+                    found = true;
+                    break;
+                }
+            }
+            if (found)
+                return state
+            else {
+                var deletedCart = state.cart.filter((item) => {
+                    return !item.id.slice(-2) == 'KB'
+                })
 
-            return {
-                authenticated: state.authenticated,
-                cart: [...deletedCart, action.product],
-                total: state.total + action.total,
-                discount: state.discount,
-                currentUid: state.currentUid,
-                shipping: (state.total + action.total) >= 500 ? 0 : 50,
-                actualTotal: state.actualTotal + action.actualTotal,
-                address: state.address
-            };
+                return {
+                    authenticated: state.authenticated,
+                    cart: [...deletedCart, action.product],
+                    total: state.total + action.total,
+                    discount: state.discount,
+                    currentUid: state.currentUid,
+                    shipping: (state.total + action.total) >= 500 ? 0 : 50,
+                    actualTotal: state.actualTotal + action.actualTotal,
+                    address: state.address
+                };
 
+
+            }
         case "UPDATE_QUANTITY_KOSSET":
             return {
                 authenticated: state.authenticated,
