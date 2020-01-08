@@ -1,1 +1,7 @@
 node_modules
+bundle.js
+bundle.js.br
+bundle.js.gz
+main.css
+main.css.gz
+main.css.br
