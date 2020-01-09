@@ -104,7 +104,7 @@ const Hero = (props) => {
         <div className="hero pt-5">
             <Nav />
             <div className=" wrapper d-flex flex-column-reverse px-4 pt-xl-1 hero-b">
-                <p className="heroPara "><strong>Kosset</strong> is on a simple mission of making every woman’s period a pain-free, <br /> convenient,
+                <p className="heroPara "><strong>Kosset</strong> is on a simple mission of making every woman’s period a pain-free, convenient,
                     seamless and most importantly, a Natural Experience, so that, she or the environment don’t
                         have to compromise. <br /> We are doing so by offering a range of alternative products and services under one platform to fulfill all menstruation, sexual health and gynaecology related needs.</p>
 
