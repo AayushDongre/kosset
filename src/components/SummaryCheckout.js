@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux'
 import $ from 'jquery';
 import { Redirect, Link } from 'react-router-dom';
-import axios from 'axios'
 import { addAddress } from '../actions/cart'
+import { ToastContainer, toast } from 'react-toastify';
 
 class SummaryCheckout extends React.Component {
 
@@ -84,6 +84,17 @@ class SummaryCheckout extends React.Component {
                 .catch((err) => {
                     console.log(err)
                 })
+        }else{
+            toast.warn(' Please select an Address!',{
+                position: "bottom-right",
+                autoClose: 5000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                className: "toastCustom",
+                toastId: 'KboxCart'
+            });
         }
     }
 
@@ -91,6 +102,17 @@ class SummaryCheckout extends React.Component {
     render() {
         return (
             <div className="summaryCheckout container">
+            <ToastContainer
+            position="bottom-right"
+            autoClose={2000}
+            hideProgressBar
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnVisibilityChange
+            draggable
+            pauseOnHover
+        />
                 <h2 className="px-3 px-md-0">DELIVERY INFORMATION</h2>
                 <p className="px-3 px-md-0">Select an address</p>
                 <div className="row">
