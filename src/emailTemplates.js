@@ -28,7 +28,6 @@ export const newUser = (email, name) => {
             </head>
             <body>
                 <h1>Welcome to Kosset, ${name}!</h1>
-                <p>Andi mandi shandi </p>
             </body>
         </html>
     `

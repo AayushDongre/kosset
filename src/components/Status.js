@@ -50,11 +50,11 @@ class Status extends React.Component {
                 fetch(url, { method: "post", body: JSON.stringify(params) })
                     .then(res => res.json())
                     .then((res) => {
-                        // console.log(res);
+                        console.log(res);
                         if (res.STATUS === "TXN_SUCCESS") {
                             this.setState(() => ({ cart: this.props.cart }))
                             this.setState(() => ({ message: "Order placed! Redirecting to home page" }))
-                            this.addOrder(res.orderid)
+                            this.addOrder(res.ORDERID)
                         }
                         else if (res.STATUS === "TXN_FAILURE") {
                             this.setState(() => ({ message: "Error placing order!" }))
@@ -114,7 +114,7 @@ class Status extends React.Component {
             })
                 .then((res) => {
                     this.props.emptyCart()
-                    this.props.history.push("/")
+                    this.props.history.replace("/")
                 })
                 .catch((err) => {
                     console.log(err)
