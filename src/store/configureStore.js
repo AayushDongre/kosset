@@ -4,7 +4,7 @@ import cartReducer from '../reducers/cart';
 
 const loadFromLocalStorage = () => {
     try {
-        const statePrev = localStorage.getItem('state')
+        const statePrev = sessionStorage.getItem('state')
         if(statePrev === null) return undefined
         return JSON.parse(statePrev)
     } catch (err) {
