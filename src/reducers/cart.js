@@ -142,11 +142,13 @@ export default (state = cartReducerDefaultState, action) => {
                     }
                 }
             }
+            let newCart = state.cart.filter((expense) => {
+                return action.id !== expense.id
+            })
             return {
                 ...state,
-                cart: state.cart.filter((expense) => {
-                    return action.id !== expense.id
-                }),
+                cart: newCart,
+                discount: newCart.length == 0 ? 0 : state.discount,
                 total: state.total - subtract,
                 actualTotal: state.actualTotal - actualSubtract,
                 shipping: (state.total - subtract) >= 500 ? 0 : 50
