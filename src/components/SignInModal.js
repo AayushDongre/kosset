@@ -20,7 +20,6 @@ class SignInModal extends React.Component {
         const phone = e.target.phone.value
         const Cpassword = e.target.Cpass.value
         const address = e.target.address.value
-
         let uid = "";
         const url = "https://us-central1-kosset-69420.cloudfunctions.net/api/createUser?"
         if (!!email && !!password && !!name && !!phone && !!address) {

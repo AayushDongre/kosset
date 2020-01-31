@@ -3,6 +3,9 @@ import $ from 'jquery';
 import { connect } from 'react-redux';
 import SignInModal from './SignInModal';
 import { applyDiscount } from '../actions/cart'
+import firebase from 'firebase/app';
+import 'firebase/firestore';
+
 
 class CartCheckoutSection extends React.Component {
 
@@ -17,9 +20,16 @@ class CartCheckoutSection extends React.Component {
     }
     applyCoupon = (e) => {
         const coupon = document.getElementById("couponInput").value
-        if (coupon == "KOSSET30") {
-            this.props.dispatch(applyDiscount(30))
-        }
+        const db = firebase.firestore();
+        db.collection('coupons').get()
+            .then((snapshot) => {
+                snapshot.forEach((doc) => {
+                    const payload = doc.data();
+                    if (payload.name === coupon) {
+                        this.props.dispatch(applyDiscount(payload.discount))
+                    }
+                })
+            })
     }
 
     render() {
@@ -44,7 +54,7 @@ class CartCheckoutSection extends React.Component {
                         </div>
                         <div className="col-3">
                             <span>&#8377;</span>
-                           {this.props.shipping}
+                            {this.props.shipping}
                         </div>
                     </div>
                     <div className="row checkout-row">
@@ -54,8 +64,8 @@ class CartCheckoutSection extends React.Component {
                         <div className="col-3">
                             -
                              <span>&#8377;</span>
-                             {this.props.discount*0.01*this.props.total+(this.props.actualTotal - this.props.total) }
-                             </div>
+                            {this.props.discountPercent * 0.01 * this.props.total + this.props.discountValue + (this.props.actualTotal - this.props.total)}
+                        </div>
                     </div>
                     <div className="row checkout-row checkout-total">
                         <div className="col-9">
@@ -64,7 +74,7 @@ class CartCheckoutSection extends React.Component {
                         </div>
                         <div className="col-3">
                             <span>&#8377;</span>
-                            {this.props.total + this.props.shipping - this.props.discount*0.01*this.props.total}
+                            {this.props.total + this.props.shipping - this.props.discountPercent * 0.01 * this.props.total - this.props.discountValue} 
                         </div>
                     </div>
                 </div>
@@ -79,7 +89,7 @@ class CartCheckoutSection extends React.Component {
                         CHECKOUT
                     </button>
                 </div>
-                < SignInModal history={this.props.history} id="signInModal"/>
+                < SignInModal history={this.props.history} id="signInModal" />
             </div>
         )
     }
@@ -89,9 +99,10 @@ const mapStateToProps = (state) => {
     return {
         authenticated: state.authenticated,
         total: state.total,
-        discount: state.discount,
+        discountValue: state.discountValue,
+        discountPercent:state.discountPercent,
         shipping: state.shipping,
-        actualTotal:state.actualTotal
+        actualTotal: state.actualTotal
     }
 }
 

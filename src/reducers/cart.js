@@ -3,7 +3,8 @@ const cartReducerDefaultState = {
     cart: [],
     total: 0,
     actualTotal: 0,
-    discount: 0,
+    discountPercent: 0,
+    discountValue: 0,
     currentUid: "",
     shipping: 50,
     address: ""
@@ -26,7 +27,8 @@ export default (state = cartReducerDefaultState, action) => {
                     authenticated: state.authenticated,
                     cart: [...state.cart, action.product],
                     total: state.total + action.total,
-                    discount: state.discount,
+                    discountPercent: state.discountPercent,
+                    discountValue: state.discountValue,
                     currentUid: state.currentUid,
                     shipping: (state.total + action.total) >= 500 ? 0 : 50,
                     actualTotal: state.actualTotal + action.actualTotal,
@@ -53,7 +55,8 @@ export default (state = cartReducerDefaultState, action) => {
                     authenticated: state.authenticated,
                     cart: [...deletedCart, action.product],
                     total: state.total + action.total,
-                    discount: state.discount,
+                    discountPercent: state.discountPercent,
+                    discountValue: state.discountValue,
                     currentUid: state.currentUid,
                     shipping: (state.total + action.total) >= 500 ? 0 : 50,
                     actualTotal: state.actualTotal + action.actualTotal,
@@ -76,7 +79,8 @@ export default (state = cartReducerDefaultState, action) => {
                         return item
                 }),
                 total: state.total + action.total,
-                discount: state.discount,
+                discountPercent: state.discountPercent,
+                discountValue: state.discountValue,
                 currentUid: state.currentUid,
                 shipping: (state.total + action.total) >= 500 ? 0 : 50,
                 actualTotal: state.actualTotal + action.actualTotal,
@@ -96,7 +100,8 @@ export default (state = cartReducerDefaultState, action) => {
                         return item
                 }),
                 total: state.total + action.total,
-                discount: state.discount,
+                discountPercent: state.discountPercent,
+                discountValue: state.discountValue,
                 currentUid: state.currentUid,
                 shipping: (state.total + action.total) >= 500 ? 0 : 50,
                 actualTotal: state.actualTotal + action.actualTotal,
@@ -109,7 +114,8 @@ export default (state = cartReducerDefaultState, action) => {
                 authenticated: true,
                 cart: state.cart,
                 total: state.total,
-                discount: state.discount,
+                discountPercent: state.discountPercent,
+                discountValue: state.discountValue,
                 currentUid: state.currentUid,
                 shipping: state.shipping,
                 actualTotal: state.actualTotal,
@@ -121,7 +127,8 @@ export default (state = cartReducerDefaultState, action) => {
                 authenticated: false,
                 cart: state.cart,
                 total: state.total,
-                discount: state.discount,
+                discountPercent: state.discountPercent,
+                discountValue: state.discountValue,
                 currentUid: state.currentUid,
                 shipping: state.shipping,
                 actualTotal: state.actualTotal,
@@ -148,16 +155,22 @@ export default (state = cartReducerDefaultState, action) => {
             return {
                 ...state,
                 cart: newCart,
-                discount: newCart.length == 0 ? 0 : state.discount,
+                discountPercent: newCart.length == 0 ? 0 : state.discountPercent,
+                discountValue: newCart.length == 0 ? 0 : state.discountValue,
                 total: state.total - subtract,
                 actualTotal: state.actualTotal - actualSubtract,
                 shipping: (state.total - subtract) >= 500 ? 0 : 50
             }
 
         case "APPLY_DISCOUNT":
+            let discountValue = parseFloat(action.discount.total) 
+            let discountPercent = parseFloat(action.discount.percentage)
+            let delivery = parseFloat(action.discount.delivery)
             return {
                 ...state,
-                discount: action.discount
+                discountValue,
+                discountPercent,
+                shipping: delivery
             }
         case "SET_UID":
             return {
@@ -180,7 +193,8 @@ export default (state = cartReducerDefaultState, action) => {
                 cart: [],
                 total: 0,
                 actualTotal: 0,
-                discount: 0,
+                discountPercent: 0,
+                discountValue: 0,
                 shipping: 50,
             }
 

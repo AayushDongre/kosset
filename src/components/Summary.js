@@ -45,10 +45,10 @@ class Summary extends React.Component {
                                             <span className="summaryBoxText">SHIPPING CHARGES</span><span className="summaryBoxNum"><span>&#8377;</span>{this.props.shipping}</span>
                                         </div>
                                         <div className="row summaryBoxRow discount">
-                                            <span className="summaryBoxText">DISCOUNT</span><span className="summaryBoxNum">-<span>&#8377;</span>{this.props.discount*0.01*this.props.total + (this.props.actualTotal - this.props.total)}</span>
+                                            <span className="summaryBoxText">DISCOUNT</span><span className="summaryBoxNum">-<span>&#8377;</span>{this.props.discountPercent*0.01*this.props.total + this.props.discountValue + (this.props.actualTotal - this.props.total)}</span>
                                         </div>
                                         <div className="row summaryBoxRow">
-                                            <span className="final summaryBoxText">TOTAL</span><span className="final summaryBoxNum"><span>&#8377;</span>{this.props.total + this.props.shipping - this.props.discount*0.01*this.props.total}</span>
+                                            <span className="final summaryBoxText">TOTAL</span><span className="final summaryBoxNum"><span>&#8377;</span>{this.props.total + this.props.shipping - this.props.discountPercent*0.01*this.props.total - this.props.discountValue}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -72,7 +72,8 @@ const mapStateToProps = (state) => {
         products: state.cart,
         authenticated: state.authenticated,
         total: state.total,
-        discount: state.discount,
+        discountValue: state.discountValue,
+        discountPercent:state.discountPercent,
         shipping: state.shipping,
         actualTotal:state.actualTotal
     }

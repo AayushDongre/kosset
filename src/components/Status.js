@@ -31,7 +31,7 @@ class Status extends React.Component {
         user: {},
         message: "",
         cart: []
-    }   
+    }
     componentDidMount() {
         if (!!this.props.address) {
             // this.addOrder()
@@ -94,9 +94,9 @@ class Status extends React.Component {
                 phone: this.state.user.phone,
                 timestamp: new Date().getTime(),
                 products: JSON.stringify(this.props.cart),
-                cost: this.props.total + this.props.shipping - this.props.discount * 0.01 * this.props.total,
+                cost: this.props.total + this.props.shipping - this.props.discountPercent * 0.01 * this.props.total - this.props.discountValue,
                 address: this.props.address,
-                orderid:orderid
+                orderid: orderid
             }
             let payment;
             this.state.queries.mode === 'COD' ? payment = 'COD' : payment = 'ONLINE';
@@ -107,8 +107,8 @@ class Status extends React.Component {
                 },
                 body: JSON.stringify(
                     {
-                        htmlUser: newOrderUser(params, this.props.total + this.props.shipping - this.props.discount * 0.01 * this.props.total, this.state.cart,payment),
-                        htmlAdmin: newOrderAdmin(params, this.props.total + this.props.shipping - this.props.discount * 0.01 * this.props.total, this.state.user.name, this.state.cart, payment)
+                        htmlUser: newOrderUser(params, this.props.total + this.props.shipping - this.props.discountValue - this.props.discountPercent * 0.01 * this.props.total, this.state.cart, payment),
+                        htmlAdmin: newOrderAdmin(params, this.props.total + this.props.shipping - this.props.discountValue - this.props.discountPercent * 0.01 * this.props.total, this.state.user.name, this.state.cart, payment)
                     }
                 )
             })
