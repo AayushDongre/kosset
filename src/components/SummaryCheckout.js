@@ -72,6 +72,7 @@ class SummaryCheckout extends React.Component {
                 // price:this.props.total + this.props.shipping - this.props.discount*0.01*this.props.total
                 price: this.props.total + this.props.shipping - this.props.discountPercent * 0.01 * this.props.total - this.props.discountValue
             }
+            console.log(url + $.param(params))
             fetch(url + $.param(params), { method: "post" })
                 .then((res) => {
                     res.json().then((json) => {
@@ -189,7 +190,7 @@ const mapStateToProps = (state) => {
     return {
         authenticated: state.authenticated,
         total: state.total,
-        discountValue: state.discountVale,
+        discountValue: state.discountValue,
         discountPercent:state.discountPercent,
         uid: state.currentUid,
         shipping: state.shipping

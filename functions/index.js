@@ -239,6 +239,7 @@ app.post("/pay", (request, response) => {
 })
 app.post("/callback", (request, response) => {
     try {
+        console.log(request.body)
         const checksumhash = request.body.CHECKSUMHASH
         const data = {
             ...request.body
