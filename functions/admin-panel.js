@@ -20,7 +20,6 @@ app.get('/users', async (req, res) => {
                     payload.id = payload.uid
                     userList.push(payload)
                 })
-                let responseFinal = { "users":userList }
                 res.set('Access-Control-Allow-Methods', 'GET');
                 res.set('Access-Control-Allow-Headers', 'Content-Type');
                 res.set('Acess-Control-Expose-Headers', 'Content-Range');
@@ -28,7 +27,7 @@ app.get('/users', async (req, res) => {
                 res.set('Access-Control-Max-Age', '3600');
                 res.set('Content-Range', 'bytes */500')
                 res.set('X-Total-Count', userList.length)
-                res.send(responseFinal);
+                res.send(userList);
             })
             .catch((err) => {
                 console.log(err)
@@ -45,9 +44,11 @@ app.get('/users/:uid', async (req, res) => {
     try {
         db.collection('users').where('uid', '==', req.params.uid).get()
             .then((snapshot) => {
+                let userList = []
                 snapshot.forEach((doc) => {
                     let payload = doc.data();
                     payload.id = payload.uid
+                    userList.push(payload)
                 })
                 res.set('Access-Control-Allow-Methods', 'GET');
                 res.set('Access-Control-Allow-Headers', 'Content-Type');
@@ -56,7 +57,7 @@ app.get('/users/:uid', async (req, res) => {
                 res.set('Access-Control-Max-Age', '3600');
                 res.set('Content-Range', 'bytes */500')
                 res.set('X-Total-Count', 1)
-                res.send(payload);
+                res.send(userList);
             })
             .catch((err) => {
                 console.log(err)
@@ -80,7 +81,6 @@ app.get('/orders', (req, res) => {
                     payload.id = payload.orderid;
                     orderList.push(payload)
                 })
-                let finalResponse = { "orders":orderList }
                 res.set('Access-Control-Allow-Methods', 'GET');
                 res.set('Access-Control-Allow-Headers', 'Content-Type');
                 res.set('Acess-Control-Expose-Headers', 'Content-Range');
@@ -88,7 +88,7 @@ app.get('/orders', (req, res) => {
                 res.set('Access-Control-Max-Age', '3600');
                 res.set('Content-Range', 'bytes */500')
                 res.set('X-Total-Count', orderList.length)
-                res.send(finalResponse);
+                res.send(orderList);
             })
             .catch((err) => {
                 console.log(err)
