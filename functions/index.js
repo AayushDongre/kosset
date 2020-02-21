@@ -7,18 +7,16 @@ const url = require('url')
 const fetch = require('node-fetch');
 const { paytmConfig } = require('./extensions/config');
 const paytmChecksum = require('./extensions/checksum');
-
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
-// in latest body-parser use like below.
 app.use(bodyParser.urlencoded({ extended: true }));
-
 app.use(cors({ origin: true }));
 
 
 admin.initializeApp(functions.config().firebase);
 let db = admin.firestore();
+const adminAPI = require('./admin-panel')
 
 app.post('/createUser', (req, res) => {
     try {
@@ -365,3 +363,4 @@ app.post("/newUser", async (req, res) => {
 //         });
 //     });
 exports.api = functions.https.onRequest(app);
+exports.admin = adminAPI.admin
