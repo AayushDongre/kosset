@@ -74,29 +74,81 @@ app.get('/users/:uid', async (req, res) => {
 
 app.get('/orders', (req, res) => {
     try {
-        db.collection('orders').get()
-            .then((snapshot) => {
-                let orderList = []
-                snapshot.forEach((doc) => {
-                    let payload = doc.data();
-                    payload.id = payload.uid;
-                    orderList.push(payload)
+        if (Boolean(req.query.filter)) {
+            if (Boolean(Object.keys(JSON.parse(req.query.filter)).length)) {
+                db.collection('orders').where('uid', 'in', [...JSON.parse(req.query.filter).id]).get()
+                    .then((snapshot) => {
+                        let orderList = []
+                        snapshot.forEach((doc) => {
+                            let payload = doc.data();
+                            payload.id = payload.orderid;
+                            orderList.push(payload)
+                        })
+                        res.set('Access-Control-Allow-Methods', 'GET');
+                        res.set('Access-Control-Allow-Headers', 'Content-Type');
+                        res.set('Acess-Control-Expose-Headers', 'Content-Range');
+                        // res.set('Acess-Control-Expose-Headers', 'X-Total-Count');
+                        res.set('Access-Control-Max-Age', '3600');
+                        res.set('Content-Range', 'bytes */500')
+                        res.set('X-Total-Count', orderList.length)
+                        res.send(orderList);
+                    })
+                    .catch((err) => {
+                        console.log(err)
+                        res.status(500);
+                        res.send(err)
+                    })
+
+            }else {
+                db.collection('orders').get()
+                    .then((snapshot) => {
+                        let orderList = []
+                        snapshot.forEach((doc) => {
+                            let payload = doc.data();
+                            payload.id = payload.orderid;
+                            orderList.push(payload)
+                        })
+                        let responseFinal = { 'orders': orderList }
+                        res.set('Access-Control-Allow-Methods', 'GET');
+                        res.set('Access-Control-Allow-Headers', 'Content-Type');
+                        res.set('Acess-Control-Expose-Headers', 'Content-Range');
+                        // res.set('Acess-Control-Expose-Headers', 'X-Total-Count');
+                        res.set('Access-Control-Max-Age', '3600');
+                        res.set('Content-Range', 'bytes */500')
+                        res.set('X-Total-Count', orderList.length)
+                        res.send(orderList);
+                    })
+                    .catch((err) => {
+                        console.log(err)
+                        res.status(500);
+                        res.send(err)
+                    })
+            }
+        }else {
+            db.collection('orders').get()
+                .then((snapshot) => {
+                    let orderList = []
+                    snapshot.forEach((doc) => {
+                        let payload = doc.data();
+                        payload.id = payload.orderid;
+                        orderList.push(payload)
+                    })
+                    let responseFinal = { 'orders': orderList }
+                    res.set('Access-Control-Allow-Methods', 'GET');
+                    res.set('Access-Control-Allow-Headers', 'Content-Type');
+                    res.set('Acess-Control-Expose-Headers', 'Content-Range');
+                    // res.set('Acess-Control-Expose-Headers', 'X-Total-Count');
+                    res.set('Access-Control-Max-Age', '3600');
+                    res.set('Content-Range', 'bytes */500')
+                    res.set('X-Total-Count', orderList.length)
+                    res.send(orderList);
                 })
-                let responseFinal = { 'orders' : orderList }
-                res.set('Access-Control-Allow-Methods', 'GET');
-                res.set('Access-Control-Allow-Headers', 'Content-Type');
-                res.set('Acess-Control-Expose-Headers', 'Content-Range');
-                // res.set('Acess-Control-Expose-Headers', 'X-Total-Count');
-                res.set('Access-Control-Max-Age', '3600');
-                res.set('Content-Range', 'bytes */500')
-                res.set('X-Total-Count', orderList.length)
-                res.send(orderList);
-            })
-            .catch((err) => {
-                console.log(err)
-                res.status(500);
-                res.send(err)
-            })
+                .catch((err) => {
+                    console.log(err)
+                    res.status(500);
+                    res.send(err)
+                })
+        }
     } catch (err) {
         console.log(err)
         res.status(500);
@@ -119,7 +171,7 @@ app.get('/orders/:uid', async (req, res) => {
                 // res.set('Acess-Control-Expose-Headers', 'X-Total-Count');
                 res.set('Access-Control-Max-Age', '3600');
                 res.set('Content-Range', 'bytes */500')
-                res.set('X-Total-Count', 1)
+                res.set('X-Total-Count', orderList.length)
                 res.send(orderList);
             })
             .catch((err) => {

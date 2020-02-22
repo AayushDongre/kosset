@@ -96,7 +96,9 @@ class Status extends React.Component {
                 products: JSON.stringify(this.props.cart),
                 cost: this.props.total + this.props.shipping - this.props.discountPercent * 0.01 * this.props.total - this.props.discountValue,
                 address: this.props.address,
-                orderid: orderid
+                orderid: orderid,
+                paymentMode: this.state.queries.mode,
+                status:"PLACED"
             }
             let payment;
             this.state.queries.mode === 'COD' ? payment = 'COD' : payment = 'ONLINE';
