@@ -72,7 +72,7 @@ app.delete('/coupons/:name', (req, res) => {
         let coupons = db.collection("coupons");
 
         coupons.doc(req.params.name).delete().then(() => {
-            res.send("success");
+            res.send({ "data":null });
         }).catch((err) => {
             res.send(err);
         })
@@ -89,7 +89,7 @@ app.put('/coupons/:name', (req, res) => {
         coupons.doc(name).update({ ...req.body })
             .then(() => {
                 res.status(200)
-                res.send("success")
+                res.send({ "data": {...req.body} })
             })
             .catch((err) => {
                 res.send(err)
@@ -113,7 +113,7 @@ app.post('/coupons', (req, res) => {
         }
         coupons.doc(req.body.name).set(currentCoupon).then((val) => {
             res.status(200);
-            res.send("Success");
+            res.send({ "data":currentCoupon });
         }).catch((err) => {
             res.send(err);
         })

@@ -84,7 +84,7 @@ app.delete("/users/:uid", (req, res) => {
                 else {
                     // eslint-disable-next-line promise/no-nesting
                     users.doc(req.params.uid).delete().then(() => {
-                        res.send("success");
+                        res.send({ "data":null });
                     }).catch((err) => {
                         res.send(err);
                     })
@@ -106,7 +106,7 @@ app.put('/users/:uid', (req, res) => {
         users.doc(uid).update({ ...req.body })
             .then(() => {
                 res.status(200)
-                res.send("success")
+                res.send({ "data": { ...req.body  } })
             })
             .catch((err) => {
                 res.send(err)

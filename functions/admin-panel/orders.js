@@ -145,7 +145,7 @@ app.delete("/orders/:orderid", (req, res) => {
     try {
         let orders = db.collection("orders");
         orders.doc(req.params.orderid).delete().then(() => {
-            res.send("success");
+            res.send({ "data":null });
         }).catch((err) => {
             res.send(err);
         })
