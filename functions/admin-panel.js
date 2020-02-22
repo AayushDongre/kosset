@@ -5,6 +5,7 @@ const cors = require('cors');
 var bodyParser = require('body-parser');
 const users = require('./admin-panel/users');
 const orders = require('./admin-panel/orders');
+const coupons = require('./admin-panel/coupons');
 const app = express.Router()
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
@@ -13,6 +14,7 @@ app.use(cors({ origin: true, exposedHeaders: ['Content-Range', 'X-Content-Range'
 
 app.use('/', users);
 app.use('/', orders);
+app.use('/', coupons);
 
 
 exports.admin = functions.https.onRequest(app);
