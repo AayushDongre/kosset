@@ -70,5 +70,52 @@ app.get('/users/:uid', async (req, res) => {
         res.send(err);
     }
 });
+app.delete("/users/:uid", (req, res) => {
+    try {
+        let users = db.collection("users");
+        let subscriptions = db.collection("subscriptions")
+
+        subscriptions.doc(req.query.uid).get()
+            .then((subscription) => {
+                if (subscription.exists) {
+                    res.status(400)
+                    res.send("Cancel active subscriptions first to continue")
+                }
+                else {
+                    // eslint-disable-next-line promise/no-nesting
+                    users.doc(req.params.uid).delete().then(() => {
+                        res.send("success");
+                    }).catch((err) => {
+                        res.send(err);
+                    })
+
+                }
+            })
+            .catch((err) => {
+                res.send(err)
+            })
+    } catch (err) {
+        res.send(err);
+    }
+})
+app.put('/users/:uid', (req, res) => {
+    try {
+        let users = db.collection("users");
+        const uid = req.params.uid
+
+        users.doc(uid).update({ ...req.body })
+            .then(() => {
+                res.status(200)
+                res.send("success")
+            })
+            .catch((err) => {
+                res.send(err)
+            })
+
+    } catch (err) {
+        console.log(err)
+        res.send(err);
+    }
+})
 
 module.exports = app;

@@ -37,7 +37,7 @@ app.get('/orders', (req, res) => {
                         res.send(err)
                     })
 
-            }else {
+            } else {
                 db.collection('orders').get()
                     .then((snapshot) => {
                         let orderList = []
@@ -62,7 +62,7 @@ app.get('/orders', (req, res) => {
                         res.send(err)
                     })
             }
-        }else {
+        } else {
             db.collection('orders').get()
                 .then((snapshot) => {
                     let orderList = []
@@ -123,5 +123,35 @@ app.get('/orders/:uid', async (req, res) => {
         res.send(err);
     }
 });
+app.put('/orders/:orderid', (req, res) => {
+    try {
+        let orders = db.collection("orders");
+        const orderid = req.params.orderid
+
+        orders.doc(orderid).update({ status: 'DELIVERED' })
+            .then(() => {
+                res.status(200)
+                res.send("success")
+            })
+            .catch((err) => {
+                res.send(err)
+            })
+
+    } catch (err) {
+        res.send(err);
+    }
+})
+app.delete("/orders/:orderid", (req, res) => {
+    try {
+        let orders = db.collection("orders");
+        orders.doc(req.params.orderid).delete().then(() => {
+            res.send("success");
+        }).catch((err) => {
+            res.send(err);
+        })
+    } catch (err) {
+        res.send(err);
+    }
+})
 
 module.exports = app;

@@ -85,6 +85,7 @@ app.post("/deleteUser", (req, res) => {
                     res.send("Cancel active subscriptions first to continue")
                 }
                 else {
+                    // eslint-disable-next-line promise/no-nesting
                     users.doc(req.query.uid).delete().then(() => {
                         res.send("success");
                     }).catch((err) => {
