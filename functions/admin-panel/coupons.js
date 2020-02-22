@@ -67,7 +67,7 @@ app.get('/coupons/:name', async (req, res) => {
         res.send(err);
     }
 });
-app.delete('coupons/:name', (req, res) => {
+app.delete('/coupons/:name', (req, res) => {
     try {
         let coupons = db.collection("coupons");
 
@@ -100,5 +100,25 @@ app.put('/coupons/:name', (req, res) => {
         res.send(err);
     }
 })
+app.post('/coupons/:name', (req, res) => {
+    try {
+        let coupons = db.collection('coupons');
+        const currentCoupon = {
+            "name": req.body.name,
+            "percentage": req.body.percentage,
+            "total": req.body.total,
+            "delivery": req.body.total
+        }
+        coupons.doc(req.params.name).set(currentUser).then((val) => {
+            res.status(200);
+            res.send("Success");
+        }).catch((err) => {
+            res.send(err);
+        })
+    } catch (err) {
+        res.status(500);
+        res.send(err);
+    }
 
+})
 module.exports = app;
