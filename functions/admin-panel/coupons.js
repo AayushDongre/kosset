@@ -100,22 +100,25 @@ app.put('/coupons/:name', (req, res) => {
         res.send(err);
     }
 })
-app.post('/coupons/:name', (req, res) => {
+app.post('/coupons', (req, res) => {
     try {
         let coupons = db.collection('coupons');
         const currentCoupon = {
             "name": req.body.name,
-            "percentage": req.body.percentage,
-            "total": req.body.total,
-            "delivery": req.body.total
+            "discount": {
+                "percentage": req.body.discount.percentage,
+                "total": req.body.discount.total,
+                "delivery": req.body.discount.delivery
+            }
         }
-        coupons.doc(req.params.name).set(currentUser).then((val) => {
+        coupons.doc(req.body.name).set(currentCoupon).then((val) => {
             res.status(200);
             res.send("Success");
         }).catch((err) => {
             res.send(err);
         })
     } catch (err) {
+        console.log(err)
         res.status(500);
         res.send(err);
     }
