@@ -149,8 +149,10 @@ class Status extends React.Component {
 const mapStateToProps = (state) => {
     return {
         authenticated: state.authenticated,
-        total: state.total,
         discount: state.discount,
+        total: state.total,
+        discountValue: state.discountValue,
+        discountPercent:state.discountPercent,
         uid: state.currentUid,
         shipping: state.shipping,
         cart: state.cart,

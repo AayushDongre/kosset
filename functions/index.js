@@ -127,7 +127,8 @@ app.post("/addOrder", (req, res) => {
         orders.doc(req.query.orderid).set(currentOrder).then(() => {
 
             db.collection('mail').add({
-                to: [ "support@sudodevs.com","support@kossetcare.com"],
+                // to: [ "support@sudodevs.com","support@kossetcare.com"],
+                to: [ "support@sudodevs.com",],
                 message: {
                     subject: 'New Order alert!',
                     html: req.body.htmlAdmin
