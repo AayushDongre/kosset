@@ -17,7 +17,7 @@ app.get('/coupons', (req, res) => {
                 let couponList = []
                 snapshot.forEach((doc) => {
                     let payload = doc.data();
-                    payload.id = payload.uid
+                    payload.id = payload.name
                     couponList.push(payload)
                 })
                 res.set('Access-Control-Allow-Methods', 'GET');
@@ -44,7 +44,7 @@ app.get('/coupons/:name', async (req, res) => {
                 let responseFinal = {}
                 snapshot.forEach((doc) => {
                     let payload = doc.data();
-                    payload.id = payload.uid
+                    payload.id = payload.name
                     responseFinal = payload
                 })
                 res.set('Access-Control-Allow-Methods', 'GET');
