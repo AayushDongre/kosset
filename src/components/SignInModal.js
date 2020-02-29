@@ -118,7 +118,7 @@ class SignInModal extends React.Component {
             this.setState(() => ({ error: "" }));
             firebase.auth().sendPasswordResetEmail(emailAddress).then(() => {
                 this.setState(() => ({ error: "Email sent with pasword reset link." }));
-                console.log('email is send')
+                console.log('email is send');
             }).catch( (error) => {
                 this.setState(() => ({ error: "Email does not exist." }))
                 console.log(error);
@@ -206,8 +206,9 @@ class SignInModal extends React.Component {
                                             <label htmlFor="forgetPassEmail">Email</label>
                                             <input name="email" type="email" className="form-control" id="forgetPassEmail" aria-describedby="emailHelp" placeholder="Enter email address"></input>
                                             <p className="error-text pt-1">{this.state.error}</p>
-                                            <button className="btn btn-primary mt-2">Reset Password</button>
+                                            <button className="btn btn-primary">Reset Password</button>
                                         </div>
+                                        <a className="d-inline-block password-reset" onClick={() => { this.setState(() => ({ forgotPass: false, error: "" })) }}>Back to Login</a>
                                     </form>
                                 }
 
