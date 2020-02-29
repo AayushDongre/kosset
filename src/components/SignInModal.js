@@ -1,15 +1,17 @@
 import React from 'react';
-import firebase from 'firebase/app'
+import firebase from 'firebase/app';
 import $ from 'jquery';
 import { connect } from 'react-redux';
 import { authenticate, unauthenticate, resetState } from '../actions/cart';
 import { newUserAdmin, newUser } from '../emailTemplates';
+// import { text } from 'express';
 
 class SignInModal extends React.Component {
 
     state = {
         error: "",
-        login: true
+        login: true,
+        forgotPass: false
     }
 
     signUp = (e) => {
@@ -45,8 +47,8 @@ class SignInModal extends React.Component {
                             address: JSON.stringify([address])
                         }), {
                             method: "post",
-                            headers:{
-                                "Content-Type": "application/json",                                                                                                
+                            headers: {
+                                "Content-Type": "application/json",
                             },
                             body: JSON.stringify(
                                 {
@@ -109,6 +111,25 @@ class SignInModal extends React.Component {
 
     }
 
+    resetPass = (e) => {
+        e.preventDefault();
+        const emailAddress = e.target.email.value;
+        if (!!emailAddress) {
+            this.setState(() => ({ error: "" }));
+            firebase.auth().sendPasswordResetEmail(emailAddress).then(() => {
+                this.setState(() => ({ error: "Email sent with pasword reset link." }));
+                console.log('email is send')
+            }).catch( (error) => {
+                this.setState(() => ({ error: "Email does not exist." }))
+                console.log(error);
+            });
+
+        }
+        else {
+            this.setState(() => ({ error: "Please enter email" }))
+        }
+    }
+
     render() {
         $("#" + this.props.id).on("hidden.bs.modal", (e) => { this.setState(() => ({ login: true })) })
         return (
@@ -124,7 +145,7 @@ class SignInModal extends React.Component {
                             </div>
                             <div className="modal-body px-xl-5 pb-lg-5">
 
-                                {this.state.login &&
+                                {(this.state.login && !this.state.forgotPass) &&
                                     <form onSubmit={this.submit}>
                                         <div className="form-group">
                                             <label htmlFor="inputEmail1">Email/Phone</label>
@@ -134,6 +155,7 @@ class SignInModal extends React.Component {
                                             <label htmlFor="inputPassword1">Password</label>
                                             <input name="pass" type="password" className="form-control" id="inputPassword1" placeholder="Password"></input>
                                             <p className="error-text pt-2">{this.state.error}</p>
+                                            <a className="password-reset" onClick={() => { this.setState(() => ({ forgotPass: true })) }}>Forgot Password?</a>
                                         </div>
                                         <button className="btn btn-primary">Submit</button>
 
@@ -147,7 +169,7 @@ class SignInModal extends React.Component {
                                     </form>
                                 }
                                 {
-                                    !this.state.login &&
+                                    (!this.state.login && !this.state.forgotPass) &&
                                     <form onSubmit={this.signUp}>
                                         <div className="form-group">
                                             <label htmlFor="name">*Name</label>
@@ -173,9 +195,19 @@ class SignInModal extends React.Component {
                                             <label htmlFor="confirmPass">*Confirm Password</label>
                                             <input name="Cpass" type="password" className="form-control" id="confirmPass" placeholder="Password"></input>
                                             <p className="error-text pt-2">{this.state.error}</p>
-
                                         </div>
                                         <button className="btn btn-primary">Submit</button>
+                                    </form>
+                                }
+                                {
+                                    this.state.forgotPass &&
+                                    <form onSubmit={this.resetPass}> 
+                                        <div className="form-group">
+                                            <label htmlFor="forgetPassEmail">Email</label>
+                                            <input name="email" type="email" className="form-control" id="forgetPassEmail" aria-describedby="emailHelp" placeholder="Enter email address"></input>
+                                            <p className="error-text pt-1">{this.state.error}</p>
+                                            <button className="btn btn-primary mt-2">Reset Password</button>
+                                        </div>
                                     </form>
                                 }
 

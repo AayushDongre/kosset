@@ -87,6 +87,9 @@ app.auth().onAuthStateChanged(function (user) {
     }
 });
 
+
+
+
 const saveToLocalStorage = (state) => {
     try {
         const stringState = JSON.stringify(state)
