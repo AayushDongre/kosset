@@ -8,10 +8,10 @@ import { ToastContainer, toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 import LazyLoad from 'react-lazyload';
 
-const GoToCart = () => (
+export const ToastRedirect = (props) => (
     <div>
-        <p>Added to Cart</p>
-        <button className="toCartBtn px-2 py-1"><Link to="/cart"> Go to cart</Link> </button>
+        <p>{props.title}</p>
+        <button className="toCartBtn px-2 py-1"><Link to={props.link}> {props.btn}</Link> </button>
     </div>
 )
 
@@ -33,7 +33,7 @@ class EcommercePage extends React.Component {
             else
                 customised = false
             this.props.addKossetBox(this.state.num1, this.state.num2, this.state.num3, 1, customised)
-            toast.warn(<GoToCart />, {
+            toast.warn(<ToastRedirect title="Added to cart" link="/cart" btn="Go to cart"/>, {
                 position: "bottom-right",
                 autoClose: 200000,
                 hideProgressBar: true,
@@ -61,7 +61,7 @@ class EcommercePage extends React.Component {
     }
     TrialBoxCart = () => {
         this.props.addTrialBox()
-        toast.warn(<GoToCart />, {
+        toast.warn(<ToastRedirect title="Added to cart" link="/cart" btn="Go to cart"/>, {
             position: "bottom-right",
             autoClose: 2000,
             hideProgressBar: true,
