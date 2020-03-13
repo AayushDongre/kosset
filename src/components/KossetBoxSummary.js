@@ -21,7 +21,7 @@ const KossetBoxSummary = (props) => {
                     <p>Panty Liners for  spotting and discharge : </p>
                     <span>{props.PLSD}</span>
                 </div>
-                <p className="free">+ FREE HERBAL PERIOD CRAMPS RELEIF ROLL ON</p>
+                {/* <p className="free">+ FREE HERBAL PERIOD CRAMPS RELEIF ROLL ON</p> */}
                 <p className="quantityRow mt-4"><span className="quantity">QUANTITY:</span>    {props.quantity} {props.quantity == 1 ? "BOX" : "BOXES"}</p>
             </div>
         </div>

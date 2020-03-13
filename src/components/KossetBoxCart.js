@@ -24,7 +24,7 @@ class KossetBoxCart extends React.Component {
                                 <span aria-hidden="true" className="cartCross mt-1">&times;</span>
                             </button>
                         </h1>
-                        <p className="free pb-2">FREE HERBAL PERIOD CRAMPS RELEIF ROLL ON</p>
+                        {/* <p className="free pb-2">FREE HERBAL PERIOD CRAMPS RELEIF ROLL ON</p> */}
 
                         <div className="content-rows">
                             <div className="row content-row-text ">
