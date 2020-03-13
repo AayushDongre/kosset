@@ -16,8 +16,10 @@ export const ToastRedirect = (props) => (
 )
 
 
+
 class EcommercePage extends React.Component {
 
+    
     state = {
         num1: 6,
         num2: 7,

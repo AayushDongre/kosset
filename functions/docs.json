@@ -1,0 +1,53 @@
+{
+    "Create User":{
+        "url":"https://us-central1-kosset-69420.cloudfunctions.net/api/createUser?",
+        "type":"POST",
+        "query":{
+            "uid": "req.query.uid",
+            "name": "req.query.name",
+            "email": "req.query.email",
+            "phone": "req.query.phone",
+            "days": "req.query.days ? req.query.days : ''",
+            "last_date": "req.query.last_date ? req.query.last_date : ''",
+            "address": "req.query.address ? JSON.parse(req.query.address) : []"
+        }
+    },
+    "Fetch User Details":{
+        "url":"https://us-central1-kosset-69420.cloudfunctions.net/admin/users/:uid?",
+        "type":"GET"
+    },
+    "Delete User":{
+        "url":"https://us-central1-kosset-69420.cloudfunctions.net/admin/users/:uid?",
+        "type":"DELETE"
+    },
+    "Update User":{
+        "url":"https://us-central1-kosset-69420.cloudfunctions.net/admin/users/:uid",
+        "type":"PUT",
+        "body":{
+            "anything that needs to be updated": ""
+        }
+    },
+    "Add Order":{
+        "url":"https://us-central1-kosset-69420.cloudfunctions.net/api/addOrder?",
+        "type":"POST",
+        "query":{
+            "uid": "req.query.uid",
+            "email": "req.query.email",
+            "timestamp": "req.query.timestamp",
+            "products": "products",
+            "address": "req.query.address",
+            "phone": "req.query.phone",
+            "cost": "req.query.cost",
+            "orderid": "req.query.orderid",
+            "paymentMode":"req.query.paymentMode",
+            "status":"req.query.status"        }
+    },
+    "List User Orders":{
+        "url":"https://us-central1-kosset-69420.cloudfunctions.net/admin/orders/:uid",
+        "type":"GET"
+    },
+    "Delete Order":{
+        "url":"https://us-central1-kosset-69420.cloudfunctions.net/admin/orders/:orderid",
+        "type":"GET"
+    }
+}

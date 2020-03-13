@@ -11,12 +11,23 @@ import PrivacyPolicy from '../components/PrivacyPolicy';
 import Status from '../components/Status'
 import { AnimatedSwitch } from 'react-router-transition';
 import { PureComponent } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import { ToastRedirect } from '../components/EcommercePage'
 
 class ScrollIntoView extends PureComponent {
     componentWilldMount = () => window.scrollTo(0, 0);
     componentDidUpdate = prevProps => {
         if (this.props.location !== prevProps.location) window.scrollTo(0, 0);
     };
+    componentDidMount = () => toast.warn(<ToastRedirect title={`Women's day offer! Get 50% off on Kosset Box. \n Use code KOSSET50`} btn="Go to Products" link="/products" />, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        className: "offerToast",
+    });
     render = () => this.props.children;
 }
 const Router = () => (
@@ -34,8 +45,8 @@ const Router = () => (
                     <Route path="/cart" component={Cart} />
                     <Route path="/test" component={SignInModal} />
                     <Route path="/summary" component={Summary} />
-                    <Route path="/tnc" component={TnC}/>
-                    <Route path="/privacyPolicy" component={PrivacyPolicy}/>
+                    <Route path="/tnc" component={TnC} />
+                    <Route path="/privacyPolicy" component={PrivacyPolicy} />
                     <Route path="/status" component={Status} />
                 </AnimatedSwitch>
             </ScrollIntoView>

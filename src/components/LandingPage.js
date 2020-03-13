@@ -12,17 +12,6 @@ import { ToastRedirect } from './EcommercePage'
 
 
 class LandingPage extends React.Component {
-    componentDidMount(){
-        toast.warn(<ToastRedirect title={`Women's day offer! Get 50% off on Kosset Box. \n Use code KOSSET50`} btn="Go to Products" link="/products"/>, {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: true, 
-            draggable: true,
-            className: "offerToast",
-        });
-    }
     render() {
         return (
             <div>
