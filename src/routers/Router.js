@@ -19,15 +19,15 @@ class ScrollIntoView extends PureComponent {
     componentDidUpdate = prevProps => {
         if (this.props.location !== prevProps.location) window.scrollTo(0, 0);
     };
-    componentDidMount = () => toast.warn(<ToastRedirect title={`Women's day offer! Get 50% off on Kosset Box. \n Use code KOSSET50`} btn="Go to Products" link="/products" />, {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        className: "offerToast",
-    });
+    // componentDidMount = () => toast.warn(<ToastRedirect title={`Women's day offer! Get 50% off on Kosset Box. \n Use code KOSSET50`} btn="Go to Products" link="/products" />, {
+    //     position: "top-center",
+    //     autoClose: 5000,
+    //     hideProgressBar: true,
+    //     closeOnClick: true,
+    //     pauseOnHover: true,
+    //     draggable: true,
+    //     className: "offerToast",
+    // });
     render = () => this.props.children;
 }
 const Router = () => (
