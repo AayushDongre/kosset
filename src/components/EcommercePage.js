@@ -233,8 +233,9 @@ class EcommercePage extends React.Component {
 
                         <div className="row mt-lg-4">
                             <div className="col-md-8 mt-4">
-                                <button onClick={this.TrialBoxCartBuy} className="btn buyButton mr-4 px-xl-4"> Buy Now</button>
-                                <button onClick={this.TrialBoxCart} className="btn addToCartButton"> ADD TO CART</button>
+                                {/* <button disabled onClick={this.TrialBoxCartBuy} className="btn buyButton mr-4 px-xl-4"> Buy Now</button> */}
+                                {/* <button disabled onClick={this.TrialBoxCart} className="btn addToCartButton"> ADD TO CART</button> */}
+                                <p className="error-text out-of-stock">Out of Stock</p>
                             </div>
                         </div>
                     </div>

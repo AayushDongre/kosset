@@ -172,11 +172,12 @@ class SummaryCheckout extends React.Component {
                                 PAY ONLINE
                              </button>
                         </div>
-                        <div className="col-md-12 payCol">
+                        <div className="col-md-12 payCol mt-2">
         
-        <Link type="button" className="btn checkoutButton px-xl-4 mt-4" to='/status?mode=COD&success=true' onClick={() => this.props.dispatch(addAddress(this.state.selectedAddress))}>
+        {/* <Link type="button" className="btn checkoutButton px-xl-4 mt-4" to='/status?mode=COD&success=true' onClick={() => this.props.dispatch(addAddress(this.state.selectedAddress))}>
                                 PAY CASH ON DELIVERY
-                            </Link>
+                            </Link> */}
+                            <p className="text-center">Due to the Covid-19 Lockdown, Cash on delivery is currently unavailable.</p>
                         </div>
                     </div>
 
